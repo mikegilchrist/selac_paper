@@ -39,6 +39,7 @@
 \newcommand{\GTR}{GTR+$\Gamma$\xspace}
 
 \newcommand{\jmax}{\ensuremath{{j_{\max}}}\xspace}
+\newcommand{\kmax}{\ensuremath{{k_{\max}}}\xspace}
 \newcommand{\cvec}{\ensuremath{\Vec{c}}\xspace}
 \newcommand{\cveci}{\ensuremath{\cvec_i}\xspace}
 \newcommand{\cvecj}{\ensuremath{\cvec_j}\xspace}
@@ -101,11 +102,7 @@
 \date{}
 \begin{document}
 \maketitle
-\section*{Log}
-\begin{itemize}
-\item ``Defining the Benefit Function'' section began by mikeg on 7/23/15.
-\item Compiled on \today\xspace at \currenttime. 
-\end{itemize}
+
 \section*{Introduction}
 \begin{enumerate}
 \item Phylogenetic methods play an important role in many fields of biology and medicine.
@@ -138,7 +135,7 @@ In their model,
 When $\omega <1$ the GY94 model is purported to describe evolution under `purifying' selection where S substitutions are favored over NS substitutions.
 However, the model has the following behavior
     \begin{enumerate}
-    \item If $i$ is the current state, GY94 implies selection favoring $i$\label{pureone}
+    \item If $i$ is the current state, GY94 implies selection favoring $i$.
     \item However, if NS substitution occurs, \ref{pureone} still applies and selection now favoring new state $j$!
     \end{enumerate}
 Thus, the behavior of GY94 is actually not consistent with a constant selective environment, but instead is consistent with a system where the directionality of natural selection and a NS substitution occurs simultaneously.
@@ -146,12 +143,12 @@ Similar inconsistencies occur when $\omega < 1$.
 
 
 \section*{Methods}
-\subsection*{Model}
-\paragraph*{Defining Protein Synthesis Cost-Benefit Function $\eta$: }
+\subsection*{Allele Substitution Model}
+\subsubsection*{Defining Protein Synthesis Cost-Benefit Function $\eta$: }
 Because our model assumes that natural selection favors genotypes that are able to meet their metabolic requirements more efficiently than their competitors, our framework centers on the cost-benefit function of a gene $g$, $\eta_g$, and the organisms average target production rate of the functionality provided by gene $g$, $\phig$.
 This is because the average amount of energy an organism spends to met its target functionality for a gene $g$ is $\eta_g \times \phig$.
  
-\subsubsubsection*{Defining the Cost Function}
+\paragraph*{Defining the Cost Function}
 Generally speaking, protein synthesis involves both direct and indirect assembly costs.
 Direct costs consist of the high energy phosphate bonds in ATP or GTP's used to assemble the ribosome on the mRNA, charge tRNA's for elongation, move the ribosome forward along the transcript, and terminate protein synthesis.
 Indirect costs are many and consist of the cost of amino acid synthesis as well as synthesis of the protein assembly infrastructure such as ribosomes, aminoacyl-tRNA synthetases, tRNAs, mRNAs, etc.
@@ -166,7 +163,8 @@ As a result,
 where, $C_1$ and $C_2$ represent the direct and indirect costs in ATPs of ribosome initiation and peptide elongation, respectively.
 When sequence specific costs, such as ribosome pausing times, are included with sequence specific benefits, the probability of a mutant allele fixing is no longer independent of the rest of the sequence.
 As a result, our site independent assumption is violated and the fitting of our model becomes much more complex.
-
+For simplicity, in this study we only consider the direct costs of protein assembly and, thus, $C_1 = C_2 = 4 \text{ATP}$.
+ 
 \paragraph*{Defining the Benefit Function: }
 In order to link genotype to protein function, we define a benefit function which measures the functionality of the peptide encoded by \cveci, i.e. $a(\cveci) = \aveci$ relative to the the optimal sequence $\aoptvec$.
 By definition, we set $\Funcaoptvec = 1$ and assume $\Funcaveci < 1$ for all $\aveci$ other than the optimal sequence.
@@ -186,34 +184,70 @@ How $f(d)$ changes with $d$ is unknown, and so we use a Taylor Series expansion 
 Given our assumption that \Funcaoptvec = 1 and noting that $d$ has its own free parameters $\alpha$ and $\beta$, we define $f(d)$ as,
 \begin{align}
   \label{eq:fSeriesDef}
-  f(d) &= 1 + d + \sum_{j=2}^\jmax \frac{1}{j!}\frac{d f^j}{d^j d} d^j + O(d^{\jmax+1})\\
-  & = 1 + d + \sum_{j=2}^\jmax A_j d^j + O(d^{\jmax+1})\\
+  f(d) &= 1 + d + \sum_{k=2}^\kmax \frac{1}{k!}\frac{d f^k}{d^k d} d^k + O(d^{\kmax+1})\\
+  & = 1 + d + \sum_{k=2}^\kmax A_k d^k + O(d^{\kmax+1})\\
 \end{align}
-where we define $A_j = \frac{1}{j!}\frac{d f^j}{d^j d}$ in order to emphasize the polynomial nature of our approximation to $f(d)$.
-Using the results from \citet{Liang07} and \citet{Elphinstone85}, we can ensure that $f(d)$ is a monotonic, increasing function of $d$ by fitting our model using a transformation of variables $\alpha$ and $\beta$ and by restricting \jmax to multiples of 2. (Note that because $d > 0$, $f(d)$ is monotonic and increasing when $\jmax=1$.)
+where we define $A_k = \frac{1}{k!}\frac{d f^k}{d^k d}$ in order to emphasize the polynomial nature of our approximation to $f(d)$.
+Using the results from \citet{Liang07} and \citet{Elphinstone85}, we can ensure that $f(d)$ is a monotonic, increasing function of $d$ by fitting our model using a transformation of variables $\alpha$ and $\beta$ and by restricting \kmax to multiples of 2. (Note that because $d > 0$, $f(d)$ is monotonic and increasing when $\kmax=1$.)
 
-\subsubsection*{Linking Genotype Energetics to Fitness}
-If we assume that every ATP saved per unit time leads to some slight incremental increase in fitness $W$, then
+\subsubsection*{Linking Genotype Energetics to Fitness and Fixation}
+In order to link the protein synthesis cost-benefit function $\eta$ with fitness, we must make a number of assumptions.
+First, we assume that each protein encoded within a genome carries out some beneficial function and that the organism needs that functionality to be produced at a target average rate $\phi$.
+By definition, the optimal amino acid sequence for a given gene, \aoptvec, produces one unit of functionality.
+Second, we assume that protein expression is regulated by the organism to ensure that functionality is produced at rate $\phi$.
+As a result, the average protein production rate of a gene, $\psi$, is equal to $\phi/\Func(\avec)$ and the total energy flux allocated towards meeting the target functionality of a particular gene is $\eta(\cvec) \phi$. 
+Third, we assume that every additional ATP spent per unit time to meet the organism's target function production rate $\phi$ leads to some slight proportional incremental decrease in fitness $W$.
+This assumption, in turn, implies 
 \begin{align}
   W_i\left(\cvec\right) &\propto \exp\left[- q \eta(\cveci) \phi\right].
 \end{align}
-where $q$ describes the proportional decline in fitness with every ATP wasted per unit time $\phi$ is measured in.
+where $q$ describes the decline in fitness with every ATP wasted per unit time $\phi$ and $\psi$ are measured in.
 Correspondingly, the ratio of fitness between two genotypes is,
-\begin{align}
+\begin{align*}
   W_i/W_j &=  \exp\left[- q \eta(\cveci) \phi\right]/\exp\left[- q \eta(\cvecj) \phi\right]\\
   &=  \exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \phi\right]\\
-\intertext{Given our assumptions about the \Cost and \Func functions above, this simplifies to}
-  W_i/W_j &=  \exp\left[- q \left(C_1 + C_2 n\right) \frac{1}{n}\left(\sum_{p \in \setP} \sum_{j=1}^\jmax A_j d\left(\aip,\aoptp\right) - d\left(ajp,\aoptp\right)\right) \phi\right]\\
-%      &=  \exp\left[- q \left(C_1/n + C_2\right)\left(\sum_{p \in \setP} \sum_{j=1}^\jmax A_j d\right(\aip,\aoptp\right) - d\left(ajp,\aoptp\right)\right) \phi\right]
+\end{align*}
+Given our assumptions about the \Cost and \Func functions above, this ratio simplifies to
+\begin{align}
+  W_i/W_j &\approx \left[- q \left(C_1 + C_2 n\right) \frac{1}{n}\left(\sum_{p \in \setP} \sum_{k=1}^\kmax A_k \left(d\left(\aip,\aoptp\right)^k - d\left(ajp,\aoptp\right)\right)\right) \phi \right]
+%      &=  \exp\left[- q \left(C_1/n + C_2\right)\left(\sum_{p \in \setP} \sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(ajp,\aoptp\right)^k\right) \phi\right]
 \end{align}
 where \setP represents the codon positions in which \cveci and \cvecj differ.
+Fourth, we make a weak mutation assumption, such that alleles can differ at only one position at any given time, i.e.~$|\setP| = 1$, and that the population is evolving according to a Fisher-Wright model.
+As a result, the probability a new mutant $j$ introduced via mutation into a resident population $i$ with effective size \Ne will go to fixation is,
+\begin{align*}
+  u_{i,j} &=  \frac{1 - \left(W_i/W_j\right)^b}{1 - \left(W_i/W_j\right)^\Ne}\\
+   &\approx \frac{1-\exp\left[- b q \left(\eta(\cveci)- \eta(\cvecj)\right) \phi\right]}{1-\exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \phi 2\Ne\right]}\\
+   &= \frac{1- \exp\left[- b q \left(C_1/n + C_2\right)\left(\sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(ajp,\aoptp\right)^k\right)\left) \phi\right]}{1-\exp\left[- q \left(C_1/n + C_2\right)\left(\sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(ajp,\aoptp\right)^k\right)\left) \phi 2 \Ne\right]},
+\end{align*}
+where $b=1$ for a diploid population and $2$ for a haploid population.
+Finally, if we assume the mutation rate between alleles $i$ and $j$ is $\mu_{i,j}$, then the transition rate from $i$ to $j$ is,
+\begin{align*}
+  q_{i,j} = \begin{cases} 2/b u_{i,j} & \text{if alleles $i$ and $j$ differ by one nucleotide}\\
+    0 & \text{else}
+  \end{cases}
+\end{align*}
 
+
+
+
+\section*{Discussion}
+
+Note that our definition of $\phi$ and our scaling of functionality differ slightly from our previous work \citep{Gilchrist07,GilchristEtAl09,ShahAndGilchrist11,GilchristEtAl15a}.
+In our previous work, we were concerned with how changes in synonymous codons affected error rates and synthesis costs and, as a result, defined functionality relative to an error free protein, rather than an optimal one, and conflated $\phi$ and $\psi$.
+
+\bibliographystyle{./am.nat}
+\bibliography{./mike.full}
 
 \subsubsection*{Notes for Jeremy}
 Since we are assuming $A_0$ and $A_1 = 1$, when using the recurrence relation in Lang 2007, we set $\lambda = 1$ and $\alpha_1 = -1/2$.
 
-
-\bibliographystyle{./am.nat}
-\bibliography{./mike.full}
+\section*{Log}
+\begin{itemize}
+\item ``Defining the Benefit Function'' section began by mikeg on 7/23/15.
+\item Methods expanded to include ``Defining Benefit Function'' on ?
+\item {Linking Genotype Energetics to Fitness and Fixation} subsection added to Model.
+\item Compiled on \today\xspace at \currenttime. 
+\end{itemize}
 
 \end{document}
