@@ -1,0 +1,219 @@
+\documentclass{article}
+
+\usepackage{fullpage}
+\usepackage[doublespacing]{setspace}
+\usepackage{amsmath, amssymb,amsfonts}
+\usepackage[small]{caption}
+\usepackage{graphicx}
+\usepackage{xspace}
+\usepackage{natbib}
+\usepackage{datetime} %provides \currenttime command
+
+\graphicspath{{./Figures/}}
+\DeclareGraphicsExtensions{.pdf, .jpg, .png}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Local Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\LogN}{\ensuremath{\text{LogN}}\xspace}
+
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\setG}{\ensuremath{\mathbb{G}}\xspace}
+\newcommand{\setP}{\ensuremath{\mathbb{P}}\xspace}
+\newcommand{\qij}{\ensuremath{q_{i,j}}\xspace}
+\newcommand{\qji}{\ensuremath{q_{i,j}}\xspace}
+\newcommand{\pij}{\ensuremath{p_{i,j}}\xspace}
+\newcommand{\muij}{\ensuremath{\mu_{i,j}}\xspace}
+\newcommand{\fij}{\ensuremath{f_{i,j}}\xspace}
+\newcommand{\Pii}{\ensuremath{\pi_{i}}\xspace}
+\newcommand{\Pij}{\ensuremath{\pi_{j}}\xspace}
+\newcommand{\Pivec}{\ensuremath{\Vec{\pi}}\xspace}
+\newcommand{\Pivechat}{\ensuremath{\hat{\Pivec}}\xspace}
+\newcommand{\Piihat}{\ensuremath{\hat{\pi}_i}\xspace}
+\newcommand{\Pijhat}{\ensuremath{\hat{\pi}_j}\xspace}
+\newcommand{\Wi}{\ensuremath{{W_i}}\xspace}
+\newcommand{\Wj}{\ensuremath{{W_j}}\xspace}
+\newcommand{\Ne}{\ensuremath{{N_e}}\xspace}
+% \renewcommand{\ng}{\ensuremath{{n_g}}\xspace}
+\newcommand{\DeltaAIC}{\ensuremath{\Delta\text{AIC}}\xspace}
+\newcommand{\GTR}{GTR+$\Gamma$\xspace}
+
+\newcommand{\jmax}{\ensuremath{{j_{\max}}}\xspace}
+\newcommand{\cvec}{\ensuremath{\Vec{c}}\xspace}
+\newcommand{\cveci}{\ensuremath{\cvec_i}\xspace}
+\newcommand{\cvecj}{\ensuremath{\cvec_j}\xspace}
+
+\newcommand{\acvec}{\ensuremath{a\left(\Vec{c}\right)}\xspace}
+\newcommand{\acivec}{\ensuremath{a\left(\cveci\right)}\xspace}
+\newcommand{\acvecg}{\ensuremath{a\left(\vec{c}_{i,g}\right)}\xspace}
+\newcommand{\aip}{\ensuremath{a_{i,p}}\xspace}
+
+\newcommand{\avec}{\ensuremath{\Vec{a}}\xspace}
+\newcommand{\aveci}{\ensuremath{\Vec{a}_i}\xspace}
+\newcommand{\aivec}{\aveci}
+\newcommand{\aivecg}{\ensuremath{{\avec}_{i,g}}\xspace}
+
+\newcommand{\avecj}{\ensuremath{\Vec{a}_j}\xspace}
+\newcommand{\acvecj}{\ensuremath{a\left(\cvecj\right)}\xspace}
+
+
+\newcommand{\aopt}{\ensuremath{a^*}\xspace}
+\newcommand{\aoptip}{\ensuremath{\aopt_{i,p}}\xspace}
+\newcommand{\aoptp}{\ensuremath{\aopt_p}\xspace}
+\newcommand{\aoptpg}{\ensuremath{\aopt_{p,g}}\xspace}
+\newcommand{\aoptvec}{\ensuremath{\Vec{a}^*}\xspace}
+\newcommand{\aoptvecg}{\ensuremath{{{\aoptvec}_g}}\xspace}
+\newcommand{\aobs}{\ensuremath{a_{\text{obs}}}\xspace}
+\newcommand{\aobsvec}{\ensuremath{\Vec{a}_{\text{obs}}}\xspace}
+\newcommand{\aobsvecg}{\ensuremath{{\avec}_{\text{obs},g}}\xspace}
+
+
+
+\newcommand{\aj}{\ensuremath{a__j}\xspace}
+\newcommand{\ajvec}{\ensuremath{\Vec{a}_{j}}\xspace}
+\newcommand{\ajvecg}{\ensuremath{{\ajvec}_{,g}}\xspace}
+
+\newcommand{\phig}{\ensuremath{\phi_{g}}\xspace}
+
+\newcommand{\Cost}{\ensuremath{\text{Cost}}\xspace}
+\newcommand{\Costaobsvec}{\ensuremath{\text{Cost}(\aobsvec)}\xspace}
+\newcommand{\Costavec}{\ensuremath{\text{Cost}(\avec)}\xspace}
+\newcommand{\Costaveci}{\ensuremath{\text{Cost}(\aveci)}\xspace}
+\newcommand{\Costavecj}{\ensuremath{\text{Cost}(\avecj)}\xspace}
+
+\newcommand{\Costcveci}{\ensuremath{\text{Cost}(\cveci)}\xspace}
+\newcommand{\Costcvecj}{\ensuremath{\text{Cost}(\cvecj)}\xspace}
+
+\newcommand{\Func}{\ensuremath{\text{Benefit}}\xspace}
+\newcommand{\Funcaobsvec}{\ensuremath{\Func(\aobsvec|\aoptvec)}\xspace}
+\newcommand{\Funcavec}{\ensuremath{\Func(\avec|\aoptvec)}\xspace}
+\newcommand{\Funcaveci}{\ensuremath{\Func(\aveci|\aoptvec)}\xspace}
+\newcommand{\Funcavecj}{\ensuremath{\Func(\avecj|\aoptvec)}\xspace}
+\newcommand{\Funcaoptvec}{\ensuremath{\Func(\aoptvec)}\xspace}
+
+\newcommand{\Funccvec}{\ensuremath{\Func(\cvec|\aoptvec)}\xspace}
+\newcommand{\Funccveci}{\ensuremath{\Func(\cveci|\aoptvec)}\xspace}
+
+\renewcommand{\ng}{\ensuremath{{n_g}}\xspace}
+
+
+\title{SelAC Paper}
+\date{}
+\begin{document}
+\maketitle
+\section*{Log}
+\begin{itemize}
+\item ``Defining the Benefit Function'' section began by mikeg on 7/23/15.
+\item Compiled on \today\xspace at \currenttime. 
+\end{itemize}
+\section*{Introduction}
+\begin{enumerate}
+\item Phylogenetic methods play an important role in many fields of biology and medicine.
+\item Essentially all phylogenetic approaches use a substitution matrix $Q = \left\{\qij\right\}$  to model evolution, where
+  \begin{equation*}
+   \qij  = \text{Substitution rate from state $i$ to $j$.}
+  \end{equation*}
+\item Most models, e.g.~F84, GTR, and GY94, use a `time reversible matrix' where $\pi_i \qij = \pi_j \qji $ for all $i \neq j$.
+\item Time reversible matrices are very computationally efficient to employ.
+\item Time reversible matrices (TRM) were initially derived under the assumption of neutrality but have been extended heuristically to describe non-neutral evolution.
+\item However, non-neutral evolution is not a time reversible process, thus TRM models cannot accurately desribe evolutionary behavior when natural selection occurs.
+\end{enumerate}
+
+
+
+\paragraph*{Example of Nonsensical Behavior of Time Reversible Models:}
+We illustrate the disconnect between time reversible models and non-neutral evolution we use a simplified version of the extremely popular Goldman and Yang (1994)\cite{GoldmanAndYang94} (GY94) codon level model.
+In their model,
+    \begin{align*}
+      q_{i,j} &%= \text{Transition rate from $i \to j$} 
+         = \begin{cases}
+           0 & \text{$i$ and $j$ differ by more than one substitution}\\
+           \Pijhat & \text{Synonymous (S) substitution} \\
+           \omega \Pijhat & \text{Non-Synonymous (NS) substitution} \\
+         \end{cases}
+         \intertext{Where,}
+         \omega &= \text{`Selection' term applied to all NS substitutions}\\
+         \Pijhat &= \text{Equilibrium frequency of codon $i$}
+       \end{align*}
+When $\omega <1$ the GY94 model is purported to describe evolution under `purifying' selection where S substitutions are favored over NS substitutions.
+However, the model has the following behavior
+    \begin{enumerate}
+    \item If $i$ is the current state, GY94 implies selection favoring $i$\label{pureone}
+    \item However, if NS substitution occurs, \ref{pureone} still applies and selection now favoring new state $j$!
+    \end{enumerate}
+Thus, the behavior of GY94 is actually not consistent with a constant selective environment, but instead is consistent with a system where the directionality of natural selection and a NS substitution occurs simultaneously.
+Similar inconsistencies occur when $\omega < 1$.
+
+
+\section*{Methods}
+\subsection*{Model}
+\paragraph*{Defining Protein Synthesis Cost-Benefit Function $\eta$: }
+Because our model assumes that natural selection favors genotypes that are able to meet their metabolic requirements more efficiently than their competitors, our framework centers on the cost-benefit function of a gene $g$, $\eta_g$, and the organisms average target production rate of the functionality provided by gene $g$, $\phig$.
+This is because the average amount of energy an organism spends to met its target functionality for a gene $g$ is $\eta_g \times \phig$.
+ 
+\subsubsubsection*{Defining the Cost Function}
+Generally speaking, protein synthesis involves both direct and indirect assembly costs.
+Direct costs consist of the high energy phosphate bonds in ATP or GTP's used to assemble the ribosome on the mRNA, charge tRNA's for elongation, move the ribosome forward along the transcript, and terminate protein synthesis.
+Indirect costs are many and consist of the cost of amino acid synthesis as well as synthesis of the protein assembly infrastructure such as ribosomes, aminoacyl-tRNA synthetases, tRNAs, mRNAs, etc.
+Direct synthesis costs are the same for all proteins of the same length.
+For simplicity, in this study we ignore any indirect costs of protein synthesis that vary between genotypes.
+As a result, 
+\begin{align}
+\label{eq:defineCost}
+  \Costcveci  &= \text{Energetic cost of protein synthesis.}\\
+  &= C_1 + C_2 n
+\end{align}
+where, $C_1$ and $C_2$ represent the direct and indirect costs in ATPs of ribosome initiation and peptide elongation, respectively.
+When sequence specific costs, such as ribosome pausing times, are included with sequence specific benefits, the probability of a mutant allele fixing is no longer independent of the rest of the sequence.
+As a result, our site independent assumption is violated and the fitting of our model becomes much more complex.
+
+\paragraph*{Defining the Benefit Function: }
+In order to link genotype to protein function, we define a benefit function which measures the functionality of the peptide encoded by \cveci, i.e. $a(\cveci) = \aveci$ relative to the the optimal sequence $\aoptvec$.
+By definition, we set $\Funcaoptvec = 1$ and assume $\Funcaveci < 1$ for all $\aveci$ other than the optimal sequence.
+How protein functionality declines with deviation from \aoptvec, is an overwhelmingly complex problem and likely varies between different categories of proteins.
+Instead of claiming to accurately model this relationship between genotype and protein function, we will fit a Taylor Series expansion to our data in order to approximate its general behavior.
+We will also assume a form that results in independent evolution between sites within a gene.
+Alternative forms of \Funcaveci can, of course, be explored by other researchers.
+
+To begin, we assume that each amino acid makes a similar contribution to protein function (an assumption that can be relaxed) and that this contribution declines as an inverse function of physiochemical distance.
+More specifically, we assume 
+\begin{equation}
+\Funcaveci = \left(\frac{1}{\ng} \sum_p^\ng{} f\left(d\left(\aip, \aoptp\right)\right)\right)^{-1}
+\end{equation}
+where $\ng$ is the length of the protein, $d(\aip, \aoptp)$ is the physiochemical distance between the amino acid encoded in gene $i$ for position $p$ and $\aoptp$ is the optimal amino acid for that position of the protein, and $1/f(d)$ describes how the contribution of amino acid to protein function declines with $d$.
+
+How $f(d)$ changes with $d$ is unknown, and so we use a Taylor Series expansion to describe the relationship between $f$ and $d$.
+Given our assumption that \Funcaoptvec = 1 and noting that $d$ has its own free parameters $\alpha$ and $\beta$, we define $f(d)$ as,
+\begin{align}
+  \label{eq:fSeriesDef}
+  f(d) &= 1 + d + \sum_{j=2}^\jmax \frac{1}{j!}\frac{d f^j}{d^j d} d^j + O(d^{\jmax+1})\\
+  & = 1 + d + \sum_{j=2}^\jmax A_j d^j + O(d^{\jmax+1})\\
+\end{align}
+where we define $A_j = \frac{1}{j!}\frac{d f^j}{d^j d}$ in order to emphasize the polynomial nature of our approximation to $f(d)$.
+Using the results from \citet{Liang07} and \citet{Elphinstone85}, we can ensure that $f(d)$ is a monotonic, increasing function of $d$ by fitting our model using a transformation of variables $\alpha$ and $\beta$ and by restricting \jmax to multiples of 2. (Note that because $d > 0$, $f(d)$ is monotonic and increasing when $\jmax=1$.)
+
+\subsubsection*{Linking Genotype Energetics to Fitness}
+If we assume that every ATP saved per unit time leads to some slight incremental increase in fitness $W$, then
+\begin{align}
+  W_i\left(\cvec\right) &\propto \exp\left[- q \eta(\cveci) \phi\right].
+\end{align}
+where $q$ describes the proportional decline in fitness with every ATP wasted per unit time $\phi$ is measured in.
+Correspondingly, the ratio of fitness between two genotypes is,
+\begin{align}
+  W_i/W_j &=  \exp\left[- q \eta(\cveci) \phi\right]/\exp\left[- q \eta(\cvecj) \phi\right]\\
+  &=  \exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \phi\right]\\
+\intertext{Given our assumptions about the \Cost and \Func functions above, this simplifies to}
+  W_i/W_j &=  \exp\left[- q \left(C_1 + C_2 n\right) \frac{1}{n}\left(\sum_{p \in \setP} \sum_{j=1}^\jmax A_j d\left(\aip,\aoptp\right) - d\left(ajp,\aoptp\right)\right) \phi\right]\\
+%      &=  \exp\left[- q \left(C_1/n + C_2\right)\left(\sum_{p \in \setP} \sum_{j=1}^\jmax A_j d\right(\aip,\aoptp\right) - d\left(ajp,\aoptp\right)\right) \phi\right]
+\end{align}
+where \setP represents the codon positions in which \cveci and \cvecj differ.
+
+
+\subsubsection*{Notes for Jeremy}
+Since we are assuming $A_0$ and $A_1 = 1$, when using the recurrence relation in Lang 2007, we set $\lambda = 1$ and $\alpha_1 = -1/2$.
+
+
+\bibliographystyle{./am.nat}
+\bibliography{./mike.full}
+
+\end{document}
