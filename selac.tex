@@ -184,14 +184,35 @@ How $f(d)$ changes with $d$ is unknown, and so we use a Taylor Series expansion 
 Given our assumption that \Funcaoptvec = 1 and noting that $d$ has its own free parameters $\alpha$ and $\beta$, we define $f(d)$ as,
 \begin{align}
   \label{eq:fSeriesDef}
-  f(d) &= 1 + d + \sum_{k=2}^\kmax \frac{1}{k!}\frac{d f^k}{d^k d} d^k + O(d^{\kmax+1})\\
-  & = 1 + d + \sum_{k=2}^\kmax A_k d^k + O(d^{\kmax+1})\\
+  f(d) &= 1 + \sum_{k=1}^\kmax \frac{1}{k!}\frac{d f^k}{d^k d} d^k + O(d^{\kmax+1})\\
+  & = 1 + \sum_{k=1}^\kmax A_k d^k + O(d^{\kmax+1})\\
 \end{align}
 where we define $A_k = \frac{1}{k!}\frac{d f^k}{d^k d}$ in order to emphasize the polynomial nature of our approximation to $f(d)$.
+Because $\phi$ and $A_1$ always co-occur, we cannot identify them separately from one another; as a result, we set $A_1 = 1$ and recognize that our estimates of $\phi$ are scaled relative to this term.
 Using the results from \citet{Liang07} and \citet{Elphinstone85}, we can ensure that $f(d)$ is a monotonic, increasing function of $d$ by fitting our model using a transformation of variables $\alpha$ and $\beta$ and by restricting \kmax to multiples of 2. (Note that because $d > 0$, $f(d)$ is monotonic and increasing when $\kmax=1$.)
 
-\subsubsection*{Linking Genotype Energetics to Fitness and Fixation}
-In order to link the protein synthesis cost-benefit function $\eta$ with fitness, we must make a number of assumptions.
+
+\paragraph*{Defining Physiochemical Distances between Amino Acids :}
+Assuming that functionality declines with an amino acid $a_i$'s physiochemical distance from the optimum amino acid \aopt at each site  provides a biologically defensible way of linking comparing genotypes that requires relatively few free parameters.
+In addition, our approach naturally lends itself to model selection since we can compare the quality of our model fits using different mixtures of physiochemical properties.
+Following \citet{Grantham74}, we focus on using composition $c$, polarity $p$, and molecular volume $v$ of each amino acid's side chain residue to define our distance function, but emphasize that other properties could be used.
+We use the euclidian distance between residue properties where each property $c$, $p$, and $v$ has its own weighting term, $\alpha$, $\beta$, $\gamma$, respectively, [NOTE: WE MAY WANT TO USE $\alpha_c, \alpha_p, \ldots $ INSTEAD].
+Because of similar identifiability issues we have with $A_1$ and $\phi$, we set $\gamma = 1$ and recognize that our our estimates of $\alpha$ and $\beta$ are scaled relative to $\gamma$.
+More specifically,
+\begin{equation*}
+  d(a_i, \aopt) = \sqrt{\alpha \left(c\left(a_i\right) - c\left(\aopt\right)\right)^2 + \beta \left(p\left(a_i\right) - p\left(\aopt\right)\right)^2 +  \gamma \left(v\left(a_i\right) - v\left(\aopt\right)\right)^2}.
+\end{equation*}
+
+[REMAINING QUESTION: Where is our grantham $g$ sensitivity term in all of this?  
+I remember we concluded we shouldn't expect it to vary systematically with $\phi$ so it seems like it is already part of the $f(d)$ function.
+Additionally, how does treating $g \sim \text{Gamma}$ change things? 
+Does it some how absorb our uncertainty in $\phi$ or $A_k$?
+]
+
+
+
+\subsubsection*{Linking Cost of Protein Synthesis to Allele Fixation}
+In order to link the protein synthesis cost-benefit function $\eta$ of an allele with its fixation probability, we must make a number of assumptions.
 First, we assume that each protein encoded within a genome carries out some beneficial function and that the organism needs that functionality to be produced at a target average rate $\phi$.
 By definition, the optimal amino acid sequence for a given gene, \aoptvec, produces one unit of functionality.
 Second, we assume that protein expression is regulated by the organism to ensure that functionality is produced at rate $\phi$.
@@ -220,22 +241,31 @@ As a result, the probability a new mutant $j$ introduced via mutation into a res
    &\approx \frac{1-\exp\left[- b q \left(\eta(\cveci)- \eta(\cvecj)\right) \phi\right]}{1-\exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \phi 2\Ne\right]}\\
    &= \frac{1- \exp\left[- b q \left(C_1/n + C_2\right)\left(\sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(ajp,\aoptp\right)^k\right)\left) \phi\right]}{1-\exp\left[- q \left(C_1/n + C_2\right)\left(\sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(ajp,\aoptp\right)^k\right)\left) \phi 2 \Ne\right]},
 \end{align*}
-where $b=1$ for a diploid population and $2$ for a haploid population.
-Finally, if we assume the mutation rate between alleles $i$ and $j$ is $\mu_{i,j}$, then the transition rate from $i$ to $j$ is,
+where $b=1$ for a diploid population and $2$ for a haploid population \cite{Iwassa88,BergAndLassig03,SellaAndHirsh05}.
+Finally, assuming a constant the mutation between alleles $i$ and $j$ is $\mu_{i,j}$, the transition rate from $i$ to $j$ is,
 \begin{align*}
   q_{i,j} = \begin{cases} 2/b u_{i,j} & \text{if alleles $i$ and $j$ differ by one nucleotide}\\
     0 & \text{else}
   \end{cases}
 \end{align*}
 
+\noindent [NOTE: NEED TO DEFINE $\mu$]
 
 
 
 \section*{Discussion}
 
-Note that our definition of $\phi$ and our scaling of functionality differ slightly from our previous work \citep{Gilchrist07,GilchristEtAl09,ShahAndGilchrist11,GilchristEtAl15a}.
+\begin{itemize}
+\item Note that our definition of $\phi$ and our scaling of functionality differ slightly from our previous work \citep{Gilchrist07,GilchristEtAl09,ShahAndGilchrist11,GilchristEtAl15a}.
 In our previous work, we were concerned with how changes in synonymous codons affected error rates and synthesis costs and, as a result, defined functionality relative to an error free protein, rather than an optimal one, and conflated $\phi$ and $\psi$.
-
+\item Our approach requires relatively few parameter. 
+  \begin{enumerate}
+  \item Distance function $d(a_i, \aopt)$: If $n_d$ is the number of physiochemical properties examined, the number of parameters estimated is $n_d - 1$
+  \item Benefit function $\Func$: If $n_A$ is the order of our Taylor Series approximation, the number of parameters is $n_A-1$.
+  \item Gene expression $\phi$: One $\phi$ for each gene analyzed.
+  \item Mutation bias: Depends on the model used it is either equal to the number of parameters in the model $n_\mu$ or $n_\mu-1$.
+  \end{enumerate}
+\end{itemize}
 \bibliographystyle{./am.nat}
 \bibliography{./mike.full}
 
