@@ -111,15 +111,10 @@
    \qij  = \text{Substitution rate from state $i$ to $j$.}
   \end{equation*}
 \item Most models, e.g.~F84, GTR, and GY94, use a `time reversible matrix' where $\pi_i \qij = \pi_j \qji $ for all $i \neq j$.
-\item Time reversible matrices are very computationally efficient to employ.
-\item Time reversible matrices (TRM) were initially derived under the assumption of neutrality but have been extended heuristically to describe non-neutral evolution.
-\item However, non-neutral evolution is not a time reversible process, thus TRM models cannot accurately desribe evolutionary behavior when natural selection occurs.
-\end{enumerate}
-
-
-
-\paragraph*{Example of Nonsensical Behavior of Time Reversible Models:}
-We illustrate the disconnect between time reversible models and non-neutral evolution we use a simplified version of the extremely popular Goldman and Yang (1994)\cite{GoldmanAndYang94} (GY94) codon level model.
+\item Time reversible matrices  (TRM)  are very computationally efficient to employ.
+\item TRM were initially derived under the assumption of neutrality but have been extended heuristically to describe non-neutral evolution.
+\item However, non-neutral evolution is not a time reversible process, thus TRM models are unlikely to  accurately desribe evolutionary behavior when natural selection occurs.
+To illustrate the disconnect between time reversible models and non-neutral evolution we use a simplified version of the extremely popular Goldman and Yang (1994)\cite{GoldmanAndYang94} (GY94) codon level model.
 In their model,
     \begin{align*}
       q_{i,j} &%= \text{Transition rate from $i \to j$} 
@@ -140,6 +135,26 @@ However, the model has the following behavior
     \end{enumerate}
 Thus, the behavior of GY94 is actually not consistent with a constant selective environment, but instead is consistent with a system where the directionality of natural selection and a NS substitution occurs simultaneously.
 Similar inconsistencies occur when $\omega < 1$.
+\item The counter argument to the fact that non-neutral evolution is not time reversible is the observation that TRM do a good job reconstructing phylogenetic trees. 
+However, since the results of TRM models are rarely compared to non-TRM models (see [CITATIONS] for notable exceptions), how well they perform relative to more realistic models is an open question.
+\item In this study we develop a non-TRM (NTRM) model where the substitution rate of an allele is based on the substitution probability of an allele in the presence of selection for reducing protein synthesis costs and genetic drift, per standard models of population genetics.
+\item In developing our model, we assume that for each protein coding gene there is a single amino acid sequence which executes its intended function better than any other sequence, i.e. is optimal.
+We also assume that the functionality of other amino acid sequences declines as the physiochemical properties of the sequence deviates from that of the optimal sequence.
+\item We describe how functionality  declines with physiochemical distance using a Taylor series expansion and a set of weighting terms, which we estimate.
+\item Because we assume that a protein's functionality is a declining function of the product of the physiochemical distances of each of the protien's amino acid from the optimal, we can treat the evolution at each amino acid position in a site independent manner. 
+An approach which is almost universally used in TRM models.
+\item As a result, unlike most phylogenetic approaches, our model requires 20 different 20x20 rate matricies, one for when each amino acid is the optimal one.
+\item Even though our model requires a large number of matricies, because of our assumption that a protein's functionality is a declining function of physiochemical distance from the optimum, we are able to parameterize our 20 matricies using only a handful of parameters which we estimate from the data.
+\item Two additional key assumption of our model is that (a) the organism has an average target production rate $\phi$ for the functionality provided by each protein and (b) that protein synthesis is under some form of  regulatory control such that the this average functionality production target is met.
+As a result, the relative rate of protein synthesis increases as the sequence's functionality declines due to deviation from the optimal sequence.
+This behavior, in turn, means that the energetic cost of protein synthesis for an allele deviating from the optimal sequence increases with the target production rate $\phi$.
+For example, a protein encoding allele which has a 10\% reduction in functionality will have the same energetic burden relative to its optimal sequence as a protein encoding allele of similar length which has a 20\% reduction in fuctionality but whose target production rate is 1/2 of the first protein.
+\item In its current formulation, our model is only applicable to protein coding sequences.
+However, it should be applicable to non-coding sequences so long as one has a mapping function between gene sequence and gene function.
+\end{enumerate}
+
+
+
 
 
 \section*{Methods}
@@ -248,7 +263,12 @@ Finally, assuming a constant mutation between alleles $i$ and $j$, $\mu_{i,j}$, 
 
 
 
-
+\section*{Results}
+\begin{enumerate}
+\item Using \DeltaAIC as our measure, we see that even despite the need for estimating the optimal amino acid at each position in each protein, our model performs astronomically better than the standard GTR model.
+\item In addition, we are able to generate estimates of gene expression which are well correlated with empirical estimates.
+\item [Lots of other stuff]
+\end{enumerate}
 \section*{Discussion}
 
 \begin{itemize}
@@ -261,6 +281,9 @@ In our previous work, we were concerned with how changes in synonymous codons af
   \item Gene expression $\phi$: One $\phi$ for each gene analyzed.
   \item Mutation bias: Depends on the model used it is either equal to the number of parameters in the model $n_\mu$ or $n_\mu-1$.
   \end{enumerate}
+\item Our approach can be expanded by allowing the optimal amino acid to change during the course of evolution.
+This should allow us to use a large, single matrix 400 x 400 matrix instead of 20 separate 20x20 matrices.
+Further, if we may be able to compare the statistical properties of this extended transition matrix to the single transition matrix used in other approaches.
 \item Statistical Physics model allows decoupling of \Ne, $\mu$, and strength selection.
 \end{itemize}
 \bibliographystyle{./am.nat}
