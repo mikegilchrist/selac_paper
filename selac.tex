@@ -12,6 +12,7 @@
 \graphicspath{{./Figures/}}
 \DeclareGraphicsExtensions{.pdf, .jpg, .png}
 
+%BCO: Look at what Science recommends for manuscripts using LaTeX (they clearly want to say "go away" but can't): http://www.sciencemag.org/site/feature/contribinfo/prep/TeX_help/tex2pdf.xhtml
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Local Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -103,7 +104,38 @@
 \begin{document}
 \maketitle
 
-\section*{Introduction}
+
+%BCO: I'm assuming we're still planning on writing for Science, then we'll move down the food chain depending on how it goes.
+%BCO: Regardless, I think we need to include a broader context to show importance of this work.
+
+%BCO: Science guidelines:
+% Reports (up to ~2500 words including references, notes and captions or ~3 printed pages) present important new research results of broad significance. Reports should include an abstract, an introductory paragraph, up to four figures or tables, and about 30 references. Materials and Methods should usually be included in supplementary materials, which should also include information needed to support the paper's conclusions.
+
+\section*{Abstract}
+Methods used to infer phylogenies typically assume tractable but biologically naive time-reversible models.
+We develop a population genetics based model that uses biological parameters (energy cost of protein production, amino acid properties, and more) to create more realistic models for DNA substitution for protein-coding genes. 
+These models incorporate selection on amino acids.
+The new set of models, which we collectively call selac models, fit phylogenetic data substantially better than current models, suggesting more accurate inference of phylogenies.
+Moreover, these models allow inference of population genetics parameters from data used for interspecific phylogenies.
+
+\section*{Main Text}
+\paragraph*{Introduction}
+
+
+\paragraph*{Mutation}
+
+\paragraph*{Cost}
+
+\paragraph*{Benefit}
+
+\paragraph*{Physiochemical distances}
+
+\paragraph*{Simulations}
+
+\paragraph*{Empirical data}
+
+%BCO: a bullet list of points is not really appropriate for Science / Nature / PNAS / Syst Bio / Evolution / AmNat / etc. So I've moved this section down and will pull its pieces back up into the main text.
+\section*{Original Introduction}
 \begin{enumerate}
 \item Phylogenetic methods play an important role in many fields of biology and medicine.
 \item Essentially all phylogenetic approaches use a substitution matrix $Q = \left\{\qij\right\}$  to model evolution, where
@@ -111,9 +143,8 @@
    \qij  = \text{Substitution rate from state $i$ to $j$.}
   \end{equation*}
 \item Most models, e.g.~F84, GTR, and GY94, use a `time reversible matrix' where $\pi_i \qij = \pi_j \qji $ for all $i \neq j$.
-\item Time reversible matrices  (TRM)  are very computationally efficient to employ.
 \item TRM were initially derived under the assumption of neutrality but have been extended heuristically to describe non-neutral evolution.
-\item However, non-neutral evolution is not a time reversible process, thus TRM models are unlikely to  accurately desribe evolutionary behavior when natural selection occurs.
+\item However, non-neutral evolution is not a time reversible process, thus TRM models are unlikely to  accurately describe evolutionary behavior when natural selection occurs.
 To illustrate the disconnect between time reversible models and non-neutral evolution we use a simplified version of the extremely popular Goldman and Yang (1994)\cite{GoldmanAndYang94} (GY94) codon level model.
 In their model,
     \begin{align*}
@@ -141,14 +172,14 @@ However, since the results of TRM models are rarely compared to non-TRM models (
 \item In developing our model, we assume that for each protein coding gene there is a single amino acid sequence which executes its intended function better than any other sequence, i.e. is optimal.
 We also assume that the functionality of other amino acid sequences declines as the physiochemical properties of the sequence deviates from that of the optimal sequence.
 \item We describe how functionality  declines with physiochemical distance using a Taylor series expansion and a set of weighting terms, which we estimate.
-\item Because we assume that a protein's functionality is a declining function of the product of the physiochemical distances of each of the protien's amino acid from the optimal, we can treat the evolution at each amino acid position in a site independent manner. 
+\item Because we assume that a protein's functionality is a declining function of the product of the physiochemical distances of each of the protein's amino acid from the optimal, we can treat the evolution at each amino acid position in a site independent manner. 
 An approach which is almost universally used in TRM models.
-\item As a result, unlike most phylogenetic approaches, our model requires 20 different 20x20 rate matricies, one for when each amino acid is the optimal one.
-\item Even though our model requires a large number of matricies, because of our assumption that a protein's functionality is a declining function of physiochemical distance from the optimum, we are able to parameterize our 20 matricies using only a handful of parameters which we estimate from the data.
+\item As a result, unlike most phylogenetic approaches, our model requires 20 different 20x20 rate matrices, one for when each amino acid is the optimal one.
+\item Even though our model requires a large number of matrices, because of our assumption that a protein's functionality is a declining function of physiochemical distance from the optimum, we are able to parameterize our 20 matrices using only a handful of parameters which we estimate from the data.
 \item Two additional key assumption of our model is that (a) the organism has an average target production rate $\phi$ for the functionality provided by each protein and (b) that protein synthesis is under some form of  regulatory control such that the this average functionality production target is met.
 As a result, the relative rate of protein synthesis increases as the sequence's functionality declines due to deviation from the optimal sequence.
 This behavior, in turn, means that the energetic cost of protein synthesis for an allele deviating from the optimal sequence increases with the target production rate $\phi$.
-For example, a protein encoding allele which has a 10\% reduction in functionality will have the same energetic burden relative to its optimal sequence as a protein encoding allele of similar length which has a 20\% reduction in fuctionality but whose target production rate is 1/2 of the first protein.
+For example, a protein encoding allele which has a 10\% reduction in functionality will have the same energetic burden relative to its optimal sequence as a protein encoding allele of similar length which has a 20\% reduction in functionality but whose target production rate is 1/2 of the first protein.
 \item In its current formulation, our model is only applicable to protein coding sequences.
 However, it should be applicable to non-coding sequences so long as one has a mapping function between gene sequence and gene function.
 \end{enumerate}
@@ -156,7 +187,7 @@ However, it should be applicable to non-coding sequences so long as one has a ma
 
 
 
-
+%BCO: Methods typically go in supplement / end of doc for Science / Nature. So let's plan on that, figuring this will go there. We'll summarize in the main text
 \section*{Methods}
 \subsection*{Allele Substitution Model}
 \subsubsection*{Defining the Mutation Rate Matrix $\Mu$: }
