@@ -120,19 +120,105 @@ Moreover, these models allow inference of population genetics parameters from da
 
 \section*{Main Text}
 \paragraph*{Introduction}
+Phylogeny inference has become key to understanding processes in ecology, evolution, paleontology, medicine, conservation, and more.
+This is reflected in the expanding number of studies seeking to infer phylogenies (almost LARGE NUMBER studies per year (CITATION OF SOURCE -- maybe Stolzfus et al.?)).
+However, though the scale and impact of these studies is increasing, the realism of the models used to infer the trees is fairly constant.
+In a recent sample of XXXXX studies inferring phylogenetic trees, VERY LARGE percent of them made use of simple Markov models that ignore biologically relevant factors such as differences in amino acid properties, selection on proteins, and species not being at equilibrium. %BCO: If we like this, I could do quick lit analysis: all papers making trees in Sci/Nature/PNAS in last XX months to see what methods and models were used.
+There are models that deal more realistically with biological properties: LIST WITH SHORT DESCRIPTIONS.
+Here we propose a further advance to allow incorporation of amino acid physiochemical properties, selection on protein expression, selection-mutation balance, and other biological parameters into practical models for inferring phylogenies.
+An additional benefit is the inference of some of these properties from data gathered for inference.
 
 
 \paragraph*{Mutation}
-
-\paragraph*{Cost}
+The overall structure of our model involves a codon mutation model combined with a selection model on the codons based on the relative fitness (coming from explicit models of cost and benefits) at a site of the amino acid the codon encodes.
+We begin by defining a time reversible model for mutation rates between individual bases.
+We use existing substitution models (Jukes Cantor \cite{JukesCantor1969} or General Time Reversible \cite{GTR}) to specify which rates are constrained to be equal for a mutation model.
+This results in a 4x4 mutation matrix, where each entry describes the instantaneous rate of change between a pair of nucleotides.
+This is converted to a 64x64 codon mutation matrix $\mu$ where entries $\mu_ij$ describe the mutation rate from codon $i$ to $j$ by making two assumptions: mutations are independent between nucleotides within a codon and that for any pair of codons that differ by more than one nucleotide, the instantaneous transition rate is zero, since changes involving two or more nucleotides during time deltaT have probabilities on the order of $\delta t^2$.
+Both assumptions are common in codon models \cite{people}.
 
 \paragraph*{Benefit}
+Benefits come from relative fitness of the proteins encoded by the sequence.
+At a given site,  we set $\Funcaoptvec = 1$; thus, $\Funcaveci \leqslant 1$ for all $\aveci$ other than the optimal sequence. %BCO: note I changed < to \leqslant
+We assume that the relative fitness of an overall amino acid sequence is the sum of the relative fitnesses at each site and that amino acids are independent.
+We also initially assume that each site is of equal importance in calculating fitness.
+This is obviously untrue for most proteins: for example, for a catalytic enzyme, we expect changes at an active site to matter much more for fitness than changes elsewhere in the molecule.
+However, we relax this assumption later. %BCO: with the help of gamma.
 
-\paragraph*{Physiochemical distances}
+For a protein differing from the optimal one at a particular amino acid, we expect the decline in fitness to correlate with magnitude of the difference in properties of the differing amino acid: changing one large hydrophobic amino acid to another probably has a smaller effect than changing it to a small, hydrophilic amino acid. 
+Following \citet{Grantham74}, we focus on using composition $c$, polarity $p$, and molecular volume $v$ of each amino acid's side chain residue to define our distance function, but emphasize that other properties can be used (preliminary investigations using alternate properties found that the \citet{Grantham74} properties provided the best fit overall).
+We use the Euclidian distance between residue properties where each property $c$, $p$, and $v$ has its own estimated weighting term.
+
+Under these assumptions, 
+\begin{equation}
+\Funcaveci = \left(\frac{1}{\ng} \sum_p^\ng{} f\left(d\left(\aip, \aoptp\right)\right)\right)^{-1}
+\end{equation}
+where $\ng$ is the length of the protein, $d(\aip, \aoptp)$ is the physiochemical distance between the amino acid encoded in gene $i$ for position $p$ and $\aoptp$ is the optimal amino acid for that position of the protein, and $1/f(d)$ describes how the contribution of amino acid to protein function declines with $d$.
+The shape of the relationship between fitness, $f(d)$, and physiochemical distance, $d$, is generally unknown, so following \citet{Liang07} and \citet{Elphinstone85} we use a Taylor series expansion to allow the data to define this curve.
+
+
+\paragraph*{Cost}
+Generally speaking, protein synthesis involves both direct and indirect assembly costs.
+Direct costs consist of the high energy phosphate bonds in ATP or GTP's used to assemble the ribosome on the mRNA, charge tRNA's for elongation, move the ribosome forward along the transcript, and terminate protein synthesis.
+Indirect costs consist of the cost of amino acid synthesis as well as synthesis of the protein assembly infrastructure such as ribosomes, aminoacyl-tRNA synthetases, tRNAs, mRNAs, etc.
+Direct synthesis costs are the same for all proteins of the same length.
+For simplicity, in this study we ignore any indirect costs of protein synthesis that vary between genotypes.
+As a result, 
+\begin{align}
+\label{eq:defineCost}
+  \Costcveci  &= \text{Energetic cost of protein synthesis.}\\
+  &= C_1 + C_2 n
+\end{align}
+where, $C_1$ and $C_2$ represent the direct and indirect costs in ATPs of ribosome initiation and peptide elongation, respectively.
+For simplicity, in this study we only consider the direct costs of protein assembly and, thus, $C_1 = C_2 = 4 \text{ATP}$.
+
+Under our model, each protein encoded within a genome carries out some beneficial function and that the organism needs that functionality to be produced at a target average rate $\phi$ (it has to catalyze a certain number of reactions per minute, for example) and that the organism regulates protein expression such that this target rate is achieved. 
+As a result, the average protein production rate of a gene, $\psi$, is equal to $\phi/\Func(\avec)$ and the total energy flux allocated towards meeting the target functionality of a particular gene is $\eta(\cvec) \phi$. 
+Every additional ATP spent per unit time to meet the organism's target function production rate $\phi$ leads to some slight proportional incremental decrease in fitness $W$, which implies 
+\begin{align}
+  W_i\left(\cvec\right) &\propto \exp\left[- q \eta(\cveci) \phi\right].
+\end{align}
+where $q$ describes the decline in fitness with every ATP wasted per unit time $\phi$ and $\psi$ are measured in.
+In other words, the cost of a suboptimal protein comes from the need to produce more proteins to get the same overall function; this model of course breaks down when examining alleles that result in complete loss of function of a protein.
+Given that protein coding genes conserved across multiple species likely produce functional proteins, this assumption may not limit generality too severely.
+
+\paragraph*{Substitution}
+We use a Fisher-Wright \cite{FisherWright} model with weak mutation (only one difference between alleles at any instant in time within a population) and the fixation model of \cite{SellaAndHirsh05} to infer fixation probabilities given the cost and benefits above.
+The ratio of fitness between two genotypes is
+\begin{align*}
+  W_i/W_j &=  \exp\left[- q \eta(\cveci) \phi\right]/\exp\left[- q \eta(\cvecj) \phi\right]\\
+  &=  \exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \phi\right]\\
+\end{align*}
+Given our model of the \Cost and \Func functions above, this ratio simplifies to
+\begin{align}
+  W_i/W_j &\approx \left[- q \left(C_1 + C_2 n\right) \frac{1}{n}\left(\sum_{p \in \setP} \sum_{k=1}^\kmax A_k \left(d\left(\aip,\aoptp\right)^k - d\left(ajp,\aoptp\right)\right)\right) \phi \right]
+%      &=  \exp\left[- q \left(C_1/n + C_2\right)\left(\sum_{p \in \setP} \sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(ajp,\aoptp\right)^k\right) \phi\right]
+\end{align}
+where \setP represents the codon positions in which \cveci and \cvecj differ.
+Given our make a weak mutation assumption, such that alleles can differ at only one position at any given time, i.e.~$|\setP| = 1$, and that the population is evolving according to a Fisher-Wright model, the probability a new mutant $j$ introduced via mutation into a resident population $i$ with effective size \Ne will go to fixation is,
+\begin{align*}
+  u_{i,j} &=  \frac{1 - \left(W_i/W_j\right)^b}{1 - \left(W_i/W_j\right)^\Ne}\\
+   &\approx \frac{1-\exp\left[- b q \left(\eta(\cveci)- \eta(\cvecj)\right) \phi\right]}{1-\exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \phi 2\Ne\right]}\\
+   &= \frac{1- \exp\left[- b q \left(C_1/n + C_2\right)\left(\sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(ajp,\aoptp\right)^k\right)\left) \phi\right]}{1-\exp\left[- q \left(C_1/n + C_2\right)\left(\sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(ajp,\aoptp\right)^k\right)\left) \phi 2 \Ne\right]},
+\end{align*}
+where $b=1$ for a diploid population and $2$ for a haploid population \cite{Iwasa88,BergAndLassig03,SellaAndHirsh05}.
+Finally, assuming a constant mutation between alleles $i$ and $j$, $\mu_{i,j}$, the transition rate from allele $i$ to $j$ can be modeled as,
+\begin{align*}
+  q_{i,j} = \begin{cases} 2 \mu_{i,j} \Ne /b & \text{if alleles $i$ and $j$ differ by one nucleotide}\\
+    0 & \text{else}
+  \end{cases}
+\end{align*}
+In the end, each optimal amino acid has a separate 64 x 64 substitution rate matrix, which incorporates selection for the amino acid (and the fixation rate matrix this creates) as well as the common mutation parameters across optimal amino acids. 
+This results in the creation of a rich set of 21 such matrices (20 for the amino acids, and one for stop codons), based on few parameters (one to six mutation rates, three weights on physiochemical distances, the cost of protein production, target functionality, and optimal amino acid at each site), which can be inferred from the data.
+Future work will allow transitions between optimal amino acids as well as between codons, which would result in a 21 x 64 = 1344 by 1344 matrix. 
+In the meantime, however, amino acids represented by six codons, even if they are not all within one mutational step of each other, like Leucine (L), are assumed to share a single substitution-rate matrix.
+
 
 \paragraph*{Simulations}
 
 \paragraph*{Empirical data}
+
+\paragraph*{Discussion and Conclusion} %but don't call it conclusion
 
 %BCO: a bullet list of points is not really appropriate for Science / Nature / PNAS / Syst Bio / Evolution / AmNat / etc. So I've moved this section down and will pull its pieces back up into the main text.
 \section*{Original Introduction}
@@ -187,11 +273,11 @@ However, it should be applicable to non-coding sequences so long as one has a ma
 
 
 
-%BCO: Methods typically go in supplement / end of doc for Science / Nature. So let's plan on that, figuring this will go there. We'll summarize in the main text
+%BCO: Methods typically go in supplement / end of doc for Science / Nature. So let's plan on that, figuring this will go there. I'm extracting bits to summarize in the main text
 \section*{Methods}
 \subsection*{Allele Substitution Model}
-\subsubsection*{Defining the Mutation Rate Matrix $\Mu$: }
-We begin by defining a time reversible model for mutation rates among codons, \Mu, a 64x64 matrix, where entries \mu_ij describe the mutation rate from codon $i$ to $j$.
+\subsubsection*{Defining the Mutation Rate Matrix $\mu$: }
+We begin by defining a time reversible model for mutation rates among codons, $\mu$, a 64x64 matrix, where entries $\mu_ij$ describe the mutation rate from codon $i$ to $j$.
 We seed these rates according to a pre-defined substitution-rate model (e.g., JC, GTR) for a four-state nucleotide model, which describe the instantaneous rate of change from nucleotide $i$ to $j$.
 For simplicity we assume that the mutations occur independent between nucleotides within a codon. 
 For codons that differ only by one nucleotide, the rate between codons is equal to the rate between the pair of nucleotides.
@@ -308,8 +394,8 @@ Traditionally, it is rescaled such that at equilibrium, one unit of branch lengt
 In our case, we want to do this scaling across all the matrices, since the branch lengths are used in common across the gene.
 One wrinkle is that this must be done taking optimal amino acid frequency into account. 
 Here the scaling is done jointly across all the 21 matrices to allow branch lengths under the fixed optimal amino acid model to be comparable to the branch lengths under the global model.
-We calculate from the data a vector of 1344 empirical frequencies, \pi for each of the 64 codons observed when assuming each of 21 possible as the optimal amino acid (including stop codons).
-A scaling factor is then calculated as the average rate -\sum_i{} \mu_ii*\pi_i=1, where $i$ indexes a particular codon for a particular optimal amino acid.
+We calculate from the data a vector of 1344 empirical frequencies, $\pi$ for each of the 64 codons observed when assuming each of 21 possible as the optimal amino acid (including stop codons).
+A scaling factor is then calculated as the average rate $-\sum_i{} \mu_ii*\pi_i=1$, where $i$ indexes a particular codon for a particular optimal amino acid.
 The final substitution-rate matrix is the original substitution-rate matrix multiplied by this scaling factor.
 This matrix can then be applied to all the sites to calculate the likelihood. 
 
@@ -319,7 +405,7 @@ Thus, the log likelihood is taken as
 \begin{align*}
 put likelihood equation here
 \end{align*}
-The log likelihood is maximized by estimating the combined parameter for $C*q*\Phi$, Ne, two of the three Grantham distance parameters, \alpha_c, \alpha_p (again, we hold \alpha_gamma constant -- see above), the free mutation rate parameters (i.e., five free parameters if assuming GTR) and their three free nucleotide frequency parameters, \pi_i, given an alignment and a fixed tree topology.
+The log likelihood is maximized by estimating the combined parameter for $C*q*\Phi$, Ne, two of the three Grantham distance parameters, $\alpha_c$, $\alpha_p$ (again, we hold $\alpha_gamma$ constant -- see above), the free mutation rate parameters (i.e., five free parameters if assuming GTR) and their three free nucleotide frequency parameters, $\pi_i$, given an alignment and a fixed tree topology.
 We also assume each optimal acid across all sites as free parameters to be estimated in the model.
 There are two ways in which we estimate the optimal amino acid at a given site: 1) use the majority rule of the amino acids observed across different species at a homologous site, and 2) numerically optimizing the choice of optimal amino acid at each site. 
 
@@ -328,7 +414,7 @@ In the case of including a random effect as described in Eq.(5) by specifying a 
 put gamma likelihood equation here
 \end{align*}
 where $k$ specifies the number of discrete categories.
-Note that this would add an additional free parameter, \alpha_g, which describes the shape of the distribution.
+Note that this would add an additional free parameter, $\alpha_g$, which describes the shape of the distribution.
 
 
 \section*{Results}
