@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  19 SEP 2015 23:48
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  19 SEP 2015 23:54
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -217,7 +217,11 @@ LaTeX Info: Redefining \today on input line 724.
 \dt@a=\toks20
 \dt@b=\toks21
 )
-(./selac.aux)
+(./selac.aux
+
+LaTeX Warning: Label `eq:defineCost' multiply defined.
+
+)
 \openout1 = `selac.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 104.
@@ -234,8 +238,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 104.
 LaTeX Font Info:    ... okay on input line 104.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-
-(/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count129
 \scratchdimen=\dimen121
@@ -310,13 +313,13 @@ LaTeX Warning: No \author given.
 
 
 Package natbib Warning: Citation `JukesCantor1969' on page 1 undefined on input
- line 135.
+ line 136.
 
 
-Package natbib Warning: Citation `GTR' on page 1 undefined on input line 135.
+Package natbib Warning: Citation `GTR' on page 1 undefined on input line 136.
 
 
-Package natbib Warning: Citation `people' on page 1 undefined on input line 138
+Package natbib Warning: Citation `people' on page 1 undefined on input line 139
 .
 
 [1
@@ -324,122 +327,95 @@ Package natbib Warning: Citation `people' on page 1 undefined on input line 138
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 Package natbib Warning: Citation `Grantham74' on page 2 undefined on input line
- 149.
+ 150.
 
 
 Package natbib Warning: Citation `Grantham74' on page 2 undefined on input line
- 149.
-
-
-Package natbib Warning: Citation `Liang07' on page 2 undefined on input line 15
-7.
-
-
-Package natbib Warning: Citation `Elphinstone85' on page 2 undefined on input l
-ine 157.
+ 150.
 
 [2] [3]
 
 Package natbib Warning: Citation `FisherWright' on page 4 undefined on input li
-ne 186.
+ne 187.
 
 
 Package natbib Warning: Citation `SellaAndHirsh05' on page 4 undefined on input
- line 186.
+ line 187.
 
 
 Package natbib Warning: Citation `Iwasa88' on page 4 undefined on input line 20
-4.
+5.
 
 
 Package natbib Warning: Citation `BergAndLassig03' on page 4 undefined on input
- line 204.
+ line 205.
 
 
 Package natbib Warning: Citation `SellaAndHirsh05' on page 4 undefined on input
- line 204.
+ line 205.
 
 [4] [5]
 
 Package natbib Warning: Citation `GoldmanAndYang94' on page 6 undefined on inpu
-t line 234.
-
-
-LaTeX Warning: Reference `pureone' on page 6 undefined on input line 251.
+t line 235.
 
 [6] [7] [8] [9]
 
-Package natbib Warning: Citation `Liang07' on page 10 undefined on input line 3
-33.
-
-
-Package natbib Warning: Citation `Elphinstone85' on page 10 undefined on input 
-line 333.
-
-
 Package natbib Warning: Citation `Grantham74' on page 10 undefined on input lin
-e 340.
+e 341.
 
 [10] [11]
 
 Package natbib Warning: Citation `Iwasa88' on page 12 undefined on input line 3
-80.
+81.
 
 
 Package natbib Warning: Citation `BergAndLassig03' on page 12 undefined on inpu
-t line 380.
+t line 381.
 
 
 Package natbib Warning: Citation `SellaAndHirsh05' on page 12 undefined on inpu
-t line 380.
+t line 381.
 
 [12]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 429.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 430.
 
  (/usr/local/texlive/2013/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 429.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 430.
 
 
 Package natbib Warning: Citation `Gilchrist07' on page 13 undefined on input li
-ne 429.
+ne 430.
 
 
 Package natbib Warning: Citation `GilchristEtAl09' on page 13 undefined on inpu
-t line 429.
+t line 430.
 
 
 Package natbib Warning: Citation `ShahAndGilchrist11' on page 13 undefined on i
-nput line 429.
+nput line 430.
 
 
 Package natbib Warning: Citation `GilchristEtAl15a' on page 13 undefined on inp
-ut line 429.
+ut line 430.
 
 [13] (./selac.bbl) [14]
 
 Package natbib Warning: There were undefined citations.
 
-[15] (./selac.aux
+[15] (./selac.aux)
 
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4908 strings out of 493315
- 69594 string characters out of 6137904
- 139819 words of memory out of 5000000
- 8278 multiletter control sequences out of 15000+600000
+ 4909 strings out of 493315
+ 69611 string characters out of 6137904
+ 140995 words of memory out of 5000000
+ 8279 multiletter control sequences out of 15000+600000
  11503 words of font info for 45 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,19n,38p,889b,297s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -458,7 +434,7 @@ ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive
 /2013/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/tex
 live/2013/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local
 /texlive/2013/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on selac.pdf (15 pages, 190320 bytes).
+Output written on selac.pdf (15 pages, 192624 bytes).
 PDF statistics:
  113 PDF objects out of 1000 (max. 8388607)
  80 compressed objects within 1 object stream

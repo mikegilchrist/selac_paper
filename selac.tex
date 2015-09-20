@@ -99,7 +99,7 @@
 \renewcommand{\ng}{\ensuremath{{n_g}}\xspace}
 
 
-\title{SelAC Paper}
+\title{Population genetics models with selection for phylogenetic inference}
 \date{}
 \begin{document}
 \maketitle
@@ -110,6 +110,7 @@
 
 %BCO: Science guidelines:
 % Reports (up to ~2500 words including references, notes and captions or ~3 printed pages) present important new research results of broad significance. Reports should include an abstract, an introductory paragraph, up to four figures or tables, and about 30 references. Materials and Methods should usually be included in supplementary materials, which should also include information needed to support the paper's conclusions.
+%BCO: I am keeping paragraph labels below for now; should remove before submission
 
 \section*{Abstract}
 Methods used to infer phylogenies typically assume tractable but biologically naive time-reversible models.
@@ -209,7 +210,7 @@ Finally, assuming a constant mutation between alleles $i$ and $j$, $\mu_{i,j}$, 
   \end{cases}
 \end{align*}
 In the end, each optimal amino acid has a separate 64 x 64 substitution rate matrix, which incorporates selection for the amino acid (and the fixation rate matrix this creates) as well as the common mutation parameters across optimal amino acids. 
-This results in the creation of a rich set of 21 such matrices (20 for the amino acids, and one for stop codons), based on few parameters (one to six mutation rates, three weights on physiochemical distances, the cost of protein production, target functionality, and optimal amino acid at each site), which can be inferred from the data.
+This results in the creation of a rich set of 21 such matrices (20 for the amino acids, and one for stop codons), with up to LARGE NUMBER unique rates, based on few parameters (one to six mutation rates, three weights on physiochemical distances, the cost of protein production, target functionality, and optimal amino acid at each site), which can be inferred from the data.
 Future work will allow transitions between optimal amino acids as well as between codons, which would result in a 21 x 64 = 1344 by 1344 matrix. 
 In the meantime, however, amino acids represented by six codons, even if they are not all within one mutational step of each other, like Leucine (L), are assumed to share a single substitution-rate matrix.
 
