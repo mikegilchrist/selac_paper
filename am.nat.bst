@@ -1,3 +1,5 @@
+%%HISTORY
+%% File modified by mikeg ot truncate number of authors.  See changes at line 424 or there abouts
 %%
 %% This is file `amnat.bst',
 %% generated with the docstrip utility.
@@ -420,7 +422,16 @@ FUNCTION {format.names}
       bibinfo bibinfo.check
       't :=
       nameptr #1 >
-        {
+        { 
+%%set max number of authors to list, added 08/20/15
+          nameptr #5 %number set here
+          #1 + =
+          numnames #5 
+          > and
+            { "others" 't :=
+              #1 'namesleft := }
+            'skip$
+          if$  %end added on 08/20/15 see http://tex.stackexchange.com/questions/26575/bibtex-how-can-i-automatically-reduce-long-author-lists-to-xxx-et-al
           namesleft #1 >
             { ", " * t * }
             {
