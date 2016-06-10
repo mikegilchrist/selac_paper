@@ -122,7 +122,18 @@ Moreover, these models allow inference of population genetics parameters from da
 \item While the scale and impact of phylogenetic studies has increased substantially over the past XXX decades, the realism of the models used to infer the trees has changed relatively little by comparison.
   Notable exception, however, include
   \begin{itemize}
-  \item \citet{YangAndNielsen08} used pop gen but ...
+  \item \citet{YangAndNielsen08} used MutSel model.
+    \begin{itemize}
+    \item Used $\omega = d_N/d_S$ as in \citet{GoldmanAndYang94} for modeling changes in aa.
+    \item One dataset was human chimp mitochondrial and the other was human-chimp-macaque-mouse-rat quintet alignment of 5,639 orthologous genes.
+      Info was concatenated and data where there was one or more missing codons amongst species was dropped.
+    \item Parameters estimated: $\omega$, 60 codon specific selection coefficients, 4 or 8 mutation terms.
+      \item Authors mention ``previous models that incorporate amino acid chemical properties to specify codon substitution rates achieved only moderate (although statistically significant) improvements to the model’s fit to data, and furthermore, such models produced rather similar estimates of mutation parameters to the sim- ple model of one x ratio (Goldman and Yang 1994; Yang et al. 1998).''
+      \item Above Equation (4) the authors also state, ``Thus, the rate matrix $Q = \{q_{IJ}\}$ can
+be written as a product of a symmetrical matrix $\{A_{IJ}\}$ and a diagonal matrix so that the Markov process is time reversible, with the stationary frequency for codon $J$ given as
+$\pi_J \propto \pi^*_{j_{1}} \pi^*_{j_{2}} \pi^*_{j_{3}} e^{F_J}$ (4)''
+So it seems to me that the stationary probabilities can be interpreted as solely a function of selection on CUB and mutation bias.
+    \end{itemize}
   \item \citet{RodrigueEtAl05} and those that cite it.
   \item Richard Goldstein
   \item \citet{WilliamsEtAl15}
