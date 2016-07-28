@@ -35,6 +35,7 @@
 \newcommand{\GTR}{GTR+$\Gamma$\xspace}
 \newcommand{\LogN}{\ensuremath{\text{LogN}}\xspace}
 \newcommand{\Ne}{\ensuremath{{N_e}}\xspace} %
+\newcommand{\Nemu}{\ensuremath{{N_e \mu}}\xspace} %
 \newcommand{\Piihat}{\ensuremath{\hat{\pi}_i}\xspace}
 \newcommand{\Pii}{\ensuremath{\pi_{i}}\xspace}
 \newcommand{\Pijhat}{\ensuremath{\hat{\pi}_j}\xspace}
@@ -111,7 +112,7 @@ The simplest models assume neutrality b/w the different amino acid substitutions
 The next set of models attempt to include a 'selection' term $\omega$ which is interpreted as describing stabilizing or diversifying selection depending on whether $\omega$ is less than or greater than 1, respectively. 
 %frequency dependent selection or over- or underdominance
 However, the link between $\omega$ and the key parameters found in standard population genetics models of Wright and Fisher or Moran, such as \Ne, the distribution of $s$ across genotype space, and mutation bias are far from clear andl likely only describe a subset of scenarios such as over/underdominance or frequency dependent selection  \cite{HughesAndNei1988}.
-Fortunately, given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic reconstruction \citet[e.g.][]{HalpernAndBruno1988,RobinsonEtAl2003,LartillotAndPhillipe2004,RodrigueAndLartillot2014}.
+Fortunately, given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic reconstruction \citet[e.g.][]{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 
 The field of population genetics is a mature, mathematically rigorous, and well established framework for describing biological evolution.
 Despite the fact that there are only a few fundamental evolutionary forces at play, i.e.~mutation, drift, selection, and linkage effects, describing the evolutionary behavior of a system in which there are non-linear interactions between different sites quickly becomes overwhelmingly complex and difficult to link to genomic data.
@@ -121,25 +122,25 @@ One major advantage to fitting models dervied from population genetics over othe
 For example in haploid population, if the product of effective population size $\Ne$ and the mutation rate of alleles $\mu_b$ is greater than one then the waiting time for the allele to emerge after an environmental shift is much shorter than the substitution process itself.
 Here we show how fitting a phylogenetic model derived from a population genetic model can be used to estimate $\Nemu$ from sequence data at the tips of the tree.
 
-The model we develop can be viewed as a special formulation of a mutation selection or MutSel model as described by \citet{Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005} used in phylogenetic studies \citet[e.g.][]{MuseAndGaut1994,HalpernAndBruno1988,YangAndNielsen2008,RodrigueEtAl2005, KoshiEtAl1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LarriotAndPhillippe2004,RodrigueAndLartillot2014} and other contexts \citet{WilkeAndDrummond2006a,Gilchrist2007,DrummondAndWilke2009,GilchristEtAl2015}.
-Our approach contributes to this body of work  by better modeling the effect of non-synonymous substitutions than \citet{YangANdNielsen2008}, which relies on the non-population genetics model of \citet{GoldmanAndYang1994}.
+The model we develop can be viewed as a special formulation of the Wright-Fisher or MutSel model \citep{Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005} which has been used in phylogenetic studies \citep[e.g.][]{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008,RodrigueEtAl2005,KoshiAndGoldstein1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LartillotAndPhilippe2004,RodrigueAndLartillot2014} and other contexts \citep{WilkeAndDrummond2006,Gilchrist2007,DrummondAndWilke2009,GilchristEtAl2015}.
+Our approach contributes to this body of work by better modeling the effect of non-synonymous substitutions than \citet{YangAndNielsen2008}, which models these substitutions as in \citet{GoldmanAndYang1994}.
 While the mapping between genotype and phenotype is more abstract than \citet{ThorneEtAl2012}, our approach has the advantage of not requiring a model of a protein's physical structure.
-As with \citet{ThorneEtAl2012}, the model we work with is,  less general than formulation by \citet{HalpernAndBruno1988,LartillotAndPhillipe2004,RodrigueAndLartillot2014} in that we use a submodel to define substitution rates between amino acids rather letting them vary freely.
+As with \citet{ThorneEtAl2012}, the model we work with is,  less general than formulation by others \citep{HalpernAndBruno1998,LartillotAndPhilippe2004,RodrigueAndLartillot2014} in that we use a submodel to define substitution rates between amino acids rather letting them vary freely.
 Our approach provides an complementary example to \citet{ThorneEtAl2012} studies of how models of different biological scales can be nested within one another for phylogenetic analyses.
-We've utilized the same nested and population genetic based approach in more traditional genomic analyses \cite[e.g.][]{Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
+We've utilized the same nested and population genetic based approach in more traditional genomic analyses \citep[e.g.][]{Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
 Our previous work illustrates how quantiative information on mutation bias, gene specific expression levels, and differences in codon specific ribosome pausing can be extracted from the patterns of codon usage embedded within the coding sequences of a genome.
 
 
-Similar to \citet{LartillotAndPhillipe2004,RodrigueAndLartillot2014} we assume there is a finite set of rate matrices describing the substitution process.\footnote{mikeg: If this is too detailed for the intro, this paragraph could be moved to the Discussion and summarized more succinctly here.}
+Similar to \citet{LartillotAndPhilippe2004,RodrigueAndLartillot2014} we assume there is a finite set of rate matrices describing the substitution process.\footnote{mikeg: If this is too detailed for the intro, this paragraph could be moved to the Discussion and summarized more succinctly here.}
 Unlike that work, we assume \emph{a priori} there are 20 different rate matrices, one for when a particular amino acid is most favored.
 To further simplify our model, instead of allowing the substitution rates in the different matricies to be symmetric but otherwise vary freely, we base the substitution rates to the average protein synthesis rate of the gene and physio-chemical dissimilarity between amino acid side chains after \citet{Grantham1974} and more generally and biologically based than \citet{YangEtAl1998,Yang2014}.
 This allows us to parameterize our substitution model using a small number of genome wide parameters and a large number of gene specific parameters.
-For example, given a gene specific expression level $\phi$ and sensitivity term $\lambda$, we can populate our twenty 20x20 substitution rate matrices using three\footnote{Jeremy is this correct?} genome wide mutation parameters and two genome wide physiochemical weighting parameters.
-Similar to \citet{LartillotAndPhillipe2004,RodrigueAndLartillot2014} work, fitting these substitution matrices to sequence data requires we categorize each site.
+For example, given a gene specific expression level $\phi$ and sensitivity term $\lambda$, we can populate our twenty 20x20 substitution rate matrices using three\footnote{mikeg: Jeremy is this correct?} genome wide mutation parameters and two genome wide physiochemical weighting parameters.
+Similar to \citet{LartillotAndPhilippe2004,RodrigueAndLartillot2014} work, fitting these substitution matrices to sequence data requires we categorize each site.
 In our case, the site category corresponds to which amino acid is optimal for a given site.
 As a result, this site categorization represents an additional set of parameters to be estimated from the data.
 While our approach requires only a few genome scale parameters, the number of gene specific parameters is large and equal to the number of amino acids that make up the protein encoded by the gene plus the two gene specific parameters previously mentioned, $\phi$ and $\lambda$.
-One important manner in which our approach moves beyond \citet{HalpernAndBruno1988,RobinsonEtAl2003,LartillotAndPhillipe2004,ThorneEtAl2012,RodrigueAndLartillot2014} is in that we parameterize the model and fit branch lengths simultaneously rather than in two separate steps.\footnote{Jeremy or Brian: I know this is true for Halpern and Bruno and am 95\% sure it applies to Jeff Thorne's work.
+One important manner in which our approach moves beyond \citet{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014} is in that we parameterize the model and fit branch lengths simultaneously rather than in two separate steps.\footnote{mikeg: Jeremy or Brian: I know this is true for Halpern and Bruno and am 95\% sure it applies to Jeff Thorne's work.
 Can you confirm its true for the Lartillot references?}
 
 
@@ -151,7 +152,7 @@ Can you confirm its true for the Lartillot references?}
 \item In addition, we are able to generate estimates of gene expression which are well correlated with empirical estimates.
 \item By linking $q$ to gene expression, our approach is an alternative to the more common approach of simply concatenation of protein coding sequences.
 More specifically, in our model simply concatenating gene sequences together is equivalent to assuming the same aver protein synthesis rate $\phi$ for all of the genes.
-By assuming the strength of stabilizing selection for the optimal sequence, \astarvec, is proportional to $\phi$, our model allows us to estimate $\phi$ for each gene.
+By assuming the strength of stabilizing selection for the optimal sequence, \aoptvec, is proportional to $\phi$, our model allows us to estimate $\phi$ for each gene.
 Our results clearly indicate that this information is available and accounting for it in our model substantially improves our model fit.
 
 \item [Lots of other stuff]
@@ -161,7 +162,7 @@ Our results clearly indicate that this information is available and accounting f
 \begin{itemize}
 \item Implicitly, our model assumes that all genes are essential because an organism that is homozygous for alleles with zero activity (i.e.~no benefit) would have to spend an infinite amount of energy to achive a target functionality production rate $\phi > 0$.
 This assumption can be relaxed by allowing $\phi$ to vary and fitness is function of that $\phi$ level and where there is an optimal $\phi$ level.
-\item Note that our definition of $\phi$ and our scaling of functionality differ slightly from our previous work \citep{Gilchrist07,GilchristEtAl09,ShahAndGilchrist11,GilchristEtAl15a}.
+\item Note that our definition of $\phi$ and our scaling of functionality differ slightly from our previous work \citep{Gilchrist2007,GilchristEtAl2009,ShahAndGilchrist2011,GilchristEtAl2015}.
 In our previous work, we were concerned with how changes in synonymous codons affected error rates and synthesis costs and, as a result, defined functionality relative to an error free protein, rather than an optimal one, and conflated $\phi$ and $\psi$.
 \item Our approach requires relatively few parameter. 
   \begin{enumerate}
@@ -197,7 +198,7 @@ This behavior, in turn, means that the energetic cost of protein synthesis for a
 For example, a protein encoding allele which has a 10\% reduction in functionality will have the same energetic burden and selective cost relative to its optimal sequence as a protein encoding allele of similar length which has a 20\% reduction in functionality but whose target production rate is 1/2 of the first protein.
 \item In its current formulation, our model is only applicable to protein coding sequences.
 However, it should be applicable to non-coding sequences so long as one has a mapping function between gene sequence and gene function.
-\end{enumerate}
+\end{itemize}
 
 
 
@@ -207,7 +208,7 @@ However, it should be applicable to non-coding sequences so long as one has a ma
 \subsubsection*{Mutation Rate Matrix $\mu$: }
 The overall structure of our model involves a codon mutation model combined with a selection model on the codons based on the relative fitness (coming from explicit models of cost and benefits) at a site of the amino acid the codon encodes.
 We begin by defining a time reversible model for mutation rates between individual bases.
-We use existing substitution models (Jukes Cantor \citet{JukesAndCantor69} or General Time Reversible \citet{Tavare86}) to specify which rates are constrained to be equal for a mutation model.
+We use existing substitution models (Jukes Cantor \citet{JukesAndCantor1969} or General Time Reversible \citet{Tavare1986}) to specify which rates are constrained to be equal for a mutation model.
 This results in a 4x4 mutation matrix, where each entry describes the instantaneous rate of change between a pair of nucleotides.
 This is converted to a 64x64 codon mutation matrix $\mu$ where entries $\mu_ij$ describe the mutation rate from codon $i$ to $j$ by making two assumptions: mutations are independent between nucleotides within a codon and that for any pair of codons that differ by more than one nucleotide, the instantaneous transition rate is zero, since changes involving two or more nucleotides during time \deltaT have probabilities on the order of $\deltaT^2$.
 Both assumptions are common in codon models \cite{CITATIONS}.
@@ -239,7 +240,7 @@ Given our assumption that \Funcaoptvec = 1 and noting that $d$ has its own free 
 where we define $A_k = \frac{1}{k!}\frac{d f^k}{d^k d}$ in order to emphasize the polynomial nature of our approximation to $f(d)$ and assume $g \sim \text{Gamma}\left(\alpha_g, \beta_g = 1/\alpha_g\right)$ in order to ensure $\EE(g) = 1$.
 In addition, because $\phi$ and the $A_k$ terms always co-occur in our model, we cannot identify them separately from one another.
 As a result, we set $A_1 = 1$ and recognize that our estimates of $\phi$ are scaled relative to this term.
-Using the results from \citet{Liang07} and \citet{Elphinstone85}, we can ensure that $f(d)$ is a monotonic, increasing function of $d$ by fitting our model using a transformation of variables $\alpha$ and $\beta$ and by restricting \kmax to multiples of 2. (Note that because $d > 0 \forall a \neq \aopt$, $f(d)$ is monotonic and increasing when $\kmax=1$.)
+Using the results from \citet{Liang2007} and \citet{Elphinstone1985}, we can ensure that $f(d)$ is a monotonic, increasing function of $d$ by fitting our model using a transformation of variables $\alpha$ and $\beta$ and by restricting \kmax to multiples of 2. (Note that because $d > 0 \forall a \neq \aopt$, $f(d)$ is monotonic and increasing when $\kmax=1$.)
 %Since we are assuming $A_0$ and $A_1 = 1$, when using the recurrence relation in Lang 2007, we set $\lambda = 1$ and $\alpha_1 = -1/2$.
 
 \paragraph*{Cost}
@@ -264,7 +265,7 @@ For simplicity, in this study we only consider the direct costs of protein assem
 \paragraph*{Physiochemical Distances between Amino Acids :}
 Assuming that functionality declines with an amino acid $a_i$'s physiochemical distance from the optimum amino acid \aopt at each site  provides a biologically defensible way of linking comparing genotypes that requires relatively few free parameters.
 In addition, our approach naturally lends itself to model selection since we can compare the quality of our model fits using different mixtures of physiochemical properties.
-Following \citet{Grantham74}, we focus on using composition $c$, polarity $p$, and molecular volume $v$ of each amino acid's side chain residue to define our distance function, but emphasize that other properties could be used.
+Following \citet{Grantham1974}, we focus on using composition $c$, polarity $p$, and molecular volume $v$ of each amino acid's side chain residue to define our distance function, but emphasize that other properties could be used.
 We use the euclidian distance between residue properties where each property $c$, $p$, and $v$ has its own weighting term, $\alphac$, $\alphap$, $\alphav$, respectively.
 Because of similar identifiability issues we have with $A_1$ and $\phi$, we set $\alphav = 1$ and recognize that our our estimates of $\alphac$ and $\alphap$ are scaled relative to $\alphav$.
 More specifically,
@@ -308,7 +309,7 @@ As a result, the probability a new mutant $j$ introduced via mutation into a res
    &\approx \frac{1-\exp\left[- b\,q \left(\eta(\cveci)- \eta(\cvecj)\right) \phi\right]}{1-\exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \phi 2\Ne\right]}\\
    &= \frac{1- \exp\left[- b\,q \left(C_1/n + C_2\right)\left(\sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(\ajp,\aoptp\right)^k\right)\left) \phi\right]}{1-\exp\left[- q \left(C_1/n + C_2\right)\left(\sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(\ajp,\aoptp\right)^k\right)\left) \phi \, 2 \, \Ne\right]},
 \end{align*}
-where $b=1$ for a diploid population and $2$ for a haploid population \cite{Iwasa88,BergAndLassig03,SellaAndHirsh05}.
+where $b=1$ for a diploid population and $2$ for a haploid population \cite{Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005}.
 Finally, assuming a constant mutation rate between alleles $i$ and $j$, $\muij$, where $\muij = 0$ when two codons differ by more than one nucleotide, the transition rate from allele $i$ to $j$ can be modeled as,
 \begin{align*}
   q_{i,j} = 2 \muij \Ne/b u_{i,j}.
