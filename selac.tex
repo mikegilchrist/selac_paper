@@ -13,92 +13,81 @@
 %http://www.sciencemag.org/site/feature/contribinfo/prep/TeX_help/tex2pdf.xhtml
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Local Commands
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\LogN}{\ensuremath{\text{LogN}}\xspace}
-
-\newcommand{\EE}{\mathbb{E}} %use for expectation function E()
-\newcommand{\setG}{\ensuremath{\mathbb{G}}\xspace}
-\newcommand{\setP}{\ensuremath{\mathbb{P}}\xspace}
-\newcommand{\Qmatrix}{\mathbf{Q}\xspace}
-\newcommand{\Qmatrixa}{\ensuremath{\Qmatrix_a}\xspace}
-\newcommand{\qij}{\ensuremath{q_{i,j}}\xspace}
-\newcommand{\qji}{\ensuremath{q_{i,j}}\xspace}
-\newcommand{\pij}{\ensuremath{p_{i,j}}\xspace}
-\newcommand{\muij}{\ensuremath{\mu_{i,j}}\xspace}
-\newcommand{\fij}{\ensuremath{f_{i,j}}\xspace}
-\newcommand{\Pii}{\ensuremath{\pi_{i}}\xspace}
-\newcommand{\Pij}{\ensuremath{\pi_{j}}\xspace}
-\newcommand{\Pivec}{\ensuremath{\Vec{\pi}}\xspace}
-\newcommand{\Pivechat}{\ensuremath{\hat{\Pivec}}\xspace}
-\newcommand{\Piihat}{\ensuremath{\hat{\pi}_i}\xspace}
-\newcommand{\Pijhat}{\ensuremath{\hat{\pi}_j}\xspace}
-\newcommand{\Wi}{\ensuremath{{W_i}}\xspace}
-\newcommand{\Wj}{\ensuremath{{W_j}}\xspace}
-\newcommand{\Ne}{\ensuremath{{N_e}}\xspace} %
-\renewcommand{\ng}{\ensuremath{{n_g}}\xspace}
-\newcommand{\deltaT}{\ensuremath{\delta t}\xspace}
-\newcommand{\DeltaAIC}{\ensuremath{\Delta\text{AIC}}\xspace}
-\newcommand{\GTR}{GTR+$\Gamma$\xspace}
-
-\newcommand{\jmax}{\ensuremath{{j_{\max}}}\xspace}
-\newcommand{\kmax}{\ensuremath{{k_{\max}}}\xspace}
-\newcommand{\cvec}{\ensuremath{\Vec{c}}\xspace}
-\newcommand{\cveci}{\ensuremath{\cvec_i}\xspace}
-\newcommand{\cvecj}{\ensuremath{\cvec_j}\xspace}
-
-\newcommand{\acvec}{\ensuremath{a\left(\Vec{c}\right)}\xspace}
-\newcommand{\acivec}{\ensuremath{a\left(\cveci\right)}\xspace}
-\newcommand{\acvecg}{\ensuremath{a\left(\vec{c}_{i,g}\right)}\xspace}
-\newcommand{\aip}{\ensuremath{a_{i,p}}\xspace}
-\newcommand{\ajp}{\ensuremath{a_{j,p}}\xspace}
-
-\newcommand{\avec}{\ensuremath{\Vec{a}}\xspace}
-\newcommand{\aveci}{\ensuremath{\Vec{a}_i}\xspace}
-\newcommand{\aivec}{\aveci}
-\newcommand{\aivecg}{\ensuremath{{\avec}_{i,g}}\xspace}
-
-\newcommand{\avecj}{\ensuremath{\Vec{a}_j}\xspace}
-\newcommand{\acvecj}{\ensuremath{a\left(\cvecj\right)}\xspace}
-
-
-\newcommand{\aopt}{\ensuremath{a^*}\xspace}
-\newcommand{\aoptip}{\ensuremath{\aopt_{i,p}}\xspace}
-\newcommand{\aoptp}{\ensuremath{\aopt_p}\xspace}
-\newcommand{\aoptpg}{\ensuremath{\aopt_{p,g}}\xspace}
-\newcommand{\aoptvec}{\ensuremath{\Vec{a}^*}\xspace}
-\newcommand{\aoptvecg}{\ensuremath{{{\aoptvec}_g}}\xspace}
-\newcommand{\aobs}{\ensuremath{a_{\text{obs}}}\xspace}
-\newcommand{\aobsvec}{\ensuremath{\Vec{a}_{\text{obs}}}\xspace}
-\newcommand{\aobsvecg}{\ensuremath{{\avec}_{\text{obs},g}}\xspace}
-
-
-
-\newcommand{\aj}{\ensuremath{a__j}\xspace}
-\newcommand{\ajvec}{\ensuremath{\Vec{a}_{j}}\xspace}
-\newcommand{\ajvecg}{\ensuremath{{\ajvec}_{,g}}\xspace}
-
-\newcommand{\phig}{\ensuremath{\phi_{g}}\xspace}
-
-\newcommand{\Cost}{\ensuremath{\text{\textbf{Cost}}}\xspace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Local Commands%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Sort using M-x 'sort-lines'
 \newcommand{\Costaobsvec}{\ensuremath{\Cost(\aobsvec)}\xspace}
-\newcommand{\Costavec}{\ensuremath{\Cost(\avec)}\xspace}
 \newcommand{\Costaveci}{\ensuremath{\Cost(\aveci)}\xspace}
 \newcommand{\Costavecj}{\ensuremath{\Cost(\avecj)}\xspace}
-
+\newcommand{\Costavec}{\ensuremath{\Cost(\avec)}\xspace}
 \newcommand{\Costcveci}{\ensuremath{\Cost(\cveci)}\xspace}
 \newcommand{\Costcvecj}{\ensuremath{\Cost(\cvecj)}\xspace}
-
-\newcommand{\Func}{\ensuremath{\text{\textbf{Benefit}}}\xspace}
+\newcommand{\Cost}{\ensuremath{\text{\textbf{Cost}}}\xspace}
+\newcommand{\DeltaAIC}{\ensuremath{\Delta\text{AIC}}\xspace}
+\newcommand{\EE}{\mathbb{E}} %use for expectation function E()
 \newcommand{\Funcaobsvec}{\ensuremath{\Func(\aobsvec|\aoptvec)}\xspace}
-\newcommand{\Funcavec}{\ensuremath{\Func(\avec|\aoptvec)}\xspace}
+\newcommand{\Funcaoptvec}{\ensuremath{\Func(\aoptvec)}\xspace}
 \newcommand{\Funcaveci}{\ensuremath{\Func(\aveci|\aoptvec)}\xspace}
 \newcommand{\Funcavecj}{\ensuremath{\Func(\avecj|\aoptvec)}\xspace}
-\newcommand{\Funcaoptvec}{\ensuremath{\Func(\aoptvec)}\xspace}
-
-\newcommand{\Funccvec}{\ensuremath{\Func(\cvec|\aoptvec)}\xspace}
+\newcommand{\Funcavec}{\ensuremath{\Func(\avec|\aoptvec)}\xspace}
 \newcommand{\Funccveci}{\ensuremath{\Func(\cveci|\aoptvec)}\xspace}
+\newcommand{\Funccvec}{\ensuremath{\Func(\cvec|\aoptvec)}\xspace}
+\newcommand{\Func}{\ensuremath{\text{\textbf{Benefit}}}\xspace}
+\newcommand{\GTR}{GTR+$\Gamma$\xspace}
+\newcommand{\LogN}{\ensuremath{\text{LogN}}\xspace}
+\newcommand{\Ne}{\ensuremath{{N_e}}\xspace} %
+\newcommand{\Piihat}{\ensuremath{\hat{\pi}_i}\xspace}
+\newcommand{\Pii}{\ensuremath{\pi_{i}}\xspace}
+\newcommand{\Pijhat}{\ensuremath{\hat{\pi}_j}\xspace}
+\newcommand{\Pij}{\ensuremath{\pi_{j}}\xspace}
+\newcommand{\Pivechat}{\ensuremath{\hat{\Pivec}}\xspace}
+\newcommand{\Pivec}{\ensuremath{\Vec{\pi}}\xspace}
+\newcommand{\Qmatrixa}{\ensuremath{\Qmatrix_a}\xspace}
+\newcommand{\Qmatrix}{\mathbf{Q}\xspace}
+\newcommand{\Wi}{\ensuremath{{W_i}}\xspace}
+\newcommand{\Wj}{\ensuremath{{W_j}}\xspace}
 
+\newcommand{\acivec}{\ensuremath{a\left(\cveci\right)}\xspace}
+\newcommand{\acvecg}{\ensuremath{a\left(\vec{c}_{i,g}\right)}\xspace}
+\newcommand{\acvecj}{\ensuremath{a\left(\cvecj\right)}\xspace}
+\newcommand{\acvec}{\ensuremath{a\left(\Vec{c}\right)}\xspace}
+\newcommand{\aip}{\ensuremath{a_{i,p}}\xspace}
+\newcommand{\aivecg}{\ensuremath{{\avec}_{i,g}}\xspace}
+\newcommand{\aivec}{\aveci}
+\newcommand{\ajp}{\ensuremath{a_{j,p}}\xspace}
+\newcommand{\ajvecg}{\ensuremath{{\ajvec}_{,g}}\xspace}
+\newcommand{\ajvec}{\ensuremath{\Vec{a}_{j}}\xspace}
+\newcommand{\aj}{\ensuremath{a__j}\xspace}
+\newcommand{\alphac}{\ensuremath{\alpha_c}\xspace}
+\newcommand{\alphap}{\ensuremath{\alpha_p}\xspace}
+\newcommand{\alphavec}{\ensuremath{\Vec{\alpha}}\xspace}
+\newcommand{\alphav}{\ensuremath{\alpha_v}\xspace}
+\newcommand{\aobsvecg}{\ensuremath{{\avec}_{\text{obs},g}}\xspace}
+\newcommand{\aobsvec}{\ensuremath{\Vec{a}_{\text{obs}}}\xspace}
+\newcommand{\aobs}{\ensuremath{a_{\text{obs}}}\xspace}
+\newcommand{\aoptip}{\ensuremath{\aopt_{i,p}}\xspace}
+\newcommand{\aoptpg}{\ensuremath{\aopt_{p,g}}\xspace}
+\newcommand{\aoptp}{\ensuremath{\aopt_p}\xspace}
+\newcommand{\aoptvecg}{\ensuremath{{{\aoptvec}_g}}\xspace}
+\newcommand{\aoptvec}{\ensuremath{\Vec{a}^*}\xspace}
+\newcommand{\aopt}{\ensuremath{a^*}\xspace}
+\newcommand{\aveci}{\ensuremath{\Vec{a}_i}\xspace}
+\newcommand{\avecj}{\ensuremath{\Vec{a}_j}\xspace}
+\newcommand{\avec}{\ensuremath{\Vec{a}}\xspace}
+\newcommand{\cveci}{\ensuremath{\cvec_i}\xspace}
+\newcommand{\cvecj}{\ensuremath{\cvec_j}\xspace}
+\newcommand{\cvec}{\ensuremath{\Vec{c}}\xspace}
+\newcommand{\deltaT}{\ensuremath{\delta t}\xspace}
+\newcommand{\fij}{\ensuremath{f_{i,j}}\xspace}
+\newcommand{\jmax}{\ensuremath{{j_{\max}}}\xspace}
+\newcommand{\kmax}{\ensuremath{{k_{\max}}}\xspace}
+\newcommand{\muij}{\ensuremath{\mu_{i,j}}\xspace}
+\newcommand{\phig}{\ensuremath{\phi_{g}}\xspace}
+\newcommand{\pij}{\ensuremath{p_{i,j}}\xspace}
+\newcommand{\qij}{\ensuremath{q_{i,j}}\xspace}
+\newcommand{\qji}{\ensuremath{q_{i,j}}\xspace}
+\newcommand{\setG}{\ensuremath{\mathbb{G}}\xspace}
+\newcommand{\setP}{\ensuremath{\mathbb{P}}\xspace}
+\renewcommand{\ng}{\ensuremath{{n_g}}\xspace}
 \renewcommand{\ng}{\ensuremath{{n_g}}\xspace}
 
 
@@ -109,71 +98,106 @@ inference} \date{Last compiled on \today\xspace at \currenttime.}
 
 
 \section*{Abstract}
-Methods used to infer phylogenies typically assume tractable but biologically naive time-reversible models.
+Methods used to infer phylogenies typically assume tractable but biologically naive general time-reversible models.
 We develop a population genetics based model that uses biological parameters (energy cost of protein production, amino acid properties, and more) to create more realistic models for DNA substitution for protein-coding genes. 
 These models incorporate selection on amino acids.
 The new set of models, which we collectively call selac models, fit phylogenetic data substantially better than current models, suggesting more accurate inference of phylogenies.
 Moreover, these models allow inference of population genetics parameters from data used for interspecific phylogenies.
 
 \section*{Introduction}
+Phylogeny inference now plays a critical role in the fields of ecology, evolution, paleontology, medicine, conservation, and others.
+While the scale and impact of phylogenetic studies has increased substantially over the past two decades, the realism of the models used to infer the trees has changed relatively little by comparison.
+The simplest models assume neutrality b/w the different amino acid substitutions and may or may not include mutation bias (e.g.~F81, F84, HYK85, TN93, and GTR for the former and JC69 and K80 for the latter).
+The next set of models attempt to include a 'selection' term $\omega$ which is interpreted as describing stabilizing or diversifying selection depending on whether $\omega$ is less than or greater than 1, respectively. 
+%frequency dependent selection or over- or underdominance
+However, the link between $\omega$ and the key parameters found in standard population genetics models of Wright and Fisher or Moran, such as \Ne, the distribution of $s$ across genotype space, and mutation bias are far from clear andl likely only describe a subset of scenarios such as over/underdominance or frequency dependent selection  \cite{HughesAndNei1988}.
+Fortunately, given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic reconstruction \citet[e.g.][]{HalpernAndBruno1988,RobinsonEtAl2003,LartillotAndPhillipe2004,RodrigueAndLartillot2014}.
+
+The field of population genetics is a mature, mathematically rigorous, and well established framework for describing biological evolution.
+Despite the fact that there are only a few fundamental evolutionary forces at play, i.e.~mutation, drift, selection, and linkage effects, describing the evolutionary behavior of a system in which there are non-linear interactions between different sites quickly becomes overwhelmingly complex and difficult to link to genomic data.
+In contrast, under the simplifying assumptions of additivity between and within sites, calculating stationary and substitution probabilities are relatively straightforward to calculate.
+As a result, fitting additive models of the evolutionary process to sequence data is computationally feasible.
+One major advantage to fitting models dervied from population genetics over other approches is that the parameters are biologically meaningful and of great interest to evolutionary biologists.
+For example in haploid population, if the product of effective population size $\Ne$ and the mutation rate of alleles $\mu_b$ is greater than one then the waiting time for the allele to emerge after an environmental shift is much shorter than the substitution process itself.
+Here we show how fitting a phylogenetic model derived from a population genetic model can be used to estimate $\Nemu$ from sequence data at the tips of the tree.
+
+The model we develop can be viewed as a special formulation of a mutation selection or MutSel model as described by \citet{Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005} used in phylogenetic studies \citet[e.g.][]{MuseAndGaut1994,HalpernAndBruno1988,YangAndNielsen2008,RodrigueEtAl2005, KoshiEtAl1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LarriotAndPhillippe2004,RodrigueAndLartillot2014} and other contexts \citet{WilkeAndDrummond2006a,Gilchrist2007,DrummondAndWilke2009,GilchristEtAl2015}.
+Our approach contributes to this body of work  by better modeling the effect of non-synonymous substitutions than \citet{YangANdNielsen2008}, which relies on the non-population genetics model of \citet{GoldmanAndYang1994}.
+While the mapping between genotype and phenotype is more abstract than \citet{ThorneEtAl2012}, our approach has the advantage of not requiring a model of a protein's physical structure.
+As with \citet{ThorneEtAl2012}, the model we work with is,  less general than formulation by \citet{HalpernAndBruno1988,LartillotAndPhillipe2004,RodrigueAndLartillot2014} in that we use a submodel to define substitution rates between amino acids rather letting them vary freely.
+Our approach provides an complementary example to \citet{ThorneEtAl2012} studies of how models of different biological scales can be nested within one another for phylogenetic analyses.
+We've utilized the same nested and population genetic based approach in more traditional genomic analyses \cite[e.g.][]{Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
+Our previous work illustrates how quantiative information on mutation bias, gene specific expression levels, and differences in codon specific ribosome pausing can be extracted from the patterns of codon usage embedded within the coding sequences of a genome.
+
+
+Similar to \citet{LartillotAndPhillipe2004,RodrigueAndLartillot2014} we assume there is a finite set of rate matrices describing the substitution process.\footnote{mikeg: If this is too detailed for the intro, this paragraph could be moved to the Discussion and summarized more succinctly here.}
+Unlike that work, we assume \emph{a priori} there are 20 different rate matrices, one for when a particular amino acid is most favored.
+To further simplify our model, instead of allowing the substitution rates in the different matricies to be symmetric but otherwise vary freely, we base the substitution rates to the average protein synthesis rate of the gene and physio-chemical dissimilarity between amino acid side chains after \citet{Grantham1974} and more generally and biologically based than \citet{YangEtAl1998,Yang2014}.
+This allows us to parameterize our substitution model using a small number of genome wide parameters and a large number of gene specific parameters.
+For example, given a gene specific expression level $\phi$ and sensitivity term $\lambda$, we can populate our twenty 20x20 substitution rate matrices using three\footnote{Jeremy is this correct?} genome wide mutation parameters and two genome wide physiochemical weighting parameters.
+Similar to \citet{LartillotAndPhillipe2004,RodrigueAndLartillot2014} work, fitting these substitution matrices to sequence data requires we categorize each site.
+In our case, the site category corresponds to which amino acid is optimal for a given site.
+As a result, this site categorization represents an additional set of parameters to be estimated from the data.
+While our approach requires only a few genome scale parameters, the number of gene specific parameters is large and equal to the number of amino acids that make up the protein encoded by the gene plus the two gene specific parameters previously mentioned, $\phi$ and $\lambda$.
+One important manner in which our approach moves beyond \citet{HalpernAndBruno1988,RobinsonEtAl2003,LartillotAndPhillipe2004,ThorneEtAl2012,RodrigueAndLartillot2014} is in that we parameterize the model and fit branch lengths simultaneously rather than in two separate steps.\footnote{Jeremy or Brian: I know this is true for Halpern and Bruno and am 95\% sure it applies to Jeff Thorne's work.
+Can you confirm its true for the Lartillot references?}
+
+
+
+
+\section*{Results}
 \begin{enumerate}
-\item Phylogeny inference has become key to understanding processes in ecology, evolution, paleontology, medicine, conservation, and more.
-  This is reflected in the expanding number of studies seeking to infer phylogenies (almost LARGE NUMBER studies per year (CITATION OF SOURCE -- maybe Stolzfus et al.?)).
-\item While the scale and impact of phylogenetic studies has increased substantially over the past XXX decades, the realism of the models used to infer the trees has changed relatively little by comparison.
-  Notable exception, however, include
-  \begin{itemize}
-  \item \citet{YangAndNielsen08} used pop gen but ...
-  \item \citet{RodrigueEtAl05} and those that cite it.
-  \item Richard Goldstein
-  \item \citet{WilliamsEtAl15}
-  \item Others
-  \end{itemize}
-\item Essentially all phylogenetic approaches use a substitution matrix $Q = \left\{\qij\right\}$  to model evolution, where
-  \begin{equation*}
-   \qij  = \text{Substitution rate from state $i$ to $j$.}
-  \end{equation*}
-\item Most models, e.g.~F84, GTR, and GY94, use a `time reversible matrix' where $\pi_i \qij = \pi_j \qji $ for all $i \neq j$.
-\item TRM were initially derived under the assumption of neutrality but have been extended heuristically to describe non-neutral evolution.
-\item However, non-neutral evolution is not a time reversible process, thus TRM models are unlikely to  accurately describe evolutionary behavior when natural selection occurs.
-To illustrate the disconnect between time reversible models and non-neutral evolution we use a simplified version of the extremely popular Goldman and Yang (1994)\cite{GoldmanAndYang94} (GY94) codon level model.
-In their model,
-    \begin{align*}
-      q_{i,j} &%= \text{Transition rate from $i \to j$} 
-         = \begin{cases}
-           0 & \text{$i$ and $j$ differ by more than one substitution}\\
-           \Pijhat & \text{Synonymous (S) substitution} \\
-           \omega \Pijhat & \text{Non-Synonymous (NS) substitution} \\
-         \end{cases}
-         \intertext{Where,}
-         \omega &= \text{`Selection' term applied to all NS substitutions}\\
-         \Pijhat &= \text{Equilibrium frequency of codon $i$}
-       \end{align*}
-When $\omega <1$ the GY94 model is purported to describe evolution under `purifying' selection where S substitutions are favored over NS substitutions.
-However, the model has the following behavior
-    \begin{enumerate}
-    \item If $i$ is the current state, GY94 implies selection favoring $i$. \label{pureone}
-    \item However, if NS substitution occurs, \ref{pureone} still applies and selection now favoring new state $j$!
-    \end{enumerate}
-Thus, the behavior of GY94 is actually not consistent with a constant selective environment, but instead is consistent with a system where the directionality of natural selection and a NS substitution occurs simultaneously.
-Similar inconsistencies occur when $\omega < 1$.
-\item The counter argument to the fact that non-neutral evolution is not time reversible is the observation that TRM do a good job reconstructing phylogenetic trees. 
-However, since the results of TRM models are rarely compared to non-TRM models (see [CITATIONS] for notable exceptions), how well they perform relative to more realistic models is an open question.
-\item In this study we develop a non-TRM (NTRM) model where the substitution rate of an allele is based on the substitution probability of an allele in the presence of selection for reducing protein synthesis costs and genetic drift, per standard models of population genetics.
+\item Using \DeltaAIC as our measure, we see that even despite the need for estimating the optimal amino acid at each position in each protein, our model performs astronomically better than the standard GTR model.
+\item In addition, we are able to generate estimates of gene expression which are well correlated with empirical estimates.
+\item By linking $q$ to gene expression, our approach is an alternative to the more common approach of simply concatenation of protein coding sequences.
+More specifically, in our model simply concatenating gene sequences together is equivalent to assuming the same aver protein synthesis rate $\phi$ for all of the genes.
+By assuming the strength of stabilizing selection for the optimal sequence, \astarvec, is proportional to $\phi$, our model allows us to estimate $\phi$ for each gene.
+Our results clearly indicate that this information is available and accounting for it in our model substantially improves our model fit.
+
+\item [Lots of other stuff]
+\end{enumerate}
+\section*{Discussion}
+
+\begin{itemize}
+\item Implicitly, our model assumes that all genes are essential because an organism that is homozygous for alleles with zero activity (i.e.~no benefit) would have to spend an infinite amount of energy to achive a target functionality production rate $\phi > 0$.
+This assumption can be relaxed by allowing $\phi$ to vary and fitness is function of that $\phi$ level and where there is an optimal $\phi$ level.
+\item Note that our definition of $\phi$ and our scaling of functionality differ slightly from our previous work \citep{Gilchrist07,GilchristEtAl09,ShahAndGilchrist11,GilchristEtAl15a}.
+In our previous work, we were concerned with how changes in synonymous codons affected error rates and synthesis costs and, as a result, defined functionality relative to an error free protein, rather than an optimal one, and conflated $\phi$ and $\psi$.
+\item Our approach requires relatively few parameter. 
+  \begin{enumerate}
+  \item Distance function $d(a_i, \aopt)$: If $n_d$ is the number of physiochemical properties examined, the number of parameters estimated is $n_d - 1$
+  \item Benefit function $\Func$: If $n_A$ is the order of our Taylor Series approximation, the number of parameters is $n_A-1$.
+  \item Gene expression $\phi$: One $\phi$ for each gene analyzed.
+  \item Mutation bias: Depends on the model used it is either equal to the number of parameters in the model $n_\mu$ or $n_\mu-1$.
+  \end{enumerate}
+\item Our approach can be expanded by allowing the optimal amino acid to change during the course of evolution.
+This should allow us to use a large, single 400 x 400 matrix instead of 20 separate 20x20 matrices.
+The new elements would contain the rates at which the optimal amino acid at site switches from its current state to another amino acid.
+Further, if we may be able to compare the statistical properties of this extended transition matrix to the single transition matrix used in other approaches.
+\item We conjecture the stationary properties of the 400x400 matrix mentioned above should map to an expected 20 x 20 empirical matrix where we average across when each of the different amino acid are optimal.
+\item Statistical Physics model allows decoupling of \Ne, $\mu$, and strength selection.
+\end{itemize}
+
+
+\section*{Additional Points That Need to Be Mentioned}
+\begin{itemize}
+\item In this study we develop a model where the substitution rate of an allele is based on the substitution probability of an allele under selection, mutation bias, and genetic drift, per standard models of population genetics.
 \item In developing our model, we assume that for each protein coding gene there is a single amino acid sequence which executes its intended function better than any other sequence, i.e. is optimal.
-We also assume that the functionality of other amino acid sequences declines as the physiochemical properties of the sequence deviates from that of the optimal sequence.
+\item We assume the strength of selection for the optimal sequence increases with the target synthesis rate of the functionality the gene provides.
+That is genes with higher target expression levels are under stronger selection than genes with lower target expression levels.
+\item We also assume that the functionality of other amino acid sequences declines as the physiochemical properties of the sequence deviates from that of the optimal sequence.
 \item We describe how functionality  declines with physiochemical distance using a Taylor series expansion and a set of weighting terms, which we estimate.
 \item Because we assume that a protein's functionality is a declining function of the product of the physiochemical distances of each of the protein's amino acid from the optimal, we can treat the evolution at each amino acid position in a site independent manner. 
-An approach which is almost universally used in TRM models.
+An approach which is almost universally used in other phylogenetic models.
 \item As a result, unlike most phylogenetic approaches, our model requires 20 different 20x20 rate matrices, one for when each amino acid is the optimal one.
 \item Even though our model requires a large number of matrices, because of our assumption that a protein's functionality is a declining function of physiochemical distance from the optimum, we are able to parameterize our 20 matrices using only a handful of parameters which we estimate from the data.
 \item Two additional key assumption of our model is that (a) the organism has an average target production rate $\phi$ for the functionality provided by each protein and (b) that protein synthesis is under some form of  regulatory control such that the this average functionality production target is met.
 As a result, the relative rate of protein synthesis increases as the sequence's functionality declines due to deviation from the optimal sequence.
 This behavior, in turn, means that the energetic cost of protein synthesis for an allele deviating from the optimal sequence increases with the target production rate $\phi$.
-For example, a protein encoding allele which has a 10\% reduction in functionality will have the same energetic burden relative to its optimal sequence as a protein encoding allele of similar length which has a 20\% reduction in functionality but whose target production rate is 1/2 of the first protein.
+For example, a protein encoding allele which has a 10\% reduction in functionality will have the same energetic burden and selective cost relative to its optimal sequence as a protein encoding allele of similar length which has a 20\% reduction in functionality but whose target production rate is 1/2 of the first protein.
 \item In its current formulation, our model is only applicable to protein coding sequences.
 However, it should be applicable to non-coding sequences so long as one has a mapping function between gene sequence and gene function.
 \end{enumerate}
-
 
 
 
@@ -183,7 +207,7 @@ However, it should be applicable to non-coding sequences so long as one has a ma
 \subsubsection*{Mutation Rate Matrix $\mu$: }
 The overall structure of our model involves a codon mutation model combined with a selection model on the codons based on the relative fitness (coming from explicit models of cost and benefits) at a site of the amino acid the codon encodes.
 We begin by defining a time reversible model for mutation rates between individual bases.
-We use existing substitution models (Jukes Cantor \citet{JukesAndCantor69} or General Time Reversible \citet{GTR}) to specify which rates are constrained to be equal for a mutation model.
+We use existing substitution models (Jukes Cantor \citet{JukesAndCantor69} or General Time Reversible \citet{Tavare86}) to specify which rates are constrained to be equal for a mutation model.
 This results in a 4x4 mutation matrix, where each entry describes the instantaneous rate of change between a pair of nucleotides.
 This is converted to a 64x64 codon mutation matrix $\mu$ where entries $\mu_ij$ describe the mutation rate from codon $i$ to $j$ by making two assumptions: mutations are independent between nucleotides within a codon and that for any pair of codons that differ by more than one nucleotide, the instantaneous transition rate is zero, since changes involving two or more nucleotides during time \deltaT have probabilities on the order of $\deltaT^2$.
 Both assumptions are common in codon models \cite{CITATIONS}.
@@ -206,7 +230,7 @@ where $\ng$ is the length of the protein, $d(\aip, \aoptp)$ is the physiochemica
 
 The shape of the relationship between fitness, $f(d)$, and physiochemical distance, $d$, is generally unknown, so  we fit a Taylor series approximation of  $f(d)$ based on the data.
 In order to allow for different sites to have different contributions to \Func, we include a random effects term $g$ in our definition of $f(d)$.
-Given our assumption that \Funcaoptvec = 1 and noting that $d$ has its own free parameters $\alpha$ and $\beta$, we define $f(d)$ as,
+Given our assumption that \Funcaoptvec = 1 and noting that $d$ has its own free parameters $\alphavec  = \left\{\alphac, \alphap, \alphav\right\}$, we define $f(d)$ as,
 \begin{align}
   \label{eq:fSeriesDef}
   f(d) &= 1 + g \sum_{k=1}^\kmax \frac{1}{k!}\frac{d f^k}{d^k d} d^k + O(d^{\kmax+1})\\
@@ -241,11 +265,11 @@ For simplicity, in this study we only consider the direct costs of protein assem
 Assuming that functionality declines with an amino acid $a_i$'s physiochemical distance from the optimum amino acid \aopt at each site  provides a biologically defensible way of linking comparing genotypes that requires relatively few free parameters.
 In addition, our approach naturally lends itself to model selection since we can compare the quality of our model fits using different mixtures of physiochemical properties.
 Following \citet{Grantham74}, we focus on using composition $c$, polarity $p$, and molecular volume $v$ of each amino acid's side chain residue to define our distance function, but emphasize that other properties could be used.
-We use the euclidian distance between residue properties where each property $c$, $p$, and $v$ has its own weighting term, $\alpha$, $\beta$, $\gamma$, respectively, [NOTE: WE MAY WANT TO USE $\alpha_c, \alpha_p, \ldots $ INSTEAD].
-Because of similar identifiability issues we have with $A_1$ and $\phi$, we set $\gamma = 1$ and recognize that our our estimates of $\alpha$ and $\beta$ are scaled relative to $\gamma$.
+We use the euclidian distance between residue properties where each property $c$, $p$, and $v$ has its own weighting term, $\alphac$, $\alphap$, $\alphav$, respectively.
+Because of similar identifiability issues we have with $A_1$ and $\phi$, we set $\alphav = 1$ and recognize that our our estimates of $\alphac$ and $\alphap$ are scaled relative to $\alphav$.
 More specifically,
 \begin{equation*}
-  d(a_i, \aopt) = \sqrt{\alpha \left(c\left(a_i\right) - c\left(\aopt\right)\right)^2 + \beta \left(p\left(a_i\right) - p\left(\aopt\right)\right)^2 +  \gamma \left(v\left(a_i\right) - v\left(\aopt\right)\right)^2}.
+  d(a_i, \aopt) = \sqrt{\alphac \left(c\left(a_i\right) - c\left(\aopt\right)\right)^2 + \alphap \left(p\left(a_i\right) - p\left(\aopt\right)\right)^2 +  \alphav \left(v\left(a_i\right) - v\left(\aopt\right)\right)^2}.
 \end{equation*}
 
 
@@ -313,7 +337,7 @@ Thus, the log likelihood is taken as
 \begin{align*}
 put likelihood equation here
 \end{align*}
-The log likelihood is maximized by estimating the combined parameter for $C*q*\Phi$, Ne, two of the three Grantham distance parameters, $\alpha_c$, $\alpha_p$ (again, we hold $\alpha_gamma$ constant -- see above), the free mutation rate parameters (i.e., five free parameters if assuming GTR) and their three free nucleotide frequency parameters, $\pi_i$, given an alignment and a fixed tree topology.
+The log likelihood is maximized by estimating the combined parameter for $C*q*\Phi$, Ne, two of the three Grantham distance parameters, $\alphac$, $\alphap$ (again, we hold $\alphav$ constant -- see above), the free mutation rate parameters (i.e., five free parameters if assuming GTR) and their three free nucleotide frequency parameters, $\pi_i$, given an alignment and a fixed tree topology.
 We also assume each optimal acid across all sites as free parameters to be estimated in the model.
 There are two ways in which we estimate the optimal amino acid at a given site: 1) use the majority rule of the amino acids observed across different species at a homologous site, and 2) numerically optimizing the choice of optimal amino acid at each site. 
 
@@ -326,36 +350,55 @@ where $k$ specifies the number of discrete categories.
 Note that this would add an additional free parameter, $\alpha_g$, which describes the shape of the distribution.
 
 
-\section*{Results}
-\begin{enumerate}
-\item Using \DeltaAIC as our measure, we see that even despite the need for estimating the optimal amino acid at each position in each protein, our model performs astronomically better than the standard GTR model.
-\item In addition, we are able to generate estimates of gene expression which are well correlated with empirical estimates.
-\item [Lots of other stuff]
-\end{enumerate}
-\section*{Discussion}
-
-\begin{itemize}
-\item Implicitly, our model assumes that all genes are essential because an organism that is homozygous for alleles with zero activity (i.e.~no benefit) would have to spend an infinite amount of energy to achive a target functionality production rate $\phi > 0$.
-This assumption can be relaxed by allowing $\phi$ to vary and, in turn, have some impact on fitness.
-\item Note that our definition of $\phi$ and our scaling of functionality differ slightly from our previous work \citep{Gilchrist07,GilchristEtAl09,ShahAndGilchrist11,GilchristEtAl15a}.
-In our previous work, we were concerned with how changes in synonymous codons affected error rates and synthesis costs and, as a result, defined functionality relative to an error free protein, rather than an optimal one, and conflated $\phi$ and $\psi$.
-\item Our approach requires relatively few parameter. 
-  \begin{enumerate}
-  \item Distance function $d(a_i, \aopt)$: If $n_d$ is the number of physiochemical properties examined, the number of parameters estimated is $n_d - 1$
-  \item Benefit function $\Func$: If $n_A$ is the order of our Taylor Series approximation, the number of parameters is $n_A-1$.
-  \item Gene expression $\phi$: One $\phi$ for each gene analyzed.
-  \item Mutation bias: Depends on the model used it is either equal to the number of parameters in the model $n_\mu$ or $n_\mu-1$.
-  \end{enumerate}
-\item Our approach can be expanded by allowing the optimal amino acid to change during the course of evolution.
-This should allow us to use a large, single matrix 400 x 400 matrix instead of 20 separate 20x20 matrices.
-Further, if we may be able to compare the statistical properties of this extended transition matrix to the single transition matrix used in other approaches.
-\item Statistical Physics model allows decoupling of \Ne, $\mu$, and strength selection.
-\end{itemize}
 \bibliographystyle{./am.nat}
 \bibliography{./mike}
 
 
 \end{document}
+
+
+\subsection*{Discussion of \citet{GoldmanAndYang1994}
+}\begin{itemize}
+  Notable exception, however, include
+  \begin{itemize}
+  \item \citet{MuseAndGaut94,HalpernAndBruno98,YangAndNielsen08} used MutSel model (FMutSel) 
+    \begin{itemize}
+    \item Physiochemical properties and, as a result, are either very simple (one matrix for all sites) or very parameter rich (one matrix per site) \citet{RodrigueEtAl05} 
+    \item Gene expression.
+    \end{itemize}
+    See \citet{Yang14} p.~44-47 for a brief summary.
+  \item \citet{WilliamsEtAl15}, \citet{YangEtAl98}
+  \item Others
+  \end{itemize}
+\item Essentially all phylogenetic approaches use a substitution matrix $Q = \left\{\qij\right\}$  to model evolution, where
+  \begin{equation*}
+   \qij  = \text{Substitution rate from state $i$ to $j$.}
+  \end{equation*}
+
+To illustrate the disconnect between how evolution actually non-neutral evolution we use a simplified version of the extremely popular \cite{GoldmanAndYang94} (GY94) codon level model.
+In their model,
+    \begin{align*}
+      q_{i,j} &%= \text{Transition rate from $i \to j$} 
+         = \begin{cases}
+           0 & \text{$i$ and $j$ differ by more than one substitution}\\
+           \Pijhat & \text{Synonymous (S) substitution} \\
+           \omega \Pijhat & \text{Non-Synonymous (NS) substitution} \\
+         \end{cases}
+         \intertext{Where,}
+         \omega &= \text{`Selection' term applied to all NS substitutions}\\
+         \Pijhat &= \text{Equilibrium frequency of codon $i$}
+       \end{align*}
+When $\omega <1$ the GY94 model is purported to describe evolution under `purifying' selection where S substitutions are favored over NS substitutions.
+However, the model has the following behavior
+    \begin{enumerate}
+    \item If $i$ is the current state, GY94 implies selection favoring $i$. \label{pureone}
+    \item However, if NS substitution occurs, \ref{pureone} still applies and selection now favoring new state $j$!
+    \end{enumerate}
+Thus, the behavior of GY94 is actually not consistent with a constant selective environment, but instead is consistent with a system where the directionality of natural selection and a NS substitution occurs simultaneously.
+Similar inconsistencies occur when $\omega > 1$.
+\item The counter argument to the above criticism is the observation that, despite their simplicity and disconnect from population genetics, these models do a good job reconstructing phylogenetic trees when compared to trees based on other methods.
+A more appropriate comparison would be to directly compare they perform relative to more realistic models such as the one we present here.
+\end{itemize}
 
 
 \paragraph*{Simulations}
