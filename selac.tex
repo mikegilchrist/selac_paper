@@ -177,7 +177,7 @@ By linking the strength of stabilizing selection to gene expression, specificall
 \end{figure}
 \item Table of number of parameters, estimates for key parameters (or their summaries), and \DeltaAIC values.
 \item The gene specific estimate of \alphag provides an estimate of the variance in sensitivity across sites where $\Var(G) = 1/\alphag$.  
-\item Selac provides estimates of gene expression which are positively correlated with empirical estimates and explain about 7\% of the variation in the empirical measurements taken during log growth phase.
+\item Selac provides estimates of gene expression which are positively correlated with empirical estimates and explain about 7\% of the variation in the empirical measurements taken during log growth phase.\footnote{mikeg: We should replace the estimates of $\phi$ with estimates of $\psi$ which is $\phi/\Funcaobsvec$} 
 
 \renewcommand{\subfigwidth}{0.4\textwidth}
 \begin{figure}[H]
@@ -262,7 +262,7 @@ Our approach allows us to link amino acid sequence and gene expression directly 
 \subsubsection*{Mutation Rate Matrix $\mu$: }
 The overall structure of our model involves a codon mutation model combined with a selection model on the codons based on the relative fitness (coming from explicit models of cost and benefits) at a site of the amino acid the codon encodes.
 We begin by defining a time reversible model for mutation rates between individual bases.
-We use the existing drift driven substitution model JC \citet{JukesAndCantor1969}, also referred to as a General Time Reversible (GTR) \citet{Tavare1986,Yang2014} which has 8 independent parameters, the most possible for a model that assumes mutations occur independently between nucleotides.
+We use the existing drift driven substitution model JC \citet{JukesAndCantor1969}, also referred to as a General Time Reversible (GTR) \citet{Tavare1986,Yang2014} which has 9 independent parameters, the most possible for a model that assumes mutations occur independently between nucleotides.
 This results in a 4x4 mutation matrix, where each entry describes the instantaneous rate of change between a pair of nucleotides for the most recent common ancestor at that site.
 This is converted to a $64 \times 64$ codon mutation matrix $\mu$ where entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a 'weak mutation' assumption.
 That is, the rate of allele fixation is much greater than \Nemu and $\Nemu \ll 1$, such that evolution is mutation limited, codon substitutions only occur one nucleotide at a time and, as a result,  the rate of change between any pair of codons that differ by more than one nucleotide is zero.
@@ -390,19 +390,11 @@ This matrix can then be applied to all the sites to calculate the likelihood.
 Given our assumption of independent evolution among sites, the probability of the whole data set is the product of the probabilities of data at each individual sites.
 Thus, the log likelihood is taken as 
 \begin{align*}
-put likelihood equation here
-\end{align*}
-The log likelihood is maximized by estimating the combined parameter for $C \, q \, \phi$ \Ne, two of the three Grantham distance parameters, $\alphac$, $\alphap$ (again, we hold $\alphav$ constant -- see above), the free mutation rate parameters (i.e., five free parameters if assuming GTR) and their three free nucleotide frequency parameters, $\pi_i$, given an alignment and a fixed tree topology.
-We also assume each optimal acid across all sites as free parameters to be estimated in the model.
-There are two ways in which we estimate the optimal amino acid at a given site: 1) use the majority rule of the amino acids observed across different species at a homologous site, and 2) numerically optimizing the choice of optimal amino acid at each site. 
-
-In the case of including a random effect as described in Eq.(5) by specifying a discrete gamma, the log likelihood function becomes, 
-[MAG PLEASE USE THE STANDARD \\label{NAME} TO LABEL EQUATIONS AND OTHER OBJECTS AND USE \\ref{NAME} TO REFER TO THESE OBJECTS.] 
-\begin{align*}
 \text{\textbf{Jeremy: put gamma likelihood equation here?}}
 \end{align*}
-where $k$ specifies the number of discrete categories.
-Note that this would add an additional free parameter, $\alphag$, which describes the shape of the distribution.
+The log likelihood is maximized by estimating the global parameters: $C \, q \, \Ne$, 9 mutation parameters which are scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$ (again, we hold $\alphav$ constant -- see above)
+For each gene, we estimate its target functionality synthesis rate $\phi$ and the sensitivity distribution parameter \alphag, and the optimal amino acid for each position in the protein.
+
 
 
 \bibliographystyle{./am.nat}
