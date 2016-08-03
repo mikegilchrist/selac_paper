@@ -251,7 +251,7 @@ However, it should be applicable to non-coding sequences so long as one has a ma
 \section*{Methods}\label{sec:methods}
 The way in which we mathematically link genotype, phenotype, fitness, drift, and fixation, is an extension of a similar approach we have successfully used to study the evolution of codon usage bias using an organisms genome sequence\citep{GilchristAndWagner2006,Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
 In order to explicitly link the phenotype of genotype to fitness, we assume that organisms have set of fixed but \emph{a priori} unspecified metabolic requirements.
-One contribution to meeting these metaboloic requirements met through translation of the proteins encoded in its genome.
+One contribution to meeting these metabolic requirements met through translation of the proteins encoded in its genome.
 We assume that each protein has, on average, a target synthesis rate of $\phi$ and, for now, that $\phi$ is fixed over the tree.
 We also assume that natural selection favors genotypes that are able to synthesize their proteome efficiently than their competitors and that each savings of an high energy phosphate bond per unit time leads to a constant proportional gain in fitness $q$.
 In terms of the functionality of the protein encoded, we assume that for any given gene there exists an optimal amino acid sequence \aoptvec and that, by definition, a complete, error free peptide consisting of \aopt provides one unit of functionality.
@@ -306,7 +306,8 @@ For simplicity, in this study we ignore any indirect costs of protein synthesis 
 where, $C_1$ and $C_2$ represent the direct and indirect costs in ATPs of ribosome initiation and peptide elongation, respectively.
 When sequence specific costs, such as ribosome pausing times, are included with sequence specific benefits, the probability of a mutant allele fixing is no longer independent of the rest of the sequence.
 As a result, our site independent assumption is violated and the fitting of our model becomes much more complex.
-For simplicity, in this study we only consider the direct costs of protein assembly and, thus, $C_1 = C_2 = 4  \,\text{ATP}$.\footnote{mikeg: Jeremy, can we let $C_1$ vary as a factor of $C_2$ and then refit the model?}
+For simplicity, in this study we only consider the direct costs of protein assembly and, thus, $C_1 = C_2 = 4  \,\text{ATP}$.
+\footnote{mikeg: Jeremy, can we let $C_1$ vary as a factor of $C_2$ and then refit the model?}
  
 
 
@@ -366,6 +367,9 @@ where $b=1$ for a diploid population and $2$ for a haploid population \citep{Kim
 \footnote{mikeg: Jeremy and Brian -- given that the formulation above suggests we can separate out $\phi$ and $\Ne$ when, with the current dataset we cannot.  
 Should we use the approximation that can be derived from either \citet{SellaAndHirsh2005} and \citet{Kimura1962} instead?
 Alternatively, we could simply discuss this fact and leave the implementation and testing to another day.
+jeremyb: while it might be true that in theory we can separate out phi and Ne, recall that we found that different starting points for Ne and phi resulted in similar fits, which implies an identifiability issue. 
+In other words, if we used large Ne, small phi produced a similar fit as small Ne and large phi.
+I think at this stage it might be good to perhaps say they should in theory be separated out, but our current implementation suggests otherwise, and this remains an active area for further exploration, or something along those lines.
 }
 Finally, assuming a constant mutation rate between alleles $i$ and $j$, $\muij$, where $\muij = 0$ when two codons differ by more than one nucleotide, the transition rate from allele $i$ to $j$ can be modeled as,
 \begin{align*}
@@ -373,30 +377,41 @@ Finally, assuming a constant mutation rate between alleles $i$ and $j$, $\muij$,
 \end{align*}
 In the end, each optimal amino acid has a separate 64 x 64 substitution rate matrix \Qmatrixa, which incorporates selection for the amino acid (and the fixation rate matrix this creates) as well as the common mutation parameters across optimal amino acids. 
 This results in the creation of 20  \Qmatrixa  matrices, one for each amino acid, with up to XXXXX unique rates, based on few parameters (one to six mutation rates, three weights on physiochemical distances, the cost of protein production, target functionality, and optimal amino acid at each site), which we infer from the data.
-\footnote{mikeg:  Jeremy previous text included the stop codons and referred to 21 matrices (as it still does below). 
-I thought we only modeling only the 20 amino acids.}
+\footnote{mikeg: Jeremy previous text included the stop codons and referred to 21 matrices (as it still does below). 
+I thought we only modeling only the 20 amino acids.
+jeremyb: I followed what Brian had started which was to include stop codons but have really high rates out of such states. 
+This caused an issue early on and we decided assuming infinite rates out or zero rates in are nearly the same thing.
+In any event, the implementation assumes there are none in the data set but they are still part of the matrix to make future work easier.
+So if necessary this is a place where the implementation and the text could vary for clarity.
+}
 Future work will allow transitions between optimal amino acids as well as between codons, which would result in a $(21 x 64) \times (21 x 64) =  1344 \times 1344$ matrix. 
 
 
-While the overall model does not assume equilibrium, we need still need to scale our substitution matrices $\Qmatrix$.
+While the overall model does not assume equilibrium, we still need to scale our substitution matrices $\Qmatrix$.
 Traditionally, it is rescaled such that at equilibrium, one unit of branch length represents one expected substitution per site.
 In our case, we want to do this scaling across all the matrices, since the branch lengths are used in common across the gene.
 One wrinkle is that this must be done taking optimal amino acid frequency into account. 
 Here the scaling is done jointly across all the 21 matrices to allow branch lengths under the fixed optimal amino acid model to be comparable to the branch lengths under the global model.
-\footnote{mikeg: What do we mean by ``global model''?}
+\footnote{mikeg: What do we mean by ``global model''?
+jeremyb: This is a bit confusing, but I think what this means is that we use submatrices to economize the calculations rather than exponentiating a 1344 x 1344 extremely sparse matrix.
+But if we did we would be rescaling this huge matrix (the global model), whereas, here we do it piecemeal.
+}
 We calculate from the data a vector of 1344 empirical frequencies, $\pi$ for each of the 64 codons observed when assuming each of 21 possible as the optimal amino acid (including stop codons).
 A scaling factor is then calculated as the average rate $-\sum_i{} \mu_i*\pi_i=1$, where $i$ indexes a particular codon for a particular optimal amino acid.
 The final substitution-rate matrix is the original substitution-rate matrix multiplied by this scaling factor.
 This matrix can then be applied to all the sites to calculate the likelihood. 
+Finally, in the usual manner the diagonal elements of $\Qmatrix$ defining substitution for a given optimal amino acid are fixed so that the rows sum to zero, which allows for $\P = \e^\Qmatrixa*t$ to be calculated for the matrix $P_ij$ whose elements give the probabilities that codon $j$ replaces codon $i$ after time $t$. 
 
-\subsubsection*{Likelihood Calculations on a Tree: }
-Given our assumption of independent evolution among sites, the probability of the whole data set is the product of the probabilities of data at each individual sites.
-Thus, the log likelihood is taken as 
-\begin{align*}
-\text{\textbf{Jeremy: put gamma likelihood equation here?}}
-\end{align*}
-The log likelihood is maximized by estimating the global parameters: $C \, q \, \Ne$, 9 mutation parameters which are scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$ (again, we hold $\alphav$ constant -- see above)
-For each gene, we estimate its target functionality synthesis rate $\phi$ and the sensitivity distribution parameter \alphag, and the optimal amino acid for each position in the protein.
+Given our assumption of independent evolution among sites, the probability of the whole data set is the product of the probabilities of observing the data at each individual site. 
+Thus, the log likelihood of an individual site is calculated as 
+\begin{equation}
+\Lmatrix(\Qmatrixa) \propto \Pmatrix(\Dmatrix|\Qmatrixa,\Tmatrix)
+\end{equation}}
+In this case, the data, $\Dmatrix$, are the observed codon states at the tips of a phylogeny $Tmatrix$, whose topology are known. 
+The pruning algorithm of Felsenstein (1981) is used to calculate $\Lmatrix(Qmatrixa)$. 
+The log likelihood is maximized by estimating the global parameters: $C \, q \, \Ne$, 8 mutation parameters which are scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$ (again, we hold $\alphav$ constant -- see above).
+For each gene, we also estimate its target functionality synthesis rate $\phi$ as well as the sensitivity distribution parameter \alphag, and the optimal amino acid for each position in the protein. 
+When estimating \alphag, the likelihood then becomes the average likelihood across k discrete site classes (see Yang 1994).
 
 
 
