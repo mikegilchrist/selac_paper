@@ -47,8 +47,12 @@
 \newcommand{\Pij}{\ensuremath{\pi_{j}}\xspace}
 \newcommand{\Pivechat}{\ensuremath{\hat{\Pivec}}\xspace}
 \newcommand{\Pivec}{\ensuremath{\Vec{\pi}}\xspace}
-\newcommand{\Qmatrixa}{\ensuremath{\Qmatrix_a}\xspace}
+\newcommand{\Pmatrix}{\mathbf{P}\xspace}
+\newcommand{\Tmatrix}{\mathbf{T}\xspace}
+\newcommand{\Dmatrix}{\mathbf{D}\xspace}
+\newcommand{\Lmatrix}{\mathbf{L}\xspace}
 \newcommand{\Qmatrix}{\mathbf{Q}\xspace}
+\newcommand{\Qmatrixa}{\ensuremath{\Qmatrix_a}\xspace}
 \newcommand{\Wi}{\ensuremath{{W_i}}\xspace}
 \newcommand{\Wj}{\ensuremath{{W_j}}\xspace}
 
@@ -195,7 +199,7 @@ By linking the strength of stabilizing selection to gene expression, specificall
 More specifically, in our model simply concatenating gene sequences together is equivalent to assuming the same aver protein synthesis rate $\phi$ for all of the genes.
 By assuming the strength of stabilizing selection for the optimal sequence, \aoptvec, is proportional to $\phi$, our model allows us to estimate $\phi$ for each gene.
 Our results clearly indicate that this information is available and accounting for it in our model substantially improves our model fit.
-\item [Lots of other stuff]
+\item \textbf{Lots of other stuff}
 \end{enumerate}
 \section*{Discussion}
 
@@ -397,16 +401,17 @@ jeremyb: This is a bit confusing, but I think what this means is that we use sub
 But if we did we would be rescaling this huge matrix (the global model), whereas, here we do it piecemeal.
 }
 We calculate from the data a vector of 1344 empirical frequencies, $\pi$ for each of the 64 codons observed when assuming each of 21 possible as the optimal amino acid (including stop codons).
-A scaling factor is then calculated as the average rate $-\sum_i{} \mu_i*\pi_i=1$, where $i$ indexes a particular codon for a particular optimal amino acid.
+A scaling factor is then calculated as the average rate $-\sum_i \mu_i \pi_i=1$, where $i$ indexes a particular codon for a particular optimal amino acid.
+\footnote{mikeg: Jeremy, avoid using $*$ for multiplication. Either leave it implicit $(a b)$ or use \\times, $(a \times b)$}
 The final substitution-rate matrix is the original substitution-rate matrix multiplied by this scaling factor.
 This matrix can then be applied to all the sites to calculate the likelihood. 
-Finally, in the usual manner the diagonal elements of $\Qmatrix$ defining substitution for a given optimal amino acid are fixed so that the rows sum to zero, which allows for $\P = \e^\Qmatrixa*t$ to be calculated for the matrix $P_ij$ whose elements give the probabilities that codon $j$ replaces codon $i$ after time $t$. 
+Finally, in the usual manner the diagonal elements of $\Qmatrix$ defining substitution for a given optimal amino acid are fixed so that the rows sum to zero, which allows for $P(t) = \exp\left[\Qmatrixa t\right]$ to be calculated for the matrix $\Pij$ whose elements give the probabilities that codon $j$ replaces codon $i$ after time $t$. 
 
 Given our assumption of independent evolution among sites, the probability of the whole data set is the product of the probabilities of observing the data at each individual site. 
 Thus, the log likelihood of an individual site is calculated as 
 \begin{equation}
-\Lmatrix(\Qmatrixa) \propto \Pmatrix(\Dmatrix|\Qmatrixa,\Tmatrix)
-\end{equation}}
+\Lmatrix\left(\Qmatrixa\right) \propto \Pmatrix\left(\Dmatrix\middle|\Qmatrixa,\Tmatrix\right)
+\end{equation}
 In this case, the data, $\Dmatrix$, are the observed codon states at the tips of a phylogeny $Tmatrix$, whose topology are known. 
 The pruning algorithm of Felsenstein (1981) is used to calculate $\Lmatrix(Qmatrixa)$. 
 The log likelihood is maximized by estimating the global parameters: $C \, q \, \Ne$, 8 mutation parameters which are scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$ (again, we hold $\alphav$ constant -- see above).
