@@ -1,0 +1,25 @@
+From lefty913@gmail.com Thu Jul 28 16:57:51 2016
+Date: Thu, 28 Jul 2016 13:57:07 -0700
+From: Jeremy Beaulieu <lefty913@gmail.com>
+To: Michael Gilchrist <mikeg@utk.edu>
+Subject: plots
+Resent-From: <mikeg@utk.edu>
+
+
+
+
+
+    [ Part 2, Application/PDF (Name: "GTR_histPie_yeast.pdf") 5.9 KB. ]
+    [ Unable to print this part. ]
+
+
+    [ Part 3, Application/PDF (Name: "GTR_histRates_yeast.pdf") 6.4 KB. ]
+    [ Unable to print this part. ]
+
+
+    [ Part 4, Application/PDF (Name: "GTR_pi_yeast.pdf") 8.7 KB. ]
+    [ Unable to print this part. ]
+
+
+    [ Part 5, Application/PDF (Name: "GTR_rates_yeast.pdf") 9.7 KB. ]
+    [ Unable to print this part. ]
