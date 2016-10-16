@@ -9,7 +9,9 @@
 \usepackage{subfig}
 \usepackage{xspace} 
 \usepackage{natbib}
+\usepackage[normalem]{ulem} %strike out via \sout{}
 \usepackage{datetime} %provides \currenttime command
+%\usepackage[nomarkers,figuresonly]{endfloat}  %%place all figures at end
 
 \graphicspath{{./Figures/}} \DeclareGraphicsExtensions{.pdf, .jpg, .png}
 
@@ -26,7 +28,7 @@
 \newcommand{\Costavec}{\ensuremath{\Cost(\avec)}\xspace}
 \newcommand{\Costcveci}{\ensuremath{\Cost(\cveci)}\xspace}
 \newcommand{\Costcvecj}{\ensuremath{\Cost(\cvecj)}\xspace}
-\newcommand{\Cost}{\ensuremath{\text{\textbf{Cost}}}\xspace}
+\newcommand{\Cost}{\ensuremath{\text{\textbf{C}}}\xspace}
 \newcommand{\DeltaAIC}{\ensuremath{\Delta\text{AIC}}\xspace}
 \newcommand{\EE}{\mathbb{E}} %use for expectation function E()
 \newcommand{\Funcaobsvec}{\ensuremath{\Func(\aobsvec|\aoptvec)}\xspace}
@@ -36,7 +38,7 @@
 \newcommand{\Funcavec}{\ensuremath{\Func(\avec|\aoptvec)}\xspace}
 \newcommand{\Funccveci}{\ensuremath{\Func(\cveci|\aoptvec)}\xspace}
 \newcommand{\Funccvec}{\ensuremath{\Func(\cvec|\aoptvec)}\xspace}
-\newcommand{\Func}{\ensuremath{\text{\textbf{Benefit}}}\xspace}
+\newcommand{\Func}{\ensuremath{\text{\textbf{B}}}\xspace}
 \newcommand{\GTR}{GTR+$\Gamma$\xspace}
 \newcommand{\LogN}{\ensuremath{\text{LogN}}\xspace}
 \newcommand{\Ne}{\ensuremath{{N_e}}\xspace} %
@@ -121,7 +123,7 @@ While the scale and impact of phylogenetic studies has increased substantially o
 The simplest models assume neutrality between the different amino acid substitutions and may or may not include mutation bias (e.g.~F81, F84, HYK85, TN93, and GTR for the former and JC69 and K80 for the latter, see \citet{Yang2014} for an overview).
 The next set of models attempt to include a 'selection' term $\omega$ which is interpreted as describing stabilizing or diversifying selection depending on whether $\omega$ is less than or greater than 1, respectively. 
 %frequency dependent selection or over- or underdominance
-However, the link between $\omega$ and the key parameters found in standard population genetics models of Wright and Fisher or Moran, such as \Ne, the distribution of $s$ across genotype space, and mutation bias are far from clear andl likely only describe a subset of scenarios such as over/underdominance or frequency dependent selection  \citep{HughesAndNei1988}.
+However, the link between $\omega$ and the key parameters found in standard population genetics models of Wright and Fisher or Moran, such as \Ne, the distribution of $s$ across genotype space, and mutation bias are far from clear and likely only describe a subset of scenarios such as over/underdominance or frequency dependent selection  \citep{HughesAndNei1988}.
 Fortunately, given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic reconstruction \citep[e.g.][]{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 
 The field of population genetics is a mature, mathematically rigorous, and well established framework for describing biological evolution.
@@ -132,18 +134,20 @@ One major advantage to fitting models derived from population genetics over othe
 For example in haploid population, if the product of effective population size $\Ne$ and the mutation rate of beneficial alleles $\mu_b$ is greater than one, then the waiting time for an adaptive allele to emerge after an environmental shift is much shorter than the substitution process itself and evolution itself is not mutation limited.
 Here we show how fitting a phylogenetic model derived from a population genetic model can be used to estimate $\Nemu$ as well as the optimal amino acid sequence of a protein and the average protein synthesis rate of each gene using only coding sequence data from the tips of the tree.
 
-The model we develop can be viewed as a special formulation of the Wright-Fisher (WF) model \citep{Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005}.
-We ignore linkage effects and, as a result of this and other assumptions, our model behaves in a site independent manner.
+The model we develop is based on the classig the Wright-Fisher (WF) model \citep{Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005}.
+For simplicity, we ignore linkage effects and, as a result of this and other assumptions, our model behaves in a site independent manner.
 Our approach is developed in the same vein as previous phylogenetic applications of the WF model \citep[e.g.][]{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008,RodrigueEtAl2005,KoshiAndGoldstein1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LartillotAndPhilippe2004,RodrigueAndLartillot2014}. % and other contexts \citep{WilkeAndDrummond2006,Gilchrist2007,DrummondAndWilke2009,GilchristEtAl2015}.\footnote{mikeg: When and how often to refer to our model as `MutSel' ala YN08 and Wilke.}
 Similar to \citet{LartillotAndPhilippe2004,RodrigueAndLartillot2014} we assume there is a finite set of rate matrices describing the substitution process and that each position within a protein must assigned to a particular rate matrix category.%\footnote{mikeg: If this is too detailed for the intro, this paragraph could be moved to the Discussion and summarized more succinctly here.}
-Unlike othe researchers, we assume \emph{a priori} there are 20 different families of rate matrices, one family for when a given amino acid is favored at a site.
+
+Unlike other researchers, we assume \emph{a priori} there are 20 different families of rate matrices, one family for when a given amino acid is favored at a site.
 As a result, our approach allows us to quantiatively evaluate the support for a particular amino acid being favored over all the 19 other at a particular position within the protein encoded by a particular gene.
 % category corresponds to identifying which amino acid is favored over the others for a given site (i.e.~optimal at that position within the protein).
 
-Because our approach requires twenty families of $20 \times 20$ matrices, the number of parameters needed to implement our model would, without further simplification, be extremely large.
-To reduce the number of parameters needed while still maintaining a high degree of biological realism, we construct our gene and amino acid specific substitution matrices using a submodel.
-As a result, our model requires only a handful of parameters that are used genome wide such as nucleotide specific mutation parameters, the effective population size \Ne, and side chain physiochemical weighting parameters.
-In addition to these genome wide parameters, our model requires two gene specific parameters: an expression parameter, $\phi$ which scale the average strength of stabilizing selection for the optimal amino acid at each position and a variance parameter which describes how the strength of stabilizing selection varies around the mean value between positions.
+Because our approach requires twenty families of $61 \times 61$ matrices, the number of parameters needed to implement our model would, without further simplification, be extremely large.
+To reduce the number of parameters needed while still maintaining a high degree of biological realism, we construct our gene and amino acid specific substitution matrices using a submodel nested within our substitution model.
+As a result, our nested modeling framework requires only a handful of genome wide parameters such as nucleotide specific mutation rates (scaled by effective population size), side chain physiochemical weighting parameters, and a shape parameter describing the distribution of site sensitivities around a mean value of 1.
+In addition to these genome wide parameters, our model requires a gene specific expression parameter $\psi$, which describes the average synthesis rate of a protein and scales the strength of selection at the gene level.
+Our model also requires the designation of an optimal amino acid at each position or site within a coding sequence which, in turn, makes it the largest category of parameters we estimate.
 Because we use a submodel to derive our substitution matrices, our model requires the estimation of a fraction of the parameters required when compared to approaches where the substitution rates are allowed to vary independently  \citep{HalpernAndBruno1998,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 
 
@@ -154,17 +158,17 @@ For example, we are able to compare a model formulation which assumes that physi
 We've utilized the same nested, population genetic based approach in more traditional genomic analyses \citep[e.g.][]{Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
 That work and our current work illustrates how more information can be extracted from sequence data when more biologically based models are used.
 While the mapping between genotype and phenotype is more abstract than \citet{ThorneEtAl2012}, our approach has the advantage of not requiring a model of a protein's physical structure.
-By linking the strength of stabilizing selection to gene expression, specifically the average synthesis rate of a protein, we can weight the historical information encoded in different genes in a biologically defensible manner while simultaneously estimating their expression levels.
+By linking the strength of stabilizing selection to gene expression,  we can weight the historical information encoded in different genes in a biologically plausible manner while simultaneously estimating their expression levels.
 
 
 
 
 \section*{Results}
 \subsection*{Model Performance}
-
 \begin{enumerate}
 \item Using \DeltaAIC as our measure, we see that even despite the need for estimating the optimal amino acid at each position in each protein, our model performs astronomically better than GTR, GY94, or YN08.
-\item Including the random effects term $G$ not only provides greater biological realism than assuming $G =1$, it provides substantially better model fit.
+\item Including the random effects term $G$ not only provides greater biological realism than assuming $G =1$, it provides substantially better model fit and improves the \DAIC score by over 16,000 units.
+
 \newcommand{\subfigwidth}{0.4\textwidth}
 \begin{figure}[H]
   \centering
@@ -183,8 +187,23 @@ By linking the strength of stabilizing selection to gene expression, specificall
   \label{fig:MleTrees}
 \end{figure}
 \item Table of number of parameters, estimates for key parameters (or their summaries), and \DeltaAIC values.
-\item The gene specific estimate of \alphag provides an estimate of the variance in sensitivity across sites where $\Var(G) = 1/\alphag$.  
-\item Selac provides estimates of gene expression which are positively correlated with empirical estimates and explain about 7\% of the variation in the empirical measurements taken during log growth phase.\footnote{mikeg: We should replace the estimates of $\phi$ with estimates of $\psi$ which is $\phi/\Funcaobsvec$} 
+\begin{table}
+\begin{tabular}{lrrrrl}
+  Model                 & logLik   & Parameters&     AIC& $\Delta$ AIC& w\\
+  GTR + Gamma           & -557990.3&        648& 1,117,277& 454,694& <0.001\\
+  GY94                  & -509625.1&        223& 1,019,698& 357,115& <0.001\\
+  MutSel                & -518090.6&           & 1,120,945& 458,362& <0.001\\
+  SelAC: GTR            & -382725.8&           &   850,391& 187,808& <0.001\\
+  SelAC: UNREST         & -381881.4&           &   678,816&  16,233& <0.001\\
+  SelAC: UNREST + Gamma & -373765.6&           &   662,583&       0& 0.999
+\end{tabular}
+\caption{random effects, RE}
+\end{table}
+
+\item Selac provides estimates of gene expression which are positively correlated with empirical estimates and explain about 7\% of the variation in the empirical measurements taken during log growth phase.\footnote{mikeg: \sout{We should replace the estimates of $\psi$ with estimates of $\phi$ which is $\psi/\Funcaobsvec$.} 
+I've decided it's better to replace $\phi$ with $\psi$ rather than the other way around.
+Thus, \phi is the target production rate of error free protein $a$ and $\psi$ is the target production rate of error free protein \astar.
+$\phi = \psi/\Func$}
 
 \renewcommand{\subfigwidth}{0.4\textwidth}
 \begin{figure}[H]
@@ -192,12 +211,12 @@ By linking the strength of stabilizing selection to gene expression, specificall
   \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{RPF_vs_Phi/RNA_abunIngolia_vs_SelACphiGamma}}}
   \qquad
   \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{mRNA_vs_Phi/mRNA_abunHolstege_vs_SelACphiGamma}}}
-\caption{Comparison of log protein synthesis rate $\phi$  estimated by selac and (a) estimates from ribosome profile footprint data of \citet{IngoliaEtAl2009} and \citet{HolstegeEtAl1998}.
+\caption{Comparison of log protein synthesis rate $\psi$  estimated by selac and (a) estimates from ribosome profile footprint data of \citet{IngoliaEtAl2009} and \citet{HolstegeEtAl1998}.
 }
 \end{figure}
-\item By linking $q$ to gene expression, our approach is an alternative to the more common approach of simply concatenation of protein coding sequences.
-More specifically, in our model simply concatenating gene sequences together is equivalent to assuming the same aver protein synthesis rate $\phi$ for all of the genes.
-By assuming the strength of stabilizing selection for the optimal sequence, \aoptvec, is proportional to $\phi$, our model allows us to estimate $\phi$ for each gene.
+\item By linking transition rates $\qij$ to gene expression $\psi$, our approach allows use the same model for genes under varying degrees of purifying selection.
+The traditional approach of concatenating gene sequences together is equivalent to assuming the same average protein synthesis rate $\psi$ for all of the genes.
+By assuming the strength of stabilizing selection for the optimal sequence, \aoptvec, is proportional to $\psi$,  our model allows us to estimate $\phi = \psi/\Func$ for each gene.
 Our results clearly indicate that this information is available and accounting for it in our model substantially improves our model fit.
 \item \textbf{Lots of other stuff}
 \end{enumerate}
@@ -207,15 +226,15 @@ Our results clearly indicate that this information is available and accounting f
 \item One important manner in which our approach moves beyond \citet{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014} is in that we parameterize the model and fit branch lengths simultaneously rather than in two separate steps.\footnote{mikeg: Jeremy or Brian: I know this is true for Halpern and Bruno and am 95\% sure it applies to Jeff Thorne's work.
 Can you confirm its true for the Lartillot references?}
 \item Assumptions of additivity and no epistasis are unrealistic but can be viewed as a first order approximation to these more complex scenarios and a starting point for later relaxing these assumptions.
-\item Implicitly, our model assumes that all genes are essential because an organism that is homozygous for alleles with zero activity (i.e.~no benefit) would have to spend an infinite amount of energy to achive a target functionality production rate $\phi > 0$.
-This assumption can be relaxed by allowing $\phi$ to vary and fitness is function of that $\phi$ level and where there is an optimal $\phi$ level.
-\item Note that our definition of $\phi$ and our scaling of functionality differ slightly from our previous work \citep{Gilchrist2007,GilchristEtAl2009,ShahAndGilchrist2011,GilchristEtAl2015}.
-In our previous work, we were concerned with how changes in synonymous codons affected error rates and synthesis costs and, as a result, defined functionality relative to an error free protein, rather than an optimal one, and conflated $\phi$ and $\psi$.
+\item Implicitly, our model assumes that all genes are essential because an organism that is homozygous for alleles with zero activity (i.e.~no benefit) would have to spend an infinite amount of energy to achive a target functionality production rate $\psi > 0$.
+This assumption can be relaxed by allowing $\psi$ to vary and fitness is function of that $\psi$ level and where there is an optimal $\psi$ level.
+\item Note that our definition of $\psi$ and our scaling of functionality differ slightly from our previous work \citep{Gilchrist2007,GilchristEtAl2009,ShahAndGilchrist2011,GilchristEtAl2015}.
+In our previous work, we were concerned with how changes in synonymous codons affected error rates and synthesis costs and, as a result, defined functionality relative to an error free protein, rather than an optimal one, and conflated $\psi$ and $\phi$.
 \item Our approach requires relatively few parameter. 
   \begin{enumerate}
   \item Distance function $d(a_i, \aopt)$: If $n_d$ is the number of physiochemical properties examined, the number of parameters estimated is $n_d - 1$
   \item Benefit function $\Func$: If $n_A$ is the order of our Taylor Series approximation, the number of parameters is $n_A-1$.
-  \item Gene expression $\phi$: One $\phi$ for each gene analyzed.
+  \item Gene expression $\psi$: One $\psi$ for each gene analyzed.
   \item Mutation bias: Depends on the model used it is either equal to the number of parameters in the model $n_\mu$ or $n_\mu-1$.
   \end{enumerate}
 \item Our approach can be expanded by allowing the optimal amino acid to change during the course of evolution.
@@ -240,13 +259,13 @@ That is genes with higher target expression levels are under stronger selection 
 An approach which is almost universally used in other phylogenetic models.
 \item As a result, unlike most phylogenetic approaches, our model requires 20 different 20x20 rate matrices, one for when each amino acid is the optimal one.
 \item Even though our model requires a large number of matrices, because of our assumption that a protein's functionality is a declining function of physiochemical distance from the optimum, we are able to parameterize our 20 matrices using only a handful of parameters which we estimate from the data.
-\item Two additional key assumption of our model is that (a) the organism has an average target production rate $\phi$ for the functionality provided by each protein and (b) that protein synthesis is under some form of  regulatory control such that the this average functionality production target is met.
+\item Two additional key assumption of our model is that (a) the organism has an average target production rate $\psi$ for the functionality provided by each protein and (b) that protein synthesis is under some form of  regulatory control such that the this average functionality production target is met.
 As a result, the relative rate of protein synthesis increases as the sequence's functionality declines due to deviation from the optimal sequence.
-This behavior, in turn, means that the energetic cost of protein synthesis for an allele deviating from the optimal sequence increases with the target production rate $\phi$.
+This behavior, in turn, means that the energetic cost of protein synthesis for an allele deviating from the optimal sequence increases with the target production rate $\psi$.
 For example, a protein encoding allele which has a 10\% reduction in functionality will have the same energetic burden and selective cost relative to its optimal sequence as a protein encoding allele of similar length which has a 20\% reduction in functionality but whose target production rate is 1/2 of the first protein.
 \item In its current formulation, our model is only applicable to protein coding sequences.
 However, it should be applicable to non-coding sequences so long as one has a mapping function between gene sequence and gene function.
-\item $\phi$ is determined, in part, by our choice of a reference distance weighting $\alphav = \alphavValue$
+\item $\psi$ is determined, in part, by our choice of a reference distance weighting $\alphav = \alphavValue$
 \end{itemize}
 
 
@@ -256,10 +275,10 @@ However, it should be applicable to non-coding sequences so long as one has a ma
 The way in which we mathematically link genotype, phenotype, fitness, drift, and fixation, is an extension of a similar approach we have successfully used to study the evolution of codon usage bias using an organisms genome sequence\citep{GilchristAndWagner2006,Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
 In order to explicitly link the phenotype of genotype to fitness, we assume that organisms have set of fixed but \emph{a priori} unspecified metabolic requirements.
 One contribution to meeting these metabolic requirements met through translation of the proteins encoded in its genome.
-We assume that each protein has, on average, a target synthesis rate of $\phi$ and, for now, that $\phi$ is fixed over the tree.
+We assume that each protein has, on average, a target synthesis rate of $\psi$ and, for now, that $\psi$ is fixed over the tree.
 We also assume that natural selection favors genotypes that are able to synthesize their proteome efficiently than their competitors and that each savings of an high energy phosphate bond per unit time leads to a constant proportional gain in fitness $q$.
 In terms of the functionality of the protein encoded, we assume that for any given gene there exists an optimal amino acid sequence \aoptvec and that, by definition, a complete, error free peptide consisting of \aopt provides one unit of functionality.
-Thus $\phi$ for a given protein is determined by both the organism's metabolic requirements and the functionality of the protein encoded by \aoptvec.
+Thus $\psi$ for a given protein is determined by both the organism's metabolic requirements and the functionality of the protein encoded by \aoptvec.
 Our approach allows us to link amino acid sequence and gene expression directly to genotype fitness and, in turn, substitution rate in a general, yet simple and biologically plausible, manner.
 \footnote{mikeg: Should this stay here?  
   Be parsed down and moved to the intro? 
@@ -276,8 +295,8 @@ That is, the rate of allele fixation is much greater than \Nemu and $\Nemu \ll 1
 %The above assumptions are commonly made in this field \cite{CITATIONS}\footnote{Do we need to say this?}.
 
 \subsubsection*{Protein Synthesis Cost-Benefit Function $\eta$: }
-Our model links fitness to the product of the cost-benefit function of a gene $g$, $\etag$, and the organism's average target production rate of the functionality provided by gene $g$, $\phig$.
-This is because the average amount of energy an organism spends to met its target functionality for a gene $g$ is $\etag \times \phig$.
+Our model links fitness to the product of the cost-benefit function of a gene $g$, $\etag$, and the organism's average target production rate of the functionality provided by gene $g$, $\psig$.
+This is because the average amount of energy an organism spends to met its target functionality for a gene $g$ is $\etag \times \psig$.
  
 \paragraph*{Benefit: }
 In order to link genotype to protein function, we first define a benefit function.
@@ -296,8 +315,8 @@ At the limit of $\alphag \rightarrow \infty$, the model collapses to a model wit
 \Funcaveci can be generalized to include second and higher order terms of the distance measure $d$.
 %As it stands now, genes can be classified based on their $\alphag$ values.
 
-\paragraph*{Cost}
-Generally speaking, protein synthesis involves both direct and indirect assembly costs.
+\paragraph*{Cost:}
+Protein synthesis involves both direct and indirect assembly costs.
 Direct costs consist of the high energy phosphate bonds in ATP or GTP's used to assemble the ribosome on the mRNA, charge tRNA's for elongation, move the ribosome forward along the transcript, and terminate protein synthesis.
 Indirect costs are many and consist of the cost of amino acid synthesis as well as synthesis of the protein assembly infrastructure such as ribosomes, aminoacyl-tRNA synthetases, tRNAs, mRNAs, etc.
 Direct synthesis costs are the same for all proteins of the same length.
@@ -321,7 +340,7 @@ Assuming that functionality declines with an amino acid $a_i$'s physiochemical d
 In addition, our approach naturally lends itself to model selection since we can compare the quality of our model fits using different mixtures of physiochemical properties.
 Following \citet{Grantham1974}, we focus on using composition $c$, polarity $p$, and molecular volume $v$ of each amino acid's side chain residue to define our distance function, but emphasize that other properties could be used.
 We use the euclidian distance between residue properties where each property $c$, $p$, and $v$ has its own weighting term, $\alphac$, $\alphap$, $\alphav$, respectively.
-Because of similar identifiability issues we have with $A_1$ and $\phi$, we set $\alphav = 1$ and recognize that our our estimates of $\alphac$ and $\alphap$ are scaled relative to $\alphav$.
+Because of similar identifiability issues we have with $A_1$ and $\psi$, we set $\alphav = 1$ and recognize that our our estimates of $\alphac$ and $\alphap$ are scaled relative to $\alphav$.
 More specifically,
 \begin{equation*}
   d(a_i, \aopt) = \sqrt{\alphac \left(c\left(a_i\right) - c\left(\aopt\right)\right)^2 + \alphap \left(p\left(a_i\right) - p\left(\aopt\right)\right)^2 +  \alphav \left(v\left(a_i\right) - v\left(\aopt\right)\right)^2}.
@@ -330,31 +349,31 @@ More specifically,
 
 \subsubsection*{Linking Cost of Protein Synthesis to Allele Substitution}
 In order to link the protein synthesis cost-benefit function $\eta$ of an allele with its fixation probability, we must make a number of assumptions.
-First, we assume that each protein encoded within a genome carries out some beneficial function and that the organism needs that functionality to be produced at a target average rate $\phi$.
+First, we assume that each protein encoded within a genome carries out some beneficial function and that the organism needs that functionality to be produced at a target average rate $\psi$.
 By definition, the optimal amino acid sequence for a given gene, \aoptvec, produces one unit of functionality.
-Second, we assume that protein expression is regulated by the organism to ensure that functionality is produced at rate $\phi$.
-As a result, the average protein production rate of a gene, $\psi$, is equal to $\phi/\Func(\avec)$ and the total energy flux allocated towards meeting the target functionality of a particular gene is $\eta(\cvec) \phi$. 
+Second, we assume that protein expression is regulated by the organism to ensure that functionality is produced at rate $\psi$.
+As a result, the average protein production rate of a gene, $\phi$, is equal to $\psi/\Func(\avec)$ and the total energy flux allocated towards meeting the target functionality of a particular gene is $\eta(\cvec) \psi$. 
 In other words, the cost of a suboptimal protein comes from the need to produce more proteins to get the same overall functionality.
 
 
-Third, we assume that every additional ATP spent per unit time to meet the organism's target function production rate $\phi$ leads to a slight and proportional decrease in fitness $W$.
+Third, we assume that every additional ATP spent per unit time to meet the organism's target function production rate $\psi$ leads to a slight and proportional decrease in fitness $W$.
 This assumption, in turn, implies 
 \begin{align}
-  W_i\left(\cvec\right) &\propto \exp\left[- q \, \eta(\cveci) \phi\right].
+  W_i\left(\cvec\right) &\propto \exp\left[- q \, \eta(\cveci) \psi\right].
 \end{align}
-where $q$ describes the decline in fitness with every ATP wasted per unit time used to measure $\phi$ and $\psi$.
+where $q$ describes the decline in fitness with every ATP wasted per unit time used to measure $\psi$ and $\phi$.
 
 Correspondingly, the ratio of fitness between two genotypes is,
 \begin{align*}
-  W_i/W_j &=  \exp\left[- q \eta(\cveci) \phi\right]/\exp\left[- q \eta(\cvecj) \phi\right]\\
-  &=  \exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \phi\right]\\
+  W_i/W_j &=  \exp\left[- q \eta(\cveci) \psi\right]/\exp\left[- q \eta(\cvecj) \psi\right]\\
+  &=  \exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \psi\right]\\
 \end{align*}
 Given our assumptions about $\Nemu$ the \Cost and \Func functions and background mutation rates above, the above fitness ratio for a single position $p$ simplifies to
 \begin{align}
- W_i/W_j  &= \exp\left\{- \frac{q}{n} \left(C_1 + C_2 n\right) \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] \phi \right\}
+ W_i/W_j  &= \exp\left\{- \frac{q}{n} \left(C_1 + C_2 n\right) \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] \psi \right\}
 %Taylor series formulation
-%  W_i/W_j &\approx \exp\left[- q \left(C_1 + C_2 n\right) \frac{1}{n}\left(\sum_{p \in \setP} \sum_{k=1}^\kmax A_k \left(d\left(\aip,\aoptp\right)^k - d\left(\ajp,\aoptp\right)^k\right)\right) \phi \right]
-%      &=  \exp\left[- q \left(C_1/n + C_2\right)\left(\sum_{p \in \setP} \sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(\ajp,\aoptp\right)^k\right) \phi\right]
+%  W_i/W_j &\approx \exp\left[- q \left(C_1 + C_2 n\right) \frac{1}{n}\left(\sum_{p \in \setP} \sum_{k=1}^\kmax A_k \left(d\left(\aip,\aoptp\right)^k - d\left(\ajp,\aoptp\right)^k\right)\right) \psi \right]
+%      &=  \exp\left[- q \left(C_1/n + C_2\right)\left(\sum_{p \in \setP} \sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(\ajp,\aoptp\right)^k\right) \psi\right]
 \end{align}
 where \setP represents the codon positions in which \cveci and \cvecj differ.
 Fourth, we make a weak mutation assumption, such that alleles can differ at only one position at any given time, i.e.~$|\setP| = 1$, and that the population is evolving according to a Fisher-Wright process.
@@ -362,47 +381,55 @@ As a result, the probability a new mutant $j$ introduced via mutation into a res
 \begin{align*}
   u_{i,j} &=  \frac{1 - \left(W_i/W_j\right)^b}{1 - \left(W_i/W_j\right)^\Ne}\\
 %general formulation w/\eta
-%   &\approx \frac{1-\exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \phi b\right]}{1-\exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \phi 2\Ne\right]}\\
-   &= \frac{1- \exp\left\{- \frac{q}{n} \left(C_1 + C_2 n\right) \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] \phi \,  b\right\}}  {1\exp\left\{- \frac{q}{n} \left(C_1 + C_2 n\right) \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] \phi \, 2\Ne\right\}}\\
+%   &\approx \frac{1-\exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \psi b\right]}{1-\exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \psi 2\Ne\right]}\\
+   &= \frac{1- \exp\left\{- \frac{q}{n} \left(C_1 + C_2 n\right) \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] \psi \,  b\right\}}  {1\exp\left\{- \frac{q}{n} \left(C_1 + C_2 n\right) \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] \psi \, 2\Ne\right\}}\\
 %Taylor series formulation
-%   &= \frac{1- \exp\left[- b\,q \left(C_1/n + C_2\right)\left(\sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(\ajp,\aoptp\right)^k\right)\left) \phi\right]}{1-\exp\left[- q \left(C_1/n + C_2\right)\left(\sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(\ajp,\aoptp\right)^k\right)\left) \phi \, 2 \, \Ne\right]},
+%   &= \frac{1- \exp\left[- b\,q \left(C_1/n + C_2\right)\left(\sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(\ajp,\aoptp\right)^k\right)\left) \psi\right]}{1-\exp\left[- q \left(C_1/n + C_2\right)\left(\sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(\ajp,\aoptp\right)^k\right)\left) \psi \, 2 \, \Ne\right]},
 \end{align*}
 where $b=1$ for a diploid population and $2$ for a haploid population \citep{Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005}.
-\footnote{mikeg: Jeremy and Brian -- given that the formulation above suggests we can separate out $\phi$ and $\Ne$ when, with the current dataset we cannot.  
-Should we use the approximation that can be derived from either \citet{SellaAndHirsh2005} and \citet{Kimura1962} instead?
-Alternatively, we could simply discuss this fact and leave the implementation and testing to another day.
-jeremyb: while it might be true that in theory we can separate out phi and Ne, recall that we found that different starting points for Ne and phi resulted in similar fits, which implies an identifiability issue. 
-In other words, if we used large Ne, small phi produced a similar fit as small Ne and large phi.
-I think at this stage it might be good to perhaps say they should in theory be separated out, but our current implementation suggests otherwise, and this remains an active area for further exploration, or something along those lines.
-}
+%\footnote{mikeg: Jeremy and Brian -- given that the formulation above suggests we can separate out $\psi$ and $\Ne$ when, with the current% dataset we cannot.  
+%Should we use the approximation that can be derived from either \citet{SellaAndHirsh2005} and \citet{Kimura1962} instead?
+%Alternatively, we could simply discuss this fact and leave the implementation and testing to another day.
+%jeremyb: while it might be true that in theory we can separate out phi and Ne, recall that we found that different starting points for Ne and phi resulted in similar fits, which implies an identifiability issue. 
+%In other words, if we used large Ne, small phi produced a similar fit as small Ne and large phi.
+%I think at this stage it might be good to perhaps say they should in theory be separated out, but our current implementation suggests otherwise, and this remains an active area for further exploration, or something along those lines.
+%mikeg: okay, we will mention this fact in passing.
+%}
 Finally, assuming a constant mutation rate between alleles $i$ and $j$, $\muij$, where $\muij = 0$ when two codons differ by more than one nucleotide, the transition rate from allele $i$ to $j$ can be modeled as,
 \begin{align*}
   q_{i,j} = \frac{2}{b} \muij \Ne u_{i,j}.
 \end{align*}
 In the end, each optimal amino acid has a separate 64 x 64 substitution rate matrix \Qmatrixa, which incorporates selection for the amino acid (and the fixation rate matrix this creates) as well as the common mutation parameters across optimal amino acids. 
 This results in the creation of 20  \Qmatrixa  matrices, one for each amino acid, with up to XXXXX unique rates, based on few parameters (one to six mutation rates, three weights on physiochemical distances, the cost of protein production, target functionality, and optimal amino acid at each site), which we infer from the data.
-\footnote{mikeg: Jeremy previous text included the stop codons and referred to 21 matrices (as it still does below). 
-I thought we only modeling only the 20 amino acids.
-jeremyb: I followed what Brian had started which was to include stop codons but have really high rates out of such states. 
-This caused an issue early on and we decided assuming infinite rates out or zero rates in are nearly the same thing.
-In any event, the implementation assumes there are none in the data set but they are still part of the matrix to make future work easier.
-So if necessary this is a place where the implementation and the text could vary for clarity.
-}
-Future work will allow transitions between optimal amino acids as well as between codons, which would result in a $(21 x 64) \times (21 x 64) =  1344 \times 1344$ matrix. 
+%\footnote{mikeg: Jeremy previous text included the stop codons and referred to 21 matrices (as it still does below). 
+%I thought we only modeling only the 20 amino acids.
+%jeremyb: I followed what Brian had started which was to include stop codons but have really high rates out of such states. 
+%This caused an issue early on and we decided assuming infinite rates out or zero rates in are nearly the same thing.
+%In any event, the implementation assumes there are none in the data set but they are still part of the matrix to make future work easier.
+%So if necessary this is a place where the implementation and the text could vary for clarity.
+%mikeg: Thanks for the clarification.
+%I didn't realize these rates of evolution were so high.  
+%This is interesting and worth exploring in future work.
+%}
+Our model can be generalized to allow  transitions between optimal amino acids as well as between codons, which would result in a $(21 \times 64) \times (21 \times 64) =  1344 \times 1344$ matrix. 
 
 
 While the overall model does not assume equilibrium, we still need to scale our substitution matrices $\Qmatrix$.
 Traditionally, it is rescaled such that at equilibrium, one unit of branch length represents one expected substitution per site.
+\footnote{mikeg: Is expectation under neutrality as I am imagining?
+If it so, doesn't it simply mean time is approximately equal to $\bar{1/\muij}$?
+}
 In our case, we want to do this scaling across all the matrices, since the branch lengths are used in common across the gene.
 One wrinkle is that this must be done taking optimal amino acid frequency into account. 
-Here the scaling is done jointly across all the 21 matrices to allow branch lengths under the fixed optimal amino acid model to be comparable to the branch lengths under the global model.
-\footnote{mikeg: What do we mean by ``global model''?
-jeremyb: This is a bit confusing, but I think what this means is that we use submatrices to economize the calculations rather than exponentiating a 1344 x 1344 extremely sparse matrix.
-But if we did we would be rescaling this huge matrix (the global model), whereas, here we do it piecemeal.
-}
+Because we are using 21 $64 \times 64$ matrices rather than a single $1344 \times 1344$ matrix, our scaling done jointly across all the 21 matrices to allow branch lengths under the fixed optimal amino acid model to ensure that branch lengths are comparable.
+%\footnote{mikeg: What do we mean by ``global model''?
+%jeremyb: This is a bit confusing, but I think what this means is that we use submatrices to economize the calculations rather than exponentiating a 1344 x 1344 extremely sparse matrix.
+%But if we did we would be rescaling this huge matrix (the global model), whereas, here we do it piecemeal.
+%mikeg: Got it.  
+%I have revised the text accordingly.}
 We calculate from the data a vector of 1344 empirical frequencies, $\pi$ for each of the 64 codons observed when assuming each of 21 possible as the optimal amino acid (including stop codons).
 A scaling factor is then calculated as the average rate $-\sum_i \mu_i \pi_i=1$, where $i$ indexes a particular codon for a particular optimal amino acid.
-\footnote{mikeg: Jeremy, avoid using $*$ for multiplication. Either leave it implicit $(a b)$ or use \\times, $(a \times b)$}
+%\footnote{mikeg: Jeremy, avoid using $*$ for multiplication. Either leave it implicit $(a b)$ or use \\times, $(a \times b)$}
 The final substitution-rate matrix is the original substitution-rate matrix multiplied by this scaling factor.
 This matrix can then be applied to all the sites to calculate the likelihood. 
 Finally, in the usual manner the diagonal elements of $\Qmatrix$ defining substitution for a given optimal amino acid are fixed so that the rows sum to zero, which allows for $P(t) = \exp\left[\Qmatrixa t\right]$ to be calculated for the matrix $\Pij$ whose elements give the probabilities that codon $j$ replaces codon $i$ after time $t$. 
@@ -415,7 +442,7 @@ Thus, the log likelihood of an individual site is calculated as
 In this case, the data, $\Dmatrix$, are the observed codon states at the tips of a phylogeny $Tmatrix$, whose topology are known. 
 The pruning algorithm of Felsenstein (1981) is used to calculate $\Lmatrix(Qmatrixa)$. 
 The log likelihood is maximized by estimating the global parameters: $C \, q \, \Ne$, 8 mutation parameters which are scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$ (again, we hold $\alphav$ constant -- see above).
-For each gene, we also estimate its target functionality synthesis rate $\phi$ as well as the sensitivity distribution parameter \alphag, and the optimal amino acid for each position in the protein. 
+For each gene, we also estimate its target functionality synthesis rate $\psi$ as well as the sensitivity distribution parameter \alphag, and the optimal amino acid for each position in the protein. 
 When estimating \alphag, the likelihood then becomes the average likelihood across k discrete site classes (see Yang 1994).
 
 
