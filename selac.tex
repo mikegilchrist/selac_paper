@@ -168,6 +168,13 @@ By linking the strength of stabilizing selection to gene expression,  we can wei
 \begin{enumerate}
 \item Using \DeltaAIC as our measure, we see that even despite the need for estimating the optimal amino acid at each position in each protein, our model performs astronomically better than GTR, GY94, or YN08.
 \item Including the random effects term $G$ not only provides greater biological realism than assuming $G =1$, it provides substantially better model fit and improves the \DAIC score by over 16,000 units.
+For many years evolutionary biologists have been interested in what the distribution of fitness effects looks like for \emph{de novo} mutations.
+In all such calculations, there are always numerous caveats that accompany any conclusions.
+As we show below, the results of our analysis can be used for this purpose and, in doing so, force us to clearly articulate what we mean by 'average fitness effect'
+In its most general form, the probability of a mutation having a particular fitness effect depends on numerous factors including, the current degree of adaptation of the gene, its expression level, and the probability of each alternative type of mutation.
+Let $p(W_m/W_r| a, \astar, \psi, n, \muvec, \phi)$ be the probability a single point mutation will 
+
+
 
 \newcommand{\subfigwidth}{0.4\textwidth}
 \begin{figure}[H]
@@ -227,21 +234,16 @@ Our results clearly indicate that this information is available and accounting f
 Can you confirm its true for the Lartillot references?}
 \item Assumptions of additivity and no epistasis are unrealistic but can be viewed as a first order approximation to these more complex scenarios and a starting point for later relaxing these assumptions.
 \item Implicitly, our model assumes that all genes are essential because an organism that is homozygous for alleles with zero activity (i.e.~no benefit) would have to spend an infinite amount of energy to achive a target functionality production rate $\psi > 0$.
-This assumption can be relaxed by allowing $\psi$ to vary and fitness is function of that $\psi$ level and where there is an optimal $\psi$ level.
-\item Note that our definition of $\psi$ and our scaling of functionality differ slightly from our previous work \citep{Gilchrist2007,GilchristEtAl2009,ShahAndGilchrist2011,GilchristEtAl2015}.
-In our previous work, we were concerned with how changes in synonymous codons affected error rates and synthesis costs and, as a result, defined functionality relative to an error free protein, rather than an optimal one, and conflated $\psi$ and $\phi$.
+  Some ways this assumption could be relaxed include making fitness $W$ a function of $\psi$ such that  $W(\psi = 0) > 0$ or incorporating functional overlap between proteins into our calculations.
 \item Our approach requires relatively few parameter. 
   \begin{enumerate}
   \item Distance function $d(a_i, \aopt)$: If $n_d$ is the number of physiochemical properties examined, the number of parameters estimated is $n_d - 1$
-  \item Benefit function $\Func$: If $n_A$ is the order of our Taylor Series approximation, the number of parameters is $n_A-1$.
+  \item Benefit function $\Func$: A single $\alpha_G$, an optimal amino acid for each site, and an ancestral amino acid state for each site. 
   \item Gene expression $\psi$: One $\psi$ for each gene analyzed.
-  \item Mutation bias: Depends on the model used it is either equal to the number of parameters in the model $n_\mu$ or $n_\mu-1$.
+  \item Mutation bias: Depending on the choice of mutation model, from 1 to 8 global parameters 
   \end{enumerate}
 \item Our approach can be expanded by allowing the optimal amino acid to change during the course of evolution.
-This should allow us to use a large, single 400 x 400 matrix instead of 20 separate 20x20 matrices.
-The new elements would contain the rates at which the optimal amino acid at site switches from its current state to another amino acid.
-Further, if we may be able to compare the statistical properties of this extended transition matrix to the single transition matrix used in other approaches.
-\item We conjecture the stationary properties of the 400x400 matrix mentioned above should map to an expected 20 x 20 empirical matrix where we average across when each of the different amino acid are optimal.
+This would result in the need of additional parameters describing the rates at which the optimal amino acid switches at a site.
 \item Statistical Physics model allows decoupling of \Ne, $\mu$, and strength selection.
 \end{itemize}
 
