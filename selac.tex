@@ -124,25 +124,34 @@ Phylogenetic analysis now plays a critical role in the fields of ecology, evolut
 While the scale and impact of phylogenetic studies has increased substantially over the past two decades, by comparison the realism of the models used to infer the trees has changed relatively little.
 The simplest models assume neutrality between the different amino acid substitutions and may or may not include mutation bias (e.g.~F81, F84, HYK85, TN93, and GTR for the former and JC69 and K80 for the latter, see \citet{Yang2014} for an overview).
 The next set of models attempt to include a 'selection' term $\omega$ which is interpreted as describing stabilizing or diversifying selection depending on whether $\omega$ is less than or greater than 1, respectively. 
-%frequency dependent selection or over- or underdominance
-However, the link between $\omega$ and the key parameters found in standard population genetics models of Wright and Fisher or Moran, such as \Ne, the distribution of $s$ across genotype space, and mutation bias are far from clear and likely only describe a subset of scenarios such as over/underdominance or frequency dependent selection  \citep{HughesAndNei1988}.
-Fortunately, given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic reconstruction \citep[e.g.][]{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
+However, the link between $\omega$ and the key parameters found in standard population genetics models of Wright and Fisher or Moran, such as \Ne, the distribution of $s$ across genotype space, and mutation bias are far from clear.
+For example,  $\omega$ is generally interpreted as indicating whether a sequence is under 'purifying' ($\omega < 1$) or 'positive' ($\omega > 1$) selection.
+However, the actually behavior of the model as is quite different.
+When $\omega < 1$ the model behaves as if the resident amino acid $i$ at a given site is favored by selection since synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions.
+Paradoxically, this selection regime for the resident amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
+As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ over amino acid $i$, the exact opposite of the case when $i$ was the resident.
+Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions the resident amino acid.
+Similar to the previous scenario, this selection \emph{against} the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors}  $i$.
+Thus, the simplest consistent interpretation of $\omega$ is that it describes the rate at which the selection regime itself changes and this change in selection perfectly coincides with the fixation of a new amino acid.
+As a result, $\omega$ based approaches likely only describe a subset of scenarios such as over/underdominance or frequency dependent selection  \citep{HughesAndNei1988}.
 
-The field of population genetics is a mature, mathematically rigorous, and well established framework for describing biological evolution.
+Fortunately, given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic reconstruction \citep[e.g.][]{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
+This is desirable because population genetics is a mature, mathematically rigorous, and well established framework for describing biological evolution.
 Despite the fact that there are only a few fundamental evolutionary forces at play, i.e.~mutation, drift, selection, and linkage effects, describing the evolutionary behavior of a system in which there are non-linear interactions between different sites quickly becomes overwhelmingly complex.
 In contrast, under the simplifying assumptions of additivity between and within sites, calculating stationary and substitution probabilities are relatively straightforward to calculate.
 As a result, fitting additive models of the evolutionary process to sequence data is computationally feasible.
-One major advantage to fitting models derived from population genetics over other approches is that the parameters estimated are biologically meaningful. % and of great interest to evolutionary biologists.
-%For example in haploid population, if the product of effective population size $\Ne$ and the mutation rate of beneficial alleles $\mu_b$ is greater than one, then the waiting time for an adaptive allele to emerge after an environmental shift is much shorter than the substitution process itself and evolution itself is not mutation limited.
-Here we show how fitting a phylogenetic model derived from a population genetic model can be used to estimate nucleotide specific mutation rates, the optimal amino acid sequence of a given protein, and the average protein synthesis rate of each each protein using only coding sequence data from the tips of the tree.
+One major advantage to fitting models derived from population genetics over other approches is that the parameters estimated are biologically meaningful. 
+Here we show how a phylogenetic method based on fundamental results from the field of population genetics can be used to more accurately estimate branch lengths and nucleotide specific mutation rates.
+Because the math behind our model is mechanistically derived, our method can also be used to make quantiative inferences on the optimal amino acid sequence of a given protein as well as the average synthesis rate of each protein used in the analysis.
+The mechanistic basis of our model also means it can be easily extended to include more biological realism and test explicit hypotheses about sequence evolution.
+
 
 We model the substitution process using the classic the Wright-Fisher (WF) model \citep{Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005}.
 For simplicity, we ignore linkage effects and, as a result of this and other assumptions, our model behaves in a site independent manner.
-Our approach is developed in the same vein as previous phylogenetic applications of the WF model \citep[e.g.][]{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008,RodrigueEtAl2005,KoshiAndGoldstein1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LartillotAndPhilippe2004,RodrigueAndLartillot2014}. % and other contexts \citep{WilkeAndDrummond2006,Gilchrist2007,DrummondAndWilke2009,GilchristEtAl2015}.\footnote{mikeg: When and how often to refer to our model as `MutSel' ala YN08 and Wilke.}
-Similar to \citet{LartillotAndPhilippe2004,RodrigueAndLartillot2014} we assume there is a finite set of rate matrices describing the substitution process and that each position within a protein must assigned to a particular rate matrix category.%\footnote{mikeg: If this is too detailed for the intro, this paragraph could be moved to the Discussion and summarized more succinctly here.}
+Our approach is developed in the same vein as previous phylogenetic applications of the WF model \citep[e.g.][]{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008,RodrigueEtAl2005,KoshiAndGoldstein1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
+Similar to \citet{LartillotAndPhilippe2004,RodrigueAndLartillot2014} we assume there is a finite set of rate matrices describing the substitution process and that each position within a protein must assigned to a particular rate matrix category.
 Unlike these other researchers, we assume \emph{a priori} there are 20 different families of rate matrices, one family for when a given amino acid is favored at a site.
 As a result, our approach allows us to quantiatively evaluate the support for a particular amino acid being favored at a particular position within the protein encoded by a particular gene.
-% category corresponds to identifying which amino acid is favored over the others for a given site (i.e.~optimal at that position within the protein).
 
 Because our approach requires twenty families of $61 \times 61$ matrices, the number of parameters needed to implement our model would, without further simplification, be extremely large.
 To reduce the number of parameters needed while still maintaining a high degree of biological realism, we construct our gene and amino acid specific substitution matrices using a submodel nested within our substitution model.
@@ -223,7 +232,6 @@ The traditional approach of concatenating gene sequences together is equivalent 
 By assuming the strength of stabilizing selection for the optimal sequence, \aoptvec, is proportional to $\psi$,  our model allows us to estimate $\phi = \psi/\Func$ for each gene.
 Our results clearly indicate that this information is available and accounting for it in our model substantially improves our model fit.
 
-%\item \textbf{Lots of other stuff}
 \end{enumerate}
 \section*{Discussion}
 
@@ -271,7 +279,6 @@ An approach which is almost universally used in other phylogenetic models.
 As a result, the relative rate of protein synthesis increases as the sequence's functionality declines due to deviation from the optimal sequence.
 This behavior, in turn, means that the energetic cost of protein synthesis for an allele deviating from the optimal sequence increases with the target synthesis rate $\psi$.
 For example, a protein encoding allele which has a 10\% reduction in functionality will have the same energetic burden and selective cost relative to its optimal sequence as a protein encoding allele of similar length which has a 20\% reduction in functionality but whose target synthesis rate is 1/2 of the first protein.
-%\footnote{mikeg: does this point warrant a figure?}
 \item In its current formulation, our model is only applicable to protein coding sequences.
 However, it should be applicable to non-coding sequences so long as one has a mapping function between gene sequence and gene function.
 
@@ -279,7 +286,6 @@ However, it should be applicable to non-coding sequences so long as one has a ma
 
 
 
-%BCO: Methods typically go in supplement / end of doc for Science / Nature. So let's plan on that, figuring this will go there. I'm extracting bits to summarize in the main text
 \section*{Methods}\label{sec:methods}
 We link genotype, phenotype, fitness, drift, and fixation, by extending the approach we have successfully used to quantify the evolutionary forces of fitness, drift, and fixation  on to the evolution codon usage bias based on an organism's coding sequences \citep{GilchristAndWagner2006,Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
 More specifically, in order to link genotype, phenotype, and fitness, we assume that organisms have set of fixed, but \emph{a priori} unspecified, metabolic requirements and the organism meets these requirements through the appropriate translation of its proteome.
@@ -302,7 +308,6 @@ This results in a 4x4 mutation matrix, where each entry describes the instantane
 This is converted to a $64 \times 64$ codon mutation matrix $\mu$ where entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a 'weak mutation' assumption.
 That is, the rate of allele fixation is much greater than \Nemu and $\Nemu \ll 1$, such that evolution is mutation limited, codon substitutions only occur one nucleotide at a time and, as a result,  the rate of change between any pair of codons that differ by more than one nucleotide is zero.
 \footnote{mikeg: Jeremy, please update for UNREST.}
-%The above assumptions are commonly made in this field \cite{CITATIONS}\footnote{Do we need to say this?}.
 
 \subsubsection*{Protein Synthesis Cost-Benefit Function $\eta$: }
 Our model links fitness to the product of the cost-benefit function of a gene $g$, $\etag$, and the organism's average target synthesis rate of the functionality provided by gene $g$, $\psig$.
@@ -324,7 +329,7 @@ We assume that  $\gp \sim \text{Gamma}\left(\alpha = \alphag, \beta = 1/\alphag\
 At the limit of $\alphag \rightarrow \infty$, the model collapses to a model with uniform sensitivity of $\gp = 1$ for all positions $p$.
 \Funcaveci is inversely proportional to the average physiochemical deviation of an amino acid sequence \aveci from the optimal sequence \aoptvec weighted by each sites senstivity to this deviation.
 \Funcaveci can be generalized to include second and higher order terms of the distance measure $d$.
-%As it stands now, genes can be classified based on their $\alphag$ values.
+
 
 \paragraph*{Cost:}
 Protein synthesis involves both direct and indirect assembly costs.
@@ -342,7 +347,7 @@ where, $C_1$ and $C_2$ represent the direct and indirect costs in ATPs of riboso
 \footnote{mikeg: Jeremy, can we let $C_1$ vary as a factor of $C_2$ and then refit the model?.
 Answer: leave for later.}
  
-%As a result, our site independent assumption is violated and the fitting of our model becomes  more complex. 
+
 
 
 
@@ -387,30 +392,15 @@ Given our formulations of \Cost and \Func, the fitness effects between sites are
 As a result, the fitness ratio for two genotypes differing at a single site $p$ simplifies to
 \begin{align}
  W_i/W_j  &= \exp\left\{- q \left(C_1 + C_2 n\right) \frac{1}{n} \sum_{p \in \setP} \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] \psi \right\}
-%Taylor series formulation
-%  W_i/W_j &\approx \exp\left[- q \left(C_1 + C_2 n\right) \frac{1}{n}\left(\sum_{p \in \setP} \sum_{k=1}^\kmax A_k \left(d\left(\aip,\aoptp\right)^k - d\left(\ajp,\aoptp\right)^k\right)\right) \psi \right]
-%      &=  \exp\left[- q \left(C_1/n + C_2\right)\left(\sum_{p \in \setP} \sum_{k=1}^\kmax A_k \left(d\right(\aip,\aoptp\right)^k - d\left(\ajp,\aoptp\right)^k\right) \psi\right]
 \end{align}
 where \setP represents the codon positions in which \cveci and \cvecj differ.
 Fourth, we make a weak mutation assumption, such that alleles can differ at only one position at any given time, i.e.~$|\setP| = 1$, and that the population is evolving according to a Fisher-Wright process.
 As a result, the probability a new mutant $j$ introduced via mutation into a resident population $i$ with effective size \Ne will go to fixation is,
 \begin{align*}
   u_{i,j} &=  \frac{1 - \left(W_i/W_j\right)^b}{1 - \left(W_i/W_j\right)^\Ne}\\
-%general formulation w/\eta
-%   &\approx \frac{1-\exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \psi b\right]}{1-\exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \psi 2\Ne\right]}\\
-   &= \frac{1- \exp\left\{- \frac{q}{n} \left(C_1 + C_2 n\right) \left[d\left(a_i,\aopt\right) - d\left(a_j,\aopt\right)\right] \psi \,  b\right\}}  {1-\exp\left\{- \frac{q}{n} \left(C_1 + C_2 n\right) \left[d\left(a_i,\aopt\right) - d\left(a_j,\aopt\right)\right] \psi \, 2\Ne\right\}}\\
-%Taylor series formulation
-%   &= \frac{1- \exp\left[- b\,q \left(C_1/n + C_2\right)\left(\sum_{k=1}^\kmax A_k \left(d\right(a_i,\aopt\right)^k - d\left(a_j,\aopt\right)^k\right)\left) \psi\right]}{1-\exp\left[- q \left(C_1/n + C_2\right)\left(\sum_{k=1}^\kmax A_k \left(d\right(a_i,\aopt\right)^k - d\left(a_j,\aopt\right)^k\right)\left) \psi \, 2 \, \Ne\right]},
+   &= \frac{1- \exp\left\{- \frac{q}{n} \left(C_1 + C_2 n\right) \left[d\left(a_i,\aopt\right) - d\left(a_j,\aopt\right)\right] \psi \,  b\right\}}  {1-\exp\left\{- \frac{q}{n} \left(C_1 + C_2 n\right) \left[d\left(a_i,\aopt\right) - d\left(a_j,\aopt\right)\right] \psi \, 2\Ne\right\}}
 \end{align*}
 where $b=1$ for a diploid population and $2$ for a haploid population \citep{Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005}.
-%\footnote{mikeg: Jeremy and Brian -- given that the formulation above suggests we can separate out $\psi$ and $\Ne$ when, with the current% dataset we cannot.  
-%Should we use the approximation that can be derived from either \citet{SellaAndHirsh2005} and \citet{Kimura1962} instead?
-%Alternatively, we could simply discuss this fact and leave the implementation and testing to another day.
-%jeremyb: while it might be true that in theory we can separate out phi and Ne, recall that we found that different starting points for Ne and phi resulted in similar fits, which implies an identifiability issue. 
-%In other words, if we used large Ne, small phi produced a similar fit as small Ne and large phi.
-%I think at this stage it might be good to perhaps say they should in theory be separated out, but our current implementation suggests otherwise, and this remains an active area for further exploration, or something along those lines.
-%mikeg: okay, we will mention this fact in passing.
-%}
 Finally, assuming a constant mutation rate between alleles $i$ and $j$, $\muij$, the substitution rate from allele $i$ to $j$ can be modeled as,
 \begin{align*}
   q_{i,j} = \frac{2}{b} \muij \Ne u_{i,j}.
@@ -418,16 +408,6 @@ Finally, assuming a constant mutation rate between alleles $i$ and $j$, $\muij$,
 where, given our weak mutation assumption, $\muij = 0$ when two codons differ by more than one nucleotide.
 In the end, each optimal amino acid has a separate 64 x 64 substitution rate matrix \Qmatrixa, which incorporates selection for the amino acid (and the fixation rate matrix this creates) as well as the common mutation parameters across optimal amino acids. 
 This results in the creation of 20  \Qmatrixa  matrices, one for each amino acid, with up to XXXXX unique rates, based on few parameters (one to six mutation rates, two free Grantham weights, the cost of protein production \Cost, the target functionality synthesis rate, and optimal amino acid at each site), which we infer from the data.
-%\footnote{mikeg: Jeremy previous text included the stop codons and referred to 21 matrices (as it still does below). 
-%I thought we only modeling only the 20 amino acids.
-%jeremyb: I followed what Brian had started which was to include stop codons but have really high rates out of such states. 
-%This caused an issue early on and we decided assuming infinite rates out or zero rates in are nearly the same thing.
-%In any event, the implementation assumes there are none in the data set but they are still part of the matrix to make future work easier.
-%So if necessary this is a place where the implementation and the text could vary for clarity.
-%mikeg: Thanks for the clarification.
-%I didn't realize these rates of evolution were so high.  
-%This is interesting and worth exploring in future work.
-%}
 Our model can be generalized to allow  transitions between optimal amino acids as well as between codons, which would result in a $(21 \times 64) \times (21 \times 64) =  1344 \times 1344$ matrix. 
 
 
@@ -436,14 +416,8 @@ Traditionally, it is rescaled such that at equilibrium, one unit of branch lengt
 In our case, we want to do this scaling across all the matrices, since the branch lengths are used in common across the gene.
 One wrinkle is that this must be done taking optimal amino acid frequency into account. 
 Because we are using 21 $64 \times 64$ matrices rather than a single $1344 \times 1344$ matrix, our scaling done jointly across all the 21 matrices to allow branch lengths under the fixed optimal amino acid model to ensure that branch lengths are comparable.
-%\footnote{mikeg: What do we mean by ``global model''?
-%jeremyb: This is a bit confusing, but I think what this means is that we use submatrices to economize the calculations rather than exponentiating a 1344 x 1344 extremely sparse matrix.
-%But if we did we would be rescaling this huge matrix (the global model), whereas, here we do it piecemeal.
-%mikeg: Got it.  
-%I have revised the text accordingly.}
 We calculate from the data a vector of 1344 empirical frequencies, $\pi$ for each of the 64 codons observed when assuming each of 21 possible as the optimal amino acid (including stop codons).
 A scaling factor is then calculated as the average rate $-\sum_i \mu_i \pi_i=1$, where $i$ indexes a particular codon for a particular optimal amino acid.
-%\footnote{mikeg: Jeremy, avoid using $*$ for multiplication. Either leave it implicit $(a b)$ or use \\times, $(a \times b)$}
 The final substitution-rate matrix is the original substitution-rate matrix multiplied by this scaling factor.
 This matrix can then be applied to all the sites to calculate the likelihood. 
 Finally, in the usual manner the diagonal elements of $\Qmatrix$ defining substitution for a given optimal amino acid are fixed so that the rows sum to zero, which allows for $P(t) = \exp\left[\Qmatrixa t\right]$ to be calculated for the matrix $\Pij$ whose elements give the probabilities that codon $j$ replaces codon $i$ after time $t$. 
@@ -472,56 +446,4 @@ In all such calculations, there are always numerous caveats that accompany any c
 As we show below, the results of our analysis can be used for this purpose and, in doing so, force us to clearly articulate what we mean by 'average fitness effect'
 In its most general form, the probability of a mutation having a particular fitness effect depends on numerous factors including, the current degree of adaptation of the gene, its expression level, and the probability of each alternative type of mutation.
 Let $p(W_m/W_r| a, \aopt, \psi, n, \muvec, \phi)$ be the probability a single point mutation will 
-
-\subsection*{Discussion of \citet{GoldmanAndYang1994}
-}\begin{itemize}
-  Notable exception, however, include
-  \begin{itemize}
-  \item \citet{MuseAndGaut94,HalpernAndBruno98,YangAndNielsen08} used MutSel model (FMutSel) 
-    \begin{itemize}
-    \item Physiochemical properties and, as a result, are either very simple (one matrix for all sites) or very parameter rich (one matrix per site) \citet{RodrigueEtAl05} 
-    \item Gene expression.
-    \end{itemize}
-    See \citet{Yang14} p.~44-47 for a brief summary.
-  \item \citet{WilliamsEtAl15}, \citet{YangEtAl98}
-  \item Others
-  \end{itemize}
-\item Essentially all phylogenetic approaches use a substitution matrix $Q = \left\{\qij\right\}$  to model evolution, where
-  \begin{equation*}
-   \qij  = \text{Substitution rate from state $i$ to $j$.}
-  \end{equation*}
-
-To illustrate the disconnect between how evolution actually non-neutral evolution we use a simplified version of the extremely popular \cite{GoldmanAndYang94} (GY94) codon level model.
-In their model,
-    \begin{align*}
-      q_{i,j} &%= \text{Transition rate from $i \to j$} 
-         = \begin{cases}
-           0 & \text{$i$ and $j$ differ by more than one substitution}\\
-           \Pijhat & \text{Synonymous (S) substitution} \\
-           \omega \Pijhat & \text{Non-Synonymous (NS) substitution} \\
-         \end{cases}
-         \intertext{Where,}
-         \omega &= \text{`Selection' term applied to all NS substitutions}\\
-         \Pijhat &= \text{Equilibrium frequency of codon $i$}
-       \end{align*}
-When $\omega <1$ the GY94 model is purported to describe evolution under `purifying' selection where S substitutions are favored over NS substitutions.
-However, the model has the following behavior
-    \begin{enumerate}
-    \item If $i$ is the current state, GY94 implies selection favoring $i$. \label{pureone}
-    \item However, if NS substitution occurs, \ref{pureone} still applies and selection now favoring new state $j$!
-    \end{enumerate}
-Thus, the behavior of GY94 is actually not consistent with a constant selective environment, but instead is consistent with a system where the directionality of natural selection and a NS substitution occurs simultaneously.
-Similar inconsistencies occur when $\omega > 1$.
-\item The counter argument to the above criticism is the observation that, despite their simplicity and disconnect from population genetics, these models do a good job reconstructing phylogenetic trees when compared to trees based on other methods.
-A more appropriate comparison would be to directly compare they perform relative to more realistic models such as the one we present here.
-\end{itemize}
-
-
-\paragraph*{Simulations}
-
-\paragraph*{Empirical data}
-
-\paragraph*{Discussion and Conclusion} %but don't call it conclusion
-
-%BCO: a bullet list of points is not really appropriate for Science / Nature / PNAS / Syst Bio / Evolution / AmNat / etc. So I've moved this section down and will pull its pieces back up into the main text.
 
