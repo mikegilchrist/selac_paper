@@ -1,0 +1,79 @@
+\section*{Other Phylogenetic Models}
+While the scale and impact of phylogenetic studies has increased substantially over the past XXX decades, the realism of the models used to infer the trees has changed relatively little by comparison.
+Notable exception, however, include
+\begin{itemize}
+\item 
+\item \citet{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008} used MutSel model (FMutSel) 
+\item \citet{YangAndNielsen2008} used a model that used \citet{GoldmanAndYang1994} to describe rates of NS to S substitution and then added a MutSel model that described selection on codon usage.
+  \begin{itemize}
+  \item Physiochemical properties and, as a result, are either very simple (one matrix for all sites) or very parameter rich (one matrix per site) \citet{RodrigueEtAl2005} 
+  \item \citet{KoshiEtAl1997,KoshiEtAl1999,DimmicEtAl2000}
+    \begin{itemize}
+    \item HIV paper from Richard Goldstein's group.
+    \item Cite earlier work that seems relevant in intro of \citet{KoshiEtAl1999}
+      \begin{quote}
+        While approaches such as protein profiles and hidden Markov models that include site heterogeneity have been developed for performing similarity searches and recognition of homologs (Taylor 1986; Gribskov, McLachlan, and Eisenberg 1987; Krogh et al. 1994; Tatusov, Altschul, and Koonin 1994; Yi and Lander 1994), these approached have generally not been extended to address more specific questions of phylogenetics. The construction of these models generally involves the determination of 20 parameters for each location in the protein, each representing the probability of one of the 20 amino acids occurring at that location. In contrast, extending this approach to the modeling of site substitutions would require determination of the value of 380 parameters at each location, representing the probabilities of all possible substitutions.
+      \end{quote}
+      and
+      \begin{quote}
+        The properties of proteins are not a function of the identities of the residues at each location but, rather, depend on the physical-chemical properties of these residues. The relative substitution rates can often be interpreted in terms of corresponding changes in these properties in a way that depends on the local context (Miyata, Miyazawa, and Yasunaga 1979; Koshi and Goldstein 1997). Motivated by this perspective, we recently developed a method for representing substitution matrices as a function of the physical-chemical properties of the amino acids (Koshi, Mindell, and Goldstein 1997; Koshi and Goldstein 1998)...  While there have been other substitution models that use physical-chemical properties to assign distances between the amino acids (Goldman and Yang 1994; Schmidt 1995), these models have been constructed based on preconceived notions of what physical-chemical properties are important and have not addressed the issue that the similarities between amino acids will be context-dependent. In contrast, the model described below includes site heterogeneity in a natural way and allows the parameters in the model to be optimized by likelihood maximization based on data sets of homologous proteins.
+      \end{quote}
+    \item  Model structure
+      \begin{quote}
+        Our model of amino acid substitutions has two distinct parts: the inclusion of site heterogeneity by positing multiple types of sites, each changing according to a different substitution matrix, and the construction of simplified substitution matrices based on the underlying physical-chemical properties of the amino acids. It is the simplifications inherent in the construction of the substitution matrices that allow the site heterogeneity to be included without resulting in an unmanageable number of adjustable parameters. Our model has previously been described (Koshi, Mindell, and Goldstein 1997; Koshi and Goldstein 1998) and is summarized in the appendix.
+      \end{quote}
+\item At first glance, it seems their approach is very similar to the one we've proposed
+\item Similarities
+  \begin{itemize}
+  \item Detailed balance assumption and equilibrium frequencies are similar. 
+  \end{itemize}
+\item Differences
+  \begin{itemize}
+  \item KMG: number of site classes estimated from model.
+  \item Optimal properties of a site class not assumed to match the  properties of a specific amino acid.
+  \item Try different distance functions and allow for mixtures of them such as linear and quadratic.
+  \item We scale substitution matrix by gene expression and explicitly include \Ne.
+  \item Adaptive substitution probabilities occur at a constant rate while non-adaptive ones occur at rate based on fitness ratios rather than substitution probability as defined in Sella and Hirsh.
+  \end{itemize}
+    \end{itemize}
+  \item \citet{LartillotAndPhilippe04} 
+    \begin{itemize}
+    \item Highly cited paper (550 as of 6/1/16)
+    \item ``Most current models of sequence evolution assume that all sites of a protein evolve under the same substitution process, characterized by a 20 x 20 substitution matrix.''
+      \item Sites classified based on ``their equilibrium frequencies over the 20 residues.''
+      \item Summary of previous work
+        \begin{quote}
+          As for proteins, a first approach has been proposed, in which substitutional heterogeneity is introduced through a set of eight to ten predefined categories, based on secondary structure and solvent accessibility considerations (Goldman, Thorne, and Jones 1996; Thorne, Goldman, and Jones 1996; Goldman, Thorne, and Jones 1998; Lio` and Goldman 1999). Each category has its own rate matrix, optimized by ML on real data sets. This model was shown to be significantly supported by real sequences, yet it does not address the question of the extent of heterogeneity actually present in the data. Furthermore, it makes specific hypotheses about its determining factors. An alternative method has been proposed in which no prior constraints are specified between the substitution processes and other features of the protein, like the secondary structure (Koshi and Goldstein 1998; Koshi, Mindell, and Goldstein 1999; Koshi and Goldstein 2001). However, the substitution processes themselves are constrained to conform to a prior biochemical model. Although this approach was generalized (Dimmic, Mindell, and Goldstein 2000; Soyer et al.  2002), the total number of categories is predetermined and is kept small, still for dimensionality reasons. A more radical approach was taken by Bruno (Bruno 1996; Halpern and Bruno 1998), through a model in which the equilibrium frequencies of the 20 amino acids are distinct at each site of the data set. The resulting model seems to capture important features of the substitution process along protein sequences, but it requires a large number of taxa in order for the statistics at each column to be significant.
+        \end{quote}
+      \item ``Here we propose a mixture model, CAT, which generalizes most of the previous approaches (Bruno 1996; Koshi and Goldstein 1998; Dimmic, Mindell, and Goldstein 2000). The model allows for a number K of classes, each of which is characterized by its own set of equilibrium frequencies, and lets each site `choose' the class under which its substitutional history is to be described.''
+      \item Use 'exchangability parameters, ($\rho_{lm}$), and assume substitutional symmetry  $\rho_{ij}=\rho_{ji}$.
+        Further, in the model the employ they use the same $\rho$ values but let the stationary probabilities vary between categories. 
+        This is confusing.
+        At first thought the $\rho$ matrix ultimately determines the stationary probabilities, but actually it is the $Q$ matrix that does.  
+        Whether the equilibrium $\pi$ values are the same as the stationary of $Q$ is not clear.
+        In addition, it is hard to see how this model is consistent with more general pop gen models such as we are using because instead of starting with substitution probabilities, they start with equilibrium frequencies.
+\item Don't take physiochemical properties into account, instead assume each category has its own equilibrium amino acid frequencies.
+      \item Datasets
+        \begin{itemize}
+        \item EF30-627 dataset was based on 627 sites in EF2 protein from 30 taxa.
+        \item Ek55-1525 dataset is based on concatenation of four cytoplasmic proteins actin, EF-1$\alpha$, $\alpha$ tubulin and $\beta$ tubulin.
+        \item Mt45-3596 based on euk mito coding genomes of 45 mammals.
+        \end{itemize}
+        We may want to compare our model fits to theirs for the first two datasets.
+      \item Their mean estimates of categories for CAT-Poisson is 28.4, 26.4, and 35.3 for the three datasets listed above but have fewer classes when they do clustering ($K_{SM} =$ 11, 14, and 22).
+      \item Empirical model formulations, e.g. CAT-JTT generate more categories.
+      \end{itemize}
+    \item ``\citet{YangEtAl1998}  implemented a few mechanistic models of amino acid substitution'' \cite{Yang2014}.
+      Specifically, they modified the \citet{GoldmanAndYang1994} model such that the non-synonymous to synonymous substitution rate was a function of physiochemical distances between the amino acids.
+    \item None of these models consider the effect of gene expression on substitution rates.
+      As a result, application of these methods to multigene datasets is achieved by simply concatenating sequences together.
+  \end{itemize}
+  See \citet{Yang2014} p.~44-47 for a brief summary.
+\item \citet{WilliamsEtAl2015}, \citet{YangEtAl1998}
+\item Site heterogeneity models are becoming popular. 
+  For example, \citet{WuEtAl2013}
+\item None of the previous work using physiochemical properties used multiple matrices.
+\end{itemize}
+
+\bibliographystyle{./am.nat}
+\bibliography{./mike}
