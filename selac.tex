@@ -245,21 +245,59 @@ Our results clearly indicate that this information is available and accounting f
   \item Link to previous workers
   \item Illustrate advantages of pop gen
     \begin{enumerate}
-    \item Improved estimates of classical parmeters
-    \item More realistic behavior over time
-    \item Exstensible to other researchers approaches
+    \item More realistic behavior over time: Model adequacy (Fig Results)
+    \item Improved fit (Table)
+    \item Improved estimates of classical parameters: A better model gives you a better answer
+    \item Better biological interpretation and more biological information
+\begin{itemize}
+\item Branch lengths (fit better simulation)
+   \item GTR is scaled at nt level so likely 3 times selac rate of codon substitution. [verify with sims of phi of zero]
+Math should clarify things.
+\item Psi and phi vs observed data
+\item What happens to distribution ln(Ne s(G))  as phi changes.
+At Ne s at s = 1/Ne
+Log scale?  Choosing relative scale for Ne s  
+    \item Links directly to likelihood framework
+    \item Shortcomings $\rightarrow$ future work
+      \begin{itemize}
+      \item Slow
+      \item Fundamental model assumptions
+        \begin{itemize}
+        \item weak selection
+        \item Ad hoc benefit function (desired behavior but no biological basis)
+        \item Additivity b/w sites
+        \item No CUB
+        \item Time reversibility
+        \end{itemize}
+      \item Yeast having problems with estimating kluyveri branch.
+        Are any of these gene in CLeft
+      \item Estimating uncertainty is challenge
+      \item Break current juggernaut of $\omega$
+      \item Not currently integrated with other  
+      \item Identifiability issues
+      \item Issues with discreteness of amino acids
+      \item Fixed amino acid, but easy to extend
+      \item Likelihood based estimate ancestor state rather consensus assumption. 
+      \end{itemize}
+    \item Extensible to other researchers approaches
       \begin{enumerate}
       \item Structure information
       \item Selection on CUB
       \item Approach can even be expanded to other types of sequence data
       \end{enumerate}
-
+    \item Extract additional data
+      \begin{itemize}
+      \item Gene expression.
+      \item functionality: $\phi$ vs $\psi$
+      \item Extension of the model to include transitions between the optimal aa for a site, still satisfies criteria of detailed balance at equilibrium so still a time reversible process.
+      \end{itemize}
     \item Current results suggest such extensions will allow researchers access to even more information embedded in DNA coding sequences.
-
     \end{enumerate}
   \end{enumerate}
 \item Lots of sequences available and in pipeline, let's get to it comrades!
 \end{enumerate}
+
+
 
 \begin{itemize}
 \item Work falls within the mutation-selection framework
