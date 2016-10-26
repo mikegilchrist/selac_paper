@@ -129,18 +129,20 @@ For example,  $\omega$ is generally interpreted as indicating whether a sequence
 However, the actually behavior of the model as is quite different.
 When $\omega < 1$ the model behaves as if the resident amino acid $i$ at a given site is favored by selection since synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions.
 Paradoxically, this selection regime for the resident amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
-As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ over amino acid $i$, the exact opposite of the case when $i$ was the resident.
+As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ and all 18 others over amino acid $i$, the exact opposite of the case when $i$ was the resident.
 Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions the resident amino acid.
-Similar to the previous scenario, this selection \emph{against} the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors}  $i$.
+Similar to the previous scenario, this selection \emph{against} the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors}  the former resident amino acid $i$ as well as the 18 others.
 Thus, the simplest consistent interpretation of $\omega$ is that it describes the rate at which the selection regime itself changes and this change in selection perfectly coincides with the fixation of a new amino acid.
 As a result, $\omega$ based approaches likely only describe a subset of scenarios such as over/underdominance or frequency dependent selection  \citep{HughesAndNei1988}.
 
 Fortunately, given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic reconstruction \citep[e.g.][]{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 This is desirable because population genetics is a mature, mathematically rigorous, and well established framework for describing biological evolution.
-Despite the fact that there are only a few fundamental evolutionary forces at play, i.e.~mutation, drift, selection, and linkage effects, describing the evolutionary behavior of a system in which there are non-linear interactions between different sites quickly becomes overwhelmingly complex.
-In contrast, under the simplifying assumptions of additivity between and within sites, calculating stationary and substitution probabilities are relatively straightforward to calculate.
+One lesson from the field of population genetics is while there are only a few fundamental evolutionary forces at play, i.e.~mutation, drift, selection, and linkage effects, describing the evolutionary behavior of a system in which there are non-linear interactions between different sites quickly extermely challenging.
+Fortunately, under the simplifying assumptions of additivity between and within sites, calculating stationary and substitution probabilities are relatively straightforward to calculate.
 As a result, fitting additive models of the evolutionary process to sequence data is computationally feasible.
-One major advantage to fitting models derived from population genetics over other approches is that the parameters estimated are biologically meaningful. 
+While critiques may argue such models are overly simplistic, in terms of fitting the data these simplistic models are still a fast improvement over standard approaches as we show below.
+Further, our `simple' models are null hypotheses for more complex models that relax some of our more restrictive assumptions, such as substitution properties being independent of local structure or location.
+Another major advantage to our approach is that the parameters estimated are biologically meaningful. 
 Here we show how a phylogenetic method based on fundamental results from the field of population genetics can be used to more accurately estimate branch lengths and nucleotide specific mutation rates.
 Because the math behind our model is mechanistically derived, our method can also be used to make quantiative inferences on the optimal amino acid sequence of a given protein as well as the average synthesis rate of each protein used in the analysis.
 The mechanistic basis of our model also means it can be easily extended to include more biological realism and test explicit hypotheses about sequence evolution.
@@ -163,11 +165,11 @@ Because we use a submodel to derive our substitution matrices, our model require
 
 The work we present here contributes to the field of phylogenetics and molecular evolution in a number of ways.
 Our model provides an complementary example to \citet{ThorneEtAl2012} studies of how models of molecular and evolutionary scales can be combined together in a nested manner.
+While the mapping between genotype and phenotype is more abstract than \citet{ThorneEtAl2012}, our approach has the advantage of not requiring knowledge of a protein's native folding.
 Our use of model nesting also allows us to formulate and test specific biological hypotheses.
 For example, we are able to compare a model formulation which assumes that physio-chemical deviations from the optimal sequence are equally disruptive at all sites within a protein to one which assumes they vary between sites.
 We've utilized the same nested, population genetic based approach in more traditional genomic analyses \citep[e.g.][]{Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
 That work and our current work illustrates how more information can be extracted from sequence data when more biologically based models are used.
-While the mapping between genotype and phenotype is more abstract than \citet{ThorneEtAl2012}, our approach has the advantage of not requiring knowledge of a protein's native folding.
 By linking the strength of stabilizing selection to gene expression,  we can weight the historical information encoded in different genes in a biologically plausible manner while simultaneously estimating their expression levels.
 
 
@@ -234,6 +236,30 @@ Our results clearly indicate that this information is available and accounting f
 
 \end{enumerate}
 \section*{Discussion}
+\subsection*{Key Points}
+\begin{enumerate}
+\item Importance of phylomodels
+\item Limitations of most  common models
+\item Pop gen alternative
+  \begin{enumerate}
+  \item Link to previous workers
+  \item Illustrate advantages of pop gen
+    \begin{enumerate}
+    \item Improved estimates of classical parmeters
+    \item More realistic behavior over time
+    \item Exstensible to other researchers approaches
+      \begin{enumerate}
+      \item Structure information
+      \item Selection on CUB
+      \item Approach can even be expanded to other types of sequence data
+      \end{enumerate}
+
+    \item Current results suggest such extensions will allow researchers access to even more information embedded in DNA coding sequences.
+
+    \end{enumerate}
+  \end{enumerate}
+\item Lots of sequences available and in pipeline, let's get to it comrades!
+\end{enumerate}
 
 \begin{itemize}
 \item Work falls within the mutation-selection framework
