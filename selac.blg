@@ -1,50 +1,47 @@
-This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2016/MacPorts 2016_1)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: selac.aux
 The style file: ./am.nat.bst
 Database file #1: ./mike.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Warning--empty year in CITATIONS
-Warning--empty journal in CITATIONS
-You've used 32 entries,
+You've used 28 entries,
             3026 wiz_defined-function locations,
-            861 strings with 10691 characters,
-and the built_in function-call counts, 18509 in all, are:
-= -- 1610
-> -- 764
-< -- 27
-+ -- 286
-- -- 206
-* -- 1264
-:= -- 2954
-add.period$ -- 129
-call.type$ -- 32
-change.case$ -- 229
-chr.to.int$ -- 32
-cite$ -- 34
-duplicate$ -- 1286
-empty$ -- 1339
-format.name$ -- 310
-if$ -- 3725
+            841 strings with 10209 characters,
+and the built_in function-call counts, 17213 in all, are:
+= -- 1482
+> -- 773
+< -- 22
++ -- 288
+- -- 212
+* -- 1212
+:= -- 2721
+add.period$ -- 114
+call.type$ -- 28
+change.case$ -- 213
+chr.to.int$ -- 28
+cite$ -- 28
+duplicate$ -- 1171
+empty$ -- 1224
+format.name$ -- 306
+if$ -- 3472
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 263
-newline$ -- 164
-num.names$ -- 132
-pop$ -- 511
+missing$ -- 244
+newline$ -- 144
+num.names$ -- 116
+pop$ -- 469
 preamble$ -- 1
-purify$ -- 196
+purify$ -- 183
 quote$ -- 0
-skip$ -- 468
+skip$ -- 425
 stack$ -- 0
-substring$ -- 1127
-swap$ -- 584
+substring$ -- 1056
+swap$ -- 546
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 282
-warning$ -- 2
-while$ -- 128
+type$ -- 246
+warning$ -- 0
+while$ -- 115
 width$ -- 0
-write$ -- 419
-(There were 2 warnings)
+write$ -- 369

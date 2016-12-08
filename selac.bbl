@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{28}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Berg and L\"assig(2003)}]{BergAndLassig2003}
@@ -6,25 +6,11 @@ Berg, J. and M.~L\"assig. 2003.
 \newblock Stochastic evolution and transcription factor binding sites.
 \newblock Biophysics 48:S36--S44.
 
-\bibitem[{CITATIONS-NEEDED()}]{CITATIONS}
-CITATIONS-NEEDED.
-\newblock Dummy reference .
-
 \bibitem[{Dimmic et~al.(2000)Dimmic, Mindell, and Goldstein}]{DimmicEtAl2000}
 Dimmic, M.~W., D.~P. Mindell, and R.~A. Goldstein. 2000.
 \newblock Modeling evolution at the protein level using an adjustable amino
   acid fitness model.
 \newblock Pacific Symposium on Biocomputing 5:18--29.
-
-\bibitem[{Drummond and Wilke(2009)}]{DrummondAndWilke2009}
-Drummond, D.~A. and C.~O. Wilke. 2009.
-\newblock The evolutionary consequences of erroneous protein synthesis.
-\newblock Nature Reviews Genetics 10:715--724.
-
-\bibitem[{Elphinstone(1985)}]{Elphinstone1985}
-Elphinstone, C. 1985.
-\newblock A method of distribution and density estimation.
-\newblock Ph.D. thesis, University of South Africa.
 
 \bibitem[{Gilchrist et~al.(2009)Gilchrist, Shah, and
   Zaretzki}]{GilchristEtAl2009}
@@ -47,11 +33,11 @@ Gilchrist, M.~A., W.-C. Chen, P.~Shah, C.~L. Landerer, and R.~Zaretzki. 2015.
   alone.
 \newblock Genome Biology and Evolution 7:1559--1579.
 
-\bibitem[{Goldman and Yang(1994)}]{GoldmanAndYang1994}
-Goldman, N. and Z.~H. Yang. 1994.
-\newblock Codon-based model of nucleotide substitution for protein-coding
-  {{DNA}}-sequences.
-\newblock Molecular Biology and Evolution 11:725--736.
+\bibitem[{Gilchrist and Wagner(2006)}]{GilchristAndWagner2006}
+Gilchrist, M.~A. and A.~Wagner. 2006.
+\newblock A model of protein translation including codon bias, nonsense errors,
+  and ribosome recycling.
+\newblock Journal of Theoretical Biology 239:417--434.
 
 \bibitem[{Grantham(1974)}]{Grantham1974}
 Grantham, R. 1974.
@@ -64,11 +50,25 @@ Halpern, A.~L. and W.~J. Bruno. 1998.
   site-specific residue frequencies.
 \newblock Molecular Biology And Evolution 15:910--917.
 
+\bibitem[{Holstege et~al.(1998)Holstege, Jennings, Wyrick, Lee, Hengartner,
+  Green, Golub, Lander, and Young}]{HolstegeEtAl1998}
+Holstege, F. C.~P., E.~G. Jennings, J.~J. Wyrick, T.~I. Lee, C.~J. Hengartner,
+  et~al. 1998.
+\newblock Dissecting the regulatory circuitry of a eukaryotic genome.
+\newblock Cell 95:717 -- 728.
+
 \bibitem[{Hughes and Nei(1988)}]{HughesAndNei1988}
 Hughes, A.~L. and M.~Nei. 1988.
 \newblock Pattern of nucleotide substitution at major histocompatibility
   complex class-i loci reveals overdominant selection.
 \newblock Nature 335:167--170.
+
+\bibitem[{Ingolia et~al.(2009)Ingolia, Ghaemmaghami, Newman, and
+  Weissman}]{IngoliaEtAl2009}
+Ingolia, N.~T., S.~Ghaemmaghami, J.~R.~S. Newman, and J.~S. Weissman. 2009.
+\newblock {Genome-Wide Analysis in Vivo of Translation with Nucleotide
+  Resolution Using Ribosome Profiling}.
+\newblock Science 324:218--223.
 
 \bibitem[{Iwasa(1988)}]{Iwasa1988}
 Iwasa, Y. 1988.
@@ -103,13 +103,6 @@ Lartillot, N. and H.~Philippe. 2004.
 \newblock A bayesian mixture model for across-site heterogeneities in the
   amino-acid replacement process.
 \newblock Molecular Biology And Evolution 21:1095--1109.
-
-\bibitem[{Liang(2007)}]{Liang2007}
-Liang, L. 2007.
-\newblock A semi-parametric approach to estimating item response functions.
-\newblock Ph.D. thesis, Ohio State University.
-\newblock Provides approach for creating positive, monotonically increasing
-  polynomials after Elphinstone (1985).
 
 \bibitem[{Muse and Gaut(1994)}]{MuseAndGaut1994}
 Muse, S.~V. and B.~S. Gaut. 1994.
@@ -167,11 +160,6 @@ Thorne, J.~L., N.~Lartillot, N.~Rodrigue, and S.~C. Choi. 2012.
 \newblock Codon Evolution: Mechanisms And Models :97--110 D2
   10.1093/acprof:osobl/9780199601165.001.0001 ER.
 
-\bibitem[{Wilke and Drummond(2006)}]{WilkeAndDrummond2006}
-Wilke, C.~O. and D.~A. Drummond. 2006.
-\newblock Population genetics of translational robustness.
-\newblock Genetics 173:473--481.
-
 \bibitem[{Wright(1969)}]{Wright1969}
 Wright, S. 1969.
 \newblock Evolution and the genetics of populations. Vol. 2. The theory of gene
@@ -182,12 +170,6 @@ Wright, S. 1969.
 Yang, Z. 2014.
 \newblock Molecular Evolution: A Statistical Approach.
 \newblock Oxford University Press, New York.
-
-\bibitem[{Yang et~al.(1998)Yang, Nielsen, and Hasegawa}]{YangEtAl1998}
-Yang, Z., R.~Nielsen, and M.~Hasegawa. 1998.
-\newblock Models of amino acid substitution and applications to mitochondrial
-  protein evolution.
-\newblock Molecular Biology and Evolution 15:1600--1611.
 
 \bibitem[{Yang and Nielsen(2008)}]{YangAndNielsen2008}
 Yang, Z.~H. and R.~Nielsen. 2008.
