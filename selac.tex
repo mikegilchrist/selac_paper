@@ -361,7 +361,7 @@ Shortcomings in model assumptions and extensions
 
 
 \section*{Methods}\label{sec:methods}
-We link genotype, phenotype, fitness, drift, and fixation, by extending the approach we have successfully used to quantify the evolutionary forces of fitness, drift, and fixation  on to the evolution codon usage bias based on an organism's coding sequences \citep{GilchristAndWagner2006,Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
+We link genotype, phenotype, fitness, drift, and fixation, by extending the approach we have successfully used to quantify the evolutionary forces of fitness, drift, and fixation on to the evolution codon usage bias based on an organism's coding sequences \citep{GilchristAndWagner2006,Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
 More specifically, in order to link genotype, phenotype, and fitness, we assume that organisms have set of fixed, but \emph{a priori} unspecified, metabolic requirements and the organism meets these requirements through the appropriate translation of its proteome.
 We assume that each protein has, on average, a target synthesis rate of $\psi$ and, for now, that $\psi$ is fixed over the tree.
 We also assume that natural selection favors genotypes that are able to synthesize their proteome efficiently than their competitors and that each savings of an high energy phosphate bond per unit time leads to a constant proportional gain in fitness $q$.
@@ -371,17 +371,19 @@ Our approach allows us to link amino acid sequence and gene expression directly 
 \footnote{mikeg: Moved from methods.}
 
 The overall structure of our model involves a codon mutation model combined with a selection model based on the cost and benefits of translating a given genotype and the target gene expression rate of a gene.
-We fit the model using maximum likelihood and \ldots \footnote{mikeg: Jeremy, care to elaborate here?}
+We fit the model using maximum likelihood and STUFF HERE.
 
 \subsection*{Allele Substitution Model}
 
 \subsubsection*{Mutation Rate Matrix $\mu$: }
-We begin by defining a time reversible model for mutation rates between individual bases.
-We use the existing drift driven substitution model JC \citep{JukesAndCantor1969}, also referred to as a General Time Reversible (GTR) \citep{Tavare1986,Yang2014} which has 9 independent parameters, the most possible for a model that assumes mutations occur independently between nucleotides.
-This results in a 4x4 mutation matrix, where each entry describes the instantaneous rate of change between a pair of nucleotides for the most recent common ancestor at that site.
-This is converted to a $64 \times 64$ codon mutation matrix $\mu$ where entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a `weak mutation' assumption.
-That is, the rate of allele fixation is much greater than \Nemu and $\Nemu \ll 1$, such that evolution is mutation limited, codon substitutions only occur one nucleotide at a time and, as a result,  the rate of change between any pair of codons that differ by more than one nucleotide is zero.
-\footnote{mikeg: Jeremy, please update for UNREST.}
+We begin by defining a 4x4 mutation matrix that defines a model for mutation rates between individual bases.
+Here, we rely on the general unrestricted (UNREST) \citep{Yang1994}, which is time irreversible and makes no constraint on the instantaneous rate of change between a pair of nucleotides. 
+We note, however, that more constrained and time reversible models, such as the Jukes-Cantor (JC), Hasegawa-Kishino-Yano (HKY), or the general time reversible model (GTR), can also be used.
+The UNREST model defines the relative rates of change between a pair of nucleotides (hence, we arbitrarily set the G->T rate to 1), and thus involves 11 free parameters.
+This matrix is also scaled by a diagonal matrix of the base frequencies, which are determined through analytically solving $\piQmatrix = 0$.
+The resulting matrix is then used to populate a $64 \times 64$ codon mutation matrix $\mu$, whose entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a `weak mutation' assumption.
+That is, the rate of allele fixation is much greater than \Nemu and $\Nemu \ll 1$, such that evolution is mutation limited, codon substitutions only occur one nucleotide at a time and, as a result, the rate of change between any pair of codons that differ by more than one nucleotide is zero.
+
 
 \subsubsection*{Protein Synthesis Cost-Benefit Function $\eta$: }
 Our model links fitness to the product of the cost-benefit function of a gene $g$, $\etag$, and the organism's average target synthesis rate of the functionality provided by gene $g$, $\psig$.
@@ -400,11 +402,7 @@ where $\ng$ is the length of the protein, $d(\aip, \aoptp)$ is a weighted physio
 For simplicity, we define the distance between a stop codon and a sense codon as infinite and, as a result, nonsense mutations are always lethal.
 The term \gp describes the sensitivity of the protein's function to deviation in Grantham's physiochemical space.
 We assume that  $\gp \sim \text{Gamma}\left(\alpha = \alphag, \beta = \alphag\right)$ in order to ensure $\EE(\gp) = 1$.
-\footnote{
-mikeg: I just realized we had a mistake here.
-I had written that $\beta = 1/\alphag$.
-I'm hoping that Jeremy did not implement this incorrectly.
-If he did, I'm hoping his implementation was the equivalent of the `shape' and `scale' formulation, not the `shape' and `rate' formulation we refer to above.}
+
 At the limit of $\alphag \rightarrow \infty$, the model collapses to a model with uniform sensitivity of $\gp = 1$ for all positions $p$.
 \Funcaveci is inversely proportional to the average physiochemical deviation of an amino acid sequence \aveci from the optimal sequence \aoptvec weighted by each sites senstivity to this deviation.
 \Funcaveci can be generalized to include second and higher order terms of the distance measure $d$.
@@ -495,18 +493,18 @@ This results in the creation of 20  \Qmatrixa  matrices, one for each amino acid
 Our model can be generalized to allow  transitions between optimal amino acids as well as between codons, which would result in a $(21 \times 64) \times (21 \times 64) =  1344 \times 1344$ matrix.
 
 
-While the overall model does not assume equilibrium, we still need to scale our substitution matrices $\Qmatrix$.
-Traditionally, it is rescaled such that at equilibrium, one unit of branch length represents one expected substitution per site.
-In our case, we want to do this scaling across all the matrices, since the branch lengths are used in common across the gene.
-One wrinkle is that this must be done taking optimal amino acid frequency into account.
-Because we are using 21 $64 \times 64$ matrices rather than a single $1344 \times 1344$ matrix, our scaling done jointly across all the 21 matrices to allow branch lengths under the fixed optimal amino acid model to ensure that branch lengths are comparable.
-We calculate from the data a vector of 1344 empirical frequencies, $\pi$ for each of the 64 codons observed when assuming each of 21 possible as the optimal amino acid (including stop codons).
-A scaling factor is then calculated as the average rate $-\sum_i \mu_i \pi_i=1$, where $i$ indexes a particular codon for a particular optimal amino acid.
-The final substitution-rate matrix is the original substitution-rate matrix multiplied by this scaling factor.
-This matrix can then be applied to all the sites to calculate the likelihood.
-Finally, in the usual manner the diagonal elements of $\Qmatrix$ defining substitution for a given optimal amino acid are fixed so that the rows sum to zero, which allows for $P(t) = \exp\left[\Qmatrixa t\right]$ to be calculated for the matrix $\Pij$ whose elements give the probabilities that codon $j$ replaces codon $i$ after time $t$.
+#While the overall model does not assume equilibrium, we still need to scale our substitution matrices $\Qmatrix$. -- JEREMY MOVE THIS UP.
+#Traditionally, it is rescaled such that at equilibrium, one unit of branch length represents one expected substitution per site.
+#In our case, we want to do this scaling across all the matrices, since the branch lengths are used in common across the gene.
+#One wrinkle is that this must be done taking optimal amino acid frequency into account.
+#We are using 21 $64 \times 64$ matrices rather than a single $1344 \times 1344$ matrix, and therefore, our scaling is done jointly across all the 21 matrices to allow branch lengths under the fixed optimal amino acid model to ensure that branch lengths are comparable.
+#We calculate from the data a vector of 1344 empirical frequencies, $\pi$ for each of the 64 codons observed when assuming each of 21 possible as the optimal amino acid (including stop codons).
+#A scaling factor is then calculated as the average rate $-\sum_i \mu_i \pi_i=1$, where $i$ indexes a particular codon for a particular optimal amino acid.
+#The final substitution-rate matrix is the original substitution-rate matrix multiplied by this scaling factor.
+#This matrix can then be applied to all the sites to calculate the likelihood.
+#Finally, in the usual manner the diagonal elements of $\Qmatrix$ defining substitution for a given optimal amino acid are fixed so that the rows sum to zero, which allows for $P(t) = \exp\left[\Qmatrixa t\right]$ to be calculated for the matrix $\Pij$ whose elements give the probabilities that codon $j$ replaces codon $i$ after time $t$.
 
-Given our assumption of independent evolution among sites, the probability of the whole data set is the product of the probabilities of observing the data at each individual site.
+Given our assumption of independent evolution among sites, the probability of the whole data set is the product of the probabilities of observing the data at each individual site. -- JEREMY DOUBLE CHECK THIS.
 Thus, the log likelihood of an individual site is calculated as
 \begin{equation}
 \Lmatrix\left(\Qmatrixa\right) \propto \Pmatrix\left(\Dmatrix\middle|\Qmatrixa,\Tmatrix\right)
