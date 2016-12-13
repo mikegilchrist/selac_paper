@@ -1,13 +1,13 @@
 \documentclass{article}
 
-\usepackage{fullpage} 
+\usepackage{fullpage}
 \usepackage[doublespacing]{setspace}
-\usepackage{amsmath, amssymb,amsfonts} 
+\usepackage{amsmath, amssymb,amsfonts}
 \usepackage[small]{caption}
-\usepackage{graphicx} 
-\usepackage{float} 
+\usepackage{graphicx}
+\usepackage{float}
 \usepackage{subfig}
-\usepackage{xspace} 
+\usepackage{xspace}
 \usepackage{natbib}
 \usepackage[normalem]{ulem} %strike out via \sout{}
 \usepackage{datetime} %provides \currenttime command
@@ -108,7 +108,7 @@
 \newcommand{\gp}{\ensuremath{{G_p}}\xspace}
 \DeclareMathOperator{\Var}{Var}
 
-\title{Population Genetics Based Phylogenetics Under Stabilizing Selection for an Optimal Amino Acid Sequence: A Nested Modeling Approach 
+\title{Population Genetics Based Phylogenetics Under Stabilizing Selection for an Optimal Amino Acid Sequence: A Nested Modeling Approach
 } \date{Last compiled on \today\xspace at \currenttime.}
 \begin{document}
 \maketitle
@@ -144,7 +144,7 @@ As a result, fitting additive models of the evolutionary process to sequence dat
 While critics may point out that such models are overly simplistic, we counter that these assumptions are commonly made and, in terms of fitting the data, our `simplistic' models are still a fast improvement over standard approaches.
 Further, just as the GTR can serve as a null model for neutral evolution, our models are null hypotheses for more complex models that relax some of our more restrictive assumptions, such as amino acid substitution properties being independent of local structure or location.
 
-Another major advantage to our approach is that the parameters estimated are biologically meaningful. 
+Another major advantage to our approach is that the parameters estimated are biologically meaningful.
 As with outher phylogenetic methods,  we generate estimats of branch lengths and nucleotide specific mutation rates.
 In addition, because the math behind our model is mechanistically derived, our method can also be used to make quantiative inferences on the optimal amino acid sequence of a given protein as well as the average synthesis rate of each protein used in the analysis.
 The mechanistic basis of our model also means it can be easily extended to include more biological realism and test more explicit hypotheses about sequence evolution.
@@ -189,7 +189,7 @@ Finally, because our work fitness functions are well defined, we can provide est
 
 
 
-\item Selac provides estimates of gene expression which are positively correlated with empirical estimates and explain 20-30\% of the variation in the empirical measurements taken during log growth phase.\footnote{mikeg: \sout{We should replace the estimates of $\psi$ with estimates of $\phi$ which is $\psi/\Funcaobsvec$.} 
+\item Selac provides estimates of gene expression which are positively correlated with empirical estimates and explain 20-30\% of the variation in the empirical measurements taken during log growth phase.\footnote{mikeg: \sout{We should replace the estimates of $\psi$ with estimates of $\phi$ which is $\psi/\Funcaobsvec$.}
 I've decided it's better to replace $\phi$ with $\psi$ rather than the other way around.
 Thus, $\phi = \psi/\Func(\avec)$ is the target synthesis rate of error free protein $\avec$ and and $\phi = \psi$ when  $\avec = \aoptvec$ since, by definitioon, $\Func(\aoptvec) = 1$.
 }
@@ -204,7 +204,7 @@ Our results clearly indicate that this information is available and accounting f
 
 \subsection*{Figures}
 \begin{enumerate}
-\item Branch Lengths 
+\item Branch Lengths
 \newcommand{\subfigwidth}{0.4\textwidth}
 \begin{figure}[H]
   \centering
@@ -226,7 +226,7 @@ Our results clearly indicate that this information is available and accounting f
 \item Gene Expression Comparisons \label{fig:phiComparisons} (Mike, trying to get data for additional yeast species.)
   \renewcommand{\subfigwidth}{0.4\textwidth}
   \begin{enumerate}
-  \item SelAC vs. Empirical  Measurements 
+  \item SelAC vs. Empirical  Measurements
     \begin{figure}[H]
       \centering
       \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{RPF_vs_Phi/RNA_abunIngolia_vs_SelACphiGamma}}}
@@ -278,12 +278,12 @@ Our results clearly indicate that this information is available and accounting f
   \end{table}
 \end{enumerate}
 \section*{Discussion}
-As phyogenetic methods become ever more ubiquitous in biology, there is a real need to move beyond the cartoon, single matrix models most researchers use \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998} 
+As phyogenetic methods become ever more ubiquitous in biology, there is a real need to move beyond the cartoon, single matrix models most researchers use \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998}
   \footnote{mikeg: Jeremy and Brian, can you provide some references that make this statement but only make minor advances?}.
 Despite their widespread use, phylogenetic models based on purifying and diversifying selection,i.e.~\citet{GoldmanAndYang1994} and its extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid.
- 
+
 Instead of heuristically extending population genetic models of neutral evolution for use in phylogenetics, it makes sense to derive these extensions from population genetic models that \emph{explicitly} include the fundamental forces of mutation, drift, and natural selection. % (i.e.~a Wright-Fisher model).
-Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed Wright-Fisher based methods \citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}.%[CHECK CITATIONS].  
+Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed Wright-Fisher based methods \citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}.%[CHECK CITATIONS].
 Our work follows this tradition, but includes some key advances.
 For example, we parameterize the model and fit branch lengths simultaneously rather than in two separate steps.\footnote{mikeg: Jeremy or Brian: I know this is true for Halpern and Bruno and am 95\% sure it applies to Jeff Thorne's work.
         Can you confirm its true for the Lartillot references?}
@@ -291,11 +291,11 @@ For example, we parameterize the model and fit branch lengths simultaneously rat
       We show that all of these parameters can be estimated simultaneously with branch lengths from the data at the tips of the tree.
 
       By assuming fitness declines with extraneous energy flux, our model explicitly links the variation in the strength of stabilizing selection for the optimal protein sequence between genes to the variation in the target expression level $\psi$.
-      In turn, our model allows us to generate quantiative estimates of gene expression and amino acid optimality (Figures \ref{fig:phiComparisons} and \ref{fig:optAA}). 
+      In turn, our model allows us to generate quantiative estimates of gene expression and amino acid optimality (Figures \ref{fig:phiComparisons} and \ref{fig:optAA}).
       We believe this is an important advance that helps us link molecular evolution and function a very general manner.
-      Our results indicate that including a gene specific $\psi$ value vastly improves our model fits (Table \ref{table:modelFits} and Figure \ref{fig:phiComparisons})).  
+      Our results indicate that including a gene specific $\psi$ value vastly improves our model fits (Table \ref{table:modelFits} and Figure \ref{fig:phiComparisons})).
       Of course, given the general nature of our model and the complexity of biological systems, other biological forces also contribute to gene level variation in natural selection.
-      Nevertheless, the idea that the strength of stabilizing selection and gene expression are positively correlated is well supported by other researchers \citep[e.g.][]{DrummondEtAl2005} and we find that the target expression level $\psi$ and realized protein synthesis rate $\phi$ are reasonably well correlated with laboratory measurements of gene expression.  
+      Nevertheless, the idea that the strength of stabilizing selection and gene expression are positively correlated is well supported by other researchers \citep[e.g.][]{DrummondEtAl2005} and we find that the target expression level $\psi$ and realized protein synthesis rate $\phi$ are reasonably well correlated with laboratory measurements of gene expression.
 
 Additional advantages
 \begin{enumerate}
@@ -308,7 +308,7 @@ Additional advantages
 \item Allows us to describe evolutionary process using our inferred fitness landscapes (Figures \ref{fig:fitnessLandscape}-\ref{fig:mutationFitnessEffects}.
 \end{enumerate}
 
-  
+
 The fact that our approach allows us to estimate gene expression from phylogenetic data has a number of important implications by itself.
 \begin{itemize}
 \item First, it indicates there is substantially more information in the coding sequences used for phylogenetic analysis than other methods acknowledge.
@@ -316,7 +316,7 @@ The fact that our approach allows us to estimate gene expression from phylogenet
   Here we use gene expression $\psi$ and protein function \Func, but more complex models could clearly be used.  Finally, it provides a framework for estimating both shallow and deep branch lengths through the use of coding sequences with potentially very different rates of evolution.
 \item Extensible to other researchers approaches that use structural and folding  information.
 \end{itemize}
-  
+
 Shortcomings in model implementation
 \begin{enumerate}
 \item Computationally expensive to fit model.
@@ -344,16 +344,17 @@ Shortcomings in model assumptions and extensions
   While such behavior might be desirable to modle the effect of a particular widespread environmental change, incorporating such behavior in a general manner would introduce a whole new set of challenges.
 \item We use a universal set of Grantham weights for all sites.
   Since the importance of an amino acid's physiochemical properties likely changes with where it lies in a folded protein, one way to incorporate such effects is to test whether the data supports multiple sets of Grantham weights, rather than a single set.
-  This would allow the rank order of amino acid functionality given a particular optimal AA to change between sites. 
-  Because $\psi$ is determined, in part, by our choice of a reference distance weighting $\alphav = \alphavValue$. 
+  This would allow the rank order of amino acid functionality given a particular optimal AA to change between sites.
+  Because $\psi$ is determined, in part, by our choice of a reference distance weighting $\alphav = \alphavValue$.
   A larger and more informative set of Grantham weights might reduce the noise in our estimates of $\phi$.
-\item PROBLEM: Yeast having problems with estimating kluyveri branch.  Are any of these gene in CLeft? 
+\item PROBLEM: Yeast having problems with estimating kluyveri branch.  Are any of these gene in CLeft?
   According to Cedric, ``C-Left goes from ID SAKL0C00110 to (including) SAKL0C10846. Every mapping hit you have in your dataset with an ID in between (numerically) is on C-Left.''
 \item PROBLEM: GTR is scaled at nt level so likely 3 times selac rate of codon substitution. [verify with sims of phi of zero]
   Math should clarify things.
 \item Not currently integrated with other approaches
 \item Identifiability issues
 \item Issues with discreteness of amino acids
+\item We assume that functionality declines with difference, but that even random proteins (absent stop codons) remain functional, and just need higher levels of expression. In fact, the expression levels do not need to be particularly high: for example, for the yeast dataset, the average taxon has a functionality of __________ under our framework, while a random sequence has an average functionality of ______. This would require only a _____-fold increase in expression. Thus, while our assumption of fitness relating to distance from optimum may be true for fairly good protein sequences, it clearly fails for protein sequences far from the optimum.
 \end{enumerate}
 
  Lots of sequences available and in pipeline, let's get to it!
@@ -386,12 +387,12 @@ That is, the rate of allele fixation is much greater than \Nemu and $\Nemu \ll 1
 Our model links fitness to the product of the cost-benefit function of a gene $g$, $\etag$, and the organism's average target synthesis rate of the functionality provided by gene $g$, $\psig$.
 This is because the average flux energy an organism spends to met its target functionality provided by gene $g$ is $\etag \times \psig$.
 In order to link genotype to our cost-benefit function $\eta$, we begin by defining our benefit function.
-This 
+This
 \paragraph*{Benefit: }
 Our benefit function \Func measures the functionality of the amino acid sequence \aveci encoded by a set of codons \cveci, i.e. $a(\cveci) = \aveci$ relative to that of an optimal sequence $\aoptvec$.
 By definition,  $\Funcaoptvec = 1$ and $\Funcaveci < 1$ for all other sequences.
 We assume all amino acids within the sequence contribute to protein function and that this contribution declines as an inverse function of physiochemical distance between each amino acid and the optimal.
-Formally, we assume that 
+Formally, we assume that
 \begin{equation}
 \Funcaveci = \left(\frac{1}{\ng} \sum_{p=1}^\ng \left(1 + \gp d(\aip, \aoptp\right)\right)^{-1}
 \end{equation}
@@ -401,9 +402,9 @@ The term \gp describes the sensitivity of the protein's function to deviation in
 We assume that  $\gp \sim \text{Gamma}\left(\alpha = \alphag, \beta = \alphag\right)$ in order to ensure $\EE(\gp) = 1$.
 \footnote{
 mikeg: I just realized we had a mistake here.
-I had written that $\beta = 1/\alphag$. 
+I had written that $\beta = 1/\alphag$.
 I'm hoping that Jeremy did not implement this incorrectly.
-If he did, I'm hoping his implementation was the equivalent of the `shape' and `scale' formulation, not the `shape' and `rate' formulation we refer to above.} 
+If he did, I'm hoping his implementation was the equivalent of the `shape' and `scale' formulation, not the `shape' and `rate' formulation we refer to above.}
 At the limit of $\alphag \rightarrow \infty$, the model collapses to a model with uniform sensitivity of $\gp = 1$ for all positions $p$.
 \Funcaveci is inversely proportional to the average physiochemical deviation of an amino acid sequence \aveci from the optimal sequence \aoptvec weighted by each sites senstivity to this deviation.
 \Funcaveci can be generalized to include second and higher order terms of the distance measure $d$.
@@ -424,7 +425,7 @@ Thus for simplicity, in this study we ignore any indirect costs of protein assem
 where, $C_1$ and $C_2$ represent the direct cost, in high energy phosphate bonds, of ribosome initiation and peptide elongation, respectively, where $C_1 = C_2 = 4  \, \simP$.
 \footnote{mikeg: Jeremy, can we let $C_1$ vary as a factor of $C_2$ and then refit the model?.
 Answer: leave for later.}
- 
+
 
 
 
@@ -450,7 +451,7 @@ Next we link the protein synthesis cost-benefit function $\eta$ of an allele wit
 First, we assume that each protein encoded within a genome provides some beneficial function and that the organism needs that functionality to be produced at a target average rate $\psi$.
 By definition, the optimal amino acid sequence for a given gene, \aoptvec, produces one unit of functionality.
 Second, we assume that protein expression is regulated by the organism to ensure that functionality is produced at rate $\psi$.
-As a result, the realized average protein synthesis rate of a gene, $\phi$, is equal to $\psi/\Func(\avec)$ and the total energy flux allocated towards meeting the target functionality of a particular gene is $\eta(\cvec) \psi$. 
+As a result, the realized average protein synthesis rate of a gene, $\phi$, is equal to $\psi/\Func(\avec)$ and the total energy flux allocated towards meeting the target functionality of a particular gene is $\eta(\cvec) \psi$.
 As we shall show below, the fitness cost for a genotype encoding a suboptimal protein sequence stems from the need to produce $1/\Func(\avec)$ proteins in order to produce the equvalent functionality of one protein consisting of the optimal amino acid sequence \aopt.
 %Two additional key assumption of our model is that (a) the organism has an average target synthesis rate $\psi$ for the functionality provided by each protein and (b) that protein synthesis is under some form of  regulatory control such that the this average functionality production target is met.
 %As a result, the relative rate of protein synthesis increases as the sequence's functionality declines due to deviation from the optimal sequence.
@@ -459,7 +460,7 @@ As we shall show below, the fitness cost for a genotype encoding a suboptimal pr
 
 
 Third, we assume that every additional high energy bond \simP spent per unit time to meet the organism's target function synthesis rate $\psi$ leads to a slight and proportional decrease in fitness $W$.
-This assumption, in turn, implies 
+This assumption, in turn, implies
 \begin{align}
   W_i\left(\cvec\right) &\propto \exp\left[- q \, \eta(\cveci) \psi\right].
 \end{align}
@@ -489,31 +490,31 @@ Finally, assuming a constant mutation rate between alleles $i$ and $j$, $\muij$,
   q_{i,j} = \frac{2}{b} \muij \Ne u_{i,j}.
 \end{align*}
 where, given our weak mutation assumption, $\muij = 0$ when two codons differ by more than one nucleotide.
-In the end, each optimal amino acid has a separate 64 x 64 substitution rate matrix \Qmatrixa, which incorporates selection for the amino acid (and the fixation rate matrix this creates) as well as the common mutation parameters across optimal amino acids. 
+In the end, each optimal amino acid has a separate 64 x 64 substitution rate matrix \Qmatrixa, which incorporates selection for the amino acid (and the fixation rate matrix this creates) as well as the common mutation parameters across optimal amino acids.
 This results in the creation of 20  \Qmatrixa  matrices, one for each amino acid, with up to XXXXX unique rates, based on few parameters (one to six mutation rates, two free Grantham weights, the cost of protein production \Cost, the target functionality synthesis rate, and optimal amino acid at each site), which we infer from the data.
-Our model can be generalized to allow  transitions between optimal amino acids as well as between codons, which would result in a $(21 \times 64) \times (21 \times 64) =  1344 \times 1344$ matrix. 
+Our model can be generalized to allow  transitions between optimal amino acids as well as between codons, which would result in a $(21 \times 64) \times (21 \times 64) =  1344 \times 1344$ matrix.
 
 
 While the overall model does not assume equilibrium, we still need to scale our substitution matrices $\Qmatrix$.
 Traditionally, it is rescaled such that at equilibrium, one unit of branch length represents one expected substitution per site.
 In our case, we want to do this scaling across all the matrices, since the branch lengths are used in common across the gene.
-One wrinkle is that this must be done taking optimal amino acid frequency into account. 
+One wrinkle is that this must be done taking optimal amino acid frequency into account.
 Because we are using 21 $64 \times 64$ matrices rather than a single $1344 \times 1344$ matrix, our scaling done jointly across all the 21 matrices to allow branch lengths under the fixed optimal amino acid model to ensure that branch lengths are comparable.
 We calculate from the data a vector of 1344 empirical frequencies, $\pi$ for each of the 64 codons observed when assuming each of 21 possible as the optimal amino acid (including stop codons).
 A scaling factor is then calculated as the average rate $-\sum_i \mu_i \pi_i=1$, where $i$ indexes a particular codon for a particular optimal amino acid.
 The final substitution-rate matrix is the original substitution-rate matrix multiplied by this scaling factor.
-This matrix can then be applied to all the sites to calculate the likelihood. 
-Finally, in the usual manner the diagonal elements of $\Qmatrix$ defining substitution for a given optimal amino acid are fixed so that the rows sum to zero, which allows for $P(t) = \exp\left[\Qmatrixa t\right]$ to be calculated for the matrix $\Pij$ whose elements give the probabilities that codon $j$ replaces codon $i$ after time $t$. 
+This matrix can then be applied to all the sites to calculate the likelihood.
+Finally, in the usual manner the diagonal elements of $\Qmatrix$ defining substitution for a given optimal amino acid are fixed so that the rows sum to zero, which allows for $P(t) = \exp\left[\Qmatrixa t\right]$ to be calculated for the matrix $\Pij$ whose elements give the probabilities that codon $j$ replaces codon $i$ after time $t$.
 
-Given our assumption of independent evolution among sites, the probability of the whole data set is the product of the probabilities of observing the data at each individual site. 
-Thus, the log likelihood of an individual site is calculated as 
+Given our assumption of independent evolution among sites, the probability of the whole data set is the product of the probabilities of observing the data at each individual site.
+Thus, the log likelihood of an individual site is calculated as
 \begin{equation}
 \Lmatrix\left(\Qmatrixa\right) \propto \Pmatrix\left(\Dmatrix\middle|\Qmatrixa,\Tmatrix\right)
 \end{equation}
-In this case, the data, $\Dmatrix$, are the observed codon states at the tips of a phylogeny $\Tmatrix$, whose topology are known. 
-The pruning algorithm of Felsenstein (1981) is used to calculate $\Lmatrix(\Qmatrixa)$. 
+In this case, the data, $\Dmatrix$, are the observed codon states at the tips of a phylogeny $\Tmatrix$, whose topology are known.
+The pruning algorithm of Felsenstein (1981) is used to calculate $\Lmatrix(\Qmatrixa)$.
 The log likelihood is maximized by estimating the global parameters: $C \, q \, \Ne$, 8 mutation parameters which are scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
-For each gene, we also estimate its target functionality synthesis rate $\psi$  and the optimal amino acid for each position in the protein. 
+For each gene, we also estimate its target functionality synthesis rate $\psi$  and the optimal amino acid for each position in the protein.
 When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using Laguerre quadrature with $k = 8$ points  \citep{Yang1994,Felsenstein2001}.
 
 
@@ -528,7 +529,7 @@ When estimating \alphag, the likelihood then becomes the average likelihood whic
 In all such calculations, there are always numerous caveats that accompany any conclusions.
 As we show below, the results of our analysis can be used for this purpose and, in doing so, force us to clearly articulate what we mean by `average fitness effect'
 In its most general form, the probability of a mutation having a particular fitness effect depends on numerous factors including, the current degree of adaptation of the gene, its expression level, and the probability of each alternative type of mutation.
-Let $p(W_m/W_r| a, \aopt, \psi, n, \muvec, \phi)$ be the probability a single point mutation will 
+Let $p(W_m/W_r| a, \aopt, \psi, n, \muvec, \phi)$ be the probability a single point mutation will
 
 
 
@@ -541,7 +542,7 @@ Let $p(W_m/W_r| a, \aopt, \psi, n, \muvec, \phi)$ be the probability a single po
       \item Benefit function $\Func$: A single $\alpha_G$, an optimal amino acid for each site, and an ancestral amino acid state for each site.
       \item Gene expression $\psi$: One $\psi$ for each gene analyzed.
       \item Mutation bias: Depending on the choice of mutation model, from 1 to 8 global parameters
-      \end{enumerate} 
+      \end{enumerate}
 
 \item Instead of focusing on detecting evidence for adaptation, our approach focuses on quantifying the strength of selection behind any adaptive (or non-adaptive) changes.
 \item We are estimating a physiochemical based fitness landscape using sequences at the tip of a tree.
@@ -550,13 +551,10 @@ Let $p(W_m/W_r| a, \aopt, \psi, n, \muvec, \phi)$ be the probability a single po
 \item We assume the strength of selection for the optimal sequence increases with the target synthesis rate of the functionality the gene provides.
 That is genes with higher target expression levels are under stronger selection than genes with lower target expression levels.
 \item We also assume that the functionality of other amino acid sequences declines as the physiochemical properties of the sequence deviates from that of the optimal sequence.
-\item Because we assume that a protein's functionality is a declining function of the product of the physiochemical distances of each of the protein's amino acid from the optimal, we can treat the evolution at each amino acid position in a site independent manner. 
+\item Because we assume that a protein's functionality is a declining function of the product of the physiochemical distances of each of the protein's amino acid from the optimal, we can treat the evolution at each amino acid position in a site independent manner.
 An approach which is almost universally used in other phylogenetic models.
 \item In its current formulation, our model is only applicable to protein coding sequences.
 However, it should be applicable to non-coding sequences so long as one has a mapping function between gene sequence and gene function.
 
 
 \end{itemize}
-
-
-
