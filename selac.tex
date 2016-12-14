@@ -185,6 +185,7 @@ Finally, because our work fitness functions are well defined, we can provide est
 \begin{enumerate}
 \item Using \DeltaAIC as our measure, we see that even despite the need for estimating the optimal amino acid at each position in each protein, our model performs astronomically better than GTR, GY94, or YN08.
 \item Including the random effects term $G$ not only provides greater biological realism than assuming $G =1$, it provides substantially better model fit and improves the \DeltaAIC score by over 16,000 units.
+  \footnote{I am going offline to finish the results. It's hard editing in latex. Will write in a separate doc and add into latex tomorrow}.
 
 
 
@@ -279,7 +280,7 @@ Our results clearly indicate that this information is available and accounting f
 \end{enumerate}
 \section*{Discussion}
 As phyogenetic methods become ever more ubiquitous in biology, there is a real need to move beyond the cartoon, single matrix models most researchers use \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998}
-  \footnote{mikeg: Jeremy and Brian, can you provide some references that make this statement but only make minor advances?}.
+  \footnote{mikeg: Jeremy and Brian, can you provide some references that make this statement but only make minor advances? JMB -- not sure I understand this. Yes, we have many different matrices, but that's only out of mathematical convenience. Realistically we should be using a 1344x1344 matrix, which is a single matrix.}.
 Despite their widespread use, phylogenetic models based on purifying and diversifying selection,i.e.~\citet{GoldmanAndYang1994} and its extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid.
 
 Instead of heuristically extending population genetic models of neutral evolution for use in phylogenetics, it makes sense to derive these extensions from population genetic models that \emph{explicitly} include the fundamental forces of mutation, drift, and natural selection. % (i.e.~a Wright-Fisher model).
@@ -376,23 +377,27 @@ We fit the model using maximum likelihood and STUFF HERE.
 \subsection*{Allele Substitution Model}
 
 \subsubsection*{Mutation Rate Matrix $\mu$: }
-We begin by defining a 4x4 mutation matrix that defines a model for mutation rates between individual bases.
-Here, we rely on the general unrestricted (UNREST) \citep{Yang1994}, which is time irreversible and makes no constraint on the instantaneous rate of change between a pair of nucleotides. 
-We note, however, that more constrained and time reversible models, such as the Jukes-Cantor (JC), Hasegawa-Kishino-Yano (HKY), or the general time reversible model (GTR), can also be used.
-The UNREST model defines the relative rates of change between a pair of nucleotides (hence, we arbitrarily set the G->T rate to 1), and thus involves 11 free parameters.
-This matrix is also scaled by a diagonal matrix of the base frequencies, which are determined through analytically solving $\piQmatrix = 0$.
-The resulting matrix is then used to populate a $64 \times 64$ codon mutation matrix $\mu$, whose entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a `weak mutation' assumption.
+We begin with a 4x4 mutation matrix that defines a model for mutation rates between individual nucleotide bases.
+For our purposes, we rely on the general unrestricted model (UNREST) \citep{Yang1994} because it is time irreversible and makes no constraint on the instantaneous rate of change between any pair of nucleotides. 
+We note, however, that more constrained and time reversible models, such as the Jukes-Cantor (JC), Hasegawa-Kishino-Yano (HKY), or the general time reversible model (GTR), can also be used instead.
+The UNREST model defines the relative rates of change between a pair of nucleotides and technically, and thus, we arbitrarily set the G->T rate to 1 for a total of 11 free parameters.
+This matrix is also scaled by a diagonal matrix of the base frequencies, which are determined through analytically solving $\pi \times Qmatrix = 0$.
+We use this matrix to populate a $64 \times 64$ codon mutation matrix $\mu$, whose entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a `weak mutation' assumption.
 That is, the rate of allele fixation is much greater than \Nemu and $\Nemu \ll 1$, such that evolution is mutation limited, codon substitutions only occur one nucleotide at a time and, as a result, the rate of change between any pair of codons that differ by more than one nucleotide is zero.
 
+While the overall model does not assume equilibrium, we still need to scale our mutation matrices $\mu$.
+Traditionally, it is rescaled such that at equilibrium, one unit of branch length represents one expected substitution per site.
+Here, a scaling factor is calculated as the average rate $-\sum_i \mu_i \pi_i=1$, where $i$ indexes a particular codon in a given gene.
+The final mutation rate matrix is the original mutation rate matrix multiplied by 1/scaling factor.
 
 \subsubsection*{Protein Synthesis Cost-Benefit Function $\eta$: }
 Our model links fitness to the product of the cost-benefit function of a gene $g$, $\etag$, and the organism's average target synthesis rate of the functionality provided by gene $g$, $\psig$.
 This is because the average flux energy an organism spends to met its target functionality provided by gene $g$ is $\etag \times \psig$.
 In order to link genotype to our cost-benefit function $\eta$, we begin by defining our benefit function.
-This
+
 \paragraph*{Benefit: }
 Our benefit function \Func measures the functionality of the amino acid sequence \aveci encoded by a set of codons \cveci, i.e. $a(\cveci) = \aveci$ relative to that of an optimal sequence $\aoptvec$.
-By definition,  $\Funcaoptvec = 1$ and $\Funcaveci < 1$ for all other sequences.
+By definition, $\Funcaoptvec = 1$ and $\Funcaveci < 1$ for all other sequences.
 We assume all amino acids within the sequence contribute to protein function and that this contribution declines as an inverse function of physiochemical distance between each amino acid and the optimal.
 Formally, we assume that
 \begin{equation}
@@ -401,7 +406,7 @@ Formally, we assume that
 where $\ng$ is the length of the protein, $d(\aip, \aoptp)$ is a weighted physiochemical distance between the amino acid encoded in gene $i$ for position $p$ and $\aoptp$ is the optimal amino acid for that position of the protein.
 For simplicity, we define the distance between a stop codon and a sense codon as infinite and, as a result, nonsense mutations are always lethal.
 The term \gp describes the sensitivity of the protein's function to deviation in Grantham's physiochemical space.
-We assume that  $\gp \sim \text{Gamma}\left(\alpha = \alphag, \beta = \alphag\right)$ in order to ensure $\EE(\gp) = 1$.
+We assume that $\gp \sim \text{Gamma}\left(\alpha = \alphag, \beta = \alphag\right)$ in order to ensure $\EE(\gp) = 1$.
 
 At the limit of $\alphag \rightarrow \infty$, the model collapses to a model with uniform sensitivity of $\gp = 1$ for all positions $p$.
 \Funcaveci is inversely proportional to the average physiochemical deviation of an amino acid sequence \aveci from the optimal sequence \aoptvec weighted by each sites senstivity to this deviation.
@@ -425,19 +430,14 @@ where, $C_1$ and $C_2$ represent the direct cost, in high energy phosphate bonds
 Answer: leave for later.}
 
 
-
-
-
-
 \paragraph*{Defining Physiochemical Distances :}
-Assuming that functionality declines with an amino acid $a_i$'s physiochemical distance from the optimum amino acid \aopt at each site  provides a biologically defensible way of mapping genotype to protein function that requires relatively few free parameters.
+Assuming that functionality declines with an amino acid $a_i$'s physiochemical distance from the optimum amino acid \aopt at each site provides a biologically defensible way of mapping genotype to protein function that requires relatively few free parameters.
 In addition, our approach naturally lends itself to model selection since we can compare the quality of our model fits using different mixtures of physiochemical properties.
-Following \citet{Grantham1974}, we focus on using composition $c$, polarity $p$, and molecular volume $v$ of each amino acid's side chain residue to define our distance function, but emphasize that other properties could be used.
+Following \cite{Grantham1974}, we focus on using composition $c$, polarity $p$, and molecular volume $v$ of each amino acid's side chain residue to define our distance function, but emphasize that other properties could be used.
 We use the euclidian distance between residue properties where each property $c$, $p$, and $v$ has its own weighting term, $\alphac$, $\alphap$, $\alphav$, respectively, which we refer to as `Grantham weights'.
 Because physiochemical distance is ultimately weighted by a gene's specific average protein synthesis rate $\psi$, another parameter we estimate, there is a problem with parameter identifiablity.
 Ultimately, the scale of gene expression is affected by how we measure physiochemical distances which, in turn, is determined by our choice of Grantham weights.
-As a result, we set $\alphav = 4 \times 10^{-4}$, the value originally estimated by Grantham, and recognize that our our estimates of $\alphac$ and $\alphap$ and $\psi$ are scaled relative to this choice for $\alphav$.
-\footnote{mikeg: Jeremy, is this correct?  If not, please correct.}
+As a result, we set $\alphav = 3.990333 \times 10^{-4}$, the value originally estimated by Grantham, and recognize that our our estimates of $\alphac$ and $\alphap$ and $\psi$ are scaled relative to this choice for $\alphav$.
 More specifically,
 \begin{equation*}
   d(a_i, \aopt) = \sqrt{\alphac \left(c\left(a_i\right) - c\left(\aopt\right)\right)^2 + \alphap \left(p\left(a_i\right) - p\left(\aopt\right)\right)^2 +  \alphav \left(v\left(a_i\right) - v\left(\aopt\right)\right)^2}.
@@ -454,7 +454,7 @@ As we shall show below, the fitness cost for a genotype encoding a suboptimal pr
 %Two additional key assumption of our model is that (a) the organism has an average target synthesis rate $\psi$ for the functionality provided by each protein and (b) that protein synthesis is under some form of  regulatory control such that the this average functionality production target is met.
 %As a result, the relative rate of protein synthesis increases as the sequence's functionality declines due to deviation from the optimal sequence.
 %This behavior, in turn, means that the energetic cost of protein synthesis for an allele deviating from the optimal sequence increases with the target synthesis rate $\psi$.
-      For example, a protein encoding allele which has a 10\% reduction in functionality relative to the optimal sequence, i.e.~$\Func(\avec) = 0.9$, will have the same energetic burden and selective cost relative to its optimal sequence as a protein encoding allele of similar length which has a 20\% reduction in functionality but whose target synthesis rate is 1/2 of the first protein.
+For example, a protein encoding allele which has a 10\% reduction in functionality relative to the optimal sequence, i.e.~$\Func(\avec) = 0.9$, will have the same energetic burden and selective cost relative to its optimal sequence as a protein encoding allele of similar length which has a 20\% reduction in functionality but whose target synthesis rate is 1/2 of the first protein.
 
 
 Third, we assume that every additional high energy bond \simP spent per unit time to meet the organism's target function synthesis rate $\psi$ leads to a slight and proportional decrease in fitness $W$.
@@ -489,31 +489,19 @@ Finally, assuming a constant mutation rate between alleles $i$ and $j$, $\muij$,
 \end{align*}
 where, given our weak mutation assumption, $\muij = 0$ when two codons differ by more than one nucleotide.
 In the end, each optimal amino acid has a separate 64 x 64 substitution rate matrix \Qmatrixa, which incorporates selection for the amino acid (and the fixation rate matrix this creates) as well as the common mutation parameters across optimal amino acids.
-This results in the creation of 20  \Qmatrixa  matrices, one for each amino acid, with up to XXXXX unique rates, based on few parameters (one to six mutation rates, two free Grantham weights, the cost of protein production \Cost, the target functionality synthesis rate, and optimal amino acid at each site), which we infer from the data.
-Our model can be generalized to allow  transitions between optimal amino acids as well as between codons, which would result in a $(21 \times 64) \times (21 \times 64) =  1344 \times 1344$ matrix.
+This results in the creation of 20 \Qmatrixa matrices, one for each amino acid, with up to 26,880 unique rates, based on few parameters (one to 11 mutation rates, two free Grantham weights, the cost of protein production \Cost, the target functionality synthesis rate, and optimal amino acid at each site), which we infer from the data.
+Our model can be generalized to allow transitions between optimal amino acids as well as between codons, which would result in a $(20 \times 64) \times (20 \times 64) =  1344 \times 1344$ matrix.
 
-
-#While the overall model does not assume equilibrium, we still need to scale our substitution matrices $\Qmatrix$. -- JEREMY MOVE THIS UP.
-#Traditionally, it is rescaled such that at equilibrium, one unit of branch length represents one expected substitution per site.
-#In our case, we want to do this scaling across all the matrices, since the branch lengths are used in common across the gene.
-#One wrinkle is that this must be done taking optimal amino acid frequency into account.
-#We are using 21 $64 \times 64$ matrices rather than a single $1344 \times 1344$ matrix, and therefore, our scaling is done jointly across all the 21 matrices to allow branch lengths under the fixed optimal amino acid model to ensure that branch lengths are comparable.
-#We calculate from the data a vector of 1344 empirical frequencies, $\pi$ for each of the 64 codons observed when assuming each of 21 possible as the optimal amino acid (including stop codons).
-#A scaling factor is then calculated as the average rate $-\sum_i \mu_i \pi_i=1$, where $i$ indexes a particular codon for a particular optimal amino acid.
-#The final substitution-rate matrix is the original substitution-rate matrix multiplied by this scaling factor.
-#This matrix can then be applied to all the sites to calculate the likelihood.
-#Finally, in the usual manner the diagonal elements of $\Qmatrix$ defining substitution for a given optimal amino acid are fixed so that the rows sum to zero, which allows for $P(t) = \exp\left[\Qmatrixa t\right]$ to be calculated for the matrix $\Pij$ whose elements give the probabilities that codon $j$ replaces codon $i$ after time $t$.
-
-Given our assumption of independent evolution among sites, the probability of the whole data set is the product of the probabilities of observing the data at each individual site. -- JEREMY DOUBLE CHECK THIS.
+Finally, given our assumption of independent evolution among sites, the probability of the whole data set is the product of the probabilities of observing the data at each individual site.
 Thus, the log likelihood of an individual site is calculated as
 \begin{equation}
 \Lmatrix\left(\Qmatrixa\right) \propto \Pmatrix\left(\Dmatrix\middle|\Qmatrixa,\Tmatrix\right)
 \end{equation}
 In this case, the data, $\Dmatrix$, are the observed codon states at the tips of a phylogeny $\Tmatrix$, whose topology are known.
 The pruning algorithm of Felsenstein (1981) is used to calculate $\Lmatrix(\Qmatrixa)$.
-The log likelihood is maximized by estimating the global parameters: $C \, q \, \Ne$, 8 mutation parameters which are scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
+The log likelihood is maximized by estimating the global parameters: $C \, q \, \Ne$, 11 mutation parameters which are scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
 For each gene, we also estimate its target functionality synthesis rate $\psi$  and the optimal amino acid for each position in the protein.
-When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using Laguerre quadrature with $k = 8$ points  \citep{Yang1994,Felsenstein2001}.
+When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using the generalized Laguerre quadrature with $k = 4$ points \citep{Felsenstein2001}.
 
 
 
