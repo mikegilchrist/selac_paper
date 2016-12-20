@@ -530,14 +530,9 @@ Our "known" parameters under a given generating model were based on fitting SelA
 The tree used in these analyses is outdated with respect to the current hypothesis of relationships within Saccharomyces, but we rely on it simply as a training set that is separate from our empirical analyses (see section on Analyzing Yeast Genome).
 Bias in the model parameters were assessed under two generating models: one where we assumed a model of SelAC assuming $\alphag = \infty$, and one where we estimated $\alphag$ from the data. 
 Under each of these two scenarios, we used parameter estimates from the corresponding empirical analysis and simulated 50 five-gene data sets.
-<<<<<<< HEAD
 For the composite $\C\q\psi\Ne$ parameter, which varied by gene, the 'known' values used for the simulation were five evenly spaced points along the rank order of the estimates across the 106 genes.
 The MLE estimate for a given replicate were taken as the fit with the highest log-likelihood after running five independent analyses with different sets of naive starting points with respect to the composite $\C\q\psi\Ne$ parameter, $\alphac$, and $alphap$.
 All analyses were carried out in our \textit{selac} R package.
-=======
-For the composite $C\,q\,\psi\,\Ne$ parameter, which varied by gene, the "known" values used for the simulation were five evenly spaced points along the rank order of the estimates across the 106 genes.
-Each of these data sets were analyzed in R, and the MLE estimate for a given replicate were taken as the fit with the highest log-likelihood after running five independent analyses with different sets of naive starting points with respect to the composite $C\,q\,\psi\,\Ne$ parameter, $\alphac$, and $alphap$.  
->>>>>>> e3246392c23acd132e628f7254adbc49958c0daf
 
 \subsubsection*{Analysis of yeast genome and tests of model adequacy}
 We focus our empirical analyses on the large yeast data set and phylogeny of Salichos and Rokas (2013).
