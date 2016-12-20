@@ -219,7 +219,7 @@ Our results clearly indicate that this information is available and accounting f
   \qquad
   \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{yeast_YN2008.pdf}}}
   \qquad
-  \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{yeast_LGY2004.pdf}}}
+  \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{yeast_LGY2004.pdf}}}\footnote{File 'yeast\_LGY2005.pdf' missing from /Figures}
   \caption{Maximum Likelihood Trees for (a) selac, (b) selac with uniform sensitivity $G = 1$, (c) GTR, (d) GY94, and (e) YN08, (f) \citet{LartillotAndPhilippe2004}.}
   \label{fig:mleTrees}
 \end{figure}
@@ -257,6 +257,8 @@ Our results clearly indicate that this information is available and accounting f
   \item Distribution of Mutation Fitness Effects: Frequency distribution at which new mutants with fitness value $\exp[W_m]$ are introduced at stationarity. \label{fig:mutationFitnessEffects}
   \end{enumerate}
 \end{enumerate}
+
+
 \subsection*{Tables}
 \begin{enumerate}
 \item Model Fit Summary:
@@ -279,8 +281,10 @@ Our results clearly indicate that this information is available and accounting f
   \end{table}
 \end{enumerate}
 \section*{Discussion}
-As phyogenetic methods become ever more ubiquitous in biology, there is a real need to move beyond the cartoon, single matrix models most researchers use \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998}
-  \footnote{mikeg: Jeremy and Brian, can you provide some references that make this statement but only make minor advances? JMB -- not sure I understand this. Yes, we have many different matrices, but that's only out of coding convenience. It is actually a single 1344x1344 matrix. If you are thinking about the fact we multiply the mutation matrix by the fixation matrix, you can actually generate two matrices for MutSel and multiply them together (see pg 570 of that paper.)}.
+As phyogenetic methods become ever more ubiquitous in biology, there is a real need to move beyond the cartoon, single matrix models most researchers use \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004} %citations identified in Lartillot and Philippe 2004
+  \footnote{mikeg: Jeremy and Brian, can you provide some references that make this statement but only make minor advances? JMB -- not sure I understand this. Yes, we have many different matrices, but that's only out of coding convenience. It is actually a single 1344x1344 matrix. If you are thinking about the fact we multiply the mutation matrix by the fixation matrix, you can actually generate two matrices for MutSel and multiply them together (see pg 570 of that paper.)
+mikeg: I mean, single 20x20 or 64x64 matrix used for all sites.  
+So GY2008 would not fall into this definition.}.
 Despite their widespread use, phylogenetic models based on purifying and diversifying selection,i.e.~\citet{GoldmanAndYang1994} and its extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid.
 
 Instead of heuristically extending population genetic models of neutral evolution for use in phylogenetics, it makes sense to derive these extensions from population genetic models that \emph{explicitly} include the fundamental forces of mutation, drift, and natural selection. % (i.e.~a Wright-Fisher model).
@@ -355,7 +359,7 @@ Shortcomings in model assumptions and extensions
 \item Not currently integrated with other approaches
 \item Identifiability issues
 \item Issues with discreteness of amino acids
-\item We assume that functionality declines with difference, but that even random proteins (absent stop codons) remain functional, and just need higher levels of expression. In fact, the expression levels do not need to be particularly high: for example, for the yeast dataset, the average taxon has a functionality of __________ under our framework, while a random sequence has an average functionality of ______. This would require only a _____-fold increase in expression. Thus, while our assumption of fitness relating to distance from optimum may be true for fairly good protein sequences, it clearly fails for protein sequences far from the optimum.
+\item We assume that functionality declines with difference, but that even random proteins (absent stop codons) remain functional, and just need higher levels of expression. In fact, the expression levels do not need to be particularly high: for example, for the yeast dataset, the average taxon has a functionality of \_\_\_\_\_\_\_\_\_\_ under our framework, while a random sequence has an average functionality of \_\_\_\_\_\_. This would require only a \_\_\_\_\_-fold increase in expression. Thus, while our assumption of fitness relating to distance from optimum may be true for fairly good protein sequences, it clearly fails for protein sequences far from the optimum.
 \end{enumerate}
 
  Lots of sequences available and in pipeline, let's get to it!
@@ -369,7 +373,7 @@ We also assume that natural selection favors genotypes that are able to synthesi
 In terms of the functionality of the protein encoded, we assume that for any given gene there exists an optimal amino acid sequence \aoptvec and that, by definition, a complete, error free peptide consisting of \aopt provides one unit of the gene's functionality.
 Thus $\psi$ for a given protein is determined by both the organism's metabolic requirements and the functionality of the protein encoded by \aoptvec.
 Our approach allows us to link amino acid sequence and gene expression directly to genotype fitness and, in turn, substitution rate in a general, yet simple and biologically plausible, manner.
-\footnote{mikeg: Moved from methods. JMB: Once thing that is missing here is the discussion of C_q_psi_Ne and why we had to estimate them all together.}
+\footnote{mikeg: Moved from methods. JMB: Once thing that is missing here is the discussion of C\_q\_psi\_Ne and why we had to estimate them all together.}
 
 The overall structure of our model involves a codon mutation model combined with a selection model based on the cost and benefits of translating a given genotype and the target gene expression rate of a gene.
 
@@ -526,9 +530,14 @@ Our "known" parameters under a given generating model were based on fitting SelA
 The tree used in these analyses is outdated with respect to the current hypothesis of relationships within Saccharomyces, but we rely on it simply as a training set that is separate from our empirical analyses (see section on Analyzing Yeast Genome).
 Bias in the model parameters were assessed under two generating models: one where we assumed a model of SelAC assuming $\alphag = \infty$, and one where we estimated $\alphag$ from the data. 
 Under each of these two scenarios, we used parameter estimates from the corresponding empirical analysis and simulated 50 five-gene data sets.
+<<<<<<< HEAD
 For the composite $\C\q\psi\Ne$ parameter, which varied by gene, the 'known' values used for the simulation were five evenly spaced points along the rank order of the estimates across the 106 genes.
 The MLE estimate for a given replicate were taken as the fit with the highest log-likelihood after running five independent analyses with different sets of naive starting points with respect to the composite $\C\q\psi\Ne$ parameter, $\alphac$, and $alphap$.
 All analyses were carried out in our \textit{selac} R package.
+=======
+For the composite $C\,q\,\psi\,\Ne$ parameter, which varied by gene, the "known" values used for the simulation were five evenly spaced points along the rank order of the estimates across the 106 genes.
+Each of these data sets were analyzed in R, and the MLE estimate for a given replicate were taken as the fit with the highest log-likelihood after running five independent analyses with different sets of naive starting points with respect to the composite $C\,q\,\psi\,\Ne$ parameter, $\alphac$, and $alphap$.  
+>>>>>>> e3246392c23acd132e628f7254adbc49958c0daf
 
 \subsubsection*{Analysis of yeast genome and tests of model adequacy}
 We focus our empirical analyses on the large yeast data set and phylogeny of Salichos and Rokas (2013).
