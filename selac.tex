@@ -115,16 +115,15 @@
 
 
 \section*{Abstract}
-We present a phylogenetic approach rooted in the field of population genetics that more realistic models the evolution of protein-coding DNA under the assumption of stabilizing selection.
-The new set of models, which we collectively call selac models, fit phylogenetic data substantially better than current models, suggesting more accurate inference of phylogenies.
+We present a phylogenetic approach rooted in the field of population genetics that more realistically models the evolution of protein-coding DNA under the assumption of stabilizing selection.
+The new set of models, which we collectively call selac models, fit phylogenetic data substantially better than popular current models, suggesting more accurate inference of phylogenies.
 Moreover, these models allow inference of population genetics parameters from data used for interspecific phylogenies.
 
 \section*{Introduction}
 Phylogenetic analysis now plays a critical role in the fields of ecology, evolution, paleontology, medicine, conservation, and others.
 While the scale and impact of phylogenetic studies has increased substantially over the past two decades, by comparison the realism of the mathematical models on which these analyses are based has changed relatively little.
-The simplest models assume neutrality between the different amino acid substitutions and may or may not include mutation bias (e.g.~F81, F84, HYK85, TN93, and GTR for the former and JC69 and K80 for the latter, see \citet{Yang2014} for an overview).
-The next set of models attempt to include a 'selection' term $\omega$.
-Although it is rarely acknowledged, the link between $\omega$ and the key parameters found in standard population genetics models such as \Ne, the distribution of fitness across genotype space, and mutation bias are far from clear.
+The simplest but most popular models assume neutrality between the different amino acid substitutions and may or may not include mutation bias (e.g.~F81, F84, HYK85, TN93, and GTR for the former and JC69 and K80 for the latter, see \citet{Yang2014} for an overview).
+The next set of models attempt to include a 'selection' term $\omega$, however the link between $\omega$ and the key parameters found in standard population genetics models such as \Ne, the distribution of fitness across genotype space, and mutation bias are far from clear.
 
 For instance,  $\omega$ is generally interpreted as indicating whether a sequence is under `purifying' ($\omega < 1$) or `positive' ($\omega > 1$) selection.
 However, the actual behavior of the model as is quite different.
@@ -137,16 +136,12 @@ Thus, the simplest and most consistent interpretation of $\omega$ is that it des
 As a result, $\omega$ based approaches likely only describe a subset of scenarios such as over/underdominance or frequency dependent selection  \citep{HughesAndNei1988,Nowak2006}.
 
 Fortunately, given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic analysis \citep[e.g.][]{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
-This is desirable because population genetics is a mature, mathematically rigorous, and well established framework for describing biological evolution.
 One lesson from the field of population genetics is while there are only a few fundamental evolutionary forces at play, i.e.~mutation, drift, selection, and linkage effects, describing the evolutionary behavior of a system in which there are non-linear interactions between different sites quickly becomes extremely challenging.
-Fortunately, under the simplifying assumptions of additivity between sites and alleles, calculating stationary and substitution probabilities are relatively straightforward.
-As a result, fitting additive models of the evolutionary process to sequence data is computationally feasible.
-While critics may point out that such models are overly simplistic, we counter that these assumptions are commonly made and, in terms of fitting the data, our `simplistic' models are still a fast improvement over standard approaches.
-Further, just as the GTR can serve as a null model for neutral evolution, our models are null hypotheses for more complex models that relax some of our more restrictive assumptions, such as amino acid substitution properties being independent of local structure or location.
+Fortunately, under the simplifying assumptions of additivity between sites and alleles, calculating stationary and substitution probabilities are relatively straightforward, making fitting additive models of the evolutionary process to sequence data computationally feasible.
 
 Another major advantage to our approach is that the parameters estimated are biologically meaningful.
-As with outher phylogenetic methods,  we generate estimats of branch lengths and nucleotide specific mutation rates.
-In addition, because the math behind our model is mechanistically derived, our method can also be used to make quantiative inferences on the optimal amino acid sequence of a given protein as well as the average synthesis rate of each protein used in the analysis.
+As with other phylogenetic methods,  we generate estimates of branch lengths and nucleotide specific mutation rates.
+In addition, because the math behind our model is mechanistically derived, our method can also be used to make quantitative inferences on the optimal amino acid sequence of a given protein as well as the average synthesis rate of each protein used in the analysis.
 The mechanistic basis of our model also means it can be easily extended to include more biological realism and test more explicit hypotheses about sequence evolution.
 
 
@@ -155,7 +150,7 @@ For simplicity, we ignore linkage effects and, as a result of this and other ass
 Our approach is developed in the same vein as previous phylogenetic applications of the Wright-Fisher model \citep[e.g.][]{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008,RodrigueEtAl2005,KoshiAndGoldstein1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 Similar to Lartillot's work \citep{LartillotAndPhilippe2004,RodrigueAndLartillot2014}, we assume there is a finite set of rate matrices describing the substitution process and that each position within a protein must assigned to a particular rate matrix category.
 Unlike these other researchers, we assume \emph{a priori} there are 20 different families of rate matrices, one family for when a given amino acid is favored at a site.
-As a result, our approach allows us to quantiatively evaluate the support for a particular amino acid being favored at a particular position within the protein encoded by a particular gene.
+As a result, our approach allows us to quantitatively evaluate the support for a particular amino acid being favored at a particular position within the protein encoded by a particular gene.
 
 Because our approach requires twenty families of $61 \times 61$ matrices, the number of parameters needed to implement our model would, without further simplification, be extremely large.
 To reduce the number of parameters needed while still maintaining a high degree of biological realism, we construct our gene and amino acid specific substitution matrices using a submodel nested within our substitution model.
@@ -280,7 +275,7 @@ Our results clearly indicate that this information is available and accounting f
   \end{table}
 \end{enumerate}
 \section*{Discussion}
-As phyogenetic methods become ever more ubiquitous in biology, there is a real need to move beyond the cartoon, single matrix models most researchers use \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004} %citations identified in Lartillot and Philippe 2004
+As phylogenetic methods become ever more ubiquitous in biology, and data set size and complexity increase, there is a need and an opportunity for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004} %citations identified in Lartillot and Philippe 2004
   \footnote{mikeg: Jeremy and Brian, can you provide some references that make this statement but only make minor advances? JMB -- not sure I understand this. Yes, we have many different matrices, but that's only out of coding convenience. It is actually a single 1344x1344 matrix. If you are thinking about the fact we multiply the mutation matrix by the fixation matrix, you can actually generate two matrices for MutSel and multiply them together (see pg 570 of that paper.)
 mikeg: I mean, single 20x20 or 64x64 matrix used for all sites.  
 So GY2008 would not fall into this definition.}.
@@ -295,8 +290,7 @@ For example, we parameterize the model and fit branch lengths simultaneously rat
       We show that all of these parameters can be estimated simultaneously with branch lengths from the data at the tips of the tree.
 
       By assuming fitness declines with extraneous energy flux, our model explicitly links the variation in the strength of stabilizing selection for the optimal protein sequence between genes to the variation in the target expression level $\psi$.
-      In turn, our model allows us to generate quantiative estimates of gene expression and amino acid optimality (Figures \ref{fig:phiComparisons} and \ref{fig:optAA}).
-      We believe this is an important advance that helps us link molecular evolution and function a very general manner.
+      In turn, our model allows us to generate quantiative estimates of gene expression and amino acid optimality (Figures \ref{fig:phiComparisons} and \ref{fig:optAA}) and link molecular evolution and function.
       Our results indicate that including a gene specific $\psi$ value vastly improves our model fits (Table \ref{table:modelFits} and Figure \ref{fig:phiComparisons})).
       Of course, given the general nature of our model and the complexity of biological systems, other biological forces also contribute to gene level variation in natural selection.
       Nevertheless, the idea that the strength of stabilizing selection and gene expression are positively correlated is well supported by other researchers \citep[e.g.][]{DrummondEtAl2005} and we find that the target expression level $\psi$ and realized protein synthesis rate $\phi$ are reasonably well correlated with laboratory measurements of gene expression.
@@ -507,7 +501,7 @@ When estimating \alphag, the likelihood then becomes the average likelihood whic
 
 \subsubsection*{Implementation}
 All methods described above are implemented in the new R package, \textit{selac} available through CRAN (http://cran.us.r-project.org). 
-Our package requires as input a set of fasta files that contain each coding sequence for a set of taxa, and the phylogeny depicting the hypothesized relationships among them. 
+Our package requires as input a set of fasta files that contain each coding sequence for a set of taxa, and a topology depicting the hypothesized relationships among them. 
 In addition to the SelAC models, we implemented the codon model of Goldman and Yang (1994; GY94), the mutation-selection model of Yang and Nielsen (2008)(i.e., FMutSel0), and the standard general-time reversible nucleotide model that allows for $\Gamma$ distributed rates across sites. 
 For the SelAC models, we cycle through multiple optimization phases. 
 In the first phase, we optimize the branch lengths while holding the model parameters constant. 
