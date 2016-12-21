@@ -125,7 +125,7 @@ While the scale and impact of phylogenetic studies has increased substantially o
 The simplest but most popular models assume neutrality between the different amino acid substitutions and may or may not include mutation bias (e.g.~F81, F84, HYK85, TN93, and GTR for the former and JC69 and K80 for the latter, see \citet{Yang2014} for an overview).
 The next set of models attempt to include a 'selection' term $\omega$, however the link between $\omega$ and the key parameters found in standard population genetics models such as \Ne, the distribution of fitness across genotype space, and mutation bias are far from clear.
 
-For instance,  $\omega$ is generally interpreted as indicating whether a sequence is under `purifying' ($\omega < 1$) or `positive' ($\omega > 1$) selection.
+For instance, $\omega$ is generally interpreted as indicating whether a sequence is under `purifying' ($\omega < 1$) or `positive' ($\omega > 1$) selection.
 However, the actual behavior of the model as is quite different.
 When $\omega < 1$ the model behaves as if the resident amino acid $i$ at a given site is favored by selection since synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions.
 Paradoxically, this selection regime for the resident amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
@@ -133,7 +133,7 @@ As soon as amino acid $j$ fixes, but not before, selection now favors amino acid
 Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions the resident amino acid.
 In a parallel manner, this selection \emph{against} on the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors}  the former resident amino acid $i$ as well as the 18 others.
 Thus, the simplest and most consistent interpretation of $\omega$ is that it describes the rate at which the selection regime itself changes, and this change in selection perfectly coincides with the fixation of a new amino acid.
-As a result, $\omega$ based approaches likely only describe a subset of scenarios such as over/underdominance or frequency dependent selection  \citep{HughesAndNei1988,Nowak2006}.
+As a result, $\omega$ based approaches likely only describe a subset of scenarios such as over/underdominance or frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
 
 Fortunately, given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic analysis \citep[e.g.][]{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 One lesson from the field of population genetics is while there are only a few fundamental evolutionary forces at play, i.e.~mutation, drift, selection, and linkage effects, describing the evolutionary behavior of a system in which there are non-linear interactions between different sites quickly becomes extremely challenging.
@@ -143,7 +143,6 @@ Another major advantage to our approach is that the parameters estimated are bio
 As with other phylogenetic methods,  we generate estimates of branch lengths and nucleotide specific mutation rates.
 In addition, because the math behind our model is mechanistically derived, our method can also be used to make quantitative inferences on the optimal amino acid sequence of a given protein as well as the average synthesis rate of each protein used in the analysis.
 The mechanistic basis of our model also means it can be easily extended to include more biological realism and test more explicit hypotheses about sequence evolution.
-
 
 We model the substitution process using the classic the Wright-Fisher model which includes the forces of mutation, selection, and drift \citep{Fisher1930,Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005}.
 For simplicity, we ignore linkage effects and, as a result of this and other assumptions, our model behaves in a site independent manner.
@@ -260,14 +259,13 @@ Our results clearly indicate that this information is available and accounting f
   Table of number of parameters,
   estimates for key parameters (or their summaries), and \DeltaAIC
   values.
-  (Jeremy, please complete)
   \begin{table}
     \begin{tabular}{lrrrrl}
       &          &Parameters &          &        & Model\\
       Model                 	& logLik   & Estimated &     AIC& \DeltaAIC&  Weight\\\hline
       GTR + $\Gamma$        	& -655166.4&        610& 1,311,553& 504,151&$<$0.001\\
       GY94                  	& -612121.5&        210& 1,224,663& 417,261&$<$0.001\\
-      FMutSel0              	& -598848.2&       2810& 1,203,316& 395,914&$<$0.001\\
+      YN08              		& -598848.2&       2810& 1,203,316& 395,914&$<$0.001\\
       SelAC: UNREST         	& -465616.7&       50,004&   831,226&  23,824&$<$0.001\\
       SelAC: UNREST + $\Gamma$ 	& -453706.0&       50,005&   807,402&       0& 0.999
     \end{tabular}
@@ -277,7 +275,7 @@ Our results clearly indicate that this information is available and accounting f
 \section*{Discussion}
 As phylogenetic methods become ever more ubiquitous in biology, and data set size and complexity increase, there is a need and an opportunity for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004} %citations identified in Lartillot and Philippe 2004
   \footnote{mikeg: Jeremy and Brian, can you provide some references that make this statement but only make minor advances? JMB -- not sure I understand this. Yes, we have many different matrices, but that's only out of coding convenience. It is actually a single 1344x1344 matrix. If you are thinking about the fact we multiply the mutation matrix by the fixation matrix, you can actually generate two matrices for MutSel and multiply them together (see pg 570 of that paper.)
-mikeg: I mean, single 20x20 or 64x64 matrix used for all sites.  
+mikeg: I mean, single 20x20 or 64x64 matrix used for all sites.
 So GY2008 would not fall into this definition.}.
 Despite their widespread use, phylogenetic models based on purifying and diversifying selection,i.e.~\citet{GoldmanAndYang1994} and its extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid.
 
@@ -374,7 +372,7 @@ The overall structure of our model involves a codon mutation model combined with
 
 \subsubsection*{Mutation Rate Matrix $\mu$: }
 We begin with a 4x4 mutation matrix that defines a model for mutation rates between individual nucleotide bases.
-For our purposes, we rely on the general unrestricted model (UNREST) \citep{Yang1994} because it is time irreversible and makes no constraint on the instantaneous rate of change between any pair of nucleotides. 
+For our purposes, we rely on the general unrestricted model (UNREST) \citep{Yang1994} because it is time irreversible and makes no constraint on the instantaneous rate of change between any pair of nucleotides.
 We note, however, that more constrained and time reversible models, such as the Jukes-Cantor (JC), Hasegawa-Kishino-Yano (HKY), or the general time reversible model (GTR), can also be used instead.
 The UNREST model defines the relative rates of change between a pair of nucleotides and technically, and thus, we arbitrarily set the G->T rate to 1 for a total of 11 free parameters.
 This matrix is also scaled by a diagonal matrix of the base frequencies, which are determined through analytically solving $\pi \times Qmatrix = 0$.
@@ -500,28 +498,32 @@ For each gene, we also estimate its target functionality synthesis rate $\psi$  
 When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using the generalized Laguerre quadrature with $k = 4$ points \citep{Felsenstein2001}.
 
 \subsubsection*{Implementation}
-All methods described above are implemented in the new R package, \textit{selac} available through CRAN (http://cran.us.r-project.org). 
-Our package requires as input a set of fasta files that contain each coding sequence for a set of taxa, and a topology depicting the hypothesized relationships among them. 
-In addition to the SelAC models, we implemented the codon model of Goldman and Yang (1994; GY94), the mutation-selection model of Yang and Nielsen (2008)(i.e., FMutSel0), and the standard general-time reversible nucleotide model that allows for $\Gamma$ distributed rates across sites. 
-For the SelAC models, we cycle through multiple optimization phases. 
-In the first phase, we optimize the branch lengths while holding the model parameters constant. 
-The second phase optimizes the individual $\C\q\psi\Ne$ composite parameter across genes, while holding both the branch lengths and the model parameters shared across the genome (i.e., $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag). 
-This is followed by the third phase that optimizes the parameters across the genome, while keeping the branch lengths and the composite parameters constant. 
-Finally, the fourth phase estimates the optimal amino acid at each site while keeping the branch lengths and all model parameters fixed. 
-This entire procedure is repeated six times or until the likelihood between successive rounds is less than a specified tolerance (the default is 0). 
-For optimization of a given set of parameters, we rely on a bounded subplex routine (NLopt; Johnson 2012) to maximize the log-likelihood function. 
-Confidence in the parameter estimates are generated by an 'adaptive search' procedure that we implemented to provide an estimate of the parameter space that is some pre-defined likelihood distance (e.g., 2 lnL units) from the maximum likelihood estimate (MLE), which follows from Beaulieu and O'Meara (2016). 
+All methods described above are implemented in the new R package, \textit{selac} available through CRAN (http://cran.us.r-project.org).
+Our package requires as input a set of fasta files that contain each coding sequence for a set of taxa, and the phylogeny depicting the hypothesized relationships among them.
+In addition to the SelAC models, we implemented the codon model of Goldman and Yang (1994; GY94), the mutation-selection model of Yang and Nielsen (2008)(i.e., FMutSel0, or what we refer to in the main text as YN08), and the standard general-time reversible nucleotide model that allows for $\Gamma$ distributed rates across sites.
+These likelihood-based models represent a sample of the types of popular models often fit to codon data.
 
-We note that our current implementation is painfully slow, and is particularly suited for smaller data sets in terms of numbers of taxa. 
+For the SelAC models, we initiate the optimal amino acid at each site by using a `majority' rule, where the initial optimum is the most frequently observed amino acid at a given site.
+Our optimization routine then proceeds by cycling though multiple phases.
+The first phase optimizes the branch lengths while holding the model parameters constant.
+The second phase optimizes the individual $\C\q\psi\Ne$ composite parameter across genes, while holding constant both the branch lengths and the model parameters shared across the genome (i.e., $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag).
+This is followed by a third phase that optimizes the parameters across the genome, while keeping the branch lengths and the composite parameters constant.
+Finally, the fourth phase estimates the optimal amino acid at each site while keeping the branch lengths and all model parameters at their current values.
+This entire procedure is repeated six times or until the likelihood between successive rounds is less than a specified tolerance (the default is 0). 
+For optimization of a given set of parameters, we rely on a bounded subplex routine (NLopt; Johnson 2012) to maximize the log-likelihood function.
+To help the optimization navigate through local peaks, we perform a set of independent analyses with different sets of naive starting points with respect to the composite $\C\q\psi\Ne$ parameter, $\alphac$, and $alphap$.
+Confidence in the parameter estimates are generated by an 'adaptive search' procedure that we implemented to provide an estimate of the parameter space that is some pre-defined likelihood distance (e.g., 2 lnL units) from the maximum likelihood estimate (MLE), which follows from Beaulieu and O'Meara (2016).
+
+We note that our current implementation is painfully slow, and is particularly suited for smaller data sets in terms of numbers of taxa.
 This is largely due to the size and quantity of matrices we create and manipulate just to calculate the log-likelihood of an individual given site.
 We have parallelized operations wherever possible, but the fact remains that, long term, this model may not be well-suited for R.
 Ongoing work will address the need for speed, with the eventual goal of implementing the model in popular phylogenetic inference toolkits, such as MrBayes (Huelsenbeck et al. 2001; Ronquist and Huelsenbeck, 2003), PAML (Yang 2007) and RAxML (Stamatakis 2006).
 
 \subsubsection*{Simulations}
-We evaluated the performance of our codon model by simulating datasets and estimating the bias of the inferred model parameters from these data. 
-Our "known" parameters under a given generating model were based on fitting SelAC to the 106 gene data set and phylogeny of Rokas et al. (2003). 
+We evaluated the performance of our codon model by simulating datasets and estimating the bias of the inferred model parameters from these data.
+Our "known" parameters under a given generating model were based on fitting SelAC to the 106 gene data set and phylogeny of Rokas et al. (2003).
 The tree used in these analyses is outdated with respect to the current hypothesis of relationships within Saccharomyces, but we rely on it simply as a training set that is separate from our empirical analyses (see section on Analyzing Yeast Genome).
-Bias in the model parameters were assessed under two generating models: one where we assumed a model of SelAC assuming $\alphag = \infty$, and one where we estimated $\alphag$ from the data. 
+Bias in the model parameters were assessed under two generating models: one where we assumed a model of SelAC assuming $\alphag = \infty$, and one where we estimated $\alphag$ from the data.
 Under each of these two scenarios, we used parameter estimates from the corresponding empirical analysis and simulated 50 five-gene data sets.
 For the composite $\C\q\psi\Ne$ parameter, which varied by gene, the 'known' values used for the simulation were five evenly spaced points along the rank order of the estimates across the 106 genes.
 The MLE estimate for a given replicate were taken as the fit with the highest log-likelihood after running five independent analyses with different sets of naive starting points with respect to the composite $\C\q\psi\Ne$ parameter, $\alphac$, and $alphap$.
@@ -537,12 +539,12 @@ We fit both the new models described in this paper, as well as two codon models,
 In all cases, we assumed that the model was partitioned by gene, but with branch lengths linked across genes.
 
 While one of our main objectives was to determine the improvement of fit that our model has with respect to other standard phylogenetic models, we also evaluated the adequacy of our model.
-In other words, we examined whether data simulated under the MLE produces properties similar to the input sequence data (e.g., Beaulieu et al., 2013). 
-For a given gene we first remove a particular taxon from the data set and the phylogeny. 
-A marginal reconstruction of the likeliest sequence across all remaining nodes is conducted under the model, including where the attachment point of pruned taxon to the tree. 
-The marginal probabilities of each site are used to sample and assemble the starting coding sequence, from which we calculate functionality relative to the optimal sequence. 
-The current state of the simulated coding sequence and its current functionality is examined at equidistant points along the length of the pruned branch.  
-We repeat this process 100 times and compare the distribution of trajectories against the observed functionality calculated for the gene. 
+In other words, we examined whether data simulated under the MLE produces properties similar to the input sequence data (e.g., Beaulieu et al., 2013).
+For a given gene we first remove a particular taxon from the data set and the phylogeny.
+A marginal reconstruction of the likeliest sequence across all remaining nodes is conducted under the model, including where the attachment point of pruned taxon to the tree.
+The marginal probabilities of each site are used to sample and assemble the starting coding sequence, from which we calculate functionality relative to the optimal sequence.
+The current state of the simulated coding sequence and its current functionality is examined at equidistant points along the length of the pruned branch.
+We repeat this process 100 times and compare the distribution of trajectories against the observed functionality calculated for the gene.
 For comparison, we also conducted the same test, by simulating the sequence under the standard GTR + $\Gamma$ nucleotide model, which is often used on these data, but does not account for the fact that the sequence codes for a specific protein.
 
 \bibliographystyle{./am.nat}
