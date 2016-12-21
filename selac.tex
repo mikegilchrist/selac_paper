@@ -126,7 +126,7 @@ The simplest models assume neutrality between the different amino acid substitut
 The next set of models attempt to include a 'selection' term $\omega$.
 Although it is rarely acknowledged, the link between $\omega$ and the key parameters found in standard population genetics models such as \Ne, the distribution of fitness across genotype space, and mutation bias are far from clear.
 
-For instance,  $\omega$ is generally interpreted as indicating whether a sequence is under `purifying' ($\omega < 1$) or `positive' ($\omega > 1$) selection.
+For instance, $\omega$ is generally interpreted as indicating whether a sequence is under `purifying' ($\omega < 1$) or `positive' ($\omega > 1$) selection.
 However, the actual behavior of the model as is quite different.
 When $\omega < 1$ the model behaves as if the resident amino acid $i$ at a given site is favored by selection since synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions.
 Paradoxically, this selection regime for the resident amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
@@ -134,7 +134,7 @@ As soon as amino acid $j$ fixes, but not before, selection now favors amino acid
 Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions the resident amino acid.
 In a parallel manner, this selection \emph{against} on the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors}  the former resident amino acid $i$ as well as the 18 others.
 Thus, the simplest and most consistent interpretation of $\omega$ is that it describes the rate at which the selection regime itself changes, and this change in selection perfectly coincides with the fixation of a new amino acid.
-As a result, $\omega$ based approaches likely only describe a subset of scenarios such as over/underdominance or frequency dependent selection  \citep{HughesAndNei1988,Nowak2006}.
+As a result, $\omega$ based approaches likely only describe a subset of scenarios such as over/underdominance or frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
 
 Fortunately, given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic analysis \citep[e.g.][]{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 This is desirable because population genetics is a mature, mathematically rigorous, and well established framework for describing biological evolution.
@@ -148,7 +148,6 @@ Another major advantage to our approach is that the parameters estimated are bio
 As with outher phylogenetic methods,  we generate estimats of branch lengths and nucleotide specific mutation rates.
 In addition, because the math behind our model is mechanistically derived, our method can also be used to make quantiative inferences on the optimal amino acid sequence of a given protein as well as the average synthesis rate of each protein used in the analysis.
 The mechanistic basis of our model also means it can be easily extended to include more biological realism and test more explicit hypotheses about sequence evolution.
-
 
 We model the substitution process using the classic the Wright-Fisher model which includes the forces of mutation, selection, and drift \citep{Fisher1930,Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005}.
 For simplicity, we ignore linkage effects and, as a result of this and other assumptions, our model behaves in a site independent manner.
@@ -265,14 +264,13 @@ Our results clearly indicate that this information is available and accounting f
   Table of number of parameters,
   estimates for key parameters (or their summaries), and \DeltaAIC
   values.
-  (Jeremy, please complete)
   \begin{table}
     \begin{tabular}{lrrrrl}
       &          &Parameters &          &        & Model\\
       Model                 	& logLik   & Estimated &     AIC& \DeltaAIC&  Weight\\\hline
       GTR + $\Gamma$        	& -655166.4&        610& 1,311,553& 504,151&$<$0.001\\
       GY94                  	& -612121.5&        210& 1,224,663& 417,261&$<$0.001\\
-      FMutSel0              	& -598848.2&       2810& 1,203,316& 395,914&$<$0.001\\
+      YN08              		& -598848.2&       2810& 1,203,316& 395,914&$<$0.001\\
       SelAC: UNREST         	& -465616.7&       50,004&   831,226&  23,824&$<$0.001\\
       SelAC: UNREST + $\Gamma$ 	& -453706.0&       50,005&   807,402&       0& 0.999
     \end{tabular}
@@ -508,14 +506,18 @@ When estimating \alphag, the likelihood then becomes the average likelihood whic
 \subsubsection*{Implementation}
 All methods described above are implemented in the new R package, \textit{selac} available through CRAN (http://cran.us.r-project.org). 
 Our package requires as input a set of fasta files that contain each coding sequence for a set of taxa, and the phylogeny depicting the hypothesized relationships among them. 
-In addition to the SelAC models, we implemented the codon model of Goldman and Yang (1994; GY94), the mutation-selection model of Yang and Nielsen (2008)(i.e., FMutSel0), and the standard general-time reversible nucleotide model that allows for $\Gamma$ distributed rates across sites. 
-For the SelAC models, we cycle through multiple optimization phases. 
-In the first phase, we optimize the branch lengths while holding the model parameters constant. 
-The second phase optimizes the individual $\C\q\psi\Ne$ composite parameter across genes, while holding both the branch lengths and the model parameters shared across the genome (i.e., $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag). 
-This is followed by the third phase that optimizes the parameters across the genome, while keeping the branch lengths and the composite parameters constant. 
-Finally, the fourth phase estimates the optimal amino acid at each site while keeping the branch lengths and all model parameters fixed. 
+In addition to the SelAC models, we implemented the codon model of Goldman and Yang (1994; GY94), the mutation-selection model of Yang and Nielsen (2008)(i.e., FMutSel0, or what we refer to in the main text as YN08), and the standard general-time reversible nucleotide model that allows for $\Gamma$ distributed rates across sites. 
+These likelihood-based models represent a sample of the types of popular models often fit to codon data.
+
+For the SelAC models, we initiate the optimal amino acid at each site by using a `majority' rule, where the initial optimum is the most frequently observed amino acid at a given site. 
+Our optimization routine then proceeds by cycling though multiple phases. 
+The first phase optimizes the branch lengths while holding the model parameters constant. 
+The second phase optimizes the individual $\C\q\psi\Ne$ composite parameter across genes, while holding constant both the branch lengths and the model parameters shared across the genome (i.e., $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag). 
+This is followed by a third phase that optimizes the parameters across the genome, while keeping the branch lengths and the composite parameters constant. 
+Finally, the fourth phase estimates the optimal amino acid at each site while keeping the branch lengths and all model parameters at their current values. 
 This entire procedure is repeated six times or until the likelihood between successive rounds is less than a specified tolerance (the default is 0). 
-For optimization of a given set of parameters, we rely on a bounded subplex routine (NLopt; Johnson 2012) to maximize the log-likelihood function. 
+For optimization of a given set of parameters, we rely on a bounded subplex routine (NLopt; Johnson 2012) to maximize the log-likelihood function.
+To help the optimization navigate through local peaks, we perform a set of independent analyses with different sets of naive starting points with respect to the composite $\C\q\psi\Ne$ parameter, $\alphac$, and $alphap$.
 Confidence in the parameter estimates are generated by an 'adaptive search' procedure that we implemented to provide an estimate of the parameter space that is some pre-defined likelihood distance (e.g., 2 lnL units) from the maximum likelihood estimate (MLE), which follows from Beaulieu and O'Meara (2016). 
 
 We note that our current implementation is painfully slow, and is particularly suited for smaller data sets in terms of numbers of taxa. 
