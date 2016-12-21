@@ -120,11 +120,11 @@ The new set of models, which we collectively call selac models, fit phylogenetic
 Moreover, these models allow inference of population genetics parameters from data used for interspecific phylogenies.
 
 \section*{Introduction}
-Phylogenetic analysis now plays a critical role in the fields of ecology, evolution, paleontology, medicine, conservation, and others.
+Phylogenetic analysis now plays a critical role in the fields of ecology, evolution, paleontology, medicine, conservation, and many others.
 While the scale and impact of phylogenetic studies has increased substantially over the past two decades, by comparison the realism of the mathematical models on which these analyses are based has changed relatively little.
 The simplest but most popular models assume neutrality between the different amino acid substitutions and may or may not include mutation bias (e.g.~F81, F84, HYK85, TN93, and GTR for the former and JC69 and K80 for the latter, see \citet{Yang2014} for an overview).
-The next set of models attempt to include a 'selection' term $\omega$, however the link between $\omega$ and the key parameters found in standard population genetics models such as \Ne, the distribution of fitness across genotype space, and mutation bias are far from clear.
 
+Another set of models attempt to include a 'selection' term $\omega$, however the link between $\omega$ and the key parameters found in standard population genetics models such as \Ne, the distribution of fitness across genotype space, and mutation bias are far from clear.
 For instance, $\omega$ is generally interpreted as indicating whether a sequence is under `purifying' ($\omega < 1$) or `positive' ($\omega > 1$) selection.
 However, the actual behavior of the model as is quite different.
 When $\omega < 1$ the model behaves as if the resident amino acid $i$ at a given site is favored by selection since synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions.
@@ -373,7 +373,7 @@ The overall structure of our model involves a codon mutation model combined with
 \subsubsection*{Mutation Rate Matrix $\mu$: }
 We begin with a 4x4 mutation matrix that defines a model for mutation rates between individual nucleotide bases.
 For our purposes, we rely on the general unrestricted model (UNREST) \citep{Yang1994} because it is time irreversible and makes no constraint on the instantaneous rate of change between any pair of nucleotides.
-We note, however, that more constrained and time reversible models, such as the Jukes-Cantor (JC), Hasegawa-Kishino-Yano (HKY), or the general time reversible model (GTR), can also be used instead.
+We note, however, that more constrained and time reversible models, such as the Jukes-Cantor (JC), Hasegawa-Kishino-Yano (HKY), or the general time reversible model (GTR), can also be used.
 The UNREST model defines the relative rates of change between a pair of nucleotides and technically, and thus, we arbitrarily set the G->T rate to 1 for a total of 11 free parameters.
 This matrix is also scaled by a diagonal matrix of the base frequencies, which are determined through analytically solving $\pi \times Qmatrix = 0$.
 We use this matrix to populate a $64 \times 64$ codon mutation matrix $\mu$, whose entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a "weak mutation" assumption.
