@@ -43,17 +43,15 @@
 \newcommand{\LogN}{\ensuremath{\text{LogN}}\xspace}
 \newcommand{\Ne}{\ensuremath{{N_e}}\xspace} %
 \newcommand{\Nemu}{\ensuremath{{N_e \mu}}\xspace} %
-\newcommand{\Piihat}{\ensuremath{\hat{\pi}_i}\xspace}
-\newcommand{\Pii}{\ensuremath{\pi_{i}}\xspace}
-\newcommand{\Pijhat}{\ensuremath{\hat{\pi}_j}\xspace}
-\newcommand{\Pij}{\ensuremath{\pi_{j}}\xspace}
-\newcommand{\Pivechat}{\ensuremath{\hat{\Pivec}}\xspace}
-\newcommand{\Pivec}{\ensuremath{\Vec{\pi}}\xspace}
-\newcommand{\Pmatrix}{\mathbf{P}\xspace}
-\newcommand{\Tmatrix}{\mathbf{T}\xspace}
-\newcommand{\Dmatrix}{\mathbf{D}\xspace}
-\newcommand{\Lmatrix}{\mathbf{L}\xspace}
-\newcommand{\Qmatrix}{\mathbf{Q}\xspace}
+\newcommand{\Lik}{\ensuremath{\mathcal{L}}\xspace}%replaces \Lmatrix which was inconsistent and, thus, confusing 
+\newcommand{\pimatrix}{\ensuremath{\mathbf{\pi}}\xspace}
+\newcommand{\mumatrix}{\ensuremath{\mathbf{\mu}}\xspace}
+\newcommand{\Pmatrix}{\ensuremath{\mathbf{P}}\xspace}
+\newcommand{\Tmatrix}{\ensuremath{\mathbf{T}}\xspace}
+\newcommand{\Dmatrix}{\ensuremath{\mathbf{D}}\xspace}
+\newcommand{\Dmatrixp}{\ensuremath{\mathbf{D}_p}\xspace}
+\newcommand{\Mmatrix}{\ensuremath{\mathbf{M}}\xspace}
+\newcommand{\Qmatrix}{\ensuremath{\mathbf{Q}}\xspace}
 \newcommand{\Qmatrixa}{\ensuremath{\Qmatrix_a}\xspace}
 \newcommand{\Wi}{\ensuremath{{W_i}}\xspace}
 \newcommand{\Wj}{\ensuremath{{W_j}}\xspace}
@@ -99,6 +97,7 @@
 \newcommand{\muvec}{\ensuremath{\Vec{\mu}}\xspace}
 \newcommand{\phig}{\ensuremath{\phi_{g}}\xspace}
 \newcommand{\psig}{\ensuremath{\psi_{g}}\xspace}
+\newcommand{\psiprime}{\ensuremath{\psi^\prime}\xspace}
 \newcommand{\pij}{\ensuremath{p_{i,j}}\xspace}
 \newcommand{\qij}{\ensuremath{q_{i,j}}\xspace}
 \newcommand{\qji}{\ensuremath{q_{i,j}}\xspace}
@@ -115,8 +114,8 @@
 
 
 \section*{Abstract}
-We present a phylogenetic approach rooted in the field of population genetics that more realistically models the evolution of protein-coding DNA under the assumption of stabilizing selection.
-The new set of models, which we collectively call selac models, fit phylogenetic data substantially better than popular current models, suggesting more accurate inference of phylogenies.
+We present a phylogenetic approach rooted in the field of population genetics that more realistically models the evolution of protein-coding DNA under the assumption of stabilizing selection for a gene specific optimal amino acid sequence.
+The new set of models, which we collectively call selac models, fit phylogenetic data substantially better than popular current models, suggesting more accurate inference of phylogenetic trees and branch lengths.
 Moreover, these models allow inference of population genetics parameters from data used for interspecific phylogenies.
 
 \section*{Introduction}
@@ -125,18 +124,19 @@ While the scale and impact of phylogenetic studies has increased substantially o
 The simplest but most popular models assume neutrality between the different amino acid substitutions and may or may not include mutation bias (e.g.~F81, F84, HYK85, TN93, and GTR for the former and JC69 and K80 for the latter, see \citet{Yang2014} for an overview).
 
 Another set of models attempt to include a 'selection' term $\omega$, however the link between $\omega$ and the key parameters found in standard population genetics models such as \Ne, the distribution of fitness across genotype space, and mutation bias are far from clear.
-For instance, $\omega$ is generally interpreted as indicating whether a sequence is under `purifying' ($\omega < 1$) or `positive' ($\omega > 1$) selection.
+For instance, $\omega$ is generally interpreted as indicating whether a sequence is under `purifying' ($\omega < 1$) or `diversifying' ($\omega > 1$) selection.
 However, the actual behavior of the model as is quite different.
 When $\omega < 1$ the model behaves as if the resident amino acid $i$ at a given site is favored by selection since synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions.
 Paradoxically, this selection regime for the resident amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
-As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ over all other amino acids, including $i$, the opposite scenario to when $i$ was the resident.
+As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ over all other amino acids, including $i$.
+This is now the opposite scenario to when $i$ was the resident.
 Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions the resident amino acid.
 In a parallel manner, this selection \emph{against} on the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors}  the former resident amino acid $i$ as well as the 18 others.
 Thus, the simplest and most consistent interpretation of $\omega$ is that it describes the rate at which the selection regime itself changes, and this change in selection perfectly coincides with the fixation of a new amino acid.
 As a result, $\omega$ based approaches likely only describe a subset of scenarios such as over/underdominance or frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
 
 Fortunately, given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic analysis \citep[e.g.][]{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
-One lesson from the field of population genetics is while there are only a few fundamental evolutionary forces at play, i.e.~mutation, drift, selection, and linkage effects, describing the evolutionary behavior of a system in which there are non-linear interactions between different sites quickly becomes extremely challenging.
+One lesson from the field of population genetics is while there are only a few fundamental evolutionary forces at play (mutation, drift, selection, and linkage effects) describing the evolutionary behavior of a system in which there are non-linear interactions between different sites quickly becomes extremely challenging.
 Fortunately, under the simplifying assumptions of additivity between sites and alleles, calculating stationary and substitution probabilities are relatively straightforward, making fitting additive models of the evolutionary process to sequence data computationally feasible.
 
 Another major advantage to our approach is that the parameters estimated are biologically meaningful.
@@ -144,9 +144,9 @@ As with other phylogenetic methods,  we generate estimates of branch lengths and
 In addition, because the math behind our model is mechanistically derived, our method can also be used to make quantitative inferences on the optimal amino acid sequence of a given protein as well as the average synthesis rate of each protein used in the analysis.
 The mechanistic basis of our model also means it can be easily extended to include more biological realism and test more explicit hypotheses about sequence evolution.
 
-We model the substitution process using the classic the Wright-Fisher model which includes the forces of mutation, selection, and drift \citep{Fisher1930,Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005}.
+We model the substitution process as a classic Wright-Fisher process which includes the forces of mutation, selection, and drift \citep{Fisher1930,Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005,McCandlishAndSoltzfus2014}.
 For simplicity, we ignore linkage effects and, as a result of this and other assumptions, our model behaves in a site independent manner.
-Our approach is developed in the same vein as previous phylogenetic applications of the Wright-Fisher model \citep[e.g.][]{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008,RodrigueEtAl2005,KoshiAndGoldstein1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
+Our approach is developed in the same vein as previous phylogenetic applications of the Wright-Fisher process \citep[e.g.][]{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008,RodrigueEtAl2005,KoshiAndGoldstein1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 Similar to Lartillot's work \citep{LartillotAndPhilippe2004,RodrigueAndLartillot2014}, we assume there is a finite set of rate matrices describing the substitution process and that each position within a protein must assigned to a particular rate matrix category.
 Unlike these other researchers, we assume \emph{a priori} there are 20 different families of rate matrices, one family for when a given amino acid is favored at a site.
 As a result, our approach allows us to quantitatively evaluate the support for a particular amino acid being favored at a particular position within the protein encoded by a particular gene.
@@ -157,8 +157,8 @@ We've utilized the same nested, population genetic based approach in more tradit
 That work and our current work illustrates how more information can be extracted from sequence data when more biologically based models are used.
 
 One advantage of a nested modeling framework is that it requires only a handful of genome wide parameters such as nucleotide specific mutation rates (scaled by effective population size \Ne), side chain physiochemical weighting parameters, and a shape parameter describing the distribution of site sensitivities. % around a mean value of 1.
-In addition to these genome wide parameters, our model requires a gene specific expression parameter $\psi$, which is also scaled by $\Ne$ and other genome wide terms, describes the average synthesis rate of a protein.
-The composite term $\Ne \psi$ scales the strength and efficacy of selection for the optimal amino acid at a given site within a given gene.
+In addition to these genome wide parameters, our model requires a gene $g$ specific expression parameter $\psi_g$ which describes the average rate at which the protein's functionality is produced by the organism.
+The gene specific parameter $\psi_g$ is multiplied by additional model terms to make a composite term $\psiprime_g$ which scales the strength and efficacy of selection for the optimal amino acid sequence.\footnote{should we introduce the \aopt notation here?}
 Our model also requires the designation of an optimal amino acid at each position or site within a coding sequence which, in turn, makes it the largest category of parameters we estimate.
 Because we use a submodel to derive our substitution matrices, our model requires the estimation of a fraction of the parameters required when compared to approaches where the substitution rates are allowed to vary independently  \citep{HalpernAndBruno1998,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 This, in turn, allows us to move beyond simply generating MLE estimates of parameters \citep[c.f.][]{YangAndNielsen2008} and quantify our uncertainty in these values.
@@ -280,18 +280,15 @@ So GY2008 would not fall into this definition.}.
 Despite their widespread use, phylogenetic models based on purifying and diversifying selection,i.e.~\citet{GoldmanAndYang1994} and its extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid.
 
 Instead of heuristically extending population genetic models of neutral evolution for use in phylogenetics, it makes sense to derive these extensions from population genetic models that \emph{explicitly} include the fundamental forces of mutation, drift, and natural selection. % (i.e.~a Wright-Fisher model).
-Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed Wright-Fisher based methods \citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}.%[CHECK CITATIONS].
+Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site specific selection on protein sequence and phylogenetics\citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}.%[CHECK CITATIONS].
 Our work follows this tradition, but includes some key advances.
-For example, we parameterize the model and fit branch lengths simultaneously rather than in two separate steps.\footnote{mikeg: Jeremy or Brian: I know this is true for Halpern and Bruno and am 95\% sure it applies to Jeff Thorne's work.
-        Can you confirm its true for the Lartillot references? JMB: We do it in steps too. So this statement isn't correct.}
- Even though our model requires a large number of matrices, because of our assumption about protein functionality and physiochemical distance from the optimum, we are able to parameterize our substitution matrices using a relatively small number of genome wide parameters and one gene specific parameter.
-      We show that all of these parameters can be estimated simultaneously with branch lengths from the data at the tips of the tree.
-
-      By assuming fitness declines with extraneous energy flux, our model explicitly links the variation in the strength of stabilizing selection for the optimal protein sequence between genes to the variation in the target expression level $\psi$.
-      In turn, our model allows us to generate quantiative estimates of gene expression and amino acid optimality (Figures \ref{fig:phiComparisons} and \ref{fig:optAA}) and link molecular evolution and function.
-      Our results indicate that including a gene specific $\psi$ value vastly improves our model fits (Table \ref{table:modelFits} and Figure \ref{fig:phiComparisons})).
-      Of course, given the general nature of our model and the complexity of biological systems, other biological forces also contribute to gene level variation in natural selection.
-      Nevertheless, the idea that the strength of stabilizing selection and gene expression are positively correlated is well supported by other researchers \citep[e.g.][]{DrummondEtAl2005} and we find that the target expression level $\psi$ and realized protein synthesis rate $\phi$ are reasonably well correlated with laboratory measurements of gene expression.
+For example, even though our model requires a large number of matrices, because of our assumption about protein functionality and physiochemical distance from the optimum, we are able to parameterize our substitution matrices using a relatively small number of genome wide parameters and one gene specific parameter.
+We show that all of these parameters can be estimated simultaneously with branch lengths from the data at the tips of the tree.
+By assuming fitness declines with extraneous energy flux, our model explicitly links the variation in the strength of stabilizing selection for the optimal protein sequence between genes to the variation in the target expression level $\psi$.
+In turn, our model allows us to generate quantiative estimates of gene expression and amino acid optimality (Figures \ref{fig:phiComparisons} and \ref{fig:optAA}) and link molecular evolution and function.
+Our results indicate that including a gene specific $\psi$ value vastly improves our model fits (Table \ref{table:modelFits} and Figure \ref{fig:phiComparisons})).
+Of course, given the general nature of our model and the complexity of biological systems, other biological forces also contribute to gene level variation in natural selection.
+Nevertheless, the idea that the strength of stabilizing selection and gene expression are positively correlated is well supported by other researchers \citep[e.g.][]{DrummondEtAl2005} and we find that the target expression level $\psi$ and realized protein synthesis rate $\phi$ are reasonably well correlated with laboratory measurements of gene expression.
 
 Additional advantages
 \begin{enumerate}
@@ -370,13 +367,18 @@ The overall structure of our model involves a codon mutation model combined with
 
 \subsection*{Allele Substitution Model}
 
-\subsubsection*{Mutation Rate Matrix $\mu$: }
-We begin with a 4x4 mutation matrix that defines a model for mutation rates between individual nucleotide bases.
-For our purposes, we rely on the general unrestricted model (UNREST) \citep{Yang1994} because it is time irreversible and makes no constraint on the instantaneous rate of change between any pair of nucleotides.
+\subsubsection*{Mutation Rate Matrix \mumatrix: }
+We begin with a 4x4 nucleotide mutation matrix that defines a model for mutation rates between individual bases.
+For our purposes, we rely on the general unrestricted model (UNREST) \citep{Yang1994} because it is time irreversible and makes no constraint on the instantaneous rate of change between any pair of nucleotides.\footnote{mikeg: I am unsure wwhy is this model is being described as time irreversible.
+My understanding is that its stationary distribution it satisfies the condition $\pi_i P_{i\rightarrow j} = \pi_j P_{j\rightarrow i}$ and thus classified as a time reversible markov process.
+Are you confusing 'general time reverisble', a phylo specific term, with 'time reverisble'?
+}
 We note, however, that more constrained and time reversible models, such as the Jukes-Cantor (JC), Hasegawa-Kishino-Yano (HKY), or the general time reversible model (GTR), can also be used.
-The UNREST model defines the relative rates of change between a pair of nucleotides and technically, and thus, we arbitrarily set the G->T rate to 1 for a total of 11 free parameters.
-This matrix is also scaled by a diagonal matrix of the base frequencies, which are determined through analytically solving $\pi \times Qmatrix = 0$.
-We use this matrix to populate a $64 \times 64$ codon mutation matrix $\mu$, whose entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a "weak mutation" assumption.
+The 12 parameter UNREST model defines the relative rates of change between a pair of nucleotides.
+Thus, we arbitrarily set the G$\rightarrow$T mutation rate to 1, resulting in 11  free mutation rate parameters in the 4x4 mutation nucleotide mutation matrix.
+The nucleotide mutation matrix is also scaled by a diagonal matrix \piMatrix whose entries correspond to the equilibrium frequencies of each base.
+These equilibrium nucleotide frequencies are determined through analytically solving $\pimatrix \times \Qmatrix = 0$. \footnote{mikeg: are my updates correct?}
+We use this\footnote{mikeg: It is unclear if `this' is referring to the \piMatrix or the \Qmatrix} to populate a $64 \times 64$ codon mutation matrix $\mumatrix$, whose entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a "weak mutation" assumption.
 That is, the rate of allele fixation is much greater than \Nemu and $\Nemu \ll 1$, such that evolution is mutation limited, codon substitutions only occur one nucleotide at a time and, as a result, the rate of change between any pair of codons that differ by more than one nucleotide is zero.
 
 While the overall model does not assume equilibrium, we still need to scale our mutation matrices $\mu$.
@@ -417,10 +419,10 @@ Thus for simplicity, in this study we ignore any indirect costs of protein assem
 \begin{align}
 \label{eq:defineCost}
   \Costcveci  &= \text{Energetic cost of protein synthesis.}\\
-  &= C_1 + C_2 n
+  &= A_1 + A_2 n
 \end{align}
-where, $C_1$ and $C_2$ represent the direct cost, in high energy phosphate bonds, of ribosome initiation and peptide elongation, respectively, where $C_1 = C_2 = 4  \, \simP$.
-\footnote{mikeg: Jeremy, can we let $C_1$ vary as a factor of $C_2$ and then refit the model?.
+where, $A_1$ and $A_2$ represent the direct cost, in high energy phosphate bonds, of ribosome initiation and peptide elongation, respectively, where $A_1 = A_2 = 4  \, \simP$.
+\footnote{mikeg: Jeremy, can we let $A_1$ vary as a factor of $A_2$ and then refit the model?.
 Answer: leave for later.}
 
 
@@ -431,7 +433,7 @@ Following \cite{Grantham1974}, we focus on using composition $c$, polarity $p$, 
 We use the euclidian distance between residue properties where each property $c$, $p$, and $v$ has its own weighting term, $\alphac$, $\alphap$, $\alphav$, respectively, which we refer to as `Grantham weights'.
 Because physiochemical distance is ultimately weighted by a gene's specific average protein synthesis rate $\psi$, another parameter we estimate, there is a problem with parameter identifiablity.
 Ultimately, the scale of gene expression is affected by how we measure physiochemical distances which, in turn, is determined by our choice of Grantham weights.
-As a result, we set $\alphav = 3.990333 \times 10^{-4}$, the value originally estimated by Grantham, and recognize that our our estimates of $\alphac$ and $\alphap$ and $\psi$ are scaled relative to this choice for $\alphav$.
+As a result, we set $\alphav = 3.990333 \times 10^{-4}$\footnote{mikeg: does Grantham really report 7 digits of precision?}, the value originally estimated by Grantham, and recognize that our our estimates of $\alphac$ and $\alphap$ and $\psi$ are scaled relative to this choice for $\alphav$.
 More specifically,
 \begin{equation*}
   d(a_i, \aopt) = \sqrt{\alphac \left(c\left(a_i\right) - c\left(\aopt\right)\right)^2 + \alphap \left(p\left(a_i\right) - p\left(\aopt\right)\right)^2 +  \alphav \left(v\left(a_i\right) - v\left(\aopt\right)\right)^2}.
@@ -454,27 +456,27 @@ For example, a protein encoding allele which has a 10\% reduction in functionali
 Third, we assume that every additional high energy bond \simP spent per unit time to meet the organism's target function synthesis rate $\psi$ leads to a slight and proportional decrease in fitness $W$.
 This assumption, in turn, implies
 \begin{align}
-  W_i\left(\cvec\right) &\propto \exp\left[- q \, \eta(\cveci) \psi\right].
+  W_i\left(\cvec\right) &\propto \exp\left[- A_0 \, \eta(\cveci) \psi\right].
 \end{align}
-where $q$ describes the decline in fitness with every \simP wasted per unit time.
-Because $q$ shares the same time units as $\psi$ and $\phi$ and only occurs in our models in conjunction with $\psi$, we do not need to explicilty identify our time units.
+where $A_0$ describes the decline in fitness with every \simP wasted per unit time.
+Because $A_0$ shares the same time units as $\psi$ and $\phi$ and only occurs in our models in conjunction with $\psi$, we do not need to explicilty identify our time units.
 
 Correspondingly, the ratio of fitness between two genotypes is,
 \begin{align*}
-  W_i/W_j &=  \exp\left[- q \, \eta(\cveci) \psi\right]/\exp\left[- q \, \eta(\cvecj) \psi\right]\\
-  &=  \exp\left[- q \left(\eta(\cveci)- \eta(\cvecj)\right) \psi\right]\\
+  W_i/W_j &=  \exp\left[- A_0 \, \eta(\cveci) \psi\right]/\exp\left[- A_0 \, \eta(\cvecj) \psi\right]\\
+  &=  \exp\left[- A_0 \left(\eta(\cveci)- \eta(\cvecj)\right) \psi\right]\\
 \end{align*}
 Given our formulations of \Cost and \Func, the fitness effects between sites are multiplicative and, therefore, the substitution of an amino acid at one site can be modeled independently of the amino acids at the other sites within the coding sequence.
 As a result, the fitness ratio for two genotypes differing at a single site $p$ simplifies to
 \begin{align}
- W_i/W_j  &= \exp\left\{- q \left(C_1 + C_2 n\right) \frac{1}{n} \sum_{p \in \setP} \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] \psi \right\}
+ W_i/W_j  &= \exp\left\{- A_0 \left(A_1 + A_2 n\right) \frac{1}{n} \sum_{p \in \setP} \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] \psi \right\}
 \end{align}
 where \setP represents the codon positions in which \cveci and \cvecj differ.
 Fourth, we make a weak mutation assumption, such that alleles can differ at only one position at any given time, i.e.~$|\setP| = 1$, and that the population is evolving according to a Fisher-Wright process.
 As a result, the probability a new mutant $j$ introduced via mutation into a resident population $i$ with effective size \Ne will go to fixation is,
 \begin{align*}
-  u_{i,j} &=  \frac{1 - \left(W_i/W_j\right)^b}{1 - \left(W_i/W_j\right)^\Ne}\\
-   &= \frac{1- \exp\left\{- \frac{q}{n} \left(C_1 + C_2 n\right) \left[d\left(a_i,\aopt\right) - d\left(a_j,\aopt\right)\right] \psi \,  b\right\}}  {1-\exp\left\{- \frac{q}{n} \left(C_1 + C_2 n\right) \left[d\left(a_i,\aopt\right) - d\left(a_j,\aopt\right)\right] \psi \, 2\Ne\right\}}
+  u_{i,j} &=  \frac{1 - \left(W_i/W_j\right)^b}{1 - \left(W_i/W_j\right)^{2 \Ne}}\\
+   &= \frac{1- \exp\left\{- \frac{A_0}{n} \left(A_1 + A_2 n\right) \left[d\left(a_i,\aopt\right) - d\left(a_j,\aopt\right)\right] \psi \,  b\right\}}  {1-\exp\left\{- \frac{q}{n} \left(A_1 + A_2 n\right) \left[d\left(a_i,\aopt\right) - d\left(a_j,\aopt\right)\right] \psi \, 2\Ne\right\}}
 \end{align*}
 where $b=1$ for a diploid population and $2$ for a haploid population \citep{Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005}.
 Finally, assuming a constant mutation rate between alleles $i$ and $j$, $\muij$, the substitution rate from allele $i$ to $j$ can be modeled as,
@@ -483,18 +485,19 @@ Finally, assuming a constant mutation rate between alleles $i$ and $j$, $\muij$,
 \end{align*}
 where, given our weak mutation assumption, $\muij = 0$ when two codons differ by more than one nucleotide.
 In the end, each optimal amino acid has a separate 64 x 64 substitution rate matrix \Qmatrixa, which incorporates selection for the amino acid (and the fixation rate matrix this creates) as well as the common mutation parameters across optimal amino acids.
-This results in the creation of 20 \Qmatrixa matrices, one for each amino acid, with up to 26,880 unique rates, based on few parameters (one to 11 mutation rates, two free Grantham weights, the cost of protein production \Cost, the target functionality synthesis rate, and optimal amino acid at each site), which we infer from the data.
+This results in the creation of 20 \Qmatrixa matrices, one for each amino acid, with up to 26,880 unique rates, based on few parameters (one to 11 mutation rates, two free Grantham weights, the cost of protein production \Cost, the target functionality synthesis rate, and optimal amino acid at each site position $p$, \aoptp), which we infer from the data.
 Our model can be generalized to allow transitions between optimal amino acids as well as between codons, which would result in a $(20 \times 64) \times (20 \times 64) =  1344 \times 1344$ matrix.
 
 Finally, given our assumption of independent evolution among sites, the probability of the whole data set is the product of the probabilities of observing the data at each individual site.
-Thus, the log likelihood of an individual site is calculated as
+Thus, the log likelihood of amino acid $a$ being optimal at a given site position $p$ is calculated as
 \begin{equation}
-\Lmatrix\left(\Qmatrixa\right) \propto \Pmatrix\left(\Dmatrix\middle|\Qmatrixa,\Tmatrix\right)
+\Lik\left(\Qmatrixa\middle \Dmatrixp, \Tmatrix\right) \propto \Pmatrix\left(\Dmatrixp\middle|\Qmatrixa,\Tmatrix\right)
 \end{equation}
-In this case, the data, $\Dmatrix$, are the observed codon states at the tips of a phylogeny $\Tmatrix$, whose topology are known.
-The pruning algorithm of Felsenstein (1981) is used to calculate $\Lmatrix(\Qmatrixa)$.
-The log likelihood is maximized by estimating the global parameters: $C \, q \, \Ne$, 11 mutation parameters which are scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
-For each gene, we also estimate its target functionality synthesis rate $\psi$  and the optimal amino acid for each position in the protein.
+In this case, the data, $\Dmatrixp$, are the observed codon states at position $p$ for the tips of the phylogenetic tree  $\Tmatrix$.
+For our purposes we take \Tmatrix as given but it could be estimated as well.
+The pruning algorithm of Felsenstein (1981) is used to calculate $\Lik(\Qmatrixa)$.
+The log likelihood is maximized by estimating the genome scale parameters which consist of  11 mutation parameters which are implicitly scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
+For each gene $g$, we also estimate the composite term $\psiprime_g = \psi_g A_0 b \Ne$  and the optimal amino acid for each position \aoptp of protein.
 When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using the generalized Laguerre quadrature with $k = 4$ points \citep{Felsenstein2001}.
 
 \subsubsection*{Implementation}
@@ -506,12 +509,16 @@ These likelihood-based models represent a sample of the types of popular models 
 For the SelAC models, we initiate the optimal amino acid at each site by using a `majority' rule, where the initial optimum is the most frequently observed amino acid at a given site.
 Our optimization routine then proceeds by cycling though multiple phases.
 The first phase optimizes the branch lengths while holding the model parameters constant.
-The second phase optimizes the individual $\C\q\psi\Ne$ composite parameter across genes, while holding constant both the branch lengths and the model parameters shared across the genome (i.e., $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag).
+The second phase optimizes the gene specific composite parameter  $ \psiprime = A_0 \psi \Ne$ across genes, while holding constant both the branch lengths and the model parameters shared across the genome (i.e., $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag).
 This is followed by a third phase that optimizes the parameters across the genome, while keeping the branch lengths and the composite parameters constant.
 Finally, the fourth phase estimates the optimal amino acid at each site while keeping the branch lengths and all model parameters at their current values.
-This entire procedure is repeated six times or until the likelihood between successive rounds is less than a specified tolerance (the default is 0). 
+This entire procedure is repeated six times or until the likelihood between successive rounds is less than a specified tolerance (the default is 0). \footnote{
+mikeg: As I recall, you currently check to make sure the model likelihood is not changing much between the 5th and 6th round of optimization.
+You should indicate this fact here.
+Otherwise, this suggests we may not have completed the optimization process adequately.
+}
 For optimization of a given set of parameters, we rely on a bounded subplex routine (NLopt; Johnson 2012) to maximize the log-likelihood function.
-To help the optimization navigate through local peaks, we perform a set of independent analyses with different sets of naive starting points with respect to the composite $\C\q\psi\Ne$ parameter, $\alphac$, and $alphap$.
+To help the optimization navigate through local peaks, we perform a set of independent analyses with different sets of naive starting points with respect to the gene specific composite $\psiprime$ parameters, $\alphac$, and $alphap$.
 Confidence in the parameter estimates are generated by an 'adaptive search' procedure that we implemented to provide an estimate of the parameter space that is some pre-defined likelihood distance (e.g., 2 lnL units) from the maximum likelihood estimate (MLE), which follows from Beaulieu and O'Meara (2016).
 
 We note that our current implementation is painfully slow, and is particularly suited for smaller data sets in terms of numbers of taxa.
@@ -525,8 +532,8 @@ Our "known" parameters under a given generating model were based on fitting SelA
 The tree used in these analyses is outdated with respect to the current hypothesis of relationships within Saccharomyces, but we rely on it simply as a training set that is separate from our empirical analyses (see section on Analyzing Yeast Genome).
 Bias in the model parameters were assessed under two generating models: one where we assumed a model of SelAC assuming $\alphag = \infty$, and one where we estimated $\alphag$ from the data.
 Under each of these two scenarios, we used parameter estimates from the corresponding empirical analysis and simulated 50 five-gene data sets.
-For the composite $\C\q\psi\Ne$ parameter, which varied by gene, the 'known' values used for the simulation were five evenly spaced points along the rank order of the estimates across the 106 genes.
-The MLE estimate for a given replicate were taken as the fit with the highest log-likelihood after running five independent analyses with different sets of naive starting points with respect to the composite $\C\q\psi\Ne$ parameter, $\alphac$, and $alphap$.
+For the gene specific composite parameter $\psiprime_g$ the 'known' values used for the simulation were five evenly spaced points along the rank order of the estimates across the 106 genes.
+The MLE estimate for a given replicate were taken as the fit with the highest log-likelihood after running five independent analyses with different sets of naive starting points with respect to the composite $\psiprime_g$ parameter, $\alphac$, and $alphap$.
 All analyses were carried out in our \textit{selac} R package.
 
 
