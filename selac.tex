@@ -376,9 +376,9 @@ Are you confusing 'general time reverisble', a phylo specific term, with 'time r
 We note, however, that more constrained and time reversible models, such as the Jukes-Cantor (JC), Hasegawa-Kishino-Yano (HKY), or the general time reversible model (GTR), can also be used.
 The 12 parameter UNREST model defines the relative rates of change between a pair of nucleotides.
 Thus, we arbitrarily set the G$\rightarrow$T mutation rate to 1, resulting in 11  free mutation rate parameters in the 4x4 mutation nucleotide mutation matrix.
-The nucleotide mutation matrix is also scaled by a diagonal matrix \piMatrix whose entries correspond to the equilibrium frequencies of each base.
+The nucleotide mutation matrix is also scaled by a diagonal matrix \pimatrix whose entries correspond to the equilibrium frequencies of each base.
 These equilibrium nucleotide frequencies are determined through analytically solving $\pimatrix \times \Qmatrix = 0$. \footnote{mikeg: are my updates correct?}
-We use this\footnote{mikeg: It is unclear if `this' is referring to the \piMatrix or the \Qmatrix} to populate a $64 \times 64$ codon mutation matrix $\mumatrix$, whose entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a "weak mutation" assumption.
+We use this\footnote{mikeg: It is unclear if `this' is referring to the \pimatrix or the \Qmatrix} to populate a $64 \times 64$ codon mutation matrix $\mumatrix$, whose entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a "weak mutation" assumption.
 That is, the rate of allele fixation is much greater than \Nemu and $\Nemu \ll 1$, such that evolution is mutation limited, codon substitutions only occur one nucleotide at a time and, as a result, the rate of change between any pair of codons that differ by more than one nucleotide is zero.
 
 While the overall model does not assume equilibrium, we still need to scale our mutation matrices $\mu$.
@@ -491,7 +491,7 @@ Our model can be generalized to allow transitions between optimal amino acids as
 Finally, given our assumption of independent evolution among sites, the probability of the whole data set is the product of the probabilities of observing the data at each individual site.
 Thus, the log likelihood of amino acid $a$ being optimal at a given site position $p$ is calculated as
 \begin{equation}
-\Lik\left(\Qmatrixa\middle \Dmatrixp, \Tmatrix\right) \propto \Pmatrix\left(\Dmatrixp\middle|\Qmatrixa,\Tmatrix\right)
+\Lik\left(\Qmatrixa\middle| \Dmatrixp, \Tmatrix\right) \propto \Pmatrix\left(\Dmatrixp\middle|\Qmatrixa,\Tmatrix\right)
 \end{equation}
 In this case, the data, $\Dmatrixp$, are the observed codon states at position $p$ for the tips of the phylogenetic tree  $\Tmatrix$.
 For our purposes we take \Tmatrix as given but it could be estimated as well.
