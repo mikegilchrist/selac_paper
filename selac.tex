@@ -121,7 +121,7 @@ Moreover, these models allow inference of population genetics parameters from da
 \section*{Introduction}
 Phylogenetic analysis now plays a critical role in the fields of ecology, evolution, paleontology, medicine, conservation, and many others.
 While the scale and impact of phylogenetic studies has increased substantially over the past two decades, by comparison the realism of the mathematical models on which these analyses are based has changed relatively little.
-The simplest but most popular models assume neutrality between the different amino acid substitutions and may or may not include mutation bias (e.g.~F81, F84, HYK85, TN93, and GTR for the former and JC69 and K80 for the latter, see \citet{Yang2014} for an overview).
+The simplest but most popular models are agnostic with regards to the different amino acid substitutions and may or may not include mutation bias (e.g.~F81, F84, HYK85, TN93, and GTR for the former and JC69 and K80 for the latter, see \citet{Yang2014} for an overview).
 
 Another set of models attempt to include a 'selection' term $\omega$, however the link between $\omega$ and the key parameters found in standard population genetics models such as \Ne, the distribution of fitness across genotype space, and mutation bias are far from clear.
 For instance, $\omega$ is generally interpreted as indicating whether a sequence is under `purifying' ($\omega < 1$) or `diversifying' ($\omega > 1$) selection.
@@ -160,7 +160,7 @@ One advantage of a nested modeling framework is that it requires only a handful 
 In addition to these genome wide parameters, our model requires a gene $g$ specific expression parameter $\psi_g$ which describes the average rate at which the protein's functionality is produced by the organism.
 The gene specific parameter $\psi_g$ is multiplied by additional model terms to make a composite term $\psiprime_g$ which scales the strength and efficacy of selection for the optimal amino acid sequence.\footnote{should we introduce the \aopt notation here?}
 Our model also requires the designation of an optimal amino acid at each position or site within a coding sequence which, in turn, makes it the largest category of parameters we estimate.
-Because we use a submodel to derive our substitution matrices, our model requires the estimation of a fraction of the parameters required when compared to approaches where the substitution rates are allowed to vary independently  \citep{HalpernAndBruno1998,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
+Because we use a submodel to derive our substitution matrices, our model requires the estimation of a fraction of the parameters required when compared to approaches where the substitution rates are allowed to vary independently \citep{HalpernAndBruno1998,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 This, in turn, allows us to move beyond simply generating MLE estimates of parameters \citep[c.f.][]{YangAndNielsen2008} and quantify our uncertainty in these values.
 
 The work we present here contributes to the field of phylogenetics and molecular evolution in a number of ways.
@@ -276,7 +276,7 @@ Our results clearly indicate that this information is available and accounting f
 As phylogenetic methods become ever more ubiquitous in biology, and data set size and complexity increase, there is a need and an opportunity for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004} %citations identified in Lartillot and Philippe 2004
   \footnote{mikeg: Jeremy and Brian, can you provide some references that make this statement but only make minor advances? JMB -- not sure I understand this. Yes, we have many different matrices, but that's only out of coding convenience. It is actually a single 1344x1344 matrix. If you are thinking about the fact we multiply the mutation matrix by the fixation matrix, you can actually generate two matrices for MutSel and multiply them together (see pg 570 of that paper.)
 mikeg: I mean, single 20x20 or 64x64 matrix used for all sites.
-So GY2008 would not fall into this definition.}.
+So GY2008 would not fall into this definition.: JMB: Ok. And I forgot that even though the off-diagonals are technically zero, the diagonals are not expononiated with respect to the big matrix, only individually, so it is multiple matrices, not a single model.}.
 Despite their widespread use, phylogenetic models based on purifying and diversifying selection,i.e.~\citet{GoldmanAndYang1994} and its extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid.
 
 Instead of heuristically extending population genetic models of neutral evolution for use in phylogenetics, it makes sense to derive these extensions from population genetic models that \emph{explicitly} include the fundamental forces of mutation, drift, and natural selection. % (i.e.~a Wright-Fisher model).
@@ -369,16 +369,13 @@ The overall structure of our model involves a codon mutation model combined with
 
 \subsubsection*{Mutation Rate Matrix \mumatrix: }
 We begin with a 4x4 nucleotide mutation matrix that defines a model for mutation rates between individual bases.
-For our purposes, we rely on the general unrestricted model (UNREST) \citep{Yang1994} because it is time irreversible and makes no constraint on the instantaneous rate of change between any pair of nucleotides.\footnote{mikeg: I am unsure wwhy is this model is being described as time irreversible.
-My understanding is that its stationary distribution it satisfies the condition $\pi_i P_{i\rightarrow j} = \pi_j P_{j\rightarrow i}$ and thus classified as a time reversible markov process.
-Are you confusing 'general time reverisble', a phylo specific term, with 'time reverisble'?
-}
-We note, however, that more constrained and time reversible models, such as the Jukes-Cantor (JC), Hasegawa-Kishino-Yano (HKY), or the general time reversible model (GTR), can also be used.
+For our purposes, we rely on the general unrestricted model (UNREST) \citep{Yang1994} because it makes no constraint on the instantaneous rate of change between any pair of nucleotides.
+We note, however, that more constrained models, such as the Jukes-Cantor (JC), Hasegawa-Kishino-Yano (HKY), or the general time reversible model (GTR), can also be used.
 The 12 parameter UNREST model defines the relative rates of change between a pair of nucleotides.
-Thus, we arbitrarily set the G$\rightarrow$T mutation rate to 1, resulting in 11  free mutation rate parameters in the 4x4 mutation nucleotide mutation matrix.
+Thus, we arbitrarily set the G$\rightarrow$T mutation rate to 1, resulting in 11 free mutation rate parameters in the 4x4 mutation nucleotide mutation matrix.
 The nucleotide mutation matrix is also scaled by a diagonal matrix \pimatrix whose entries correspond to the equilibrium frequencies of each base.
-These equilibrium nucleotide frequencies are determined through analytically solving $\pimatrix \times \Qmatrix = 0$. \footnote{mikeg: are my updates correct?}
-We use this\footnote{mikeg: It is unclear if `this' is referring to the \pimatrix or the \Qmatrix} to populate a $64 \times 64$ codon mutation matrix $\mumatrix$, whose entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a "weak mutation" assumption.
+These equilibrium nucleotide frequencies are determined through analytically solving $\pimatrix \times \Qmatrix = 0$. \footnote{mikeg: are my updates correct?; JMB: Yup.}
+We use this \Qmatrix to populate a $64 \times 64$ codon mutation matrix $\mumatrix$, whose entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a "weak mutation" assumption.
 That is, the rate of allele fixation is much greater than \Nemu and $\Nemu \ll 1$, such that evolution is mutation limited, codon substitutions only occur one nucleotide at a time and, as a result, the rate of change between any pair of codons that differ by more than one nucleotide is zero.
 
 While the overall model does not assume equilibrium, we still need to scale our mutation matrices $\mu$.
@@ -512,11 +509,7 @@ The first phase optimizes the branch lengths while holding the model parameters 
 The second phase optimizes the gene specific composite parameter  $ \psiprime = A_0 \psi \Ne$ across genes, while holding constant both the branch lengths and the model parameters shared across the genome (i.e., $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag).
 This is followed by a third phase that optimizes the parameters across the genome, while keeping the branch lengths and the composite parameters constant.
 Finally, the fourth phase estimates the optimal amino acid at each site while keeping the branch lengths and all model parameters at their current values.
-This entire procedure is repeated six times or until the likelihood between successive rounds is less than a specified tolerance (the default is 0). \footnote{
-mikeg: As I recall, you currently check to make sure the model likelihood is not changing much between the 5th and 6th round of optimization.
-You should indicate this fact here.
-Otherwise, this suggests we may not have completed the optimization process adequately.
-mikeg: Do you mean 'likelihood' or 'log likelihood'?}
+This entire procedure is repeated six times or until the log-likelihood between successive rounds is less than a specified tolerance (the default is 0).
 For optimization of a given set of parameters, we rely on a bounded subplex routine (NLopt; Johnson 2012) to maximize the log-likelihood function.
 To help the optimization navigate through local peaks, we perform a set of independent analyses with different sets of naive starting points with respect to the gene specific composite $\psiprime$ parameters, $\alphac$, and $alphap$.
 Confidence in the parameter estimates are generated by an 'adaptive search' procedure that we implemented to provide an estimate of the parameter space that is some pre-defined likelihood distance (e.g., 2 lnL units) from the maximum likelihood estimate (MLE), which follows from \citet{BeaulieuAndOMeara2016}.
@@ -535,7 +528,6 @@ Under each of these two scenarios, we used parameter estimates from the correspo
 For the gene specific composite parameter $\psiprime_g$ the 'known' values used for the simulation were five evenly spaced points along the rank order of the estimates across the 106 genes.
 The MLE estimate for a given replicate were taken as the fit with the highest log-likelihood after running five independent analyses with different sets of naive starting points with respect to the composite $\psiprime_g$ parameter, $\alphac$, and $alphap$.
 All analyses were carried out in our \textit{selac} R package.
-
 
 \subsubsection*{Analysis of yeast genome and tests of model adequacy}
 We focus our empirical analyses on the large yeast data set and phylogeny of \citet{SalichosAndRokas2013}.

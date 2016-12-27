@@ -52,13 +52,13 @@ gg <- read.delim("/finalPhiEsts.tsv")
 pdf("SelACwG_vs_Empirical_by_spp.pdf", width=8, height=8)
 par(mfcol=c(2,2),mar=c(4,4,0.5,0.5), oma=c(1.5,2,1,1))
 
-plot(log(gg$Phi_gamma/gg$functionality_Spar), log(gg$Spar_RNA), axes=FALSE, xlab="", ylab="", ylim=c(1,6), xlim=c(-1.2,0), pch=19, cex=.75, main="")
+plot(log(gg$Psi_gamma/gg$functionality_Spar), log(gg$Spar_RNA), axes=FALSE, xlab="", ylab="", ylim=c(1,6), xlim=c(-1.2,0), pch=19, cex=.75, main="")
 par(tck=.01)
 axis(2, at = seq(1,6, by = 1), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(1, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 title(ylab=expression(log~phi[RNA-seq]), line=2.5)
 title(xlab=expression(log~hat(phi)[SelAC]), line=2)
-fit <- lm(log(gg$Spar_RNA)~log(gg$Phi_gamma/gg$functionality_Spar))
+fit <- lm(log(gg$Spar_RNA)~log(gg$Psi_gamma/gg$functionality_Spar))
 abline(fit)
 actual.max <- 6-1
 max.diff <- actual.max-6
@@ -66,18 +66,18 @@ top.text <- (actual.max*.875)-max.diff
 bottom.text <- (actual.max*.825)-max.diff
 text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
 summary.stats <- summary(fit)
-eq <- bquote(R^2 == .(round(summary.stats$r.squared,2)))
+eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
 text(-1, 6, "S. paradoxus")
 mtext("(a)",side=3, line=0, adj=0)
 
-plot(log(gg$Phi_gamma/gg$functionality_Smik), log(gg$Smik_RNA), axes=FALSE, xlab="", ylab="", ylim=c(2,10), xlim=c(-1.2,0), pch=19, cex=.75, main="")
+plot(log(gg$Psi_gamma/gg$functionality_Smik), log(gg$Smik_RNA), axes=FALSE, xlab="", ylab="", ylim=c(2,10), xlim=c(-1.2,0), pch=19, cex=.75, main="")
 par(tck=.01)
 axis(2, at = seq(2,10, by = 2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(1, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 title(ylab=expression(log~phi[RNA-seq]), line=2.5)
 title(xlab=expression(log~hat(phi)[SelAC]), line=2)
-fit <- lm(log(gg$Smik_RNA)~log(gg$Phi_gamma/gg$functionality_Smik))
+fit <- lm(log(gg$Smik_RNA)~log(gg$Psi_gamma/gg$functionality_Smik))
 abline(fit)
 actual.max <- 10-2
 max.diff <- actual.max-10
@@ -85,19 +85,19 @@ top.text <- (actual.max*.875)-max.diff
 bottom.text <- (actual.max*.825)-max.diff
 text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
 summary.stats <- summary(fit)
-eq <- bquote(R^2 == .(round(summary.stats$r.squared,2)))
+eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
 text(-1, 10, "S. mikatae")
 mtext("(c)",side=3, line=0, adj=0)
 
 
-plot(log(gg$Phi_gamma/gg$functionality_Scer), log(gg$Scer_RNA), axes=FALSE, xlab="", ylab="", ylim=c(-2.4,1.8), xlim=c(-1.2,0), pch=19, cex=.75, main="")
+plot(log(gg$Psi_gamma/gg$functionality_Scer), log(gg$Scer_RNA), axes=FALSE, xlab="", ylab="", ylim=c(-2.4,1.8), xlim=c(-1.2,0), pch=19, cex=.75, main="")
 par(tck=.01)
 axis(2, at = seq(-2.4,1.8, by = .6), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(1, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 title(ylab=expression(log~phi[RNA-seq]), line=2.5)
 title(xlab=expression(log~hat(phi)[SelAC]), line=2)
-fit <- lm(log(gg$Scer_RNA)~log(gg$Phi_gamma/gg$functionality_Scer))
+fit <- lm(log(gg$Scer_RNA)~log(gg$Psi_gamma/gg$functionality_Scer))
 abline(fit)
 actual.max <- 1.8--2.4
 max.diff <- actual.max-1.8
@@ -105,19 +105,19 @@ top.text <- (actual.max*.875)-max.diff
 bottom.text <- (actual.max*.825)-max.diff
 text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
 summary.stats <- summary(fit)
-eq <- bquote(R^2 == .(round(summary.stats$r.squared,2)))
+eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
 text(-1, 1.8, "S. cervisiae")
 mtext("(b)",side=3, line=0, adj=0)
 
 
-plot(log(gg$Phi_gamma/gg$functionality_Scas), log(gg$Scas_Microarray), axes=FALSE, xlab="", ylab="", ylim=c(-3.5,0.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
+plot(log(gg$Psi_gamma/gg$functionality_Scas), log(gg$Scas_Microarray), axes=FALSE, xlab="", ylab="", ylim=c(-3.5,0.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
 par(tck=.01)
 axis(2, at = seq(-3.5,0.5, by = 1), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(1, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 title(ylab=expression(log~phi[Microarray]), line=2.5)
 title(xlab=expression(log~hat(phi)[SelAC]), line=2)
-fit <- lm(log(gg$Scas_Microarray)~log(gg$Phi_gamma/gg$functionality_Scas))
+fit <- lm(log(gg$Scas_Microarray)~log(gg$Psi_gamma/gg$functionality_Scas))
 abline(fit)
 actual.max <- .5--3.5
 max.diff <- actual.max-.5
@@ -125,7 +125,7 @@ top.text <- (actual.max*.875)-max.diff
 bottom.text <- (actual.max*.825)-max.diff
 text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
 summary.stats <- summary(fit)
-eq <- bquote(R^2 == .(round(summary.stats$r.squared,2)))
+eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
 text(-1, .5, "S. castellii")
 mtext("(d)",side=3, line=0, adj=0)
@@ -134,86 +134,203 @@ dev.off()
 
 
 
+gg <- read.delim("finalPhiEsts_including_ROC.tsv")
 
-pdf("SelACwoutG_vs_Empirical_by_spp.pdf", width=8, height=8)
+pdf("SelACwG_vs_ROC_by_spp.pdf", width=8, height=8)
 par(mfcol=c(2,2),mar=c(4,4,0.5,0.5), oma=c(1.5,2,1,1))
 
-plot(log(gg$Phi_nogamma/gg$functionality_Spar), log(gg$Spar_RNA), axes=FALSE, xlab="", ylab="", ylim=c(1,6), xlim=c(-1.2,0), pch=19, cex=.75, main="")
+plot(log(gg$Psi_gamma/gg$functionality_Spar_wG), log(gg$ROC_Spar), axes=FALSE, xlab="", ylab="", ylim=c(-2,1.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
 par(tck=.01)
-axis(2, at = seq(1,6, by = 1), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(1, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
-title(ylab=expression(log~psi[RNA-seq]), line=2.5)
-title(xlab=expression(log~hat(psi)[SelAC]), line=2)
-fit <- lm(log(gg$Spar_RNA)~log(gg$Phi_nogamma/gg$functionality_Spar))
+title(ylab=expression(log~phi[ROC]), line=2.5)
+title(xlab=expression(log~hat(phi)[SelAC]), line=2)
+fit <- lm(log(gg$ROC_Spar)~log(gg$Psi_gamma/gg$functionality_Spar))
 abline(fit)
-actual.max <- 6-1
-max.diff <- actual.max-6
+actual.max <- 1.5--2
+max.diff <- actual.max-1.5
 top.text <- (actual.max*.875)-max.diff
 bottom.text <- (actual.max*.825)-max.diff
 text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
 summary.stats <- summary(fit)
-eq <- bquote(R^2 == .(round(summary.stats$r.squared,2)))
+eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
-text(-1, 6, "S. paradoxus")
+text(-1, 1.5, "S. paradoxus")
 mtext("(a)",side=3, line=0, adj=0)
 
-plot(log(gg$Phi_nogamma/gg$functionality_Smik), log(gg$Smik_RNA), axes=FALSE, xlab="", ylab="", ylim=c(2,10), xlim=c(-1.2,0), pch=19, cex=.75, main="")
+plot(log(gg$Psi_gamma/gg$functionality_Smik), log(gg$ROC_Smik), axes=FALSE, xlab="", ylab="", ylim=c(-2,1.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
 par(tck=.01)
-axis(2, at = seq(2,10, by = 2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(1, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
-title(ylab=expression(log~psi[RNA-seq]), line=2.5)
-title(xlab=expression(log~hat(psi)[SelAC]), line=2)
-fit <- lm(log(gg$Smik_RNA)~log(gg$Phi_nogamma/gg$functionality_Smik))
+title(ylab=expression(log~phi[ROC]), line=2.5)
+title(xlab=expression(log~hat(phi)[SelAC]), line=2)
+fit <- lm(log(gg$ROC_Smik)~log(gg$Psi_gamma/gg$functionality_Smik))
 abline(fit)
-actual.max <- 10-2
-max.diff <- actual.max-10
+actual.max <- 1.5--2
+max.diff <- actual.max-1.5
 top.text <- (actual.max*.875)-max.diff
 bottom.text <- (actual.max*.825)-max.diff
 text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
 summary.stats <- summary(fit)
-eq <- bquote(R^2 == .(round(summary.stats$r.squared,2)))
+eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
-text(-1, 10, "S. mikatae")
+text(-1, 1.5, "S. mikatae")
 mtext("(c)",side=3, line=0, adj=0)
 
 
-plot(log(gg$Phi_nogamma/gg$functionality_Scer), log(gg$Scer_RNA), axes=FALSE, xlab="", ylab="", ylim=c(-2.4,1.8), xlim=c(-1.2,0), pch=19, cex=.75, main="")
+plot(log(gg$Psi_gamma/gg$functionality_Scer), log(gg$ROC_Scer), axes=FALSE, xlab="", ylab="", ylim=c(-2,1.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
 par(tck=.01)
-axis(2, at = seq(-2.4,1.8, by = .6), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(1, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
-title(ylab=expression(log~psi[RNA-seq]), line=2.5)
-title(xlab=expression(log~hat(psi)[SelAC]), line=2)
-fit <- lm(log(gg$Scer_RNA)~log(gg$Phi_nogamma/gg$functionality_Scer))
+title(ylab=expression(log~phi[ROC]), line=2.5)
+title(xlab=expression(log~hat(phi)[SelAC]), line=2)
+fit <- lm(log(gg$ROC_Scer)~log(gg$Psi_gamma/gg$functionality_Scer))
 abline(fit)
-actual.max <- 1.8--2.4
-max.diff <- actual.max-1.8
+actual.max <- 1.5--2
+max.diff <- actual.max-1.5
 top.text <- (actual.max*.875)-max.diff
 bottom.text <- (actual.max*.825)-max.diff
 text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
 summary.stats <- summary(fit)
-eq <- bquote(R^2 == .(round(summary.stats$r.squared,2)))
+eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
-text(-1, 1.8, "S. cervisiae")
+text(-1, 1.5, "S. cervisiae")
 mtext("(b)",side=3, line=0, adj=0)
 
 
-plot(log(gg$Phi_nogamma/gg$functionality_Scas), log(gg$Scas_Microarray), axes=FALSE, xlab="", ylab="", ylim=c(-3.5,0.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
+plot(log(gg$Psi_gamma/gg$functionality_Scas), log(gg$ROC_Scas), axes=FALSE, xlab="", ylab="", ylim=c(-2,1.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
 par(tck=.01)
-axis(2, at = seq(-3.5,0.5, by = 1), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(1, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
-title(ylab=expression(log~psi[Microarray]), line=2.5)
-title(xlab=expression(log~hat(psi)[SelAC]), line=2)
-fit <- lm(log(gg$Scas_Microarray)~log(gg$Phi_nogamma/gg$functionality_Scas))
+title(ylab=expression(log~phi[ROC]), line=2.5)
+title(xlab=expression(log~hat(phi)[SelAC]), line=2)
+fit <- lm(log(gg$ROC_Scas)~log(gg$Psi_gamma/gg$functionality_Scas))
 abline(fit)
-actual.max <- .5--3.5
-max.diff <- actual.max-.5
+actual.max <- 1.5--2
+max.diff <- actual.max-1.5
 top.text <- (actual.max*.875)-max.diff
 bottom.text <- (actual.max*.825)-max.diff
 text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
 summary.stats <- summary(fit)
-eq <- bquote(R^2 == .(round(summary.stats$r.squared,2)))
+eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
-text(-1, .5, "S. castellii")
+text(-1, 1.5, "S. castellii")
+mtext("(d)",side=3, line=0, adj=0)
+
+dev.off()
+
+
+### Check the inclusion of functionality:
+fit_Spar_wFunc <- lm(log(gg$ROC_Spar)~log(gg$Psi_gamma/gg$functionality_Spar))
+summary.stats <- summary(fit_Spar_wFunc)
+round(sqrt(summary.stats$r.squared),2)
+fit_Spar_noFunc <- lm(log(gg$ROC_Spar)~log(gg$Psi_gamma))
+summary.stats <- summary(fit_Spar_noFunc)
+round(sqrt(summary.stats$r.squared),2)
+
+fit_Smik_wFunc <- lm(log(gg$ROC_Smik)~log(gg$Psi_gamma/gg$functionality_Smik))
+summary.stats <- summary(fit_Smik_wFunc)
+round(sqrt(summary.stats$r.squared),2)
+fit_Smik_noFunc <- lm(log(gg$ROC_Smik)~log(gg$Psi_gamma))
+summary.stats <- summary(fit_Smik_noFunc)
+round(sqrt(summary.stats$r.squared),2)
+
+fit_Scer_wFunc <- lm(log(gg$ROC_Scer)~log(gg$Psi_gamma/gg$functionality_Scer))
+summary.stats <- summary(fit_Scer_wFunc)
+round(sqrt(summary.stats$r.squared),2)
+fit_Scer_noFunc <- lm(log(gg$ROC_Scer)~log(gg$Psi_gamma))
+summary.stats <- summary(fit_Scer_noFunc)
+round(sqrt(summary.stats$r.squared),2)
+
+fit_Scas_wFunc <- lm(log(gg$ROC_Scas)~log(gg$Psi_gamma/gg$functionality_Scas))
+summary.stats <- summary(fit_Scas_wFunc)
+round(sqrt(summary.stats$r.squared),2)
+fit_Scas_noFunc <- lm(log(gg$ROC_Scas)~log(gg$Psi_gamma))
+summary.stats <- summary(fit_Scas_noFunc)
+round(sqrt(summary.stats$r.squared),2)
+
+
+gg <- read.delim("/finalPhiEsts.tsv")
+
+pdf("Empirical_vs_ROC_by_spp.pdf", width=8, height=8)
+par(mfcol=c(2,2),mar=c(4,4,0.5,0.5), oma=c(1.5,2,1,1))
+
+plot(log(gg$Spar_RNA), log(gg$ROC_Spar), axes=FALSE, xlab="", ylab="", xlim=c(1,6), ylim=c(-2,1.5), pch=19, cex=.75, main="")
+par(tck=.01)
+axis(1, at = seq(1,6, by = 1), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+title(xlab=expression(log~phi[RNA-seq]), line=2.5)
+title(ylab=expression(log~hat(phi)[ROC]), line=2)
+fit <- lm(log(gg$ROC_Spar)~log(gg$Spar_RNA))
+abline(fit)
+actual.max <- 1.5--2
+max.diff <- actual.max-1.5
+top.text <- (actual.max*.875)-max.diff
+bottom.text <- (actual.max*.825)-max.diff
+text(2, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
+summary.stats <- summary(fit)
+eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
+text(2, bottom.text, eq)
+text(2, 1.5, "S. paradoxus")
+mtext("(a)",side=3, line=0, adj=0)
+
+plot(log(gg$Smik_RNA), log(gg$ROC_Smik), axes=FALSE, xlab="", ylab="", xlim=c(2,10), ylim=c(-2,1.5), pch=19, cex=.75, main="")
+par(tck=.01)
+axis(1, at = seq(2,10, by = 2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+title(xlab=expression(log~phi[RNA-seq]), line=2.5)
+title(ylab=expression(log~hat(phi)[ROC]), line=2)
+fit <- lm(log(gg$ROC_Smik) ~ log(gg$Smik_RNA))
+abline(fit)
+actual.max <- 1.5--2
+max.diff <- actual.max-1.5
+top.text <- (actual.max*.875)-max.diff
+bottom.text <- (actual.max*.825)-max.diff
+text(4, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
+summary.stats <- summary(fit)
+eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
+text(4, bottom.text, eq)
+text(4, 1.5, "S. mikatae")
+mtext("(c)",side=3, line=0, adj=0)
+
+
+plot(log(gg$Scer_RNA), log(gg$ROC_Scer), axes=FALSE, xlab="", ylab="", xlim=c(-2.4,1.8), ylim=c(-2,1.5), pch=19, cex=.75, main="")
+par(tck=.01)
+axis(1, at = seq(-2.4,1.8, by = .6), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+title(xlab=expression(log~phi[RNA-seq]), line=2.5)
+title(ylab=expression(log~hat(phi)[ROC]), line=2)
+fit <- lm(log(gg$ROC_Scer)~log(gg$Scer_RNA))
+abline(fit)
+actual.max <- 1.5--2
+max.diff <- actual.max-1.5
+top.text <- (actual.max*.875)-max.diff
+bottom.text <- (actual.max*.825)-max.diff
+text(-1.4, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
+summary.stats <- summary(fit)
+eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
+text(-1.4, bottom.text, eq)
+text(-1.4, 1.5, "S. cervisiae")
+mtext("(b)",side=3, line=0, adj=0)
+
+
+plot(log(gg$Scas_Microarray), log(gg$ROC_Scas), axes=FALSE, xlab="", ylab="", xlim=c(-3.5,0.5), ylim=c(-2,1.5), pch=19, cex=.75, main="")
+par(tck=.01)
+axis(1, at = seq(-3.5,0.5, by = 1), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+title(xlab=expression(log~phi[Microarray]), line=2.5)
+title(ylab=expression(log~hat(phi)[ROC]), line=2)
+fit <- lm(log(gg$ROC_Scas) ~ log(gg$Scas_Microarray))
+abline(fit)
+actual.max <- 1.5--2
+max.diff <- actual.max-1.5
+top.text <- (actual.max*.875)-max.diff
+bottom.text <- (actual.max*.825)-max.diff
+text(-2.5, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
+summary.stats <- summary(fit)
+eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
+text(-2.5, bottom.text, eq)
+text(-2.5, 1.5, "S. castellii")
 mtext("(d)",side=3, line=0, adj=0)
 
 dev.off()
