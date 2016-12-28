@@ -260,7 +260,7 @@ par(tck=.01)
 axis(1, at = seq(1,6, by = 1), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 title(xlab=expression(log~phi[RNA-seq]), line=2.5)
-title(ylab=expression(log~hat(phi)[ROC]), line=2)
+title(ylab=expression(log~phi[ROC]), line=2)
 fit <- lm(log(gg$ROC_Spar)~log(gg$Spar_RNA))
 abline(fit)
 actual.max <- 1.5--2
@@ -279,7 +279,7 @@ par(tck=.01)
 axis(1, at = seq(2,10, by = 2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 title(xlab=expression(log~phi[RNA-seq]), line=2.5)
-title(ylab=expression(log~hat(phi)[ROC]), line=2)
+title(ylab=expression(log~phi[ROC]), line=2)
 fit <- lm(log(gg$ROC_Smik) ~ log(gg$Smik_RNA))
 abline(fit)
 actual.max <- 1.5--2
@@ -299,7 +299,7 @@ par(tck=.01)
 axis(1, at = seq(-2.4,1.8, by = .6), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 title(xlab=expression(log~phi[RNA-seq]), line=2.5)
-title(ylab=expression(log~hat(phi)[ROC]), line=2)
+title(ylab=expression(log~phi[ROC]), line=2)
 fit <- lm(log(gg$ROC_Scer)~log(gg$Scer_RNA))
 abline(fit)
 actual.max <- 1.5--2
@@ -319,7 +319,7 @@ par(tck=.01)
 axis(1, at = seq(-3.5,0.5, by = 1), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 title(xlab=expression(log~phi[Microarray]), line=2.5)
-title(ylab=expression(log~hat(phi)[ROC]), line=2)
+title(ylab=expression(log~phi[ROC]), line=2)
 fit <- lm(log(gg$ROC_Scas) ~ log(gg$Scas_Microarray))
 abline(fit)
 actual.max <- 1.5--2
@@ -334,6 +334,73 @@ text(-2.5, 1.5, "S. castellii")
 mtext("(d)",side=3, line=0, adj=0)
 
 dev.off()
+
+
+
+gg <- read.delim("finalPhiEsts_including_ROC.tsv")
+
+pdf("MutSelOmega_vs_Us_ROC_Scer_only.pdf", width=8, height=8)
+par(mfcol=c(2,2),mar=c(4,4,0.5,0.5), oma=c(1.5,2,1,1))
+
+plot(log(gg$Omega), log(gg$Psi_gamma/gg$functionality_Scer), axes=FALSE, xlab="", ylab="", xlim=c(-4.5,-1), ylim=c(-1.2,0), pch=19, cex=.75, main="")
+par(tck=.01)
+axis(1, at = seq(-4.5,-1, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+axis(2, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+title(xlab=expression(log~hat(omega)[FMutSel0]), line=2.5)
+title(ylab=expression(log~hat(phi)[SelAC]), line=2)
+fit <- lm(log(gg$Psi_gamma/gg$functionality_Scer)~log(gg$Omega))
+abline(fit)
+actual.max <- 0--1.2
+max.diff <- actual.max-0
+top.text <- (actual.max*.875)-max.diff
+bottom.text <- (actual.max*.825)-max.diff
+text(-1.5, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
+summary.stats <- summary(fit)
+eq <- bquote(r == .(round(-sqrt(summary.stats$r.squared),2)))
+text(-1.5, bottom.text, eq)
+mtext("(a)",side=3, line=0, adj=0)
+
+
+plot(log(gg$Omega), log(gg$ROC_Scer), axes=FALSE, xlab="", ylab="", xlim=c(-4.5,-1), ylim=c(-2,1.5), pch=19, cex=.75, main="")
+par(tck=.01)
+axis(1, at = seq(-4.5,-1, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+title(ylab=expression(log~phi[ROC]), line=2.5)
+title(xlab=expression(log~hat(omega)[FMutSel0]), line=2.5)
+fit <- lm(log(gg$ROC_Scer) ~ log(gg$Omega))
+abline(fit)
+actual.max <- 1.5--2
+max.diff <- actual.max-1.5
+top.text <- (actual.max*.875)-max.diff
+bottom.text <- (actual.max*.825)-max.diff
+text(-1.5, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
+summary.stats <- summary(fit)
+eq <- bquote(r == .(round(-sqrt(summary.stats$r.squared),2)))
+text(-1.5, bottom.text, eq)
+mtext("(c)",side=3, line=0, adj=0)
+
+
+plot(log(gg$Omega), log(gg$Scer_RNA), axes=FALSE, xlab="", ylab="", xlim=c(-4.5,-1), ylim=c(-2.4,1.8), pch=19, cex=.75, main="")
+par(tck=.01)
+axis(1, at = seq(-4.5,-1, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+axis(2, at = seq(-2.4,1.8, by = .6), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+title(ylab=expression(log~phi[RNA-seq]), line=2.5)
+title(xlab=expression(log~hat(omega)[FMutSel0]), line=2.5)
+fit <- lm(log(gg$Scer_RNA)~log(gg$Omega))
+abline(fit)
+actual.max <- 1.8--2.4
+max.diff <- actual.max-1.8
+top.text <- (actual.max*.875)-max.diff
+bottom.text <- (actual.max*.825)-max.diff
+text(-1.4, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
+summary.stats <- summary(fit)
+eq <- bquote(r == .(round(-sqrt(summary.stats$r.squared),2)))
+text(-1.4, bottom.text, eq)
+mtext("(b)",side=3, line=0, adj=0)
+
+
+dev.off()
+
 
 
 

@@ -263,11 +263,11 @@ Our results clearly indicate that this information is available and accounting f
     \begin{tabular}{lrrrrl}
       &          &Parameters &          &        & Model\\
       Model                 	& logLik   & Estimated &     AIC& \DeltaAIC&  Weight\\\hline
-      GTR + $\Gamma$        	& -655166.4&        610& 1,311,553& 504,151&$<$0.001\\
+      GTR+$\Gamma$        		& -655166.4&        610& 1,311,553& 504,151&$<$0.001\\
       GY94                  	& -612121.5&        210& 1,224,663& 417,261&$<$0.001\\
       YN08              		& -598848.2&       2810& 1,203,316& 395,914&$<$0.001\\
       SelAC: UNREST         	& -465616.7&       50,004&   831,226&  23,824&$<$0.001\\
-      SelAC: UNREST + $\Gamma$ 	& -453706.0&       50,005&   807,402&       0& 0.999
+      SelAC: UNREST+$\Gamma$ 	& -453706.0&       50,005&   807,402&       0& 0.999
     \end{tabular}
     \caption{Model comparisons}\label{table:modelFits}
   \end{table}
@@ -276,7 +276,7 @@ Our results clearly indicate that this information is available and accounting f
 As phylogenetic methods become ever more ubiquitous in biology, and data set size and complexity increase, there is a need and an opportunity for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004} %citations identified in Lartillot and Philippe 2004
   \footnote{mikeg: Jeremy and Brian, can you provide some references that make this statement but only make minor advances? JMB -- not sure I understand this. Yes, we have many different matrices, but that's only out of coding convenience. It is actually a single 1344x1344 matrix. If you are thinking about the fact we multiply the mutation matrix by the fixation matrix, you can actually generate two matrices for MutSel and multiply them together (see pg 570 of that paper.)
 mikeg: I mean, single 20x20 or 64x64 matrix used for all sites.
-So GY2008 would not fall into this definition.: JMB: Ok. And I forgot that even though the off-diagonals are technically zero, the diagonals are not expononiated with respect to the big matrix, only individually, so it is multiple matrices, not a single model.}.
+So GY2008 would not fall into this definition.: JMB: Ok. And I forgot that even though the off-diagonals are technically zero, the diagonals are not exponeniated with respect to the big matrix, only individually, so it is multiple matrices, not a single model.}.
 Despite their widespread use, phylogenetic models based on purifying and diversifying selection,i.e.~\citet{GoldmanAndYang1994} and its extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid.
 
 Instead of heuristically extending population genetic models of neutral evolution for use in phylogenetics, it makes sense to derive these extensions from population genetic models that \emph{explicitly} include the fundamental forces of mutation, drift, and natural selection. % (i.e.~a Wright-Fisher model).
