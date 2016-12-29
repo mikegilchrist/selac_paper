@@ -34,13 +34,15 @@ load("yeastSalRokSelacNoG.Rdata")
 selac.nog <- result
 load("yeastSalRokSelacGamma.Rdata")
 selac.wg <- result
-load("yeastSalRokSelacGTRG.Rdata")
+load("yeastSalRokGTRG.Rdata")
 gtr.g <- result
-
+load("yeastSalRokSelacFMutSel.Rdata")
+fmutsel <- result
+setwd("/Users/jeremy/selac_paper/SELAC_DATA_FILES/DATA")
 
 print("Doing Scer")
 ## Brewer's yeast adequacy
-pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="selac", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=selac.wg, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
+pp <- GetAdequateManyReps(nreps=10, n.cores=1, model.to.reconstruct.under="selac", model.to.simulate.under="fmutsel", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=fmutsel, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
 save(pp, file="adequacy_Scer_reconSelacWG_simSelacWG.Rsave")
 
 pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="gtr", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=gtr.g, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
