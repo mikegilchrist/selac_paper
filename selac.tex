@@ -174,7 +174,6 @@ Finally, because our work fitness functions are well defined, we can provide est
 
 
 
-
 \section*{Results}
 \subsection*{Model Performance}
 \begin{enumerate}
@@ -188,6 +187,32 @@ Finally, because our work fitness functions are well defined, we can provide est
 \item Selac provides estimates of gene expression which are positively correlated with empirical estimates and explain 20-30\% of the variation in the empirical measurements taken during log growth phase. 
 
 \end{enumerate}
+
+By linking transition rates $\qij$ to gene expression $\psi$, our approach allows use the same model for genes under varying degrees of purifying selection.
+Specifically, we assume the strength of stabilizing selection for the optimal sequence, \aoptvec, is proportional to $\psi$, our model allows us to estimate $\phi = \psi/\Func$ for each gene. 
+Our results clearly indicate that accounting for it substantially improves our model fit.
+Using both \DeltaAIC and \AICw as our measure of model support, the SelAC models perform extraordinarily better than GTR+$\Gamma$, GY94, or YN08.
+This improvement is in spite of the need for estimating the optimal amino acid at each position in each protein, which adds more than 47,000 more parameters to the model than YN08, the next most parameter rich codon model in our model set.
+Nevertheless, the SelAC model shows nearly 400,000 AIC unit improvement over YN08.
+Comparing the two SelAC models in the model set, including the random effects term $\alphag$ not only provides greater biological realism by allowing site heterogeneity, it also provides substantially better model fit and improves the \DeltaAIC score by over 23,000 units than assuming $\alphag = \infty$. 
+
+With respect to estimates of $\psi$ within SelAC, they were strongly correlated with two separate empirical measurements taken during log growth phase (See Figure). In other words, using only codon sequences our model can predict which genes have high or low expression levels.
+The estimate of the $\alphag$ parameter, which describes the site-specific variation in sensitivity of the proteins functionality, indicated a moderate level of variation in gene expression among sites.
+Our estimate of $\alphag$ = 1.40, produced a distribution of sensitivity rates that ranged from 0.344 - 7.16, but with the nearly 90\% of the weight for a given site-likelihood being contributed by the 0.344 and 1.48 rate categories.
+In simulation, however, of all the parameters in the model, only $\alphag$ showed a consistent bias, in that the estimates were generally underestimated (see Supplemental). Other parameters in the model, such as the Grantham weights, provide an indication as to the physiochemical distance between amino acids.
+Our estimates of these weights only strongly deviate from Grantham's composition weight, $\alphac$, which is the distance between any two amino acids with regards to the ratio of noncarbon elements in the end groups to the number of side chains.
+We estimate the weighting factor of composition to be $\alphac$=0.484, which suggests that the reduction in the distance between any given two amino acids and greater exchangeability between even the most distantly related residues.
+
+It is important to note that the nonsynonymous/synonymous mutation ratio, or $\omega$, which we estimated for each gene under the FMutSel0 model strongly correlated with our estimates of $\psi$.
+In fact, the $\omega$ showed similar, though slightly reduced correlations, with our empirical estimates of gene expression (See Figure).
+This would give the impression that the same conclusions could have been gleaned using a much simpler model, both in terms of the number of parameters and the assumptions made.
+However, when we evaluated each model by the realistic nature of the data they produce, our SelAC model clearly performs better.
+When we simulated the sequence for \textit{S. cervisieae}, starting from the ancestral sequence under both GTR+G and FMutSel0, the functionality of the simulated sequence moves away from the observed sequence, whereas SelAC remains near the functionality of the observed sequence (Figure XX).
+In a way, this is somewhat unsurprising, given that both GTR+G and FMutSel0 are agnostic with regards to the functionality of the gene, but it does highlight the improvement in biological realism in codon evolution that our SelAC provides.
+We do note that the adequacy of the SelAC model does vary among individual taxa, and does not always perfectly match the observed functionality.
+For instance, \textit{S. castellii} is simulated with consistently higher functionality than observed (Figure XX).
+We suspect this is an indication that assuming a single set of optimal amino acid across all taxa may be too simplistic, though, at the moment, we cannot also rule out other potential issues in our model, such as a single set of Grantham weights and $\alphag$.
+>>>>>>> 7796f544740c295fe2dac847ace785dbd3cf41c1
 
 
 \subsection*{Figures}
@@ -424,8 +449,8 @@ Following \cite{Grantham1974}, we focus on using composition $c$, polarity $p$, 
 We use the euclidian distance between residue properties where each property $c$, $p$, and $v$ has its own weighting term, $\alphac$, $\alphap$, $\alphav$, respectively, which we refer to as `Grantham weights'.
 Because physiochemical distance is ultimately weighted by a gene's specific average protein synthesis rate $\psi$, another parameter we estimate, there is a problem with parameter identifiablity.
 Ultimately, the scale of gene expression is affected by how we measure physiochemical distances which, in turn, is determined by our choice of Grantham weights.
-As a result, we set $\alphav = 3.990333 \times 10^{-4}$
-\footnote{mikeg: does Grantham really report 7 digits of precision?}, the value originally estimated by Grantham, and recognize that our our estimates of $\alphac$ and $\alphap$ and $\psi$ are scaled relative to this choice for $\alphav$.
+As a result, we set $\alphav = 3.990 \times 10^{-4}$\footnote{mikeg: does Grantham really report 7 digits of precision? JMB: He gives 0.000399, I think the 333 comes from me and my direct calculation following Grantham's paper.
+mikeg: I've removed the extra digits.}, the value originally estimated by Grantham, and recognize that our our estimates of $\alphac$ and $\alphap$ and $\psi$ are scaled relative to this choice for $\alphav$.
 More specifically,
 \begin{equation*}
   d(a_i, \aopt) = \sqrt{\alphac \left(c\left(a_i\right) - c\left(\aopt\right)\right)^2 + \alphap \left(p\left(a_i\right) - p\left(\aopt\right)\right)^2 +  \alphav \left(v\left(a_i\right) - v\left(\aopt\right)\right)^2}.
@@ -501,7 +526,7 @@ These likelihood-based models represent a sample of the types of popular models 
 For the SelAC models, we initiate the optimal amino acid at each site by using a `majority' rule, where the initial optimum is the most frequently observed amino acid at a given site.
 Our optimization routine then proceeds by cycling though multiple phases.
 The first phase optimizes the branch lengths while holding the model parameters constant.
-The second phase optimizes the gene specific composite parameter  $ \psiprime = A_0 \psi \Ne$ across genes, while holding constant both the branch lengths and the model parameters shared across the genome (i.e., $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag).
+The second phase optimizes the gene specific composite parameter $ \psiprime = A_0 \psi \Ne$ across genes, while holding constant both the branch lengths and the model parameters shared across the genome (i.e., $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag).
 This is followed by a third phase that optimizes the parameters across the genome, while keeping the branch lengths and the composite parameters constant.
 Finally, the fourth phase estimates the optimal amino acid at each site while keeping the branch lengths and all model parameters at their current values.
 This entire procedure is repeated six times or until the log-likelihood between successive rounds is less than a specified tolerance (the default is 0).
@@ -530,6 +555,7 @@ The yeast genome is an ideal system to examine our phylogenetically estimates of
 The complete data set of \citet{SalichosAndRokas2013} contain 1070 orthologues, where we selected 100 at random for our analyses.
 We also focus our analyses only on the Saccharomyces \textit{sensu stricto}, including their sister taxon \textit{Candida glabrata}, and we rely on the phylogeny depicted in Fig. 1 of \citet{SalichosAndRokas2013} for our fixed tree.
 We fit both the new models described in this paper, as well as two codon models, GY94 and FMutSel0, and a standard GTR + $\Gamma$ nucleotide model.
+The FMutSel0 model, which assumes that the amino acid frequencies are determined by functional requirements of the protein, is the most similar to our model. 
 In all cases, we assumed that the model was partitioned by gene, but with branch lengths linked across genes.
 
 While one of our main objectives was to determine the improvement of fit that \selac has with respect to other standard phylogenetic models, we also evaluated the adequacy of \selac.
@@ -539,7 +565,7 @@ A marginal reconstruction of the likeliest sequence across all remaining nodes i
 The marginal probabilities of each site are used to sample and assemble the starting coding sequence, from which we calculate functionality relative to the optimal sequence.
 The current state of the simulated coding sequence and its current functionality is examined at equidistant points along the length of the pruned branch.
 We repeat this process 100 times and compare the distribution of trajectories against the observed functionality calculated for the gene.
-For comparison, we also conducted the same test, by simulating the sequence under the standard GTR + $\Gamma$ nucleotide model, which is often used on these data, but does not account for the fact that the sequence codes for a specific protein.
+For comparison, we also conducted the same test, by simulating the sequence under the standard GTR + $\Gamma$ nucleotide model, which is often used on these data but does not account for the fact that the sequence codes for a specific protein, and under FMutSel0, which includes selection on codons but in a fundamentally different way as our model.
 
 \bibliographystyle{./am.nat}
 \bibliography{./mike}
