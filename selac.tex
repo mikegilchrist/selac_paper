@@ -30,6 +30,7 @@
 \newcommand{\Costcvecj}{\ensuremath{\Cost(\cvecj)}\xspace}
 \newcommand{\Cost}{\ensuremath{\text{\textbf{C}}}\xspace}
 \newcommand{\DeltaAIC}{\ensuremath{\Delta\text{AIC}}\xspace}
+\newcommand{\AICw}{\ensuremath{\text{AIC}_\text{w}}\xspace}
 \newcommand{\EE}{\mathbb{E}} %use for expectation function E()
 \newcommand{\Funcaobsvec}{\ensuremath{\Func(\aobsvec|\aoptvec)}\xspace}
 \newcommand{\Funcaoptvec}{\ensuremath{\Func(\aoptvec)}\xspace}
@@ -183,7 +184,9 @@ This is in spite of the need for estimating the optimal amino acid at each posit
 Comparing the two SelAC models in the model set, including the random effects term $\alphag$ not only provides greater biological realism by allowing site heterogeneity, it also provides substantially better model fit and improves the \DeltaAIC score by over 23,000 units than assuming $\alphag = \infty$. 
 
 With respect to estimates of $\psi$ within SelAC, they were strongly correlated with two separate empirical measurements of gene expression (See Figure).
-In other words, using only codon sequences our model can predict which genes have high or low expression levels.
+In other words, using only codon sequences our model can predict which genes have high or low expression levels.\footnote{mikeg: Sooo why talk about codon sequences when we are only using the aa sequence?
+  On a  similar note, shouldn't we call this model SelA since we don't have selection on synonymous codon usage in the model yet?
+}
 The estimate of the $\alphag$ parameter, which describes the site-specific variation in sensitivity of the proteins functionality, indicated a moderate level of variation in gene expression among sites.
 Our estimate of $\alphag$ = 1.40, produced a distribution of sensitivity rates that ranged from 0.344-7.16, but with the nearly 90\% of the weight for a given site-likelihood being contributed by the 0.344 and 1.48 rate categories.
 In simulation, however, of all the parameters in the model, only $\alphag$ showed a consistent bias, in that the estimates were generally underestimated (see Supplemental).
@@ -192,11 +195,11 @@ Our estimates of these weights only strongly deviate from Grantham in regards to
 We estimate the weighting factor of composition to be $\alphac$=0.484, which suggests that the reduction in the distance between any given two amino acids and thus provides greater exchangeability between even the most distantly related residues.
 
 It is important to note that the nonsynonymous/synonymous mutation ratio, or $\omega$, which we estimated for each gene under the FMutSel0 model strongly correlated with our estimates of $\psi$.
-In fact, $\omega$ showed similar, though slightly reduced correlations, with the same empirical estimates of gene expression described above (See Figure).
+In fact, $\omega$ showed similar, though slightly reduced correlations, with the same empirical estimates of gene expression described above (See Figure \ref{fig:omegaVsPhi}).
 This would give the impression that the same conclusions could have been gleaned using a much simpler model, both in terms of the number of parameters and the assumptions made.
 However, when we evaluated each model according to the realistic nature of the data they produce, our SelAC model clearly performs better.
 When we simulated the sequence for \textit{S. cervisieae}, starting from the ancestral sequence under both GTR+G and FMutSel0, the functionality of the simulated sequence moves away from the observed sequence, whereas SelAC remains near the functionality of the observed sequence (Figure XX).
-In a way, this is somewhat unsurprising, given that both GTR+G and FMutSel0 are agnostic to the functionality of the gene, but it does highlight the improvement in biological realism in codon evolution that our SelAC provides.
+In a way, this is somewhat unsurprising, given that both GTR+G and FMutSel0 are agnostic to the functionality of the gene, but it does highlight the improvement in biological realism in amino acid sequence evolution that our SelAC provides.
 We do note that the adequacy of the SelAC model does vary among individual taxa, and does not always perfectly match the observed functionality.
 For instance, \textit{S. castellii} is simulated with consistently higher functionality than observed (Figure XX).
 We suspect this is an indication that assuming a single set of optimal amino acid across all taxa may be too simplistic, but we cannot also rule out other potential simplifying assumptions in our model, such as a single set of Grantham weights and $\alphag$.
@@ -223,7 +226,7 @@ We suspect this is an indication that assuming a single set of optimal amino aci
   \label{fig:mleTrees}
 \end{figure}
 \item Model Adequacy Illustrations \label{fig:modelAdequacy} (Brian or Jeremy?)
-\item Gene Expression Comparisons \label{fig:phiComparisons} (Mike, trying to get data for additional yeast species.)
+\item Gene Expression Comparisons \label{fig:phiComparisons} (Jeremy now has this data)
   \renewcommand{\subfigwidth}{0.4\textwidth}
   \begin{enumerate}
   \item SelAC vs. Empirical  Measurements
@@ -232,11 +235,19 @@ We suspect this is an indication that assuming a single set of optimal amino aci
       \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{RPF_vs_Phi/RNA_abunIngolia_vs_SelACphiGamma}}}
       \qquad
       \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{mRNA_vs_Phi/mRNA_abunHolstege_vs_SelACphiGamma}}}
-      \caption{Comparison of log protein synthesis rate $\psi$ for \emph{S.~cerevisiae} as predicted by selac to empirical estimates from (a) ribosome profile footprint data \citep{IngoliaEtAl2009} and (b) mRNA abundance data \citep{HolstegeEtAl1998}.
-      }
+      \caption{Comparison of log protein synthesis rate $\psi$ for \emph{S.~cerevisiae} as predicted by selac to empirical estimates from (a) ribosome profile footprint data \citep{IngoliaEtAl2009} and (b) mRNA abundance data \citep{HolstegeEtAl1998}.\footnote{are the \selac $\phi$ values rescaled in any way besides setting the substitution rate to 1?
+}
+      }\label{fig:selaVsPhi}
+    \end{figure}
+  \item GTR $\omega$ vs. $\phi$ Measurements
+    \begin{figure}
+      
+      \caption{$\omega$ vs $\phi$ Figure goes here}\label{fig:omegaVsPhi}
     \end{figure}
   \end{enumerate}
-\item Quantifying optimal AA \label{fig:optAA} (Mike once I get info from Jeremy)
+\item Quantifying optimal AA \label{fig:optAA} (Mike once I get info from Jeremy)\footnote{mikeg: looked around, but can't find this data. 
+    Ideally it would be in the format of: Gene, Psi, Position, LLik AA A, LLik AA B, LLik AA C, ...
+}
   \begin{enumerate}
   \item Represent using varying point size in 3D physiochemical space
   \item Look for instances where there's a bimodal distribution across.
@@ -337,22 +348,32 @@ Shortcomings in model assumptions and extensions
   From a biological standpoint, this additivity between site ignores any non-linear interactions between sites, such as epistasis, or between alleles, such as domiance.  Thus, our work can be considered a first order approximation to these more complex scenarios and a starting point for later relaxation these assumptions.
 \item For example, because our current implementation ignores any selection on synonymous codon usage bias (CUB).
   Including such selection is tricky because introducing the site specific cost effects of CUB leads to non-additive (i.e.~epistatic) interactions between sites.  Relative to stabilizing selection on amino acid sequence, selection on CUB is thought to be substantially weaker.
-  As a result, CUB based epstasis can likely ignored and selection on CUB incorporated into our current framework.
+  As a result, epstatic effects due to synonymous codon specific differences in assembly costs can likely ignored and selection on CUB incorporated into our current framework.
 \item \selac implicitly assumes that all genes are essential because an organism that is homozygous for null alleles with zero activity (i.e.~no benefit) would have to spend an infinite amount of energy to achive a target functionality synthesis rate $\psi > 0$.
-  It is worth noting that in its current formulation, the only way to generate such null alleles is through the evolution of a premature stop codon.
+  The only way to generate such null alleles is through the evolution of a premature stop codon which, given this model behavior, can never go to fixation.
   Two ways this assumption of essentiality could be relaxed are by making fitness $W$ a function of $\psi$ such that  $W(\psi = 0) > 0$ or by incorporating functional overlap between proteins into our calculations.
+While \selac assumes that functionality declines with physiochemical distance from the optimum amino acid, as it stands this decline is less dramatic than one might intuitively expect.
+For example, for the yeast dataset, the average taxon has a functionality of \_\_\_\_\_\_\_\_\_\_ under our framework, while a random sequence has an average functionality of \_\_\_\_\_\_, rather than values close to zero as one would expect.
+Thus, while our assumption of about the link between functionality and physiochemical distance may be reasonable for sequences close to the optimum sequence \aoptvec, it clearly fails for protein sequences far from the optimum.
+\footnote{mikeg: Two thoughts.
+One, because we are integrating over G rather than using the MLE estimate in this calculation, I'm wondering if we are substantially under estimating the effect of a few sites with high senstivities would have on protein function.
+If it is not hard to do, we could evaluate the model at the MLE parameters and then find the optimal G for each position.
+Two, if the true values of G follow a heavy tailed distribution, it may make more sense to try and model G using an inverse-gamma distribution.'
+}
+This implies that the difference in expression between a random sequence and the observed sequence would only be on the order of  \_\_\_\_\_-fold.
+It is important to note that the this does not mean that selection is ineffective in our model.
+The log of the selection coefficient between two alleles depends on both their functionality and the gene's target expression level $\psi$.
+Thus for high expression genes, slight changes in functionality can still lead to large differences in fitnesses between alleles.
   % \item Time reversibility
 \item PROBLEM: Yeast having problems with estimating kluyveri branch.  Are any of these gene in CLeft?
   According to Cedric, ``C-Left goes from ID SAKL0C00110 to (including) SAKL0C10846. Every mapping hit you have in your dataset with an ID in between (numerically) is on C-Left.''
-\item PROBLEM: GTR is scaled at nt level so likely 3 times selac rate of codon substitution. [verify with sims of phi of zero]
+\item PROBLEM: GTR is scaled at nt level so likely 3 times selac rate of codon substitution. [verify with sims of phi of zero]\footnote{mikeg: any progress on this?
+Regarding the math, if we are scaling time by nt substitutions (synoymous or non-synonymous), it would seem like both \selac and GTR's mutation models are comparable.
+}
   Math should clarify things.
 \item Not currently integrated with other approaches
 \item Identifiability issues
 \item Issues with discreteness of amino acids
-\item We assume that functionality declines with difference, but that even random proteins (absent stop codons) remain functional, and just need higher levels of expression. In fact, the expression levels do not need to be particularly high: for example, for the yeast dataset, the average taxon has a functionality of \_\_\_\_\_\_\_\_\_\_ under our framework, while a random sequence has an average functionality of \_\_\_\_\_\_. This would require only a \_\_\_\_\_-fold increase in expression. Thus, while our assumption of fitness relating to distance from optimum may be true for fairly good protein sequences, it clearly fails for protein sequences far from the optimum.
-\footnote{mikeg: I think you're confusing two points here.  Because selection is scaled by $\psi$, a small decrease in functionality could lead to a large decrease in fitness if the gene is expressed at a high enough level.
-The figures we've talked about looking at the distribution of fitness effects should be able to illustrate this point.
-}
 \end{enumerate}
 
  Lots of sequences available and in pipeline, let's get to it!
@@ -501,7 +522,7 @@ In this case, the data, $\Dmatrixp$, are the observed codon states at position $
 For our purposes we take \Tmatrix as given but it could be estimated as well.
 The pruning algorithm of \citet{Felsenstein1981} is used to calculate $\Lik(\Qmatrixa)$.
 The log likelihood is maximized by estimating the genome scale parameters which consist of  11 mutation parameters which are implicitly scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
-Because $\A_0$ and $\psi_g$ always co-occur and are scaled by \Ne, for each gene $g$ we estimate a composite term $\psiprime_g = \psi_g A_0 b \Ne$  and the optimal amino acid for each position \aoptp of protein.
+Because $A_0$ and $\psi_g$ always co-occur and are scaled by \Ne, for each gene $g$ we estimate a composite term $\psiprime_g = \psi_g A_0 b \Ne$  and the optimal amino acid for each position \aoptp of protein.
 When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using the generalized Laguerre quadrature with $k = 4$ points \citep{Felsenstein2001}.
 
 \subsubsection*{Implementation}
