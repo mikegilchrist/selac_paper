@@ -175,44 +175,31 @@ Finally, because our work fitness functions are well defined, we can provide est
 
 
 \section*{Results}
-\subsection*{Model Performance}
-\begin{enumerate}
-\item Using \DeltaAIC as our measure, we see that even despite the need for estimating the optimal amino acid at each position in each protein, \selac performs astronomically better than GTR, GY94, or YN08.
-\item Including the random effects term $G$ not only provides greater biological realism than assuming $G=1$, it provides substantially better model fit and improves the \DeltaAIC score by over 16,000 units.
-  \footnote{I am going offline to finish the results. It's hard editing in latex. Will write in a separate doc and add into latex tomorrow}.
-
-
-
-
-\item Selac provides estimates of gene expression which are positively correlated with empirical estimates and explain 20-30\% of the variation in the empirical measurements taken during log growth phase. 
-
-\end{enumerate}
-
-By linking transition rates $\qij$ to gene expression $\psi$, our approach allows use the same model for genes under varying degrees of purifying selection.
-Specifically, we assume the strength of stabilizing selection for the optimal sequence, \aoptvec, is proportional to $\psi$, our model allows us to estimate $\phi = \psi/\Func$ for each gene. 
-Our results clearly indicate that accounting for it substantially improves our model fit.
+By linking transition rates $\qij$ to gene expression $\psi$, our approach allows use of the same model for genes under varying degrees of purifying selection.
+Specifically, we assume the strength of stabilizing selection for the optimal sequence, \aoptvec, is proportional to $\psi$, which we can estimate for each gene. 
+In regards to model fit, our results clearly indicated that accounting for stabilizing selection for the optimal sequence substantially improves our model fit.
 Using both \DeltaAIC and \AICw as our measure of model support, the SelAC models perform extraordinarily better than GTR+$\Gamma$, GY94, or YN08.
-This improvement is in spite of the need for estimating the optimal amino acid at each position in each protein, which adds more than 47,000 more parameters to the model than YN08, the next most parameter rich codon model in our model set.
-Nevertheless, the SelAC model shows nearly 400,000 AIC unit improvement over YN08.
+This is in spite of the need for estimating the optimal amino acid at each position in each protein, which adds more than 47,000 more parameters to the model than YN08, the next most parameter rich codon model in our model set, and yet the SelAC model shows nearly 400,000 AIC unit improvement over YN08.
 Comparing the two SelAC models in the model set, including the random effects term $\alphag$ not only provides greater biological realism by allowing site heterogeneity, it also provides substantially better model fit and improves the \DeltaAIC score by over 23,000 units than assuming $\alphag = \infty$. 
 
-With respect to estimates of $\psi$ within SelAC, they were strongly correlated with two separate empirical measurements taken during log growth phase (See Figure). In other words, using only codon sequences our model can predict which genes have high or low expression levels.
+With respect to estimates of $\psi$ within SelAC, they were strongly correlated with two separate empirical measurements of gene expression (See Figure).
+In other words, using only codon sequences our model can predict which genes have high or low expression levels.
 The estimate of the $\alphag$ parameter, which describes the site-specific variation in sensitivity of the proteins functionality, indicated a moderate level of variation in gene expression among sites.
-Our estimate of $\alphag$ = 1.40, produced a distribution of sensitivity rates that ranged from 0.344 - 7.16, but with the nearly 90\% of the weight for a given site-likelihood being contributed by the 0.344 and 1.48 rate categories.
-In simulation, however, of all the parameters in the model, only $\alphag$ showed a consistent bias, in that the estimates were generally underestimated (see Supplemental). Other parameters in the model, such as the Grantham weights, provide an indication as to the physiochemical distance between amino acids.
-Our estimates of these weights only strongly deviate from Grantham's composition weight, $\alphac$, which is the distance between any two amino acids with regards to the ratio of noncarbon elements in the end groups to the number of side chains.
-We estimate the weighting factor of composition to be $\alphac$=0.484, which suggests that the reduction in the distance between any given two amino acids and greater exchangeability between even the most distantly related residues.
+Our estimate of $\alphag$ = 1.40, produced a distribution of sensitivity rates that ranged from 0.344-7.16, but with the nearly 90\% of the weight for a given site-likelihood being contributed by the 0.344 and 1.48 rate categories.
+In simulation, however, of all the parameters in the model, only $\alphag$ showed a consistent bias, in that the estimates were generally underestimated (see Supplemental).
+Other parameters in the model, such as the Grantham weights, provide an indication as to the physiochemical distance between amino acids.
+Our estimates of these weights only strongly deviate from Grantham in regards to composition weight, $\alphac$, which is the distance between any two amino acids with regards to the ratio of noncarbon elements in the end groups to the number of side chains.
+We estimate the weighting factor of composition to be $\alphac$=0.484, which suggests that the reduction in the distance between any given two amino acids and thus provides greater exchangeability between even the most distantly related residues.
 
 It is important to note that the nonsynonymous/synonymous mutation ratio, or $\omega$, which we estimated for each gene under the FMutSel0 model strongly correlated with our estimates of $\psi$.
-In fact, the $\omega$ showed similar, though slightly reduced correlations, with our empirical estimates of gene expression (See Figure).
+In fact, $\omega$ showed similar, though slightly reduced correlations, with the same empirical estimates of gene expression described above (See Figure).
 This would give the impression that the same conclusions could have been gleaned using a much simpler model, both in terms of the number of parameters and the assumptions made.
-However, when we evaluated each model by the realistic nature of the data they produce, our SelAC model clearly performs better.
+However, when we evaluated each model according to the realistic nature of the data they produce, our SelAC model clearly performs better.
 When we simulated the sequence for \textit{S. cervisieae}, starting from the ancestral sequence under both GTR+G and FMutSel0, the functionality of the simulated sequence moves away from the observed sequence, whereas SelAC remains near the functionality of the observed sequence (Figure XX).
-In a way, this is somewhat unsurprising, given that both GTR+G and FMutSel0 are agnostic with regards to the functionality of the gene, but it does highlight the improvement in biological realism in codon evolution that our SelAC provides.
+In a way, this is somewhat unsurprising, given that both GTR+G and FMutSel0 are agnostic to the functionality of the gene, but it does highlight the improvement in biological realism in codon evolution that our SelAC provides.
 We do note that the adequacy of the SelAC model does vary among individual taxa, and does not always perfectly match the observed functionality.
 For instance, \textit{S. castellii} is simulated with consistently higher functionality than observed (Figure XX).
-We suspect this is an indication that assuming a single set of optimal amino acid across all taxa may be too simplistic, though, at the moment, we cannot also rule out other potential issues in our model, such as a single set of Grantham weights and $\alphag$.
->>>>>>> 7796f544740c295fe2dac847ace785dbd3cf41c1
+We suspect this is an indication that assuming a single set of optimal amino acid across all taxa may be too simplistic, but we cannot also rule out other potential simplifying assumptions in our model, such as a single set of Grantham weights and $\alphag$.
 
 
 \subsection*{Figures}
