@@ -185,9 +185,9 @@ Comparing the two SelAC models in the model set, including the random effects te
 
 With respect to estimates of $\psi$ within SelAC, they were strongly correlated with two separate empirical measurements of gene expression (See Figure).
 In other words, using only codon sequences our model can predict which genes have high or low expression levels. %\footnote{mikeg: Sooo why talk about codon sequences when we are only using the aa sequence?
-%  On a  similar note, shouldn't we call this model SelA since we don't have selection on synonymous codon usage in the model yet? JMB: I just used SelAC as I was doing this, which can be changed. As for the other comment, not sure I follow. We are modelling codon evolution, so a user puts in codon data not amino acids and gets out gene expression estimates. That is the point I was trying to make. 
-%mikeg: Okay.  I forgot you were doing everything at the codon level.  }
-
+%  On a  similar note, shouldn't we call this model SelA since we don't have selection on synonymous codon usage in the model yet? JMB: I just used SelAC as I was doing this, which can be changed. As for the other comment, not sure I follow. We are modelling codon evolution, so a user puts in codon data not amino acids and gets out gene expression estimates. That is the point I was trying to make.
+%  BCO: Besides being the input data, we also use codons for the mutation model. It's not clear to me that we'd have similar performance if we were just using AA (remember how with JJ's original work we were making assumptions about the mutation process between AA that may not have been justified?).
+%mikeg: Yeah, I forgot we were working fully at the codon level.}
 The estimate of the $\alphag$ parameter, which describes the site-specific variation in sensitivity of the proteins functionality, indicated a moderate level of variation in gene expression among sites.
 Our estimate of $\alphag$ = 1.40, produced a distribution of sensitivity rates that ranged from 0.344-7.16, but with the nearly 90\% of the weight for a given site-likelihood being contributed by the 0.344 and 1.48 rate categories.
 In simulation, however, of all the parameters in the model, only $\alphag$ showed a consistent bias, in that the estimates were generally underestimated (see Supplemental).
