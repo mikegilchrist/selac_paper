@@ -5,6 +5,7 @@
 \usepackage{amsmath, amssymb,amsfonts}
 \usepackage[small]{caption}
 \usepackage{graphicx}
+\usepackage{url}
 \usepackage{float}
 \usepackage{subfig}
 \usepackage{xspace}
@@ -221,9 +222,9 @@ We suspect this is an indication that assuming a single set of optimal amino aci
   \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{yeast_GY94.pdf}}}
   \qquad
   \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{yeast_YN2008.pdf}}}
-  \qquad
-  \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{yeast_LGY2004.pdf}}}\footnote{File 'yeast\_LGY2005.pdf' missing from /Figures}
-  \caption{Maximum Likelihood Trees for (a) selac, (b) selac with uniform sensitivity $G = 1$, (c) GTR, (d) GY94, and (e) FMutSel0, (f) \citet{LartillotAndPhilippe2004}.}
+%  \qquad
+%  \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{yeast_LGY2004.pdf}}}\footnote{File 'yeast\_LGY2005.pdf' missing from /Figures}
+  \caption{Maximum Likelihood Trees for (a) selac, (b) selac with uniform sensitivity $G = 1$, (c) GTR, (d) GY94, and (e) FMutSel0.}
   \label{fig:mleTrees}
 \end{figure}
 \item Model Adequacy Illustrations \label{fig:modelAdequacy} (Brian or Jeremy?)
@@ -236,9 +237,9 @@ We suspect this is an indication that assuming a single set of optimal amino aci
       \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{RPF_vs_Phi/RNA_abunIngolia_vs_SelACphiGamma}}}
       \qquad
       \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{mRNA_vs_Phi/mRNA_abunHolstege_vs_SelACphiGamma}}}
-      \caption{Comparison of log protein synthesis rate $\psi$ for \emph{S.~cerevisiae} as predicted by selac to empirical estimates from (a) ribosome profile footprint data \citep{IngoliaEtAl2009} and (b) mRNA abundance data \citep{HolstegeEtAl1998}.\footnote{are the \selac $\phi$ values rescaled in any way besides setting the substitution rate to 1?
-}
-      }\label{fig:selaVsPhi}
+      \caption{Comparison of log protein synthesis rate $\psi$ for \emph{S.~cerevisiae} as predicted by selac to empirical estimates from (a) ribosome profile footprint data \citep{IngoliaEtAl2009} and (b) mRNA abundance data \citep{HolstegeEtAl1998}.
+%\footnote{are the \selac $\phi$ values rescaled in any way besides setting the substitution rate to 1?}
+}\label{fig:selaVsPhi}
     \end{figure}
   \item GTR $\omega$ vs. $\phi$ Measurements
     \begin{figure}
@@ -459,7 +460,7 @@ We use the euclidian distance between residue properties where each property $c$
 Because physicochemical distance is ultimately weighted by a gene's specific average protein synthesis rate $\psi$, another parameter we estimate, there is a problem with parameter identifiablity.
 Ultimately, the scale of gene expression is affected by how we measure physicochemical distances which, in turn, is determined by our choice of Grantham weights.
 As a result, we set $\alphav = 3.990 \times 10^{-4}$, %\footnote{mikeg: does Grantham really report 7 digits of precision? JMB: He gives 0.000399, I think the 333 comes from me and my direct calculation following Grantham's paper.
-mikeg: I've removed the extra digits.}
+%mikeg: I've removed the extra digits.}
 the value originally estimated by Grantham, and recognize that our our estimates of $\alphac$ and $\alphap$ and $\psi$ are scaled relative to this choice for $\alphav$.
 More specifically,
 \begin{equation*}
