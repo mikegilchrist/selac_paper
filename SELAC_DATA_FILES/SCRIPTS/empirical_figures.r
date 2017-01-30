@@ -34,7 +34,7 @@ for(gene.index in 1:100){
     codon.data <- chars[phy$tip.label,]
     aa.data <- selac:::ConvertCodonNumericDataToAAData(codon.data, numcode=1)
     aa.optim <- result$aa.optim[[gene.index]]
-    functionality <- c(functionality, GetFunctionality(gene.length=length(aa.optim), aa.data=aa.data[taxon.to.do,-1], optimal.aa=aa.optim, alpha=result$mle.pars[gene.index,2], beta=result$mle.pars[gene.index,3], gamma=0.0003990333))
+    functionality <- c(functionality, GetFunctionality(gene.length=length(aa.optim), gp=NULL, aa.data=aa.data[taxon.to.do,-1], optimal.aa=aa.optim, alpha=result$mle.pars[gene.index,2], beta=result$mle.pars[gene.index,3], gamma=0.0003990333))
 }
 write.table(cbind(result$partitions,functionality), file="function_taxon6", quote=FALSE, sep="\t", row.names=FALSE)
 
