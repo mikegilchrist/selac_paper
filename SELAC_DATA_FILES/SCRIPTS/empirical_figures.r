@@ -26,7 +26,7 @@ FunctionalityCalculation <- function(site.pattern.counts, aa.data, optimal.aa, a
 #The code necessary for evaulating functionality across ALL genes:
 phy <- result$phy
 functionality <- c()
-taxon.to.do <- 6
+taxon.to.do <- 1
 for(gene.index in 1:100){
     yeast.gene <- read.dna(result$partitions[gene.index], format="fasta")
     yeast.gene <- as.list(as.matrix(cbind(yeast.gene)))
@@ -34,12 +34,12 @@ for(gene.index in 1:100){
     codon.data <- chars[phy$tip.label,]
     aa.data <- selac:::ConvertCodonNumericDataToAAData(codon.data, numcode=1)
     aa.optim <- result$aa.optim[[gene.index]]
-    functionality <- c(functionality, GetFunctionality(gene.length=length(aa.optim), gp=NULL, aa.data=aa.data[taxon.to.do,-1], optimal.aa=aa.optim, alpha=result$mle.pars[gene.index,2], beta=result$mle.pars[gene.index,3], gamma=0.0003990333))
+    functionality <- c(functionality, GetFunctionality(gene.length=length(aa.optim), gp=tt[pp[[gene.index]]$indicator.by.site.rawLik], aa.data=aa.data[taxon.to.do,-1], optimal.aa=aa.optim, alpha=result$mle.pars[gene.index,2], beta=result$mle.pars[gene.index,3], gamma=0.0003990333))
 }
 write.table(cbind(result$partitions,functionality), file="function_taxon6", quote=FALSE, sep="\t", row.names=FALSE)
 
 
-
+#gp=tt[pp[[gene.index]]$indicator.by.site.weightedLik]
 
 
 ######################################################################################################################################
