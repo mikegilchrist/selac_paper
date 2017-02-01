@@ -44,14 +44,14 @@ load("adequacy_Scer_reconSelacWG_simFMutSel.Rsave")
 selac.mutsel <- pp
 load("adequacy_Scer_reconSelacWG_simGTRG.Rsave")
 selac.gtr <- pp
-PlotAdequacyResults(adequate.obj.gtr=selac.gtr, adequate.obj.mutsel=selac.mutsel, adequate.obj.selac.wg=selac.wg, known.functionality=0.89, file.name="modelAdequacyScer.pdf",taxon.names="S. cerevisiae")
+PlotAdequacyResults(adequate.obj.gtr=selac.gtr, adequate.obj.mutsel=selac.mutsel, adequate.obj.selac.wg=selac.wg, known.functionality=0.9551671, file.name="modelAdequacyScer.pdf",taxon.names="S. cerevisiae")
 load("adequacy_Scas_reconSelacWG_simSelacWG.Rsave")
 selac.wg <- pp
 load("adequacy_Scas_reconSelacWG_simFMutSel.Rsave")
 selac.mutsel <- pp
 load("adequacy_Scas_reconSelacWG_simGTRG.Rsave")
 selac.gtr <- pp
-PlotAdequacyResults(adequate.obj.gtr=selac.gtr, adequate.obj.mutsel=selac.mutsel, adequate.obj.selac.wg=selac.wg, known.functionality=0.72, file.name="modelAdequacyScas.pdf",taxon.names="S. castellii")
+PlotAdequacyResults(adequate.obj.gtr=selac.gtr, adequate.obj.mutsel=selac.mutsel, adequate.obj.selac.wg=selac.wg, known.functionality=0.8778966, file.name="modelAdequacyScas.pdf",taxon.names="S. castellii")
 dev.off()
 
 
@@ -71,7 +71,7 @@ setwd("../DATA")
 print("Doing Scer")
 ## Brewer's yeast adequacy
 pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="selac", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=selac.wg, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
-#save(pp, file="adequacy_Scer_reconSelacWG_simSelacWG.Rsave")
+save(pp, file="adequacy_Scer_reconSelacWG_simSelacWG.Rsave")
 
 #pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="gtr", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=gtr.g, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
 #save(pp, file="adequacy_Scer_reconSelacWG_simGTRG.Rsave")
@@ -91,8 +91,8 @@ save(pp, file="adequacy_Scer_reconSelacWG_simFMutSel.Rsave")
 print("Doing Scas")
 
 ## Scas adequacy
-#pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="selac", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=selac.wg, aa.optim.input=NULL, taxon.to.drop=5, partition.number=53, numcode=1)
-#save(pp, file="adequacy_Scas_reconSelacWG_simSelacWG.Rsave")
+pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="selac", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=selac.wg, aa.optim.input=NULL, taxon.to.drop=5, partition.number=53, numcode=1)
+save(pp, file="adequacy_Scas_reconSelacWG_simSelacWG.Rsave")
 
 #pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="gtr", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=gtr.g, aa.optim.input=NULL, taxon.to.drop=5, partition.number=53, numcode=1)
 #save(pp, file="adequacy_Scas_reconSelacWG_simGTRG.Rsave")

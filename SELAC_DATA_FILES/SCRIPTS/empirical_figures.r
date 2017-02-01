@@ -34,7 +34,82 @@ for(gene.index in 1:100){
     codon.data <- chars[phy$tip.label,]
     aa.data <- selac:::ConvertCodonNumericDataToAAData(codon.data, numcode=1)
     aa.optim <- result$aa.optim[[gene.index]]
-    functionality <- c(functionality, GetFunctionality(gene.length=length(aa.optim), gp=1, aa.data=aa.data[taxon.to.do,-1], optimal.aa=aa.optim, alpha=result$mle.pars[gene.index,2], beta=result$mle.pars[gene.index,3], gamma=0.0003990333))
+    functionality <- c(functionality, GetFunctionality(gene.length=length(aa.optim), gp=tt[pp[[gene.index]]$indicator.by.site.weightedLik], aa.data=aa.data[taxon.to.do,-1], optimal.aa=aa.optim, alpha=result$mle.pars[gene.index,2], beta=result$mle.pars[gene.index,3], gamma=0.0003990333))
+}
+write.table(cbind(result$partitions,functionality), file="function_taxon1", quote=FALSE, sep="\t", row.names=FALSE)
+
+
+phy <- result$phy
+functionality <- c()
+taxon.to.do <- 2
+for(gene.index in 1:100){
+    yeast.gene <- read.dna(result$partitions[gene.index], format="fasta")
+    yeast.gene <- as.list(as.matrix(cbind(yeast.gene)))
+    chars <- selac:::DNAbinToCodonNumeric(yeast.gene)
+    codon.data <- chars[phy$tip.label,]
+    aa.data <- selac:::ConvertCodonNumericDataToAAData(codon.data, numcode=1)
+    aa.optim <- result$aa.optim[[gene.index]]
+    functionality <- c(functionality, GetFunctionality(gene.length=length(aa.optim), gp=tt[pp[[gene.index]]$indicator.by.site.weightedLik], aa.data=aa.data[taxon.to.do,-1], optimal.aa=aa.optim, alpha=result$mle.pars[gene.index,2], beta=result$mle.pars[gene.index,3], gamma=0.0003990333))
+}
+write.table(cbind(result$partitions,functionality), file="function_taxon2", quote=FALSE, sep="\t", row.names=FALSE)
+
+
+phy <- result$phy
+functionality <- c()
+taxon.to.do <- 3
+for(gene.index in 1:100){
+    yeast.gene <- read.dna(result$partitions[gene.index], format="fasta")
+    yeast.gene <- as.list(as.matrix(cbind(yeast.gene)))
+    chars <- selac:::DNAbinToCodonNumeric(yeast.gene)
+    codon.data <- chars[phy$tip.label,]
+    aa.data <- selac:::ConvertCodonNumericDataToAAData(codon.data, numcode=1)
+    aa.optim <- result$aa.optim[[gene.index]]
+    functionality <- c(functionality, GetFunctionality(gene.length=length(aa.optim), gp=tt[pp[[gene.index]]$indicator.by.site.weightedLik], aa.data=aa.data[taxon.to.do,-1], optimal.aa=aa.optim, alpha=result$mle.pars[gene.index,2], beta=result$mle.pars[gene.index,3], gamma=0.0003990333))
+}
+write.table(cbind(result$partitions,functionality), file="function_taxon3", quote=FALSE, sep="\t", row.names=FALSE)
+
+
+phy <- result$phy
+functionality <- c()
+taxon.to.do <- 4
+for(gene.index in 1:100){
+    yeast.gene <- read.dna(result$partitions[gene.index], format="fasta")
+    yeast.gene <- as.list(as.matrix(cbind(yeast.gene)))
+    chars <- selac:::DNAbinToCodonNumeric(yeast.gene)
+    codon.data <- chars[phy$tip.label,]
+    aa.data <- selac:::ConvertCodonNumericDataToAAData(codon.data, numcode=1)
+    aa.optim <- result$aa.optim[[gene.index]]
+    functionality <- c(functionality, GetFunctionality(gene.length=length(aa.optim), gp=tt[pp[[gene.index]]$indicator.by.site.weightedLik], aa.data=aa.data[taxon.to.do,-1], optimal.aa=aa.optim, alpha=result$mle.pars[gene.index,2], beta=result$mle.pars[gene.index,3], gamma=0.0003990333))
+}
+write.table(cbind(result$partitions,functionality), file="function_taxon4", quote=FALSE, sep="\t", row.names=FALSE)
+
+
+phy <- result$phy
+functionality <- c()
+taxon.to.do <- 5
+for(gene.index in 1:100){
+    yeast.gene <- read.dna(result$partitions[gene.index], format="fasta")
+    yeast.gene <- as.list(as.matrix(cbind(yeast.gene)))
+    chars <- selac:::DNAbinToCodonNumeric(yeast.gene)
+    codon.data <- chars[phy$tip.label,]
+    aa.data <- selac:::ConvertCodonNumericDataToAAData(codon.data, numcode=1)
+    aa.optim <- result$aa.optim[[gene.index]]
+    functionality <- c(functionality, GetFunctionality(gene.length=length(aa.optim), gp=tt[pp[[gene.index]]$indicator.by.site.weightedLik], aa.data=aa.data[taxon.to.do,-1], optimal.aa=aa.optim, alpha=result$mle.pars[gene.index,2], beta=result$mle.pars[gene.index,3], gamma=0.0003990333))
+}
+write.table(cbind(result$partitions,functionality), file="function_taxon5", quote=FALSE, sep="\t", row.names=FALSE)
+
+
+phy <- result$phy
+functionality <- c()
+taxon.to.do <- 6
+for(gene.index in 1:100){
+    yeast.gene <- read.dna(result$partitions[gene.index], format="fasta")
+    yeast.gene <- as.list(as.matrix(cbind(yeast.gene)))
+    chars <- selac:::DNAbinToCodonNumeric(yeast.gene)
+    codon.data <- chars[phy$tip.label,]
+    aa.data <- selac:::ConvertCodonNumericDataToAAData(codon.data, numcode=1)
+    aa.optim <- result$aa.optim[[gene.index]]
+    functionality <- c(functionality, GetFunctionality(gene.length=length(aa.optim), gp=tt[pp[[gene.index]]$indicator.by.site.weightedLik], aa.data=aa.data[taxon.to.do,-1], optimal.aa=aa.optim, alpha=result$mle.pars[gene.index,2], beta=result$mle.pars[gene.index,3], gamma=0.0003990333))
 }
 write.table(cbind(result$partitions,functionality), file="function_taxon6", quote=FALSE, sep="\t", row.names=FALSE)
 
