@@ -185,12 +185,9 @@ This is in spite of the need for estimating the optimal amino acid at each posit
 Comparing the two SelAC models in the model set, including the random effects term $\alphag$ not only provides greater biological realism by allowing site heterogeneity, it also provides substantially better model fit and improves the \DeltaAIC score by over 23,000 units than assuming $\alphag = \infty$. 
 
 With respect to estimates of $\psi$ within SelAC, they were strongly correlated with two separate empirical measurements of gene expression (See Figure).
-In other words, using only codon sequences our model can predict which genes have high or low expression levels. %\footnote{mikeg: Sooo why talk about codon sequences when we are only using the aa sequence?
-%  On a  similar note, shouldn't we call this model SelA since we don't have selection on synonymous codon usage in the model yet? JMB: I just used SelAC as I was doing this, which can be changed. As for the other comment, not sure I follow. We are modelling codon evolution, so a user puts in codon data not amino acids and gets out gene expression estimates. That is the point I was trying to make.
-%  BCO: Besides being the input data, we also use codons for the mutation model. It's not clear to me that we'd have similar performance if we were just using AA (remember how with JJ's original work we were making assumptions about the mutation process between AA that may not have been justified?).
-%mikeg: Yeah, I forgot we were working fully at the codon level.}
+In other words, using only codon sequences our model can predict which genes have high or low expression levels.
 The estimate of the $\alphag$ parameter, which describes the site-specific variation in sensitivity of the proteins functionality, indicated a moderate level of variation in gene expression among sites.
-Our estimate of $\alphag$ = 1.40, produced a distribution of sensitivity rates that ranged from 0.344-7.16, but with the nearly 90\% of the weight for a given site-likelihood being contributed by the 0.344 and 1.48 rate categories.
+Our estimate of $\alphag$ = 1.40, produced a distribution of sensitivity rates that ranged from 0.344-7.16, but with nearly 90\% of the weight for a given site-likelihood being contributed by the 0.344 and 1.48 rate categories.
 In simulation, however, of all the parameters in the model, only $\alphag$ showed a consistent bias, in that the estimates were generally underestimated (see Supplemental).
 Other parameters in the model, such as the Grantham weights, provide an indication as to the physicochemical distance between amino acids.
 Our estimates of these weights only strongly deviate from Grantham in regards to composition weight, $\alphac$, which is the distance between any two amino acids based on the ratio of noncarbon elements in the end groups to the number of side chains.
@@ -294,7 +291,7 @@ By assuming fitness declines with extraneous energy flux, \selac explicitly link
 By linking expression and selection, \selac provides a natural framework for combining information from protein coding genes with very different rates of evolution with the low expression genes providing information on shallow branches and the high expression genes providing information on deep branches.
 This is in contrast to more traditional approach of concatenating gene sequences together, which is equivalent to assuming the same average protein synthesis rate $\psi$ for all of the genes, or more recent approaches where different models are fitted to different genes.
 Our results indicate that including a gene specific $\psi$ value vastly improves \selac fits (Table \ref{table:modelFits}.
-Perhaps more convicingly, we find that the target expression level $\psi$ and realized protein synthesis rate $\phi$ are reasonably well correlated  with laboratory measurements of gene expression ($\rho = 0.33-0.44$). and Figure \ref{fig:phiComparisons})).
+Perhaps more convincingly, we find that the target expression level $\psi$ and realized protein synthesis rate $\phi$ are reasonably well correlated with laboratory measurements of gene expression ($\rho = 0.33-0.44$). and Figure \ref{fig:phiComparisons})).
 The idea that quantiative information on gene expression is embedded within intra-genomic patterns of synonymous codon usage is well accepted; our work shows that this information can also be extracted from comparative data at the amino acid level.
 
 Of course, given the general nature of \selac and the complexity of biological systems, other biological forces besides selection for reducing energy flux likely contribute inter-genic variation in the magnitude of stabilizing selection.
@@ -459,9 +456,7 @@ Following \cite{Grantham1974}, we focus on using composition $c$, polarity $p$, 
 We use the euclidian distance between residue properties where each property $c$, $p$, and $v$ has its own weighting term, $\alphac$, $\alphap$, $\alphav$, respectively, which we refer to as `Grantham weights'.
 Because physicochemical distance is ultimately weighted by a gene's specific average protein synthesis rate $\psi$, another parameter we estimate, there is a problem with parameter identifiablity.
 Ultimately, the scale of gene expression is affected by how we measure physicochemical distances which, in turn, is determined by our choice of Grantham weights.
-As a result, we set $\alphav = 3.990 \times 10^{-4}$, %\footnote{mikeg: does Grantham really report 7 digits of precision? JMB: He gives 0.000399, I think the 333 comes from me and my direct calculation following Grantham's paper.
-%mikeg: I've removed the extra digits.}
-the value originally estimated by Grantham, and recognize that our our estimates of $\alphac$ and $\alphap$ and $\psi$ are scaled relative to this choice for $\alphav$.
+As a result, we set $\alphav = 3.990 \times 10^{-4}$, the value originally estimated by Grantham, and recognize that our our estimates of $\alphac$ and $\alphap$ and $\psi$ are scaled relative to this choice for $\alphav$.
 More specifically,
 \begin{equation*}
   d(a_i, \aopt) = \sqrt{\alphac \left(c\left(a_i\right) - c\left(\aopt\right)\right)^2 + \alphap \left(p\left(a_i\right) - p\left(\aopt\right)\right)^2 +  \alphav \left(v\left(a_i\right) - v\left(\aopt\right)\right)^2}.
