@@ -122,7 +122,7 @@ write.table(cbind(result$partitions,functionality), file="function_taxon6", quot
 ### NEW YEAST EMPIRICAL SUMMARY
 ######################################################################################################################################
 ######################################################################################################################################
-gg <- read.delim("/finalPhiEsts.tsv")
+gg <- read.delim("finalPhiEsts_including_ROC.tsv")
 
 pdf("SelACwG_vs_Empirical_by_spp.pdf", width=8, height=8)
 par(mfcol=c(2,2),mar=c(4,4,0.5,0.5), oma=c(1.5,2,1,1))
