@@ -178,108 +178,40 @@ Finally, because our work fitness functions are well defined, we can provide est
 
 \section*{Results}
 By linking transition rates $\qij$ to gene expression $\psi$, our approach allows use of the same model for genes under varying degrees of purifying selection.
-Specifically, we assume the strength of stabilizing selection for the optimal sequence, \aoptvec, is proportional to $\psi$, which we can estimate for each gene. 
+Specifically, we assume the strength of stabilizing selection for the optimal sequence, \aoptvec, is proportional to $\phi$, which we can estimate for each gene. 
 In regards to model fit, our results clearly indicated that accounting for stabilizing selection for the optimal sequence substantially improves our model fit.
-Using both \DeltaAIC and \AICw as our measure of model support, the SelAC models perform extraordinarily better than GTR+$\Gamma$, GY94, or FMutSel0.
+Using both \DeltaAIC and \AICw as our measure of model support, the SelAC models perform extraordinarily better than GTR + $\Gamma$, GY94, or FMutSel0 (Table 1 \ref{table:modelFits}).
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which adds more than 47,000 more parameters to the model than FMutSel0, the next most parameter rich codon model in our model set, and yet the SelAC model shows nearly 400,000 AIC unit improvement over FMutSel0.
 Comparing the two SelAC models in the model set, including the random effects term $\alphag$ not only provides greater biological realism by allowing site heterogeneity, it also provides substantially better model fit and improves the \DeltaAIC score by over 23,000 units than assuming $\alphag = \infty$. 
 
-With respect to estimates of $\psi$ within SelAC, they were strongly correlated with two separate empirical measurements of gene expression (See Figure).
+With respect to estimates of $\phi$ within SelAC, they were strongly correlated with two separate empirical measurements of gene expression (See Figure 1 \ref{fig:PhivsROC}; Figure S1-S2).
 In other words, using only codon sequences our model can predict which genes have high or low expression levels.
 The estimate of the $\alphag$ parameter, which describes the site-specific variation in sensitivity of the proteins functionality, indicated a moderate level of variation in gene expression among sites.
 Our estimate of $\alphag$ = 1.40, produced a distribution of sensitivity rates that ranged from 0.344-7.16, but with nearly 90\% of the weight for a given site-likelihood being contributed by the 0.344 and 1.48 rate categories.
-In simulation, however, of all the parameters in the model, only $\alphag$ showed a consistent bias, in that the estimates were generally underestimated (see Supplemental).
+In simulation, however, of all the parameters in the model, only $\alphag$ showed a consistent bias, in that the estimates were generally underestimated (see Supplemental Materials).
 Other parameters in the model, such as the Grantham weights, provide an indication as to the physicochemical distance between amino acids.
 Our estimates of these weights only strongly deviate from Grantham in regards to composition weight, $\alphac$, which is the distance between any two amino acids based on the ratio of noncarbon elements in the end groups to the number of side chains.
 We estimate the weighting factor of composition to be $\alphac$=0.484, which suggests that the reduction in the distance between any given two amino acids and thus provides greater exchangeability between even the most distantly related residues.
 
-It is important to note that the nonsynonymous/synonymous mutation ratio, or $\omega$, which we estimated for each gene under the FMutSel0 model strongly correlated with our estimates of $\psi$.
-In fact, $\omega$ showed similar, though slightly reduced correlations, with the same empirical estimates of gene expression described above (See Figure \ref{fig:omegaVsPhi}).
+It is important to note that the nonsynonymous/synonymous mutation ratio, or $\omega$, which we estimated for each gene under the FMutSel0 model strongly correlated with our estimates of $\phi$.
+In fact, $\omega$ showed similar, though slightly reduced correlations, with the same empirical estimates of gene expression described above (See Figure 2 \ref{fig:OmegavsPhi}).
 This would give the impression that the same conclusions could have been gleaned using a much simpler model, both in terms of the number of parameters and the assumptions made.
 However, when we evaluated each model according to the realistic nature of the data they produce, our SelAC model clearly performs better.
-When we simulated the sequence for \emph{S. cervisieae}, starting from the ancestral sequence under both GTR+G and FMutSel0, the functionality of the simulated sequence moves away from the observed sequence, whereas SelAC remains near the functionality of the observed sequence (Figure XX).
-In a way, this is somewhat unsurprising, given that both GTR+G and FMutSel0 are agnostic to the functionality of the gene, but it does highlight the improvement in biological realism in amino acid sequence evolution that our SelAC provides.
+When we simulated the sequence for \emph{S. cervisieae}, starting from the ancestral sequence under both GTR + $\Gamma$ and FMutSel0, the functionality of the simulated sequence moves away from the observed sequence, whereas SelAC remains near the functionality of the observed sequence (Figure 3b \ref{fig:Tree_and_adequacy}).
+In a way, this is somewhat unsurprising, given that both GTR + $\Gamma$ and FMutSel0 are agnostic to the functionality of the gene, but it does highlight the improvement in biological realism in amino acid sequence evolution that our SelAC provides.
 We do note that the adequacy of the SelAC model does vary among individual taxa, and does not always perfectly match the observed functionality.
-For instance, \emph{S. castellii} is simulated with consistently higher functionality than observed (Figure XX).
+For instance, \emph{S. castellii} is simulated with consistently higher functionality than observed (Figure 3c \ref{fig:Tree_and_adequacy}).
 We suspect this is an indication that assuming a single set of optimal amino acid across all taxa may be too simplistic, but we cannot also rule out other potential simplifying assumptions in our model, such as a single set of Grantham weights and $\alphag$.
 
-
-\subsection*{Figures}
-\begin{enumerate}
-\item Branch Lengths
-\newcommand{\subfigwidth}{0.4\textwidth}
-\begin{figure}[H]
-  \centering
-  \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{yeast_SELACgamma.pdf}}}
-  \qquad
-  \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{yeast_SELACnogamma.pdf}}}
-  \qquad
-  \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{yeast_GTR.pdf}}}
-  \qquad
-  \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{yeast_GY94.pdf}}}
-  \qquad
-  \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{yeast_YN2008.pdf}}}
-%  \qquad
-%  \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{yeast_LGY2004.pdf}}}\footnote{File 'yeast\_LGY2005.pdf' missing from /Figures}
-  \caption{Maximum Likelihood Trees for (a) selac, (b) selac with uniform sensitivity $G = 1$, (c) GTR, (d) GY94, and (e) FMutSel0.}
-  \label{fig:mleTrees}
-\end{figure}
-\item Model Adequacy Illustrations \label{fig:modelAdequacy} (Brian or Jeremy?)
-\item Gene Expression Comparisons \label{fig:phiComparisons} (Jeremy now has this data)
-  \renewcommand{\subfigwidth}{0.4\textwidth}
-  \begin{enumerate}
-  \item SelAC vs. Empirical  Measurements
-    \begin{figure}[H]
-      \centering
-      \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{RPF_vs_Phi/RNA_abunIngolia_vs_SelACphiGamma}}}
-      \qquad
-      \subfloat[\ ]{\frame{\includegraphics[width=\subfigwidth]{mRNA_vs_Phi/mRNA_abunHolstege_vs_SelACphiGamma}}}
-      \caption{Comparison of log protein synthesis rate $\psi$ for \emph{S.~cerevisiae} as predicted by selac to empirical estimates from (a) ribosome profile footprint data \citep{IngoliaEtAl2009} and (b) mRNA abundance data \citep{HolstegeEtAl1998}.
-%\footnote{are the \selac $\phi$ values rescaled in any way besides setting the substitution rate to 1?}
-}\label{fig:selaVsPhi}
-    \end{figure}
-  \item GTR $\omega$ vs. $\phi$ Measurements
-    \begin{figure}
-      
-      \caption{$\omega$ vs $\phi$ Figure goes here}\label{fig:omegaVsPhi}
-    \end{figure}
-  \end{enumerate}
-\item Quantifying optimal AA \label{fig:optAA} (Mike once I get info from Jeremy)\footnote{mikeg: looked around, but can't find this data. 
-    Ideally it would be in the format of: Gene, Psi, Position, LLik AA A, LLik AA B, LLik AA C, ...
-}
-  \begin{enumerate}
-  \item Represent using varying point size in 3D physicochemical space
-  \item Look for instances where there's a bimodal distribution across.
-    This would suggest a shift in optimal AA.
-  \end{enumerate}
-\item Visualization of Evolutionary Landscapes (Brian)
-  \begin{enumerate}
-  \item Summary of Fitness Landscapes: frequency distribution of $W_i$ with varying $\psi$. \label{fig:fitnessLandscape}
-  \item Stationary Distribution of Fitness Values: Frequency distribution of $\exp[W_i]$ with varying $\psi$. \label{fig:expectedGeneticLoad}
-    Essentially above figure, but $W_i$ values are evaluated based on their stationary probability distribution.
-    These figures can be related to concepts about genetic load.
-  \item Distribution of Mutation Fitness Effects: Frequency distribution at which new mutants with fitness value $\exp[W_m]$ are introduced at stationarity. \label{fig:mutationFitnessEffects}
-  \end{enumerate}
-\end{enumerate}
+fig:PhivsROC
+fig:OmegavsPhi
+fig:Tree_and_adequacy
 
 
-\subsection*{Tables}
-  \begin{table}
-    \begin{tabular}{lrrrrl}
-      &          &Parameters &          &        & Model\\
-      Model                 	& logLik   & Estimated &     AIC& \DeltaAIC&  Weight\\\hline
-      GTR+$\Gamma$        		& -655166.4&        610& 1,311,553& 504,151&$<$0.001\\
-      GY94                  	& -612121.5&        210& 1,224,663& 417,261&$<$0.001\\
-      FMutSel0              		& -598848.2&       2810& 1,203,316& 395,914&$<$0.001\\
-      SelAC: UNREST         	& -465616.7&       50,004&   831,226&  23,824&$<$0.001\\
-      SelAC: UNREST+$\Gamma$ 	& -453706.0&       50,005&   807,402&       0& 0.999
-    \end{tabular}
-    \caption{Comparison of model fits using $\DeltaAIC$.}\label{table:modelFits}
-  \end{table}
 \section*{Discussion}
 As phylogenetic methods become ever more ubiquitous in biology, and data set size and complexity increase, there is a need and an opportunity for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004} %citations identified in Lartillot and Philippe 2004
   \footnote{mikeg: UPDATED: Jeremy and Brian, can you provide some references that support this claim?}.
-Despite their widespread use, phylogenetic models based on purifying and diversifying selection,i.e.~\citet{GoldmanAndYang1994} and its extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid.
+Despite their widespread use, phylogenetic models based on purifying and diversifying selection, i.e.~\citet{GoldmanAndYang1994} and its extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid.
 
 Instead of heuristically extending population genetic models of neutral evolution for use in phylogenetics, it makes sense to derive these extensions from population genetic models that \emph{explicitly} include the fundamental forces of mutation, drift, and natural selection. % (i.e.~a Wright-Fisher model).
 Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site specific selection on protein sequence and phylogenetics\citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}. %[CHECK CITATIONS].
@@ -532,11 +464,10 @@ These likelihood-based models represent a sample of the types of popular models 
 For the SelAC models, we initiate the optimal amino acid at each site by using a `majority' rule, where the initial optimum is the most frequently observed amino acid at a given site.
 Our optimization routine then proceeds by cycling though multiple phases.
 The first phase optimizes the branch lengths while holding the model parameters constant.
-The second phase optimizes the gene specific composite parameter $ \psiprime = A_0 \psi \Ne$ across genes, while holding constant both the branch lengths and the model parameters shared across the genome (i.e., $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag).
+The second phase optimizes the gene specific composite parameter $ \psiprime = A_0 \psi \Ne$ across genes, while holding constant both the branch lengths and the model parameters shared across the genome (i.e., $\alphac$ and $\alphap$, and the sensitivity distribution parameter $\alphag$).
 This is followed by a third phase that optimizes the parameters across the genome, while keeping the branch lengths and the composite parameters constant.
 Finally, the fourth phase estimates the optimal amino acid at each site while keeping the branch lengths and all model parameters at their current values.
 This entire procedure is repeated six times.
-The difference in loglikelihood between the 5th and 6th iteration was less than XXXXX.
 For optimization of a given set of parameters, we rely on a bounded subplex routine \texttt{NLopt} \citet{Johnson2012} to maximize the log-likelihood function.
 To help the optimization navigate through local peaks, we perform a set of independent analyses with different sets of naive starting points with respect to the gene specific composite $\psiprime$ parameters, $\alphac$, and $alphap$.
 Confidence in the parameter estimates are generated by an 'adaptive search' procedure that we implemented to provide an estimate of the parameter space that is some pre-defined likelihood distance (e.g., 2 lnL units) from the maximum likelihood estimate (MLE), which follows from \citet{BeaulieuAndOMeara2016}.
@@ -597,18 +528,49 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 
 
 
-
+\section*{Tables}
+  \begin{table}
+    \begin{tabular}{lrrrrl}
+      &          &Parameters &          &        & Model\\
+      Model                 	& logLik   & Estimated &     AIC& \DeltaAIC&  Weight\\\hline
+      GTR+$\Gamma$        		& -655166.4&        610& 1,311,553& 504,151&$<$0.001\\
+      GY94                  	& -612121.5&        210& 1,224,663& 417,261&$<$0.001\\
+      FMutSel0              		& -598848.2&       2810& 1,203,316& 395,914&$<$0.001\\
+      SelAC: UNREST         	& -465616.7&       50,004&   831,226&  23,824&$<$0.001\\
+      SelAC: UNREST+$\Gamma$ 	& -453706.0&       50,005&   807,402&       0& 0.999
+    \end{tabular}
+    \caption{Comparison of model fits using $\DeltaAIC$.}
+    \label{table:modelFits}
+\end{table}
 
 
 \section*{Figures}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\linewidth]{phi_roc_vs_selac-nup.pdf}
-  \caption{Comparison of ROC and SelAC estimates of $\phi$.  
-    ROC estimates are inferred from genome scale patterns of synonymous codon usage driven by a combination of mutation bias and natural selection for synonymous codons with shorter pausing times which, as here, is scaled by gene expression $\phi$.
-    See \citet{GilchristEtAl2015} for more details.
-  }
+  \includegraphics[width=0.9\linewidth]{FIGURE_1_SelACwG_vs_ROC_by_spp.pdf}
+  \caption{Comparisons between estimates of $\phi$ obtained from SelAC+$\Gamma$ and an empirical estimate of gene expression (ROC) for 100 selected genes from Salichos and Rokas (2013).
+  } 
+  \label{fig:PhivsROC}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\linewidth]{FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf}
+  \caption{Comparisons between $\omega$, which is the nonsynonymous/synonymous mutation ratio in FMutSel0, $\phi$ obtained from SelAC+$\Gamma$ (a), and two empirical estimates of gene expression for 100 selected genes from Salichos and Rokas (2013).  
+  } 
+  \label{fig:OmegavsPhi}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\linewidth]{FIGURE_3_Inferred_Tree_AND_Model_Adequacy.pdf}
+  \caption{(a) Maximum likelihood estimates of branch lengths under SelAC+$\Gamma$ for 100 selected genes from Salichos and Rokas (2013).  
+    Tests of model adequacy for \emph{S. cervisieae} (b) and \emph{S. castellii} (c) indicated that, when these taxa are removed from the tree, and their sequences are simulated, the parameters of SelAC + $\Gamma$ exhibit functionality that is far closer to the observed (dashed black line) than data sets produced from parameters of either FMutSel0 or GTR + $\Gamma$.
+  } 
+  \label{fig:Tree_and_adequacy}
 \end{figure}
 
 
