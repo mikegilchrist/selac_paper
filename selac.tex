@@ -477,11 +477,11 @@ Ongoing work will address the need for speed, with the eventual goal of implemen
 
 \subsection*{Simulations}
 We evaluated the performance of our codon model by simulating datasets and estimating the bias of the inferred model parameters from these data.
-Our "known" parameters under a given generating model were based on fitting SelAC to the 106 gene data set and phylogeny of \citet{RokasEtAl2003}.\footnote{mikeg: Should this be updated to reference the \citet{SalichosAndRokas2013} dataset? JMB: No. The sims were already done before we decided to change data sets. It's stupid to redo. The data set used to come up with parameters to simulate under is really irrelevant.}
+Our "known" parameters under a given generating model were based on fitting SelAC to the 106 gene data set and phylogeny of \citet{RokasEtAl2003}.
 The tree used in these analyses is outdated with respect to the current hypothesis of relationships within Saccharomyces, but we rely on it simply as a training set that is separate from our empirical analyses (see section on Analyzing Yeast Genome).
 Bias in the model parameters were assessed under two generating models: one where we assumed a model of SelAC assuming $\alphag = \infty$, and one where we estimated $\alphag$ from the data.
 Under each of these two scenarios, we used parameter estimates from the corresponding empirical analysis and simulated 50 five-gene data sets.
-For the gene specific composite parameter $\psiprime_g$ the 'known' values used for the simulation were five evenly spaced points along the rank order of the estimates across the 106 genes.\footnote{mikeg: Ibid}
+For the gene specific composite parameter $\psiprime_g$ the 'known' values used for the simulation were five evenly spaced points along the rank order of the estimates across the 106 genes.
 The MLE estimate for a given replicate were taken as the fit with the highest log-likelihood after running five independent analyses with different sets of naive starting points with respect to the composite $\psiprime_g$ parameter, $\alphac$, and $alphap$.
 All analyses were carried out in our \texttt{selac} R package.
 
@@ -619,6 +619,45 @@ Edge lengths do well.
 UNREST parameters do well.
 Generally all does well.
 Except gamma -- center mass of the distribution of the estimates is considerably lower than the generating model. 
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\linewidth]{FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf}
+  \caption{Summary of simulation results for parameter estimates from a SelAC model where we assume $\alphag = \infty$, and thus, no site-specific sensitivity in the generating model.
+		Our 'known' parameters were based on fitting SelAC to the 106 gene data set and phylogeny of \citet{RokasEtAl2003}.
+		The points and associated uncertainty in the estimates of psi (a), or XXX, nucleotide substitution (b), proportion of correct optimal amino acids for a given gene (c), and estimates of the individual edge lengths are based the mean and 2.5\% and 97.5\% quantiles across on 50 simulated datasets.
+} 
+  \label{fig:SelacNoGSimRes}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\linewidth]{FIGURE_S4_5genes_alpha.beta_UNREST_Selac_NoG.pdf}
+  \caption{The distribution of estimates of the XXX, $\alphac$, and the XXX, $\alphap$, in a SelAC model, where we assume $\alphag = \infty$, and thus no site-specific sensitivity in the generating model.
+  		The dashed line 
+  } 
+  \label{fig:SelacNoGSimRes2}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\linewidth]{FIGURE_S5_5genes_All_UNREST_WITHGAMMA.pdf}
+  \caption{Same figure as in Figure S3, except the generating model 
+
+  } 
+  \label{fig:PhivsEmpirical}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\linewidth]{FIGURE_S6_5genes_alpha.beta_gammashape_UNREST_WITHGAMMA.pdf}
+  \caption{Comparisons of predicted gene expression from the ROC SEMPER model (\citet{GilchristEtAl2015} and direct measurements of expression from RNA-Seq or Microarray data for individual taxa across the 100 selected genes from the yeast data set of Salichos and Rokas (2013).
+      The equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
+  } 
+  \label{fig:ROCvsEmpirical}
+\end{figure}
+
 
 \end{document}
 
