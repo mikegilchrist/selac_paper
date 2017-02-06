@@ -584,7 +584,7 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 
 \section*{Supporting Materials}
 
-\subsection*{Comparisons of gene expression in SelACs with empirical measurements}
+\subsection*{Comparisons of SelAC gene expression estimates with empirical measurements}
 
 In our model, the parameter $\phi$ measures the realized average protein synthesis rate of a gene. 
 We compared our estimates obtained from our 100 gene sample obtained from \citet{SalichosAndRokas2013} to two empirical measures of gene expression for individual yeast taxa for the same set of genes. 
@@ -613,13 +613,19 @@ This suggest a high degree of consistency among all three measures regarding the
 
 \subsection*{Simulations}
 
-Correlation with phi and optimal amino acid -- higher phi results in an improvement the percent of correct optimal amino acids.
-Uncertainty in estimates of phi increase with the inclusion of gamma.
-Edge lengths do well.
-UNREST parameters do well.
-Generally all does well.
-Except gamma -- center mass of the distribution of the estimates is considerably lower than the generating model. 
-
+Overall, the simulation results indicate that SelAC model can reasonably recover the known values of the generating model (Figure S3-S6).
+This includes not only the parameters in the model, but also the optimal amino acids for a given sequence as well as the estimates of the branch lengths.
+There are a few observations to note.
+First, the ability to accurately recover the true optimal amino acid sequence will largely depend on the strength of $\phi$ of the gene.
+This is, of course, intuitive, given that $\phi$ sets the strength of stabilizing selection towards an optimal amino acid at a site.
+However, the inclusion of $\alphag$ into the model, appears to generally increase values of $\phi$ and generally improves the ability to recover the optimal amino acids for even the gene with the lowest baseline $\phi$.
+Second, we found a strong downward bias in estimates of $alphag$. 
+However, the choice of a gamma distribution to model site-specific variation in sensitivity was based on mathematical convenience and convention, rather than on biological reality.
+The simulation studies examining the behavior of the gamma distribution in nucleotide substitution have found that increasing the number of rate categories can provide greater flexibility to resemble any number of potential distributions (Rannala paper...; Mayrose et al 2005).
+The  of our implementation hinder further exploration of increasing the number of categories much more than 4 categories.
+Whether or not the gamma I STOPPED HERE.
+\footnote{JMB: I swear there is a paper that shows gamma in nucleotide models are generally underestimated -- am I nuts? Probably.
+}
 
 \begin{figure}[H]
   \centering
