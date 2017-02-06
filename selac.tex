@@ -624,8 +624,8 @@ Except gamma -- center mass of the distribution of the estimates is considerably
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf}
-  \caption{Summary of simulation results for parameter estimates from a SelAC model where we assume $\alphag = \infty$, and thus, no site-specific sensitivity in the generating model.
-		Our 'known' parameters were based on fitting SelAC to the 106 gene data set and phylogeny of \citet{RokasEtAl2003}.
+  \caption{Summary a 5-gene simulation for a SelAC model where we assume $\alphag = \infty$, and thus, no site-specific sensitivity in the generating model.
+		The 'known' parameters were based on fitting the same SelAC to the 106 gene data set and phylogeny of \citet{RokasEtAl2003}, with gene choice being based on five evenly spaced points along the rank order of the gene specific composite parameter $\psiprime_g$.
 		The points and associated uncertainty in the estimates of psi (a), or XXX, nucleotide substitution (b), proportion of correct optimal amino acids for a given gene (c), and estimates of the individual edge lengths are based the mean and 2.5\% and 97.5\% quantiles across on 50 simulated datasets.
 } 
   \label{fig:SelacNoGSimRes}
@@ -634,8 +634,8 @@ Except gamma -- center mass of the distribution of the estimates is considerably
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S4_5genes_alpha.beta_UNREST_Selac_NoG.pdf}
-  \caption{The distribution of estimates of the XXX, $\alphac$, and the XXX, $\alphap$, in a SelAC model, where we assume $\alphag = \infty$, and thus no site-specific sensitivity in the generating model.
-  		The dashed line 
+  \caption{The distribution of estimates of the Grantham weights, $\alphac$ and $\alphap$, in a SelAC model, where we assume $\alphag = \infty$, and thus no site-specific sensitivity in the generating model.
+  		The dashed line represents the value used in the generating model. 
   } 
   \label{fig:SelacNoGSimRes2}
 \end{figure}
@@ -643,19 +643,18 @@ Except gamma -- center mass of the distribution of the estimates is considerably
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S5_5genes_All_UNREST_WITHGAMMA.pdf}
-  \caption{Same figure as in Figure S3, except the generating model 
-
+  \caption{Same figure as in Figure S3, except the generating model includes site-specific sensitivity in the generating model (i.e., $\alphag$).
   } 
-  \label{fig:PhivsEmpirical}
+  \label{fig:SelacWithGSimRes}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S6_5genes_alpha.beta_gammashape_UNREST_WITHGAMMA.pdf}
-  \caption{Comparisons of predicted gene expression from the ROC SEMPER model (\citet{GilchristEtAl2015} and direct measurements of expression from RNA-Seq or Microarray data for individual taxa across the 100 selected genes from the yeast data set of Salichos and Rokas (2013).
-      The equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
+  \caption{Same figure as in Figure S4, except the generating model includes site-specific sensitivity in the generating model (i.e., $\alphag$).
+  		Unlike, Grantham weights, which shows no systematic bias, there is a downward bias in estimates of $\alphag$.
   } 
-  \label{fig:ROCvsEmpirical}
+  \label{fig:SelacWithGSimRes2}
 \end{figure}
 
 
