@@ -495,10 +495,11 @@ The FMutSel0 model, which assumes that the amino acid frequencies are determined
 In all cases, we assumed that the model was partitioned by gene, but with branch lengths linked across genes.
 
 For SelAC, we compared our estimates of $\phi$, which measures the realized average protein synthesis rate of a gene, to estimates of gene expression from empirical data.
-Specifically, we obtained expression date for five of the six species used; measured during log-growth phase, and one data set measured at the beginning of the stationary phase (\emph{S. kudriavzevii}) from the Gene Expression Omnibus (GEO). 
-Gene expression was measured using Microarray chips (\emph{C. glabrata}, \emph{S. castellii}, and \emph{S. kudriavzevii}) or RNA-Seq (\emph{S. paradoxus}, \emph{S. mikatae}, and \emph{S. cerevisiae}).
+Specifically, we obtained expression data for five of the six species used - four species were measured during log-growth phase, whereas the other was measured at the beginning of the stationary phase (\emph{S. kudriavzevii}) from the Gene Expression Omnibus (GEO). 
+Gene expression was measured using either Microarray chips (\emph{C. glabrata}, \emph{S. castellii}, and \emph{S. kudriavzevii}) or RNA-Seq (\emph{S. paradoxus}, \emph{S. mikatae}, and \emph{S. cerevisiae}).
 For further comparison, we also predicted protein synthesis rate ($\phi$) by analyzing genome-wide codon usage patterns using ROC SEMPER (\citet{GilchristEtAl2015}) for each individual genome.
 The ROC SEMPER model incorporates synonymous codon usage, but does not account for shared ancestry.
+Nevertheless, ROC SEMPER correlates strongly the measurements of gene expression experiments (\citet{GilchirstEtAl2015}).
 
 While one of our main objectives was to determine the improvement of fit that \selac has with respect to other standard phylogenetic models, we also evaluated the adequacy of \selac.
 In other words, we examined whether data simulated under the MLE produces properties similar to the input sequence data (e.g., \citet{BeaulieuEtAl2013}.
@@ -534,7 +535,7 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_1_SelACwG_vs_ROC_by_spp.pdf}
-  \caption{Comparisons between estimates of $\phi$ obtained from SelAC+$\Gamma$ and a prediction of gene expression for each individual gene using the ROC SEMPER model (\citet{GilchristEtAl2015} for 100 selected genes from Salichos and Rokas (2013).
+  \caption{Comparisons between estimates of $\phi$ obtained from SelAC+$\Gamma$ and the predicted gene expression from the ROC SEMPER model (\citet{GilchristEtAl2015} for individual taxa across the 100 selected genes from the yeast data set of Salichos and Rokas (2013).
   } 
   \label{fig:PhivsROC}
 \end{figure}
@@ -543,7 +544,7 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf}
-  \caption{Comparisons between $\omega$, which is the nonsynonymous/synonymous mutation ratio in FMutSel0, $\phi$ obtained from SelAC+$\Gamma$ (a), and two empirical estimates of gene expression for 100 selected genes from Salichos and Rokas (2013).  
+  \caption{Comparisons between $\omega$, which is the nonsynonymous/synonymous mutation ratio in FMutSel0, $\phi$ obtained from SelAC+$\Gamma$ (a), and two empirical estimates of gene expression for individual taxa across the 100 selected genes from the yeast data set of Salichos and Rokas (2013).  
   } 
   \label{fig:OmegavsPhi}
 \end{figure}
@@ -585,23 +586,24 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 
 In our model, the parameter $\phi$ measures the realized average protein synthesis rate of a gene. 
 We compared our estimates obtained from our 100 gene sample obtained from \citet{SalichosAndRokas2013} to two empirical measures of gene expression for individual yeast taxa for the same set of genes. 
-Our estimates of $\phi$ are positively correlated with both empirical, the two empirical measurements also strongly correlate with each other (Figure 1; Figure S1-S2), 
+Our estimates of $\phi$ are positively correlated with both empirical, the two empirical measurements also strongly correlate with each other (Figure 1 \ref{fig:PhivsROC}; Figure S1-S2 \ref{fig:PhivsEmpirical}, \ref{fig:ROCvsEmpirical}) 
 This suggest a high degree of consistency among all three measures about predicting whether a given gene has high or low expression levels.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S1_SelACwG_vs_Empirical_by_spp.pdf}
-  \caption{Comparisons between estimates of $\phi$ obtained from SelAC+$\Gamma$ and a prediction of gene expression for each individual gene using the ROC SEMPER model (\citet{GilchristEtAl2015} for 100 selected genes from Salichos and Rokas (2013).
+  \caption{Comparisons between estimates of $\phi$ obtained from SelAC+$\Gamma$ and empirical measurements of gene expression for individual taxa across the 100 selected genes from the yeast data set of Salichos and Rokas (2013).
+  Gene expression was measured using either RNA-Seq (a-c) or Microarray chips (d).
   } 
-  \label{fig:PhivsROC}
+  \label{fig:PhivsEmpirical}
 \end{figure}
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S2_Empirical_vs_ROC_by_spp.pdf}
-  \caption{Comparisons between estimates of $\phi$ obtained from SelAC+$\Gamma$ and an empirical estimate of gene expression (ROC) for 100 selected genes from Salichos and Rokas (2013).
+  \caption{Comparisons of predicted gene expression from the ROC SEMPER model (\citet{GilchristEtAl2015} and empirical measurements of gene expression for individual taxa across the 100 selected genes from the yeast data set of Salichos and Rokas (2013).
   } 
-  \label{fig:PhivsROC}
+  \label{fig:ROCvsEmpirical}
 \end{figure}
 
 
