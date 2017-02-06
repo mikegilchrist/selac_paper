@@ -197,15 +197,13 @@ It is important to note that the nonsynonymous/synonymous mutation ratio, or $\o
 In fact, $\omega$ showed similar, though slightly reduced correlations, with the same empirical estimates of gene expression described above (See Figure 2 \ref{fig:OmegavsPhi}).
 This would give the impression that the same conclusions could have been gleaned using a much simpler model, both in terms of the number of parameters and the assumptions made.
 However, when we evaluated each model according to the realistic nature of the data they produce, our SelAC model clearly performs better.
-When we simulated the sequence for \emph{S. cervisieae}, starting from the ancestral sequence under both GTR + $\Gamma$ and FMutSel0, the functionality of the simulated sequence moves away from the observed sequence, whereas SelAC remains near the functionality of the observed sequence (Figure 3b \ref{fig:Tree_and_adequacy}).
+When we simulated the sequence for \emph{S. cervisieae}, starting from the ancestral sequence under both GTR + $\Gamma$ and FMutSel0, the functionality of the simulated sequence moves away from the observed sequence, whereas SelAC remains near the functionality of the observed sequence (Figure 3b \ref{fig:TreeAndAdequacy}).
 In a way, this is somewhat unsurprising, given that both GTR + $\Gamma$ and FMutSel0 are agnostic to the functionality of the gene, but it does highlight the improvement in biological realism in amino acid sequence evolution that our SelAC provides.
 We do note that the adequacy of the SelAC model does vary among individual taxa, and does not always perfectly match the observed functionality.
-For instance, \emph{S. castellii} is simulated with consistently higher functionality than observed (Figure 3c \ref{fig:Tree_and_adequacy}).
+For instance, \emph{S. castellii} is simulated with consistently higher functionality than observed (Figure 3c \ref{fig:TreeAndAdequacy}).
 We suspect this is an indication that assuming a single set of optimal amino acid across all taxa may be too simplistic, but we cannot also rule out other potential simplifying assumptions in our model, such as a single set of Grantham weights and $\alphag$.
 
-fig:PhivsROC
-fig:OmegavsPhi
-fig:Tree_and_adequacy
+
 
 
 \section*{Discussion}
@@ -508,26 +506,6 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 \bibliographystyle{./am.nat}
 \bibliography{./mike}
 
-\setcounter{figure}{0}
-\setcounter{table}{0}
-\setcounter{page}{1}
-\setcounter{section}{0}
-
-\renewcommand{\thefigure}{S\arabic{figure}}
-\renewcommand{\thetable}{S\arabic{table}}
-\renewcommand{\thepage}{S\arabic{page}}
-\renewcommand{\thesection}{\arabic{section}} %
-
-
-\renewcommand{\appendixname}{Supporting Materials}
-\renewcommand{\theequation}{S\arabic{equation}}
-\setcounter{equation}{0}
-\appendix
-\part*{\appendixname}
-%Supporting Materials for \emph{\thetitle} \  by Beaulieu \emph{et al.}~(In Review).
-
-
-
 \section*{Tables}
   \begin{table}
     \begin{tabular}{lrrrrl}
@@ -543,6 +521,7 @@ For comparison, we also conducted the same test, by simulating the sequence unde
     \label{table:modelFits}
 \end{table}
 
+\clearpage %command will flush any floats that haven't been printed to the current page.
 
 \section*{Figures}
 
@@ -570,8 +549,32 @@ For comparison, we also conducted the same test, by simulating the sequence unde
   \caption{(a) Maximum likelihood estimates of branch lengths under SelAC+$\Gamma$ for 100 selected genes from Salichos and Rokas (2013).  
     Tests of model adequacy for \emph{S. cervisieae} (b) and \emph{S. castellii} (c) indicated that, when these taxa are removed from the tree, and their sequences are simulated, the parameters of SelAC + $\Gamma$ exhibit functionality that is far closer to the observed (dashed black line) than data sets produced from parameters of either FMutSel0 or GTR + $\Gamma$.
   } 
-  \label{fig:Tree_and_adequacy}
+  \label{fig:TreeAndAdequacy}
 \end{figure}
+
+
+\clearpage
+
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\setcounter{page}{1}
+\setcounter{section}{0}
+
+\renewcommand{\thefigure}{S\arabic{figure}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thepage}{S\arabic{page}}
+\renewcommand{\thesection}{\arabic{section}} %
+
+
+\renewcommand{\appendixname}{Supporting Materials}
+\renewcommand{\theequation}{S\arabic{equation}}
+\setcounter{equation}{0}
+\appendix
+\part*{\appendixname}
+%Supporting Materials for \emph{\thetitle} \  by Beaulieu \emph{et al.}~(In Review).
+
+
+
 
 
 \end{document}
