@@ -536,6 +536,7 @@ For comparison, we also conducted the same test, by simulating the sequence unde
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_1_SelACwG_vs_ROC_by_spp.pdf}
   \caption{Comparisons between estimates of $\phi$ obtained from SelAC+$\Gamma$ and the predicted gene expression from the ROC SEMPER model (\citet{GilchristEtAl2015} for individual taxa across the 100 selected genes from the yeast data set of Salichos and Rokas (2013).
+  The equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
   } 
   \label{fig:PhivsROC}
 \end{figure}
@@ -545,6 +546,7 @@ For comparison, we also conducted the same test, by simulating the sequence unde
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf}
   \caption{Comparisons between $\omega$, which is the nonsynonymous/synonymous mutation ratio in FMutSel0, $\phi$ obtained from SelAC+$\Gamma$ (a), and two empirical estimates of gene expression for individual taxa across the 100 selected genes from the yeast data set of Salichos and Rokas (2013).  
+    As in Figure 1, the equations in the upper left hand corner of each panel provide the regression fit and correlation coefficient.
   } 
   \label{fig:OmegavsPhi}
 \end{figure}
@@ -587,13 +589,14 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 In our model, the parameter $\phi$ measures the realized average protein synthesis rate of a gene. 
 We compared our estimates obtained from our 100 gene sample obtained from \citet{SalichosAndRokas2013} to two empirical measures of gene expression for individual yeast taxa for the same set of genes. 
 Our estimates of $\phi$ are positively correlated with both empirical, the two empirical measurements also strongly correlate with each other (Figure 1 \ref{fig:PhivsROC}; Figure S1-S2 \ref{fig:PhivsEmpirical}, \ref{fig:ROCvsEmpirical}) 
-This suggest a high degree of consistency among all three measures about predicting whether a given gene has high or low expression levels.
+This suggest a high degree of consistency among all three measures regarding the expression level of a gene.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S1_SelACwG_vs_Empirical_by_spp.pdf}
   \caption{Comparisons between estimates of $\phi$ obtained from SelAC+$\Gamma$ and direct measurements of expression for individual taxa across the 100 selected genes from the yeast data set of Salichos and Rokas (2013).
-  Gene expression was measured using either RNA-Seq (a-c) or Microarray chips (d).
+  	Gene expression was measured using either RNA-Seq (a-c) or Microarray chips (d).
+    The equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
   } 
   \label{fig:PhivsEmpirical}
 \end{figure}
@@ -602,6 +605,7 @@ This suggest a high degree of consistency among all three measures about predict
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S2_Empirical_vs_ROC_by_spp.pdf}
   \caption{Comparisons of predicted gene expression from the ROC SEMPER model (\citet{GilchristEtAl2015} and direct measurements of expression from RNA-Seq or Microarray data for individual taxa across the 100 selected genes from the yeast data set of Salichos and Rokas (2013).
+      The equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
   } 
   \label{fig:ROCvsEmpirical}
 \end{figure}
@@ -609,7 +613,12 @@ This suggest a high degree of consistency among all three measures about predict
 
 \subsection*{Simulations}
 
-
+Correlation with phi and optimal amino acid -- higher phi results in an improvement.
+Uncertainty in estimates of phi increase with the inclusion of gamma.
+Edge lengths do well.
+UNREST parameters do well.
+Generally all does well.
+Except gamma -- center mass of the distribution of the estimates is considerably lower than the generating model. 
 
 \end{document}
 
