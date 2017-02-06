@@ -453,7 +453,7 @@ The log likelihood is maximized by estimating the genome scale parameters which 
 Because $A_0$ and $\psi_g$ always co-occur and are scaled by \Ne, for each gene $g$ we estimate a composite term $\psiprime_g = \psi_g A_0 b \Ne$  and the optimal amino acid for each position \aoptp of protein.
 When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using the generalized Laguerre quadrature with $k = 4$ points \citep{Felsenstein2001}.
 
-\subsubsection*{Implementation}
+\subsection*{Implementation}
 All methods described above are implemented in the new R package, \texttt{selac} available through CRAN (\url{http://cran.us.r-project.org}).
 Our package requires as input a set of fasta files that contain each coding sequence for a set of taxa, and the phylogeny depicting the hypothesized relationships among them.
 In addition to the SelAC models, we implemented the GY94 codon model of \citet{GoldmanAndYang1994}, the FMutSel0 mutation-selection model of \citet{YangAndNielsen2008}, and the standard general-time reversible nucleotide model that allows for $\Gamma$ distributed rates across sites.
@@ -475,7 +475,7 @@ This is largely due to the size and quantity of matrices we create and manipulat
 We have parallelized operations wherever possible, but the fact remains that, long term, this model may not be well-suited for R.
 Ongoing work will address the need for speed, with the eventual goal of implementing the model in popular phylogenetic inference toolkits, such as MrBayes \citep{HuelsenbeckEtAl2001,RonquistAndHuelsenbeck2003}, PAML \citep{Yang2007} and RAxML \citep{Stamatakis2006}.
 
-\subsubsection*{Simulations}
+\subsection*{Simulations}
 We evaluated the performance of our codon model by simulating datasets and estimating the bias of the inferred model parameters from these data.
 Our "known" parameters under a given generating model were based on fitting SelAC to the 106 gene data set and phylogeny of \citet{RokasEtAl2003}.\footnote{mikeg: Should this be updated to reference the \citet{SalichosAndRokas2013} dataset? JMB: No. The sims were already done before we decided to change data sets. It's stupid to redo. The data set used to come up with parameters to simulate under is really irrelevant.}
 The tree used in these analyses is outdated with respect to the current hypothesis of relationships within Saccharomyces, but we rely on it simply as a training set that is separate from our empirical analyses (see section on Analyzing Yeast Genome).
@@ -485,7 +485,7 @@ For the gene specific composite parameter $\psiprime_g$ the 'known' values used 
 The MLE estimate for a given replicate were taken as the fit with the highest log-likelihood after running five independent analyses with different sets of naive starting points with respect to the composite $\psiprime_g$ parameter, $\alphac$, and $alphap$.
 All analyses were carried out in our \texttt{selac} R package.
 
-\subsubsection*{Analysis of yeast genome and tests of model adequacy}
+\subsection*{Analysis of yeast genome and tests of model adequacy}
 We focus our empirical analyses on the large yeast data set and phylogeny of \citet{SalichosAndRokas2013}.
 The yeast genome is an ideal system to examine our phylogenetically estimates of gene expression and its connection to real world measurements of these data within individual taxa.
 The complete data set of \citet{SalichosAndRokas2013} contain 1070 orthologues, where we selected 100 at random for our analyses.
@@ -573,7 +573,12 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 \part*{\appendixname}
 %Supporting Materials for \emph{\thetitle} \  by Beaulieu \emph{et al.}~(In Review).
 
+\section*{Supplemental Materials}
 
+\subsection*{Comparisons of gene expression}
+
+
+\subsection*{Simulation results}
 
 
 
