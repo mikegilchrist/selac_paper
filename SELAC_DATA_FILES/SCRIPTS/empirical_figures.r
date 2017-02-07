@@ -143,7 +143,7 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
-text(-1, 6, "S. paradoxus")
+text(-1, 6, expression(italic('S. paradoxus')))
 mtext("(a)",side=3, line=0, adj=0)
 
 plot(log(gg$Psi_gamma/gg$functionality_Smik), log(gg$Smik_RNA), axes=FALSE, xlab="", ylab="", ylim=c(2,10), xlim=c(-1.2,0), pch=19, cex=.75, main="")
@@ -162,7 +162,7 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
-text(-1, 10, "S. mikatae")
+text(-1, 10, expression(italic('S. mikatae')))
 mtext("(c)",side=3, line=0, adj=0)
 
 
@@ -182,7 +182,7 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
-text(-1, 1.8, "S. cervisiae")
+text(-1, 1.8, expression(italic('S. cervisiae')))
 mtext("(b)",side=3, line=0, adj=0)
 
 
@@ -202,7 +202,7 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
-text(-1, .5, "S. castellii")
+text(-1, .5, expression(italic('S. castellii')))
 mtext("(d)",side=3, line=0, adj=0)
 
 dev.off()
@@ -230,7 +230,7 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
-text(-1, 1.5, "S. paradoxus")
+text(-1, 1.5, expression(italic('S. paradoxus')))
 mtext("(a)",side=3, line=0, adj=0)
 
 plot(log(gg$Psi_gamma/gg$functionality_Smik), log(gg$ROC_Smik), axes=FALSE, xlab="", ylab="", ylim=c(-2,1.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
@@ -249,7 +249,7 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
-text(-1, 1.5, "S. mikatae")
+text(-1, 1.5, expression(italic('S. mikatae')))
 mtext("(c)",side=3, line=0, adj=0)
 
 
@@ -269,7 +269,7 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
-text(-1, 1.5, "S. cervisiae")
+text(-1, 1.5, expression(italic('S. cerevisiae')))
 mtext("(b)",side=3, line=0, adj=0)
 
 
@@ -289,7 +289,7 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
-text(-1, 1.5, "S. castellii")
+text(-1, 1.5, expression(italic('S. castellii')))
 mtext("(d)",side=3, line=0, adj=0)
 
 dev.off()
@@ -346,7 +346,7 @@ text(2, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffici
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(2, bottom.text, eq)
-text(2, 1.5, "S. paradoxus")
+text(2, 1.5, expression(italic('S. paradoxus')))
 mtext("(a)",side=3, line=0, adj=0)
 
 plot(log(gg$Smik_RNA), log(gg$ROC_Smik), axes=FALSE, xlab="", ylab="", xlim=c(2,10), ylim=c(-2,1.5), pch=19, cex=.75, main="")
@@ -365,7 +365,7 @@ text(4, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffici
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(4, bottom.text, eq)
-text(4, 1.5, "S. mikatae")
+text(4, 1.5, expression(italic('S. mikatae')))
 mtext("(c)",side=3, line=0, adj=0)
 
 
@@ -385,7 +385,7 @@ text(-1.4, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeff
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1.4, bottom.text, eq)
-text(-1.4, 1.5, "S. cervisiae")
+text(-1.4, 1.5, expression(italic('S. cervisiae')))
 mtext("(b)",side=3, line=0, adj=0)
 
 
@@ -405,7 +405,7 @@ text(-2.5, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeff
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-2.5, bottom.text, eq)
-text(-2.5, 1.5, "S. castellii")
+text(-2.5, 1.5, expression(italic('S. castellii')))
 mtext("(d)",side=3, line=0, adj=0)
 
 dev.off()
