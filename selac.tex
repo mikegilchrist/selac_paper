@@ -522,7 +522,7 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_1_SelACwG_vs_Empirical_by_spp.pdf}
-  \caption{Comparisons between estimates of $\phi$ obtained from SelAC+$\Gamma$ and direct measurements of expression for individual yeast taxa across the 100 selected genes from \citet{SalichosAndRokas2013}.
+  \caption{Comparisons between estimates of $\phi$ obtained from \selacplusgamma and direct measurements of expression for individual yeast taxa across the 100 selected genes from \citet{SalichosAndRokas2013}.
   	Gene expression was measured using either RNA-Seq (a-c) or Microarray chips (d), and the equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
   } 
   \label{fig:PhivsEmpirical}
@@ -542,7 +542,7 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_3_Inferred_Tree_AND_Model_Adequacy.pdf}
-  \caption{(a) Maximum likelihood estimates of branch lengths under SelAC+$\Gamma$ for 100 selected genes from Salichos and Rokas (2013).  
+  \caption{(a) Maximum likelihood estimates of branch lengths under \selacplusgamma for 100 selected genes from Salichos and Rokas (2013).  
     Tests of model adequacy for \emph{S. cervisieae} (b) and \emph{S. castellii} (c) indicated that, when these taxa are removed from the tree, and their sequences are simulated, the parameters of SelAC + $\Gamma$ exhibit functionality that is far closer to the observed (dashed black line) than data sets produced from parameters of either FMutSel0 or GTR + $\Gamma$. 
 }
   \label{fig:TreeAndAdequacy}
@@ -576,9 +576,9 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 \subsection*{Comparisons of SelAC gene expression estimates with empirical measurements}
 
 In our model, the parameter $\phi$ measures the realized average protein synthesis rate of a gene. 
-We compared our estimates obtained from our 100 gene sample obtained from \citet{SalichosAndRokas2013} to two empirical measures of gene expression for individual yeast taxa for the same set of genes. 
-Our estimates of $\phi$ are positively correlated with both empirical, the two empirical measurements also strongly correlate with each other (Figure 1 \ref{fig:PhivsROC}; Figure S1-S2 \ref{fig:PhivsEmpirical}, \ref{fig:ROCvsEmpirical}) 
-This suggest a high degree of consistency among all three measures regarding the expression level of a gene.
+We compared our estimates of $\phi$ to two separate measures of gene expression, one empirical (See Figure \ref{fig:PhivsROC}), and one model-based prediction that does not account for shared ancestry, for individual yeast taxa across the same set of genes. 
+Our estimates of $\phi$ are positively correlated both measures, which are also strongly correlated with each other (Figure \ref{fig:PhivsEmpirical}, Figure \ref{fig:ROCvsEmpirical}) 
+On the whole, these comparisons indicate not only a high degree of consistency among all three measures, but also, importantly, that estimates of $\phi$ obtained from SelAC provide real biological insight regarding the expression level of a gene.
 
 \begin{figure}[H]
   \centering
