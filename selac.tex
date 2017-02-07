@@ -182,12 +182,12 @@ Finally, because our work fitness functions are well defined, we can provide est
 By linking transition rates $\qij$ to gene expression $\psi$, our approach allows use of the same model for genes under varying degrees of stabilizing selection.
 Specifically, we assume the strength of stabilizing selection for the optimal sequence, \aoptvec, is proportional to the average protein synthesis rate $\phi$, which we can estimate for each gene. 
 In regards to model fit, our results clearly indicated that linking the strength of stabilizing selection for the optimal sequence to gene expression substantially improves our model fit.
-Further, including a single, genome wide the random effects term $\alphag \sim \text{Gamma}$ to allow for heterogeneity in this selection between sites within a gene, improves the \DeltaAIC of  \selacplusgamma score over the simpler \selac model by over 23,000 AIC units.
+Further, including a single, genome wide the random effects term $\alphag \sim \text{Gamma}$ to allow for heterogeneity in this selection between sites within a gene, improves the \DeltaAIC of \selacplusgamma score over the simpler \selac model by over 23,000 AIC units.
 Using either \DeltaAIC and \AICw as our measure of model support, the SelAC models perform extraordinarily better than GTR + $\Gamma$, GY94, or FMutSel0 (Table \ref{table:modelFits}).
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which accounts for  more than 47,000 additional model parameters.
-Even when compared to the next most parameter rich codon model in our model set,  FMutSel0, \selacplusgamma model shows nearly 400,000 AIC unit improvement over FMutSel0.
+Even when compared to the next most parameter rich codon model in our model set, FMutSel0, \selacplusgamma model shows nearly 400,000 AIC unit improvement over FMutSel0.
 
-With respect to estimates of $\phi$ within SelAC, they were strongly correlated with two separate empirical measurements of gene expression (See Figure \ref{fig:PhivsROC}; Figure S1-S2\footnote{mikeg: Please add these figures.}).
+With respect to estimates of $\phi$ within SelAC, they were strongly correlated with two separate empirical measurements of gene expression (See Figure \ref{fig:PhivsROC}; Figure S1-S2\footnote{mikeg: Please add these figures. JMB: I did. See Supplemental materials at bottom of this document.}).
 In other words, using only codon sequences our model can predict which genes have high or low expression levels.
 The estimate of the $\alphag$ parameter, which describes the site-specific variation in sensitivity of the proteins functionality, indicated a moderate level of variation in gene expression among sites.
 Our estimate of $\alphag$ = 1.40, produced a distribution of sensitivity rates that ranged from 0.344-7.16, but with nearly 90\% of the weight for a given site-likelihood being contributed by the 0.344 and 1.48 rate categories.
@@ -605,7 +605,7 @@ This suggest a high degree of consistency among all three measures regarding the
 Overall, the simulation results indicate that SelAC model can reasonably recover the known values of the generating model (Figure S3-S6).
 This includes not only the parameters in the model, but also the optimal amino acids for a given sequence as well as the estimates of the branch lengths.
 There are a few observations to note.
-First, the ability to accurately recover the true optimal amino acid sequence will largely depend on the strength of $\phi$ of the gene.
+First, the ability to accurately recover the true optimal amino acid sequence will largely depend on the magnitude of $\phi$.
 This is, of course, intuitive, given that $\phi$ sets the strength of stabilizing selection towards an optimal amino acid at a site.
 However, the inclusion of $\alphag$ into the model, appears to generally increase values of $\phi$ and generally improves the ability to recover the optimal amino acids for even the gene with the lowest baseline $\phi$.
 Second, we found a strong downward bias in estimates of $alphag$. 
