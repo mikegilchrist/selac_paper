@@ -532,8 +532,8 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf}
-  \caption{Comparisons between $\omega$, which is the nonsynonymous/synonymous mutation ratio in FMutSel0, $\psi$ obtained from \selacplusgamma (a), and two empirical estimates of gene expression for \emph{S. cerevisiae} across the 100 selected genes from \citet{SalichosAndRokas2013}.  
-    As in Figure 1, the equations in the upper left hand corner of each panel provide the regression fit and correlation coefficient.
+  \caption{Comparisons between $\omega$, which is the nonsynonymous/synonymous mutation ratio in FMutSel0, $\psi$ obtained from \selacplusgamma (a), a direct measurement of expression (b), and a model-based prediction of gene expression that does not account for ancestry (c), for \emph{S. cerevisiae} across the 100 selected genes from \citet{SalichosAndRokas2013}.  
+    As in Figure \ref{fig:PhivsEmpirical}, the equations in the upper left hand corner of each panel provide the regression fit and correlation coefficient.
   } 
   \label{fig:OmegavsPsi}
 \end{figure}
@@ -542,14 +542,11 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_3_Inferred_Tree_AND_Model_Adequacy.pdf}
-  \caption{(a) Maximum likelihood estimates of branch lengths under \selacplusgamma for 100 selected genes from Salichos and Rokas (2013).  
-    Tests of model adequacy for \emph{S. cervisieae} (b) and \emph{S. castellii} (c) indicated that, when these taxa are removed from the tree, and their sequences are simulated, the parameters of SelAC + $\Gamma$ exhibit functionality that is far closer to the observed (dashed black line) than data sets produced from parameters of either FMutSel0 or GTR + $\Gamma$. 
+  \caption{(a) Maximum likelihood estimates of branch lengths under \selacplusgamma for 100 selected genes from \citet{SalichosAndRokas2013}.  
+    Tests of model adequacy for \emph{S. cerevisiae} (b) and \emph{S. castellii} (c) indicated that, when these taxa are removed from the tree, and their sequences are simulated, the parameters of \selacplusgamma exhibit functionality that is far closer to the observed (dashed black line) than data sets produced from parameters of either FMutSel0 or GTR + $\Gamma$. 
 }
   \label{fig:TreeAndAdequacy}
 \end{figure}
-\footnote{mikeg: Can you simply put the names of the model next to the traces?  As it stands now \selac is ambiguous.
-      In addition, is this \selac or \selacplusgamma? JMB: Will make this change and it is selac+gamma.
-  } 
 
 
 \clearpage
