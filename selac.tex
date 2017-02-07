@@ -608,10 +608,11 @@ There are a few observations to note.
 First, the ability to accurately recover the true optimal amino acid sequence will largely depend on the magnitude of $\phi$.
 This is, of course, intuitive, given that $\phi$ sets the strength of stabilizing selection towards an optimal amino acid at a site.
 However, the inclusion of $\alphag$ into the model, appears to generally increase values of $\phi$ and generally improves the ability to recover the optimal amino acids even for the gene with the lowest baseline $\phi$.
-Second, we found a strong downward bias in estimates of $alphag$, which actually translates into greater variation among the rate categories. 
-The choice of a gamma distribution to model site-specific variation in sensitivity was based on mathematical convenience and convention, rather than on biological reality.
-Nevertheless, The simulation studies examining the behavior of the gamma distribution in nucleotide substitution have found that increasing the number of rate categories can provide greater flexibility to resemble any number of potential distributions (Rannala paper...; Mayrose et al 2005).
-The  of our implementation hinder further exploration of increasing the number of categories much more than 4 categories.
+Second, we found a strong downward bias in estimates of $alphag$, which actually translates to greater variation among the rate categories. 
+The choice of a gamma distribution to represent site-specific variation in sensitivity was based on mathematical convenience and convention, rather than on biological reality.
+Nevertheless, we suspect that this bias is in large part due to the difficulty in determining the baseline $\psi$ for a given gene and the value of $\alphag$ that globally satisfies the site-specific variation in sensitivity across all genes, as indicated by the slight upward bias in estimates of $\psi$.
+It has been suggested  the gamma distribution in models of nucleotide substitution that by increasing the number of rate categories can often improve accuracy of the estimates (\citet{MayroseEtAl2005}).
+Future work will address this issue.
 
 
 \begin{figure}[H]
@@ -619,7 +620,7 @@ The  of our implementation hinder further exploration of increasing the number o
   \includegraphics[width=0.9\linewidth]{FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf}
   \caption{Summary a 5-gene simulation for a SelAC model where we assume $\alphag = \infty$, and thus, no site-specific sensitivity in the generating model.
 		The 'known' parameters were based on fitting the same SelAC to the 106 gene data set and phylogeny of \citet{RokasEtAl2003}, with gene choice being based on five evenly spaced points along the rank order of the gene specific composite parameter $\psiprime_g$.
-		The points and associated uncertainty in the estimates of psi (a), or the gene-specific average protein synthesis rate, nucleotide mutation rates under the UNREST model (b), proportion of correct optimal amino acids for a given gene (c), and estimates of the individual edge lengths are based the mean and 2.5\% and 97.5\% quantiles across on 50 simulated datasets.
+		The points and associated uncertainty in the estimates the gene-specific average protein synthesis rate, or $\psi$ (a), nucleotide mutation rates under the UNREST model (b), proportion of correct optimal amino acids for a given gene (c), and estimates of the individual edge lengths are based the mean and 2.5\% and 97.5\% quantiles across on 50 simulated datasets.
 } 
   \label{fig:SelacNoGSimRes}
 \end{figure}
