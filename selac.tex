@@ -187,7 +187,7 @@ Using either \DeltaAIC and \AICw as our measure of model support, the SelAC mode
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which accounts for  more than 47,000 additional model parameters.
 Even when compared to the next most parameter rich codon model in our model set, FMutSel0, \selacplusgamma model shows nearly 400,000 AIC unit improvement over FMutSel0.
 
-With respect to estimates of $\phi$ within SelAC, they were strongly correlated with two separate measures of gene expression - one empirical (See Figure \ref{fig:PhivsROC}), and one model-based prediction that does not account for shared ancestry (Figure S1-S2).\footnote{mikeg: Please add these figures. JMB: I did. See Supplemental materials at bottom of this document.}
+With respect to estimates of $\phi$ within SelAC, they were strongly correlated with two separate measures of gene expression, one empirical (See Figure \ref{fig:PhivsROC}), and one model-based prediction that does not account for shared ancestry (Figure S1-S2).\footnote{mikeg: Please add these figures. JMB: I did. See Supplemental materials at bottom of this document.}
 In other words, using only codon sequences our model can predict which genes have high or low expression levels.
 The estimate of the $\alphag$ parameter, which describes the site-specific variation in sensitivity of the proteins functionality, indicated a moderate level of variation in gene expression among sites.
 Our estimate of $\alphag$ = 1.40, produced a distribution of sensitivity rates that ranged from 0.344-7.16, but with nearly 90\% of the weight for a given site-likelihood being contributed by the 0.344 and 1.48 rate categories.
@@ -495,6 +495,9 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 \bibliographystyle{./am.nat}
 \bibliography{./mike}
 
+
+\clearpage
+
 \section*{Tables}
   \begin{table}
     \begin{tabular}{lrrrrl}
@@ -510,32 +513,30 @@ For comparison, we also conducted the same test, by simulating the sequence unde
     \label{table:modelFits}
 \end{table}
 
+
+
 \clearpage %command will flush any floats that haven't been printed to the current page.
 
 \section*{Figures}
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\linewidth]{FIGURE_1_SelACwG_vs_ROC_by_spp.pdf}
-  \caption{Comparisons between estimates of $\phi$ obtained from \selacplusgamma and the predicted gene expression from the ROC SEMPER model (\citet{GilchristEtAl2015} for individual taxa across the 100 selected genes from the yeast data set of Salichos and Rokas (2013).
-  The equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
+  \includegraphics[width=0.9\linewidth]{FIGURE_1_SelACwG_vs_Empirical_by_spp.pdf}
+  \caption{Comparisons between estimates of $\phi$ obtained from SelAC+$\Gamma$ and direct measurements of expression for individual yeast taxa across the 100 selected genes from \citet{SalichosAndRokas2013}.
+  	Gene expression was measured using either RNA-Seq (a-c) or Microarray chips (d), and the equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
   } 
-  \label{fig:PhivsROC}
+  \label{fig:PhivsEmpirical}
 \end{figure}
-\footnote{mikeg: ROC is NOT an 'empirical' based estimate of gene expression.  
-  The mRNA and microarray data should be used instead and this figure should be put in the supporting materials. JMB: Realized I made this mistake yesterday. I thought I had edited that stuff out. Not seeing some of my changes in this version. Will fix again now.} 
+
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf}
-  \caption{Comparisons between $\omega$, which is the nonsynonymous/synonymous mutation ratio in FMutSel0, $\phi$ obtained from \selacplusgamma (a), and two empirical estimates of gene expression for \emph{S. cervisaea} across the 100 selected genes from the yeast data set of Salichos and Rokas (2013).  
+  \caption{Comparisons between $\omega$, which is the nonsynonymous/synonymous mutation ratio in FMutSel0, $\psi$ obtained from \selacplusgamma (a), and two empirical estimates of gene expression for \emph{S. cerevisiae} across the 100 selected genes from \citet{SalichosAndRokas2013}.  
     As in Figure 1, the equations in the upper left hand corner of each panel provide the regression fit and correlation coefficient.
   } 
-  \label{fig:OmegavsPhi}
+  \label{fig:OmegavsPsi}
 \end{figure}
-\footnote{mikeg: For (a) shoudln't it be $\psi$, which is not genome specific, rather than $\phi$, which is.  
-      Is the RNA seq and ROC data for brewer's yeast? JMB: Good catch on both accounts. Fixed the caption, will fix the figure.
-  } 
 
 
 \begin{figure}[H]
@@ -562,10 +563,9 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 \renewcommand{\thetable}{S\arabic{table}}
 \renewcommand{\thepage}{S\arabic{page}}
 \renewcommand{\thesection}{\arabic{section}} %
-
-
 \renewcommand{\appendixname}{Supporting Materials}
 \renewcommand{\theequation}{S\arabic{equation}}
+
 \setcounter{equation}{0}
 \appendix
 \part*{\appendixname}
@@ -582,18 +582,18 @@ This suggest a high degree of consistency among all three measures regarding the
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\linewidth]{FIGURE_S1_SelACwG_vs_Empirical_by_spp.pdf}
-  \caption{Comparisons between estimates of $\phi$ obtained from SelAC+$\Gamma$ and direct measurements of expression for individual taxa across the 100 selected genes from the yeast data set of Salichos and Rokas (2013).
-  	Gene expression was measured using either RNA-Seq (a-c) or Microarray chips (d).
-    The equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
+  \includegraphics[width=0.9\linewidth]{FIGURE_S1_SelACwG_vs_ROC_by_spp.pdf}
+  \caption{Comparisons between estimates of $\phi$ obtained from \selacplusgamma and the predicted gene expression from the ROC SEMPER model (\citet{GilchristEtAl2015}) for individual yeast taxa across the 100 selected genes from \citet{SalichosAndRokas2013}.
+  The equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
   } 
-  \label{fig:PhivsEmpirical}
+  \label{fig:PhivsROC}
 \end{figure}
+
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S2_Empirical_vs_ROC_by_spp.pdf}
-  \caption{Comparisons of predicted gene expression from the ROC SEMPER model (\citet{GilchristEtAl2015} and direct measurements of expression from RNA-Seq or Microarray data for individual taxa across the 100 selected genes from the yeast data set of Salichos and Rokas (2013).
+  \caption{Comparisons of predicted gene expression from the ROC SEMPER model (\citet{GilchristEtAl2015}) and direct measurements of expression from RNA-Seq or Microarray data for individual yeast taxa across the 100 selected genes from \citet{SalichosAndRokas2013}.
       The equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
   } 
   \label{fig:ROCvsEmpirical}
@@ -607,14 +607,12 @@ This includes not only the parameters in the model, but also the optimal amino a
 There are a few observations to note.
 First, the ability to accurately recover the true optimal amino acid sequence will largely depend on the magnitude of $\phi$.
 This is, of course, intuitive, given that $\phi$ sets the strength of stabilizing selection towards an optimal amino acid at a site.
-However, the inclusion of $\alphag$ into the model, appears to generally increase values of $\phi$ and generally improves the ability to recover the optimal amino acids for even the gene with the lowest baseline $\phi$.
+However, the inclusion of $\alphag$ into the model, appears to generally increase values of $\phi$ and generally improves the ability to recover the optimal amino acids even for the gene with the lowest baseline $\phi$.
 Second, we found a strong downward bias in estimates of $alphag$. 
 However, the choice of a gamma distribution to model site-specific variation in sensitivity was based on mathematical convenience and convention, rather than on biological reality.
 The simulation studies examining the behavior of the gamma distribution in nucleotide substitution have found that increasing the number of rate categories can provide greater flexibility to resemble any number of potential distributions (Rannala paper...; Mayrose et al 2005).
 The  of our implementation hinder further exploration of increasing the number of categories much more than 4 categories.
 Whether or not the gamma I STOPPED HERE.
-\footnote{JMB: I swear there is a paper that shows gamma in nucleotide models are generally underestimated -- am I nuts? Probably.
-}
 
 \begin{figure}[H]
   \centering
@@ -654,6 +652,11 @@ Whether or not the gamma I STOPPED HERE.
 
 
 \end{document}
+
+
+
+
+
 
 \item For many years evolutionary biologists have been interested in what the distribution of fitness effects looks like for \emph{de novo} mutations.
 In all such calculations, there are always numerous caveats that accompany any conclusions.
