@@ -417,13 +417,13 @@ gg <- read.delim("finalPhiEsts_including_ROC.tsv")
 pdf("MutSelOmega_vs_Us_ROC_Scer_only.pdf", width=8, height=8)
 par(mfcol=c(2,2),mar=c(4,4,0.5,0.5), oma=c(1.5,2,1,1))
 
-plot(log(gg$Omega), log(gg$Psi_gamma/gg$functionality_Scer), axes=FALSE, xlab="", ylab="", xlim=c(-4.5,-1), ylim=c(-1.2,0), pch=19, cex=.75, main="")
+plot(log(gg$Omega), log(gg$Psi_gamma), axes=FALSE, xlab="", ylab="", xlim=c(-4.5,-1), ylim=c(-1.2,0), pch=19, cex=.75, main="")
 par(tck=.01)
 axis(1, at = seq(-4.5,-1, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(2, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 title(xlab=expression(log~hat(omega)[FMutSel0]), line=2.5)
-title(ylab=expression(log~hat(phi)[SelAC]), line=2)
-fit <- lm(log(gg$Psi_gamma/gg$functionality_Scer)~log(gg$Omega))
+title(ylab=expression(log~hat(psi)[SelAC]), line=2)
+fit <- lm(log(gg$Psi_gamma)~log(gg$Omega))
 abline(fit)
 actual.max <- 0--1.2
 max.diff <- actual.max-0
