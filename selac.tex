@@ -187,7 +187,7 @@ Using either \DeltaAIC and \AICw as our measure of model support, the SelAC mode
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which accounts for  more than 47,000 additional model parameters.
 Even when compared to the next most parameter rich codon model in our model set, FMutSel0, \selacplusgamma model shows nearly 400,000 AIC unit improvement over FMutSel0.
 
-With respect to estimates of $\phi$ within SelAC, they were strongly correlated with two separate empirical measurements of gene expression (See Figure \ref{fig:PhivsROC}; Figure S1-S2\footnote{mikeg: Please add these figures. JMB: I did. See Supplemental materials at bottom of this document.}).
+With respect to estimates of $\phi$ within SelAC, they were strongly correlated with two separate measures of gene expression - one empirical (See Figure \ref{fig:PhivsROC}), and one model-based prediction that does not account for shared ancestry (Figure S1-S2).\footnote{mikeg: Please add these figures. JMB: I did. See Supplemental materials at bottom of this document.}
 In other words, using only codon sequences our model can predict which genes have high or low expression levels.
 The estimate of the $\alphag$ parameter, which describes the site-specific variation in sensitivity of the proteins functionality, indicated a moderate level of variation in gene expression among sites.
 Our estimate of $\alphag$ = 1.40, produced a distribution of sensitivity rates that ranged from 0.344-7.16, but with nearly 90\% of the weight for a given site-likelihood being contributed by the 0.344 and 1.48 rate categories.
@@ -459,7 +459,7 @@ Ongoing work will address the need for speed, with the eventual goal of implemen
 
 \subsection*{Simulations}
 We evaluated the performance of our codon model by simulating datasets and estimating the bias of the inferred model parameters from these data.
-Our "known" parameters under a given generating model were based on fitting SelAC to the 106 gene data set and phylogeny of \citet{RokasEtAl2003}.
+Our 'known' parameters under a given generating model were based on fitting SelAC to the 106 gene data set and phylogeny of \citet{RokasEtAl2003}.
 The tree used in these analyses is outdated with respect to the current hypothesis of relationships within Saccharomyces, but we rely on it simply as a training set that is separate from our empirical analyses (see section on Analyzing Yeast Genome).
 Bias in the model parameters were assessed under two generating models: one where we assumed a model of SelAC assuming $\alphag = \infty$, and one where we estimated $\alphag$ from the data.
 Under each of these two scenarios, we used parameter estimates from the corresponding empirical analysis and simulated 50 five-gene data sets.
