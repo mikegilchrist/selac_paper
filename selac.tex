@@ -577,7 +577,7 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 
 In our model, the parameter $\phi$ measures the realized average protein synthesis rate of a gene. 
 We compared our estimates of $\phi$ to two separate measures of gene expression, one empirical (See Figure \ref{fig:PhivsROC}), and one model-based prediction that does not account for shared ancestry, for individual yeast taxa across the same set of genes. 
-Our estimates of $\phi$ are positively correlated both measures, which are also strongly correlated with each other (Figure \ref{fig:PhivsEmpirical}, Figure \ref{fig:ROCvsEmpirical}) 
+Our estimates of $\phi$ are positively correlated both measures, which are also strongly correlated with each other (Figure \ref{fig:PhivsEmpirical} - \ref{fig:ROCvsEmpirical}) 
 On the whole, these comparisons indicate not only a high degree of consistency among all three measures, but also, importantly, that estimates of $\phi$ obtained from SelAC provide real biological insight regarding the expression level of a gene.
 
 \begin{figure}[H]
@@ -602,24 +602,24 @@ On the whole, these comparisons indicate not only a high degree of consistency a
 
 \subsection*{Simulations}
 
-Overall, the simulation results indicate that SelAC model can reasonably recover the known values of the generating model (Figure S3-S6).
+Overall, the simulation results indicate that SelAC model can reasonably recover the known values of the generating model (Figure \ref{fig:SelacNoGSimRes} - \ref{fig:SelacWithGSimRes2}).
 This includes not only the parameters in the model, but also the optimal amino acids for a given sequence as well as the estimates of the branch lengths.
 There are a few observations to note.
 First, the ability to accurately recover the true optimal amino acid sequence will largely depend on the magnitude of $\phi$.
 This is, of course, intuitive, given that $\phi$ sets the strength of stabilizing selection towards an optimal amino acid at a site.
 However, the inclusion of $\alphag$ into the model, appears to generally increase values of $\phi$ and generally improves the ability to recover the optimal amino acids even for the gene with the lowest baseline $\phi$.
-Second, we found a strong downward bias in estimates of $alphag$. 
-However, the choice of a gamma distribution to model site-specific variation in sensitivity was based on mathematical convenience and convention, rather than on biological reality.
-The simulation studies examining the behavior of the gamma distribution in nucleotide substitution have found that increasing the number of rate categories can provide greater flexibility to resemble any number of potential distributions (Rannala paper...; Mayrose et al 2005).
+Second, we found a strong downward bias in estimates of $alphag$, which actually translates into greater variation among the rate categories. 
+The choice of a gamma distribution to model site-specific variation in sensitivity was based on mathematical convenience and convention, rather than on biological reality.
+Nevertheless, The simulation studies examining the behavior of the gamma distribution in nucleotide substitution have found that increasing the number of rate categories can provide greater flexibility to resemble any number of potential distributions (Rannala paper...; Mayrose et al 2005).
 The  of our implementation hinder further exploration of increasing the number of categories much more than 4 categories.
-Whether or not the gamma I STOPPED HERE.
+
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf}
   \caption{Summary a 5-gene simulation for a SelAC model where we assume $\alphag = \infty$, and thus, no site-specific sensitivity in the generating model.
 		The 'known' parameters were based on fitting the same SelAC to the 106 gene data set and phylogeny of \citet{RokasEtAl2003}, with gene choice being based on five evenly spaced points along the rank order of the gene specific composite parameter $\psiprime_g$.
-		The points and associated uncertainty in the estimates of psi (a), or XXX, nucleotide substitution (b), proportion of correct optimal amino acids for a given gene (c), and estimates of the individual edge lengths are based the mean and 2.5\% and 97.5\% quantiles across on 50 simulated datasets.
+		The points and associated uncertainty in the estimates of psi (a), or the gene-specific average protein synthesis rate, nucleotide mutation rates under the UNREST model (b), proportion of correct optimal amino acids for a given gene (c), and estimates of the individual edge lengths are based the mean and 2.5\% and 97.5\% quantiles across on 50 simulated datasets.
 } 
   \label{fig:SelacNoGSimRes}
 \end{figure}
