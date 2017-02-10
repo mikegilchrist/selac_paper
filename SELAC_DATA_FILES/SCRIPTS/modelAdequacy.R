@@ -44,14 +44,14 @@ load("adequacy_Scer_reconSelacWG_simFMutSel.Rsave")
 selac.mutsel <- pp
 load("adequacy_Scer_reconSelacWG_simGTRG.Rsave")
 selac.gtr <- pp
-PlotAdequacyResults(adequate.obj.gtr=selac.gtr, adequate.obj.mutsel=selac.mutsel, adequate.obj.selac.wg=selac.wg, known.functionality=0.9551671, file.name="modelAdequacyScer.pdf",taxon.names="S. cerevisiae")
+PlotAdequacyResults(adequate.obj.gtr=selac.gtr, adequate.obj.mutsel=selac.mutsel, adequate.obj.selac.wg=selac.wg, known.functionality=0.9641194, file.name="modelAdequacyScer.pdf",taxon.names="S. cerevisiae")
 load("adequacy_Scas_reconSelacWG_simSelacWG.Rsave")
 selac.wg <- pp
 load("adequacy_Scas_reconSelacWG_simFMutSel.Rsave")
 selac.mutsel <- pp
 load("adequacy_Scas_reconSelacWG_simGTRG.Rsave")
 selac.gtr <- pp
-PlotAdequacyResults(adequate.obj.gtr=selac.gtr, adequate.obj.mutsel=selac.mutsel, adequate.obj.selac.wg=selac.wg, known.functionality=0.8778966, file.name="modelAdequacyScas.pdf",taxon.names="S. castellii")
+PlotAdequacyResults(adequate.obj.gtr=selac.gtr, adequate.obj.mutsel=selac.mutsel, adequate.obj.selac.wg=selac.wg, known.functionality=0.8853037, file.name="modelAdequacyScas.pdf",taxon.names="S. castellii")
 dev.off()
 
 
