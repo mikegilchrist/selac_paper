@@ -119,13 +119,13 @@
 
 \section*{Abstract}
 We present a phylogenetic approach rooted in the field of population genetics that more realistically models the evolution of protein-coding DNA under the assumption of stabilizing selection for a gene specific optimal amino acid sequence.
-The new set of models, which we collectively call selac models, fit phylogenetic data substantially better than popular current models, suggesting more accurate inference of phylogenetic trees and branch lengths.
+The new set of models, which we collectively call SelAC models, fit phylogenetic data substantially better than popular models, suggesting strong potential for more accurate inference of phylogenetic trees and branch lengths.
 Moreover, these models allow inference of population genetics parameters from data used for interspecific phylogenies.
 
 \section*{Introduction}
-Phylogenetic analysis now plays a critical role in the fields of ecology, evolution, paleontology, medicine, conservation, and many others.
+Phylogenetic analysis now plays a critical role in most aspects of biology, particularly in the fields of ecology, evolution, paleontology, medicine, and conservation.
 While the scale and impact of phylogenetic studies has increased substantially over the past two decades, by comparison the realism of the mathematical models on which these analyses are based has changed relatively little.
-The simplest but most popular models are agnostic with regards to the different amino acid substitutions and may or may not include mutation bias (e.g.~F81, F84, HYK85, TN93, and GTR for the former and JC69 and K80 for the latter, see \citet{Yang2014} for an overview).
+For example, the simplest but most popular models are agnostic with regards to the different amino acid substitutions and their impact on gene function, and may or may not include mutation bias (e.g.~F81, F84, HYK85, TN93, and GTR for the former and JC69 and K80 for the latter, see \citet{Yang2014} for an overview).
 
 Another set of models attempt to include a 'selection' term $\omega$, however the link between $\omega$ and the key parameters found in standard population genetics models such as \Ne, the distribution of fitness across genotype space, and mutation bias are far from clear.
 For instance, $\omega$ is generally interpreted as indicating whether a sequence is under `purifying' ($\omega < 1$) or `diversifying' ($\omega > 1$) selection.
@@ -135,17 +135,17 @@ Paradoxically, this selection regime for the resident amino acid $i$ persists \e
 As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ over all other amino acids, including $i$.
 This is now the opposite scenario to when $i$ was the resident.
 Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions the resident amino acid.
-In a parallel manner, this selection \emph{against} on the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors}  the former resident amino acid $i$ as well as the 18 others.
+In a parallel manner, this selection \emph{against} the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors} the former resident amino acid $i$ as well as the 18 others.
 Thus, the simplest and most consistent interpretation of $\omega$ is that it describes the rate at which the selection regime itself changes, and this change in selection perfectly coincides with the fixation of a new amino acid.
 As a result, $\omega$ based approaches only reasonably describe a subset of scenarios such as over/underdominance or frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
-Because, as we show here, $\omega$ is well correlated with gene expression, its value is really an indicator of the strength of stabilizing selection on a coding sequence, rather than the `nature' of that selection.
+Because, as we show here, $\omega$ is well correlated with gene expression, its value is really an indicator of the strength of stabilizing selection on a coding sequence, rather than the 'nature' of that selection.
 
 Fortunately, given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic analysis \citep[e.g.][]{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
-One lesson from the field of population genetics is while there are only a few fundamental evolutionary forces at play (mutation, drift, selection, and linkage effects) describing the evolutionary behavior of a system in which there are non-linear interactions between different sites quickly becomes extremely challenging.
+One lesson from the field of population genetics is while there are only a few fundamental evolutionary forces at play (mutation, drift, selection, and linkage effects), describing the evolutionary behavior of a system in which there are non-linear interactions between different sites quickly becomes extremely challenging.
 Fortunately, under the simplifying assumptions of additivity between sites and alleles, calculating stationary and substitution probabilities are relatively straightforward, making fitting additive models of the evolutionary process to sequence data computationally feasible.
 
 Another major advantage to our approach is that the parameters estimated are biologically meaningful.
-As with other phylogenetic methods,  we generate estimates of branch lengths and nucleotide specific mutation rates.
+As with other phylogenetic methods, we generate estimates of branch lengths and nucleotide specific mutation rates.
 In addition, because the math behind our model, which we call \selac (Selection on Amino acids and Codons) is mechanistically derived, our method can also be used to make quantitative inferences on the optimal amino acid sequence of a given protein as well as the average synthesis rate of each protein used in the analysis.
 The mechanistic basis of \selac also means it can be easily extended to include more biological realism and test more explicit hypotheses about sequence evolution.
 
@@ -173,9 +173,8 @@ The work we present here contributes to the field of phylogenetics and molecular
 While the mapping between genotype and phenotype is more abstract than \citet{ThorneEtAl2012}, \selac has the advantage of not requiring knowledge of a protein's native folding.
 Our use of model nesting also allows us to formulate and test specific biological hypotheses.
 For example, we are able to compare a model formulation which assumes that physico-chemical deviations from the optimal sequence are equally disruptive at all sites within a protein to one which assumes the effect of deviation from the optimal amino acid's physicochemical properties on protein function varies between sites.
-By linking the strength of stabilizing selection for an optimal amino acid sequence to gene expression,  we can weight the historical information encoded in genes evolving at vastly different rates in a biologically plausible manner while simultaneously estimating their expression levels.
+By linking the strength of stabilizing selection for an optimal amino acid sequence to gene expression, we can weight the historical information encoded in genes evolving at vastly different rates in a biologically plausible manner while simultaneously estimating their expression levels.
 Finally, because our work fitness functions are well defined, we can provide estimates of key evolutionary statistics such as the distribution of effects on fitness and genetic load.
-
 
 
 \section*{Results}
@@ -207,11 +206,8 @@ For instance, \emph{S. castellii} is simulated with consistently higher function
 We suspect this is an indication that assuming a single set of optimal amino acid across all taxa may be too simplistic, but we cannot also rule out other potential simplifying assumptions in our model, such as a single set of Grantham weights and $\alphag$.
 
 
-
-
 \section*{Discussion}
 As phylogenetic methods become ever more ubiquitous in biology, and data set size and complexity increase, there is a need and an opportunity for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004} %citations identified in Lartillot and Philippe 2004
-  \footnote{mikeg: UPDATED: Jeremy and Brian, can you provide some references that support this claim?}.
 Despite their widespread use, phylogenetic models based on purifying and diversifying selection, i.e.~\citet{GoldmanAndYang1994} and its extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid.
 
 Instead of heuristically extending population genetic models of neutral evolution for use in phylogenetics, it makes sense to derive these extensions from population genetic models that \emph{explicitly} include the fundamental forces of mutation, drift, and natural selection. % (i.e.~a Wright-Fisher model).
@@ -229,7 +225,7 @@ The idea that quantiative information on gene expression is embedded within intr
 
 Of course, given the general nature of \selac and the complexity of biological systems, other biological forces besides selection for reducing energy flux likely contribute inter-genic variation in the magnitude of stabilizing selection.
 Similarly, other physicochemical properties besides composition, volume, and charge likely contribute to site specific patterns of amino acid substitution.
-Thus, a larger and more informative set of Grantham weights might improve our model fit and reduce the noise in our estimates of $\phi$.
+Thus, a larger and more informative set of Grantham weights might improve our model fit and reduce the noise in our estimates of $\phi$ .
 Even if other physicochemical properties are considered, the idea of a consistent, genome wide Grantham weighting of these terms seems highly unlikely.
 Since the importance of an amino acid's physicochemical properties likely changes with where it lies in a folded protein, one way to incorporate such effects is to test whether the data supports multiple sets of Grantham weights for either subsets of genes or regions within genes, rather than a single set.
 
@@ -240,10 +236,12 @@ This assumption can be relaxed by allowing the optimal amino acid to change duri
 Statistically speaking, it should be possible to estimate the rates at which this occurs on a course or fine scale depending on the given hypothesis and the amount of sequence data and computational resources available.
 
 From a computational standpoint, the additive nature of selection between sites is desirable because it allows us to analyze sites within a gene largely independently of each other.
-  From a biological standpoint, this additivity between site ignores any non-linear interactions between sites, such as epistasis, or between alleles, such as domiance.  Thus, our work can be considered a first step to modeling to these more complex scenarios. 
- For example, because our current implementation ignores any selection on synonymous codon usage bias (CUB).
-  Including such selection is tricky because introducing the site specific cost effects of CUB leads to non-additive (i.e.~epistatic) interactions between sites.  Relative to stabilizing selection on amino acid sequence, selection on CUB is thought to be substantially weaker.
-  As a result, epstatic effects due to synonymous codon specific differences in assembly costs can likely ignored and selection on CUB incorporated into our current framework.
+From a biological standpoint, this additivity between site ignores any non-linear interactions between sites, such as epistasis, or between alleles, such as domiance.  
+Thus, our work can be considered a first step to modeling to these more complex scenarios. 
+For example, because our current implementation ignores any selection on synonymous codon usage bias (CUB).
+Including such selection is tricky because introducing the site specific cost effects of CUB leads to non-additive (i.e.~epistatic) interactions between sites. 
+Relative to stabilizing selection on amino acid sequence, selection on CUB is thought to be substantially weaker.
+As a result, epstatic effects due to synonymous codon specific differences in assembly costs can likely ignored and selection on CUB incorporated into our current framework.
 
 %  To allow for changes to the optimal amino acid across all branches makes the model non-time reversible.
 %  While such behavior might be desirable to modle the effect of a particular widespread environmental change, incorporating such behavior in a general manner would introduce a whole new set of challenges.
