@@ -446,7 +446,7 @@ There are also deficiencies in our implementation.
 Though reasonable to use for a given topology with a modest number of species, it is too slow for practical use for tree search.
 It thus serves as a proof of concept, or of utility for targeted questions where a more realistic model may be of use (placement of particular taxa, for example).
 Future work will encode \selac models into a variety of mature, popular tree-search programs.
-This is also a hard optimization problem: the nested models reduce parameter complexity vastly, but there are still numerous parameters to optimize, including the discrete parameter of optimal amino acid at each site.
+\selac also represents a hard optimization problem: the nested models reduce parameter complexity vastly, but there are still numerous parameters to optimize, including the discrete parameter of optimal amino acid at each site.
 A different implementation, more parameter-rich, would optimize values of three (or more) physiochemical properties per site.
 This would have the practical advantage of continuous parameter optimization rather than discrete, and biologically would be more realistic (as it is the properties that selection "sees," not the identity of the amino acid itself).
 
