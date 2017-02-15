@@ -141,7 +141,7 @@ Fortunately, given the continual growth in computational power available to rese
 One lesson from the field of population genetics is even when there are only a few fundamental evolutionary forces at play (mutation, drift, selection, and linkage effects), describing the evolutionary behavior of a system in which there are non-linear interactions between different sites quickly becomes extremely challenging.
 Fortunately, under the simplifying assumptions of additivity between sites and alleles, calculating stationary and substitution probabilities are relatively straightforward, making fitting additive models of the evolutionary process to sequence data computationally feasible.
 
-\section*{Materials & Methods}
+\section*{Materials \& Methods}
 
 \subsection*{Overview}
 
@@ -364,13 +364,13 @@ By linking transition rates $\qij$ to gene expression $\psi$, our approach allow
 Specifically, we assume the strength of stabilizing selection for the optimal sequence, \aoptvec, is proportional to the average protein synthesis rate $\phi$, which we can estimate for each gene. 
 In regards to model fit, our results clearly indicated that linking the strength of stabilizing selection for the optimal sequence to gene expression substantially improves our model fit.
 Further, including a single, genome wide the random effects term $\alphag \sim \text{Gamma}$ to allow for heterogeneity in this selection between sites within a gene, improves the \DeltaAIC of \selacplusgamma score over the simpler \selac model by over 23,000 AIC units.
-Using either \DeltaAIC and \AICw as our measure of model support, the SelAC models perform extraordinarily better than GTR + $\Gamma$, GY94, or FMutSel0 (Table \ref{table:modelFits}).
+Using either \DeltaAIC or \AICw as our measure of model support, the \selac models fit extraordinarily better than GTR + $\Gamma$, GY94, or FMutSel0 (Table \ref{table:modelFits}).
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which accounts for  more than 47,000 additional model parameters.
 Even when compared to the next most parameter rich codon model in our model set, FMutSel0, \selacplusgamma model shows nearly 400,000 AIC unit improvement over FMutSel0.
 
-With respect to estimates of $\phi$ within SelAC, they were strongly correlated with two separate measures of gene expression, one empirical (See Figure \ref{fig:PhivsROC}), and one model-based prediction that does not account for shared ancestry (Figure S1-S2).\footnote{mikeg: Please add these figures. JMB: I did. See Supplemental materials at bottom of this document.}
+With respect to estimates of $\phi$ within \selac, they were strongly correlated with two separate measures of gene expression, one empirical (See Figure \ref{fig:PhivsROC}), and one model-based prediction that does not account for shared ancestry (Figure S1-S2).
 In other words, using only codon sequences our model can predict which genes have high or low expression levels.
-The estimate of the $\alphag$ parameter, which describes the site-specific variation in sensitivity of the proteins functionality, indicated a moderate level of variation in gene expression among sites.
+The estimate of the $\alphag$ parameter, which describes the site-specific variation in sensitivity of the protein's functionality, indicated a moderate level of variation in gene expression among sites.
 Our estimate of $\alphag$ = 1.40, produced a distribution of sensitivity rates that ranged from 0.344-7.16, but with nearly 90\% of the weight for a given site-likelihood being contributed by the 0.344 and 1.48 rate categories.
 In simulation, however, of all the parameters in the model, only $\alphag$ showed a consistent bias, in that the estimates were generally underestimated (see Supporting Materials).
 Other parameters in the model, such as the Grantham weights, provide an indication as to the physicochemical distance between amino acids.
@@ -389,23 +389,19 @@ We suspect this is an indication that assuming a single set of optimal amino aci
 
 
 \section*{Discussion}
-%FLOATING 
 
 The work we present here contributes to the field of phylogenetics and molecular evolution in a number of ways.
 \selac provides an complementary example to \citet{ThorneEtAl2012} studies of how models of molecular and evolutionary scales can be combined together in a nested manner.
 While the mapping between genotype and phenotype is more abstract than \citet{ThorneEtAl2012}, \selac has the advantage of not requiring knowledge of a protein's native folding.
 Our use of model nesting also allows us to formulate and test specific biological hypotheses.
-For example, we are able to compare a model formulation which assumes that physico-chemical deviations from the optimal sequence are equally disruptive at all sites within a protein to one which assumes the effect of deviation from the optimal amino acid's physicochemical properties on protein function varies between sites.
+For example, we are able to compare a model formulation which assumes that physiochemical deviations from the optimal sequence are equally disruptive at all sites within a protein to one which assumes the effect of deviation from the optimal amino acid's physicochemical properties on protein function varies between sites.
 By linking the strength of stabilizing selection for an optimal amino acid sequence to gene expression, we can weight the historical information encoded in genes evolving at vastly different rates in a biologically plausible manner while simultaneously estimating their expression levels.
-Finally, because our work fitness functions are well defined, we can provide estimates of key evolutionary statistics such as the distribution of effects on fitness and genetic load.
+Finally, because our fitness functions are well defined, we can provide estimates of key evolutionary statistics such as the distribution of effects on fitness and genetic load.
 
-%FLOATING
+As phylogenetic methods become ever more ubiquitous in biology, and data set size and complexity increase, there is a need and an opportunity for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004}.
+Despite their widespread use, phylogenetic models based on purifying and diversifying selection, i.e.~\citet{GoldmanAndYang1994} and its extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid, not for tree inference itself.
 
-
-As phylogenetic methods become ever more ubiquitous in biology, and data set size and complexity increase, there is a need and an opportunity for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004} %citations identified in Lartillot and Philippe 2004
-Despite their widespread use, phylogenetic models based on purifying and diversifying selection, i.e.~\citet{GoldmanAndYang1994} and its extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid.
-
-Instead of heuristically extending population genetic models of neutral evolution for use in phylogenetics, it makes sense to derive these extensions from population genetic models that \emph{explicitly} include the fundamental forces of mutation, drift, and natural selection. % (i.e.~a Wright-Fisher model).
+Instead of heuristically extending population genetic models of neutral evolution for use in phylogenetics, it makes sense to derive these extensions from population genetic models that \emph{explicitly} include the fundamental forces of mutation, drift, and natural selection.
 Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site specific selection on protein sequence and phylogenetics\citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}. %[CHECK CITATIONS].
 Our work follows this tradition, but includes some key advances.
 For example, even though \selac requires a large number of matrices, because of our assumption about protein functionality and physicochemical distance from the optimum, we are able to parameterize our substitution matrices using a relatively small number of genome wide parameters and one gene specific parameter.
@@ -418,8 +414,8 @@ Our results indicate that including a gene specific $\psi$ value vastly improves
 Perhaps more convincingly, we find that the target expression level $\psi$ and realized protein synthesis rate $\phi$ are reasonably well correlated with laboratory measurements of gene expression ($\rho = 0.34-0.65$; Figure \ref{fig:phiComparisons}, Figure S1-S2)).
 The idea that quantiative information on gene expression is embedded within intra-genomic patterns of synonymous codon usage is well accepted; our work shows that this information can also be extracted from comparative data at the amino acid level.
 
-Of course, given the general nature of \selac and the complexity of biological systems, other biological forces besides selection for reducing energy flux likely contribute inter-genic variation in the magnitude of stabilizing selection.
-Similarly, other physicochemical properties besides composition, volume, and charge likely contribute to site specific patterns of amino acid substitution.
+Of course, given the general nature of \selac and the complexity of biological systems, other biological forces besides selection for reducing energy flux likely contribute intergenic variation in the magnitude of stabilizing selection.
+Similarly, other physicochemical properties besides composition, volume, and charge likely contribute to site specific patterns of amino acid substitution. %CITE WORK ON THIS
 Thus, a larger and more informative set of Grantham weights might improve our model fit and reduce the noise in our estimates of $\phi$ .
 Even if other physicochemical properties are considered, the idea of a consistent, genome wide Grantham weighting of these terms seems highly unlikely.
 Since the importance of an amino acid's physicochemical properties likely changes with where it lies in a folded protein, one way to incorporate such effects is to test whether the data supports multiple sets of Grantham weights for either subsets of genes or regions within genes, rather than a single set.
@@ -428,7 +424,6 @@ Both of these points highlight the advantage of the detailed, mechanistic modeli
 Because there is a clear link between protein expression, synthesis cost, and functionality, \selac can be extended by increasing the realism of the mapping between these terms and the coding sequences being analyzed.
 For example, \selac currently assumes the optimal amino acid for any site is fixed along all branches.
 This assumption can be relaxed by allowing the optimal amino acid to change during the course of evolution along a branch.
-Statistically speaking, it should be possible to estimate the rates at which this occurs on a course or fine scale depending on the given hypothesis and the amount of sequence data and computational resources available.
 
 From a computational standpoint, the additive nature of selection between sites is desirable because it allows us to analyze sites within a gene largely independently of each other.
 From a biological standpoint, this additivity between site ignores any non-linear interactions between sites, such as epistasis, or between alleles, such as domiance.  
@@ -436,7 +431,31 @@ Thus, our work can be considered a first step to modeling to these more complex 
 For example, because our current implementation ignores any selection on synonymous codon usage bias (CUB).
 Including such selection is tricky because introducing the site specific cost effects of CUB leads to non-additive (i.e.~epistatic) interactions between sites. 
 Relative to stabilizing selection on amino acid sequence, selection on CUB is thought to be substantially weaker.
-As a result, epstatic effects due to synonymous codon specific differences in assembly costs can likely ignored and selection on CUB incorporated into our current framework.
+As a result, epistatic effects due to synonymous codon specific differences in assembly costs can likely ignored and selection on CUB incorporated into our current framework.
+
+There are still significant deficiencies in the approach outlined here.
+Most worrisome are biological flaws in the model.
+For example, at its heart, the model assumes that suboptimal proteins can be compensated for, at a cost, simply by producing more of them.
+However, this is likely only true for proteins reasonably close to the optimal sequence.
+Different enough proteins will fail to function entirely: the active site will not sufficiently match its substrates, a protein will not properly pass through a membrane, and so forth, yet in our model even random sequences still permit survival, just requiring more protein production.
+Other oversimplifications include the assumption of no selection on codon usage, no change of optimal amino acids through time, and no change of the effect of physiochemical properties on fitness through time.
+However, many of these can be relaxed through further elaborations of the model.
+
+There are also deficiencies in our implementation.
+Though reasonable to use for a given topology with a modest number of species, it is too slow for practical use for tree search.
+It thus serves as a proof of concept, or of utility for targeted questions where a more realistic model may be of use (placement of particular taxa, for example).
+Future work will encode \selac models into a variety of mature, popular tree-search programs.
+This is also a hard optimization problem: the nested models reduce parameter complexity vastly, but there are still numerous parameters to optimize, including the discrete parameter of optimal amino acid at each site.
+A different implementation, more parameter-rich, would optimize values of three (or more) physiochemical properties per site.
+This would have the practical advantage of continuous parameter optimization rather than discrete, and biologically would be more realistic (as it is the properties that selection "sees," not the identity of the amino acid itself).
+
+Overall, \selac represents a step in uniting phylogenetic and population genetic models.
+It allows biologically relevant population genetic parameters to be estimated from phylogenetic information, while also dramatically improving fit an accuracy of phylogenetic models.
+
+
+
+
+
 
 %  To allow for changes to the optimal amino acid across all branches makes the model non-time reversible.
 %  While such behavior might be desirable to modle the effect of a particular widespread environmental change, incorporating such behavior in a general manner would introduce a whole new set of challenges.
@@ -616,7 +635,7 @@ Future work will address this issue.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\linewidth]{FIGURE_S4_5genes_alpha.beta_UNREST_Selac_NoG.pdf}
+  \includegraphics[width=0.9\linewidth]{FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG.pdf}
   \caption{The distribution of estimates of the Grantham weights, $\alphac$ and $\alphap$, in a SelAC model, where we assume $\alphag = \infty$, and thus no site-specific sensitivity in the generating model.
   		The dashed line represents the value used in the generating model. 
   } 
@@ -633,7 +652,7 @@ Future work will address this issue.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\linewidth]{FIGURE_S6_5genes_alpha.beta_gammashape_UNREST_WITHGAMMA.pdf}
+  \includegraphics[width=0.9\linewidth]{FIGURE_S6_5genes_alpha_beta_gammashape_UNREST_WITHGAMMA.pdf}
   \caption{Same figure as in Figure S4, except the generating model includes site-specific sensitivity in the generating model (i.e., $\alphag$).
   		Unlike, Grantham weights, which showed no systematic bias, there is a downward bias in estimates of $\alphag$.
   } 
