@@ -1,7 +1,44 @@
-\documentclass{article}
+\pdfminorversion=7 %added to avoid warning about pdf versions
+%note Non-PDF special ignored! warning may be related to the .cls using ps commands somewhere.
+\documentclass[webpdf,PV,mynatbib,surname,CE,MSC]{SYS-PV}
+% when compiling use option: -include-directory=Sys.Bio.LaTeX
+
+
+%%%%%%%%%%%BEGIN SYS BIO COMMANDS %%%%%%%%%%%%
+\PVskip=-30.5pt
+
+\titleskip=50pt
+
+\volname{}
+
+\jvolume{00}
+
+\jshort{syv}
+
+\jvol{}
+
+\jissue{0}
+
+\access{Advance Access publication Xxx XX, XXXX}
+
+\def\querybox#1{\protect\fboxsep=0pt\colorbox{yellow}{#1}}
+
+\cename{XX}
+
+\mstype{Systematics}
+
+\pubyear{2017}
+
+\copyyear{2017}
+
+\artid{xxx}
+
+\renewcommand\theequation{\arabic{equation}}
+\setcounter{secnumdepth}{0}
+%%%%%%%%%%%END SYS BIO COMMANDS %%%%%%%%%%%%
 
 \usepackage{fullpage}
-\usepackage[doublespacing]{setspace}
+%\usepackage[doublespacing]{setspace}
 \usepackage{amsmath, amssymb,amsfonts}
 \usepackage[small]{caption}
 \usepackage{graphicx}
@@ -108,18 +145,43 @@
 \newcommand{\gp}{\ensuremath{{G_p}}\xspace}
 \DeclareMathOperator{\Var}{Var}
 
-\title{Population Genetics Based Phylogenetics Under Stabilizing Selection for an Optimal Amino Acid Sequence: A Nested Modeling Approach
+\title{
 } \date{Last compiled on \today\xspace at \currenttime.}
+
 \begin{document}
-\maketitle
+\title[BEAULIEU ET AL.--- Pop. Gen. Based Phylo.]{Population Genetics Based Phylogenetics Under Stabilizing Selection for an Optimal Amino Acid Sequence: A Nested Modeling Approach}
 
+\author[]{J\textsc{EREMY} M.~\surname{B\textsc{EAULIEU}}$^{1,2,3}$,
+J\textsc{UAN JUAN} \surname{C\textsc{HAI}}$^{2,4}$, %Now CROSSKEY ?
+C\textsc{EDRIC} \surname{L\textsc{ANDER}}$^{2,3}$, 
+R\textsc{USSELL} \surname{Z\textsc{ARETZKI}}$^{5}$, 
+B\textsc{RIAN} C.~\surname{O'\textsc{MEARA}}$^{2,3}$, 
+\textsc{AND}
+M\textsc{ICHAEL} A.~\surname{G\textsc{ILCHRIST}}$^{2,3\ast}$}
 
-\section*{Abstract}
+\address{$^1$Department of Biological Sciences, University of Arkansas, Fayetteville, AR 72701
+$^{2}$Department of Ecology \& Evolutionary Biology, University of Tennessee, Knoxville, TN 37996-1610
+$^{3}$National Institute for Mathematical and Biological Synthesis, Knoxville, TN 37996-3410
+$^{4}$JJ's Address
+$^{5}$Department of Business Analytics \& Statistics, Knoxville, TN ~ 37996-0532 
+$^{\ast}$Correspondence to be sent to: Michael A. Gilchrist, 569 Dabney Hall, University of Tennessee, Knoxville TN 37996-1610\\
+E-mail:~mikeg@utk.edu
+}
+
+\history{Received 00 Xxxxxx 0000; reviews returned 00 Xxxxx 0000;
+accepted 00 Xxxxx 0000}
+
+\editor{Associate Editor: Xxxxx Xxxx}
+
+\abstract{
 We present a phylogenetic approach rooted in the field of population genetics that more realistically models the evolution of protein-coding DNA under the assumption of stabilizing selection for a gene specific optimal amino acid sequence.
 The new set of models, which we collectively call SelAC models, fit phylogenetic data substantially better than popular models, suggesting strong potential for more accurate inference of phylogenetic trees and branch lengths.
 Moreover, these models allow inference of population genetics parameters from data used for interspecific phylogenies.
+}
 
-\section*{Introduction}
+\maketitle 
+
+%\section*{Introduction}
 Phylogenetic analysis now plays a critical role in most aspects of biology, particularly in the fields of ecology, evolution, paleontology, medicine, and conservation.
 While the scale and impact of phylogenetic studies has increased substantially over the past two decades, by comparison the realism of the mathematical models on which these analyses are based has changed relatively little.
 For example, the simplest but most popular models are agnostic with regards to the different amino acid substitutions and their impact on gene function (e.g.~F81, F84, HYK85, TN93, and GTR, see \citet{Yang2014} for an overview).
@@ -345,7 +407,7 @@ Specifically, we obtained expression data for five of the six species used - fou
 Gene expression was measured using either Microarray chips (\emph{C. glabrata}, \emph{S. castellii}, and \emph{S. kudriavzevii}) or RNA-Seq (\emph{S. paradoxus}, \emph{S. mikatae}, and \emph{S. cerevisiae}).
 For further comparison, we also predicted protein synthesis rate ($\phi$) by analyzing genome-wide codon usage patterns using ROC SEMPER (\citet{GilchristEtAl2015}) for each individual genome.
 The ROC SEMPER model incorporates synonymous codon usage, but does not account for shared ancestry.
-Nevertheless, ROC SEMPER correlates strongly the measurements of gene expression experiments (\citet{GilchirstEtAl2015}).
+Nevertheless, ROC SEMPER correlates strongly the measurements of gene expression experiments (\citet{GilchristEtAl2015}).
 
 While one of our main objectives was to determine the improvement of fit that \selac has with respect to other standard phylogenetic models, we also evaluated the adequacy of \selac.
 Model fit, measured with assessments such as the Akaike information criterion, can tell which model is least bad as an approximation for the data, but it does not reveal whether a model is actually doing a good job of representing the biological processes.
@@ -503,9 +565,9 @@ Thus for high expression genes, slight changes in functionality can still lead t
 
 
 
+%\bibliographystyle{./sysbio}
 \bibliographystyle{./am.nat}
-\bibliography{./mike}
-\bibliography{./omeara}
+\bibliography{./mike,./omeara}
 
 
 \clearpage
