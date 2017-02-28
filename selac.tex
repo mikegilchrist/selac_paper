@@ -152,7 +152,7 @@
 \title[BEAULIEU ET AL.--- Pop. Gen. Based Phylo.]{Population Genetics Based Phylogenetics Under Stabilizing Selection for an Optimal Amino Acid Sequence: A Nested Modeling Approach}
 
 \author[]{J\textsc{EREMY} M.~\surname{B\textsc{EAULIEU}}$^{1,2,3}$,
-J\textsc{UAN JUAN} \surname{C\textsc{HAI}}$^{2,4}$, %Now CROSSKEY ?
+J\textsc{UAN JUAN} \surname{C\textsc{ROSSKEY}}$^{2,4}$, 
 C\textsc{EDRIC} \surname{L\textsc{ANDER}}$^{2,3}$, 
 R\textsc{USSELL} \surname{Z\textsc{ARETZKI}}$^{5}$, 
 B\textsc{RIAN} C.~\surname{O'\textsc{MEARA}}$^{2,3}$, 
@@ -283,8 +283,6 @@ Thus for simplicity, in this study we ignore any indirect costs of protein assem
   &= A_1 + A_2 n
 \end{align}
 where, $A_1$ and $A_2$ represent the direct cost, in high energy phosphate bonds, of ribosome initiation and peptide elongation, respectively, where $A_1 = A_2 = 4  \, \simP$.
-%\footnote{mikeg: Jeremy, can we let $A_1$ vary as a factor of $A_2$ and then refit the model?.
-%Answer: leave for later.}
 
 
 \paragraph*{Defining Physicochemical Distances}
@@ -308,9 +306,6 @@ By definition, the optimal amino acid sequence for a given gene, \aoptvec, produ
 Second, we assume that protein expression is regulated by the organism to ensure that functionality is produced at rate $\psi$.
 As a result, the realized average protein synthesis rate of a gene, $\phi$, is equal to $\psi/\Func(\avec)$ and the total energy flux allocated towards meeting the target functionality of a particular gene is $\eta(\cvec) \psi$.
 As we shall show below, the fitness cost for a genotype encoding a suboptimal protein sequence stems from the need to produce $1/\Func(\avec)$ proteins in order to produce the equivalent functionality of one protein consisting of the optimal amino acid sequence \aopt.
-%Two additional key assumption of \selac is that (a) the organism has an average target synthesis rate $\psi$ for the functionality provided by each protein and (b) that protein synthesis is under some form of  regulatory control such that the this average functionality production target is met.
-%As a result, the relative rate of protein synthesis increases as the sequence's functionality declines due to deviation from the optimal sequence.
-%This behavior, in turn, means that the energetic cost of protein synthesis for an allele deviating from the optimal sequence increases with the target synthesis rate $\psi$.
 For example, a protein encoding allele which has a 10\% reduction in functionality relative to the optimal sequence, i.e.~$\Func(\avec) = 0.9$, will have the same energetic burden and selective cost relative to its optimal sequence as a protein encoding allele of similar length which has a 20\% reduction in functionality but whose target synthesis rate is 1/2 of the first protein.
 
 
@@ -362,7 +357,7 @@ Because $A_0$ and $\psi_g$ always co-occur and are scaled by \Ne, for each gene 
 When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using the generalized Laguerre quadrature with $k = 4$ points \citep{Felsenstein2001}.
 
 \subsection*{Implementation}
-All methods described above are implemented in the new R package, \texttt{selac} available through CRAN (\url{http://cran.us.r-project.org}).
+All methods described above are implemented in the new R package, \texttt{selac} available through GitHub (\url{https://github.com/bomeara/selac}) [it will be uploaded to CRAN once peer review has completed].
 Our package requires as input a set of fasta files that contain each coding sequence for a set of taxa, and the phylogeny depicting the hypothesized relationships among them.
 In addition to the SelAC models, we implemented the GY94 codon model of \citet{GoldmanAndYang1994}, the FMutSel0 mutation-selection model of \citet{YangAndNielsen2008}, and the standard general-time reversible nucleotide model that allows for $\Gamma$ distributed rates across sites.
 These likelihood-based models represent a sample of the types of popular models often fit to codon data.
@@ -515,53 +510,6 @@ This would have the practical advantage of continuous parameter optimization rat
 Overall, \selac represents a step in uniting phylogenetic and population genetic models.
 It allows biologically relevant population genetic parameters to be estimated from phylogenetic information, while also dramatically improving fit and accuracy of phylogenetic models.
 Moreover, it demonstrates that there remains substantially more information in the coding sequences used for phylogenetic analysis than other methods acknowledge.
-
-
-
-
-
-%  To allow for changes to the optimal amino acid across all branches makes the model non-time reversible.
-%  While such behavior might be desirable to modle the effect of a particular widespread environmental change, incorporating such behavior in a general manner would introduce a whole new set of challenges.
-
-
-
-Additional advantages
-\begin{enumerate}
-%\item More realistic behavior over time: Model adequacy (Figure \ref{fig:modelAdequacy} )
-%\item Improved fit (Table \ref{table:modelFits})
-\item Improved estimates of branch lengths and mutation: A better model gives you a better answer \ref{fig:mleTrees}
-\item Better biological interpretation and more biological information.
-\item Likelihood based estimate ancestor state rather consensus assumption.
-\item Approach can even be expanded to other types of sequence data in which selection can be reasonably modeled, e.g.~UCEs.
-\item Allows us to describe evolutionary process using our inferred fitness landscapes (Figures \ref{fig:fitnessLandscape}-\ref{fig:mutationFitnessEffects}.
-Nevertheless, the idea that the strength of stabilizing selection and gene expression are positively correlated is well supported by other researchers \citep[e.g.~][]{DrummondEtAl2005} and 
-\begin{itemize}
-\item Second, it demonstrates how selection can be modeled as the product of two separate components.
-  Here we use gene expression $\psi$ and protein function \Func, but more complex models could clearly be used.  
-\item Extensible to other researchers approaches that use structural and folding  information.
-\item Computationally expensive to fit model.
-\item Estimating uncertainty is also expensive (though should be parallelizable further than fitting).
-\end{itemize}
-\item \selac implicitly assumes that all genes are essential because an organism that is homozygous for null alleles with zero activity (i.e.~no benefit) would have to spend an infinite amount of energy to achive a target functionality synthesis rate $\psi > 0$.
-  The only way to generate such null alleles is through the evolution of a premature stop codon which, given this model behavior, can never go to fixation.
-  Two ways this assumption of essentiality could be relaxed are by making fitness $W$ a function of $\psi$ such that  $W(\psi = 0) > 0$ or by incorporating functional overlap between proteins into our calculations.
-While \selac assumes that functionality declines with physicochemical distance from the optimum amino acid, as it stands this decline is less dramatic than one might intuitively expect.
-For example, for the yeast dataset, the average taxon has a functionality of \_\_\_\_\_\_\_\_\_\_ under our framework, while a random sequence has an average functionality of \_\_\_\_\_\_, rather than values close to zero as one would expect.
-Thus, while our assumption of about the link between functionality and physicochemical distance may be reasonable for sequences close to the optimum sequence \aoptvec, it clearly fails for protein sequences far from the optimum.
-\footnote{mikeg: Two thoughts.
-One, because we are integrating over G rather than using the MLE estimate in this calculation, I'm wondering if we are substantially under estimating the effect of a few sites with high senstivities would have on protein function.
-If it is not hard to do, we could evaluate the model at the MLE parameters and then find the optimal G for each position.
-Two, if the true values of G follow a heavy tailed distribution, it may make more sense to try and model G using an inverse-gamma distribution.
-}
-This implies that the difference in expression between a random sequence and the observed sequence would only be on the order of  \_\_\_\_\_-fold.
-It is important to note that the this does not mean that selection is ineffective in our model.
-The log of the selection coefficient between two alleles depends on both their functionality and the gene's target expression level $\psi$.
-Thus for high expression genes, slight changes in functionality can still lead to large differences in fitnesses between alleles.
-  % \item Time reversibility
-\item Not currently integrated with other approaches
-\item Issues with discreteness of amino acids
-\end{enumerate}
-
 
 
 %\bibliographystyle{./sysbio}
@@ -725,40 +673,3 @@ Future work will address this issue.
 \end{document}
 
 
-
-
-
-
-\item For many years evolutionary biologists have been interested in what the distribution of fitness effects looks like for \emph{de novo} mutations.
-In all such calculations, there are always numerous caveats that accompany any conclusions.
-As we show below, the results of our analysis can be used for this purpose and, in doing so, force us to clearly articulate what we mean by `average fitness effect'
-In its most general form, the probability of a mutation having a particular fitness effect depends on numerous factors including, the current degree of adaptation of the gene, its expression level, and the probability of each alternative type of mutation.
-Let $p(W_m/W_r| a, \aopt, \psi, n, \muvec, \phi)$ be the probability a single point mutation will
-
-
-
-
-\section*{Additional Points That Need to Be Mentioned}
-\begin{itemize}
-\item Nested model of selection
-      \begin{enumerate}
-      \item Distance function $d(a_i, \aopt)$: If $n_d$ is the number of physicochemical properties examined, the number of parameters estimated is $n_d - 1$
-      \item Benefit function $\Func$: A single $\alpha_G$, an optimal amino acid for each site, and an ancestral amino acid state for each site.
-      \item Gene expression $\psi$: One $\psi$ for each gene analyzed.
-      \item Mutation bias: Depending on the choice of mutation model, from 1 to 8 global parameters
-      \end{enumerate}
-
-\item Instead of focusing on detecting evidence for adaptation, \selac focuses on quantifying the strength of selection behind any adaptive (or non-adaptive) changes.
-\item We are estimating a physicochemical based fitness landscape using sequences at the tip of a tree.
-\item In this study we develop a model where the substitution rate of an allele is based on the substitution probability of an allele under selection, mutation bias, and genetic drift, per standard models of population genetics.
-\item In developing \selac, we assume that for each protein coding gene there is a single amino acid sequence which executes its intended function better than any other sequence, i.e. is optimal.
-\item We assume the strength of selection for the optimal sequence increases with the target synthesis rate of the functionality the gene provides.
-That is genes with higher target expression levels are under stronger selection than genes with lower target expression levels.
-\item We also assume that the functionality of other amino acid sequences declines as the physicochemical properties of the sequence deviates from that of the optimal sequence.
-\item Because we assume that a protein's functionality is a declining function of the product of the physicochemical distances of each of the protein's amino acid from the optimal, we can treat the evolution at each amino acid position in a site independent manner.
-An approach which is almost universally used in other phylogenetic models.
-\item In its current formulation, \selac is only applicable to protein coding sequences.
-However, it should be applicable to non-coding sequences so long as one has a mapping function between gene sequence and gene function.
-
-
-\end{itemize}
