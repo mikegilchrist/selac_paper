@@ -407,7 +407,7 @@ Specifically, we obtained expression data for five of the six species used - fou
 Gene expression was measured using either Microarray chips (\emph{C. glabrata}, \emph{S. castellii}, and \emph{S. kudriavzevii}) or RNA-Seq (\emph{S. paradoxus}, \emph{S. mikatae}, and \emph{S. cerevisiae}).
 For further comparison, we also predicted protein synthesis rate ($\phi$) by analyzing gene and genome-wide patterns of synonymous codon usage using ROC SEMPPR (\citet{GilchristEtAl2015}) for each individual genome.
 While, like \selac, ROC-SEMPPR uses codon level information, it does not rely on any inter-specific comparisons and, unlike selac, assumes selection on synonymous codon usage is contributing to these patterns.
-Nevertheless, ROC SEMPPR predictions of gene expression $\phi$ correlates strongly ($\rho 0.6-0.7$) with experimental measurements of gene expression \citet{GilchristEtAl2015}.
+Nevertheless, ROC SEMPPR predictions of gene expression $\phi$ correlates strongly ($\r = 0.6-0.7$) with experimental measurements of gene expression \citet{GilchristEtAl2015}.
 
 While one of our main objectives was to determine the improvement of fit that \selac has with respect to other standard phylogenetic models, we also evaluated the adequacy of \selac.
 Model fit, measured with assessments such as the Akaike Information Criterion, can tell which model is least bad as an approximation for the data, but it does not reveal whether a model is actually doing a good job of representing the biological processes.
@@ -473,7 +473,7 @@ By assuming fitness declines with extraneous energy flux, \selac explicitly link
 Furthermore, by linking expression and selection, \selac provides a natural framework for combining information from protein coding genes with very different rates of evolution with the low expression genes providing information on shallow branches and the high expression genes providing information on deep branches.
 This is in contrast to more traditional approach of concatenating gene sequences together, which is equivalent to assuming the same average protein synthesis rate $\psi$ for all of the genes, or more recent approaches where different models are fitted to different genes.
 Our results indicate that including a gene specific $\psi$ value vastly improves \selac fits (Table \ref{table:modelFits}).
-Perhaps more convincingly, we find that the target expression level $\psi$ and realized protein synthesis rate $\phi$ are reasonably well correlated with laboratory measurements of gene expression ($\rho = 0.34-0.65$; Figure \ref{fig:phiComparisons}, Figure S1-S2)).
+Perhaps more convincingly, we find that the target expression level $\psi$ and realized protein synthesis rate $\phi$ are reasonably well correlated with laboratory measurements of gene expression ($\r = 0.34-0.65$; Figure \ref{fig:phiComparisons}, Figure S1-S2)).
 The idea that quantiative information on gene expression is embedded within intra-genomic patterns of synonymous codon usage is well accepted; our work shows that this information can also be extracted from comparative data at the amino acid level.
 
 Of course, given the general nature of \selac and the complexity of biological systems, other biological forces besides selection for reducing energy flux likely contribute intergenic variation in the magnitude of stabilizing selection.
