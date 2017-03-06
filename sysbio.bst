@@ -51,8 +51,6 @@
  %   \citeyear{key} ==>>             1990
  %---------------------------------------------------------------------
 
-
-
 ENTRY
   { address
     annote
@@ -521,7 +519,7 @@ FUNCTION {format.note}
 FUNCTION {format.title}
 { title
   duplicate$ empty$ 'skip$
-    { "t" change.case$ }
+    { }%"t" %change.case$ } changed by Liwen Zou
   if$
   "title" bibinfo.check
   duplicate$ empty$ 'skip$
