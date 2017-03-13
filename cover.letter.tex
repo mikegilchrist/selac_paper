@@ -1,0 +1,48 @@
+\documentclass[11pt,letterpaper]{letter}
+\usepackage{graphicx}
+\usepackage{ifthen}
+\usepackage{xspace}
+%\usepackage[in]{fullpage}
+\usepackage{/home/mikeg/LaTeX/letterbib}% Provides bibliography for letter
+\usepackage{/home/mikeg/LaTeX/letterparagraph}% Provides paragraph command for letter
+
+\newcommand{\usefullpage}{1} %switch for setting up letterhead correctly when using fullpage
+\newcommand{\printletterhead}{1} %switch for including utk letter head or not.
+\newcommand{\printsignature}{1} %switch for including scanned signature or not.
+\newcommand{\includeNIMBioSSig}{0} %include NIMBioS affliation in signature
+\newcommand{\includeDeptSig}{0} %include Dept. affliation in signature
+
+\input{/home/mikeg/LaTeX/utk.nimbios.letterhead.tex}
+
+\begin{document}
+
+\begin{letter}{
+\ \\
+Thomas J. Near\\
+Editor-in-Chief, Systematic Biology\\
+Department of Ecology and Evolutionary Biology\\
+Yale University\\
+New Haven, CT 06520 USA
+}
+
+
+\opening{Dear Tom}
+
+My colleagues and I are excited to submit our paper entitled “Population Genetics Based Phylogenetics Under Stabilizing Selection for an Optimal Amino Acid Sequence: A Nested Modeling Approach” for your consideration as a full research article in \emph{Systematic Biology}.
+
+We introduce a novel phylogenetic modelling framework that, unlike most work in this area, is firmly grounded in the realm of population genetics. 
+The new set of models, which we collectively call SelAC, provides biological realism when modelling the evolution of protein-coding DNA under the assumption of stabilizing selection for a gene specific optimal amino acid sequence. 
+When applied to the several yeast genomes, our model fits the phylogenetic data astronomically better than popular models and, using tests of model adequacy,  produces data sets that closely resemble the empirical data. 
+On the whole, this work illustrates the strong potential for more accurate inference of phylogenetic trees and branch lengths, as well as the it demonstrating that there remains substantially more information in the coding sequences used for phylogenetic analysis than other methods acknowledge.
+In addition, the nested nature of our approach makes the incorporation of additional biological processes and extensions straightforward. 
+
+We believe that Dr.~David Posada is the most appropriate Associate Editor for this paper. Drs.~Mark Holder and Matt Hahn would also be good choices. 
+We also suggest the following as possible reviewers: Drs.~Rori Rohlfs or Scott Roy (San Francisco State), Dr.~David Pollock (U.~Colorado Denver), Dr.~Douglas Theobald (Brandeis), Dr.~Richard Goldstein (University College London), and Dr.~Ziheng Yang (Imperial College).
+
+Thank you very much for your consideration, and we look forward to hearing from you.
+
+
+\closing{Sincerely,}
+\end{letter}
+\end{document}
+

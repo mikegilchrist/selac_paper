@@ -29,7 +29,6 @@
 \usepackage{fullpage}
 \usepackage{graphicx}
 \usepackage{hyperref}
-\usepackage{hyperref}
 \usepackage{ifthen}
 \usepackage{indentfirst}
 \usepackage{latexsym}
@@ -201,24 +200,52 @@
 \date{Last compiled on \today\xspace at \currenttime.}
 
 \begin{document}
-\title[BEAULIEU ET AL.--- Pop. Gen. Based Phylo.]{Population Genetics Based Phylogenetics Under Stabilizing Selection for an Optimal Amino Acid Sequence: A Nested Modeling Approach}
+\noindent RH: BEAULIEU ET AL.--- Pop. Gen. Based Phylo.
+% put in your own RH (running head)
+% for POVs the RH is always POINT OF VIEW
 
-\author[]{J\textsc{EREMY} M.~{B\textsc{EAULIEU}}$^{1,2,3}$,
-J\textsc{UAN JUAN} {C\textsc{ROSSKEY}}$^{2,4}$
+\bigskip
+\medskip
+\begin{center}
+
+% Insert your title:
+\noindent{\Large \bf Population Genetics Based Phylogenetics Under Stabilizing Selection for an Optimal Amino Acid Sequence: A Nested Modeling Approach }
+\bigskip
+
+% We don't use a special title page; the author information is entered 
+% like any other text.
+
+% FOOTNOTES: We don't allow them in the manuscript, except in
+% tables. Don't include any footnotes in the text.
+
+
+\noindent{J\textsc{EREMY} M.~{B\textsc{EAULIEU}}$^{1,2,3}$,
+J\textsc{UAN JUAN} {C\textsc{HAI}}$^{2,4}$
 C\textsc{EDRIC} {L\textsc{ANDER}}$^{2,3}$, 
 R\textsc{USSELL} {Z\textsc{ARETZKI}}$^{5}$, 
 B\textsc{RIAN} C.~{O'\textsc{MEARA}}$^{2,3}$, 
 \textsc{AND}
-M\textsc{ICHAEL} A.~{G\textsc{ILCHRIST}}$^{2,3\ast}$}
+M\textsc{ICHAEL} A.~{G\textsc{ILCHRIST}}$^{2,3,*}$}
 
-\noindent {\small $^1$Department of Biological Sciences, University of Arkansas, Fayetteville, AR 72701
-$^{2}$Department of Ecology \& Evolutionary Biology, University of Tennessee, Knoxville, TN 37996-1610
-$^{3}$National Institute for Mathematical and Biological Synthesis, Knoxville, TN 37996-3410
-$^{4}$JJ's Address
-$^{5}$Department of Business Analytics \& Statistics, Knoxville, TN ~ 37996-0532 
-$^{\ast}$Correspondence to be sent to: Michael A. Gilchrist, 569 Dabney Hall, University of Tennessee, Knoxville TN 37996-1610\\
-E-mail:~mikeg@utk.edu
+\end{center}
+
+\vfill
+
+{\small 
+\noindent$^1$Department of Biological Sciences, University of Arkansas, Fayetteville, AR 72701\\
+\noindent$^{2}$Department of Ecology \& Evolutionary Biology, University of Tennessee, Knoxville, TN 37996-1610\\
+\noindent$^{3}$National Institute for Mathematical and Biological Synthesis, Knoxville, TN 37996-3410\\
+\noindent$^{4}$Current address: 50 Main St, Suite 1039, White Plains, NY 10606\\
+\noindent$^{5}$Department of Business Analytics \& Statistics, Knoxville, TN ~ 37996-0532 \\
+\noindent$^{*}$Corresponding author. E-mail:~mikeg@utk.edu
 }
+
+\vfill
+\centerline{Version dated: \today}
+\vfill
+
+%\pagebreak
+
 
 %%FROM SB_.. .tex file
 %\begin{flushright}
@@ -236,14 +263,22 @@ E-mail:~mikeg@utk.edu
 
 %\history{Compiled \today; Submitted DAY-March-2017}
 
+%\maketitle 
 
-\abstract{
-We present a phylogenetic approach rooted in the field of population genetics that more realistically models the evolution of protein-coding DNA under the assumption of stabilizing selection for a gene specific optimal amino acid sequence.
-The new set of models, which we collectively call SelAC models, fit phylogenetic data substantially better than popular models, suggesting strong potential for more accurate inference of phylogenetic trees and branch lengths.
-Moreover, these models allow inference of population genetics parameters from data used for interspecific phylogenies.
-}
+\newpage
 
-\maketitle 
+\section{Abstract}
+We present a phylogenetic approach rooted in the field of population genetics that more realistically models the evolution of protein-coding DNA under the assumption of stabilizing selection for a gene specific, optimal amino acid sequence.
+In addition to being consistent with the fundamental principles of population genetics,  our new set of models, which we collectively call SelAC, fit phylogenetic data astronomically better than popular models, suggesting strong potential for more accurate inference of phylogenetic trees and branch lengths.
+SelAC also demonstrates that a large amount of biologically meaningful information is accessible when using a nested set of mechanistic models.
+For example, for each position SelAC provides a probabilistic estimate of any given amino acid being optimal.
+Because SelAC assumes the strength of selection is proportional to the expression level of a gene, SelAC provides gene specific estimates of protein synthesis rates.
+Finally, because SelAC's is a nested approach based on clearly stated biological assumptions, it can be expanded or simplified as needed.
+
+\newpage
+
+
+
 
 %\section{Introduction}
 Phylogenetic analysis now plays a critical role in most aspects of biology, particularly in the fields of ecology, evolution, paleontology, medicine, and conservation.
