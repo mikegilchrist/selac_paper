@@ -1,215 +1,273 @@
-\begin{thebibliography}{35}
-\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\begin{thebibliography}{45}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\selectlanguage}[1]{\relax}
+\providecommand{\bibAnnoteFile}[1]{%
+  \IfFileExists{#1}{\begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ \input{#1}\end{quotation}}{}}
+\providecommand{\bibAnnote}[2]{%
+  \begin{quotation}\noindent\textsc{Key:} #1\\
+  \textsc{Annotation:}\ #2\end{quotation}}
+
+\bibitem[{Beaulieu et~al.(2013)Beaulieu, O'Meara, and
+  Donoghue}]{BeaulieuEtAl2013}
+Beaulieu, J.~M., B.~C. O'Meara, and M.~J. Donoghue. 2013. Identifying Hidden
+  Rate Changes in the Evolution of a Binary Morphological Character: The
+  Evolution of Plant Habit in Campanulid Angiosperms. Systematic Biology
+  62:725--737.
+\bibAnnoteFile{BeaulieuEtAl2013}
+
+\bibitem[{Beaulieu and O’Meara(2016)}]{BeaulieuAndOMeara2016}
+Beaulieu, J.~M. and B.~C. O’Meara. 2016. Detecting Hidden Diversification
+  Shifts in Models of Trait-Dependent Speciation and Extinction. Systematic
+  Biology 65:583--601.
+\bibAnnoteFile{BeaulieuAndOMeara2016}
 
 \bibitem[{Berg and L\"assig(2003)}]{BergAndLassig2003}
-Berg, J. and M.~L\"assig. 2003.
-\newblock Stochastic evolution and transcription factor binding sites.
-\newblock Biophysics 48:S36--S44.
+Berg, J. and M.~L\"assig. 2003. Stochastic Evolution and Transcription Factor
+  Binding Sites. Biophysics 48:S36--S44.
+\bibAnnoteFile{BergAndLassig2003}
 
 \bibitem[{Dimmic et~al.(2000)Dimmic, Mindell, and Goldstein}]{DimmicEtAl2000}
-Dimmic, M.~W., D.~P. Mindell, and R.~A. Goldstein. 2000.
-\newblock Modeling evolution at the protein level using an adjustable amino
-  acid fitness model.
-\newblock Pacific Symposium on Biocomputing 5:18--29.
+Dimmic, M.~W., D.~P. Mindell, and R.~A. Goldstein. 2000. Modeling evolution at
+  the protein level using an adjustable amino acid fitness model. Pacific
+  Symposium on Biocomputing 5:18--29.
+\bibAnnoteFile{DimmicEtAl2000}
 
-\bibitem[{Drummond et~al.(2005)Drummond, Bloom, Adami, Wilke, and
-  Arnold}]{DrummondEtAl2005}
-Drummond, D.~A., J.~D. Bloom, C.~Adami, C.~O. Wilke, and F.~H. Arnold. 2005.
-\newblock Why highly expressed proteins evolve slowly.
-\newblock Proceedings of the National Academy of Sciences of the United States
-  of America 102:14338--14343.
+\bibitem[{Edwards(1984)}]{edwards1984likelihood}
+Edwards, A. 1984. Likelihood. Cambridge science classics Cambridge University
+  Press.
+\bibAnnoteFile{edwards1984likelihood}
+
+\bibitem[{Felsenstein(1981)}]{Felsenstein1981}
+Felsenstein, J. 1981. Evolutionary trees from {DNA}-sequences - a
+  maximum-likelihood approach. Journal of Molecular Evolution 17:368--376.
+\bibAnnoteFile{Felsenstein1981}
 
 \bibitem[{Felsenstein(2001)}]{Felsenstein2001}
-Felsenstein, J. 2001.
-\newblock Taking variation of evolutionary rates between sites into account in
-  inferring phylogenies.
-\newblock Journal of Molecular Evolution 53:447--455.
+Felsenstein, J. 2001. Taking Variation of Evolutionary Rates Between Sites into
+  Account in Inferring Phylogenies. Journal of Molecular Evolution 53:447--455.
+\bibAnnoteFile{Felsenstein2001}
 
 \bibitem[{Fisher(1930)}]{Fisher1930}
-Fisher, S., Ronald~A. 1930.
-\newblock The Genetical Theory of Natural Selection.
-\newblock Oxford University Press, Oxford.
+Fisher, S., Ronald~A. 1930. The Genetical Theory of Natural Selection. Oxford
+  University Press, Oxford.
+\bibAnnoteFile{Fisher1930}
 
 \bibitem[{Gilchrist(2007)}]{Gilchrist2007}
-Gilchrist, M.~A. 2007.
-\newblock Combining models of protein translation and population genetics to
-  predict protein production rates from codon usage patterns.
-\newblock Molecular Biology and Evolution 24:2362--2373.
+Gilchrist, M.~A. 2007. Combining Models of Protein Translation and Population
+  Genetics to Predict Protein Production Rates from Codon Usage Patterns.
+  Molecular Biology and Evolution 24:2362--2373.
+\bibAnnoteFile{Gilchrist2007}
 
 \bibitem[{Gilchrist et~al.(2015)Gilchrist, Chen, Shah, Landerer, and
   Zaretzki}]{GilchristEtAl2015}
 Gilchrist, M.~A., W.-C. Chen, P.~Shah, C.~L. Landerer, and R.~Zaretzki. 2015.
-\newblock Estimating gene expression and codon-specific translational
-  efficiencies, mutation biases, and selection coefficients from genomic data
-  alone.
-\newblock Genome Biology and Evolution 7:1559--1579.
+  Estimating Gene Expression and Codon-Specific Translational Efficiencies,
+  Mutation Biases, and Selection Coefficients from Genomic Data Alone. Genome
+  Biology and Evolution 7:1559--1579.
+\bibAnnoteFile{GilchristEtAl2015}
 
-\bibitem[{Gilchrist and Wagner(2006)}]{GilchristAndWagner2006}
-Gilchrist, M.~A. and A.~Wagner. 2006.
-\newblock A model of protein translation including codon bias, nonsense errors,
-  and ribosome recycling.
-\newblock Journal of Theoretical Biology 239:417--434.
+\bibitem[{Goldman(1993)}]{goldman1993statistical}
+Goldman, N. 1993. Statistical tests of models of DNA substitution. Journal of
+  molecular evolution 36:182--198.
+\bibAnnoteFile{goldman1993statistical}
 
 \bibitem[{Goldman et~al.(1996)Goldman, Thorne, and Jones}]{GoldmanEtAl1996}
-Goldman, N., J.~L. Thorne, and D.~T. Jones. 1996.
-\newblock Using evolutionary trees in protein secondary structure prediction
-  and other comparative sequence analyses.
-\newblock Journal of Molecular Biology 263:196 -- 208.
+Goldman, N., J.~L. Thorne, and D.~T. Jones. 1996. Using Evolutionary Trees in
+  Protein Secondary Structure Prediction and Other Comparative Sequence
+  Analyses. Journal of Molecular Biology 263:196 -- 208.
+\bibAnnoteFile{GoldmanEtAl1996}
 
 \bibitem[{Goldman et~al.(1998)Goldman, Thorne, and Jones}]{GoldmanEtAl1998}
-Goldman, N., J.~L. Thorne, and D.~T. Jones. 1998.
-\newblock Assessing the impact of secondary structure and solvent accessibility
-  on protein evolution.
-\newblock Genetics 149:445--458.
+Goldman, N., J.~L. Thorne, and D.~T. Jones. 1998. Assessing the Impact of
+  Secondary Structure and Solvent Accessibility on Protein Evolution. Genetics
+  149:445--458.
+\bibAnnoteFile{GoldmanEtAl1998}
 
 \bibitem[{Goldman and Yang(1994)}]{GoldmanAndYang1994}
-Goldman, N. and Z.~H. Yang. 1994.
-\newblock Codon-based model of nucleotide substitution for protein-coding
-  {{DNA}}-sequences.
-\newblock Molecular Biology and Evolution 11:725--736.
+Goldman, N. and Z.~H. Yang. 1994. Codon-based model of nucleotide substitution
+  for protein-coding {{DNA}}-sequences. Molecular Biology and Evolution
+  11:725--736.
+\bibAnnoteFile{GoldmanAndYang1994}
 
 \bibitem[{Grantham(1974)}]{Grantham1974}
-Grantham, R. 1974.
-\newblock Amino acid difference formula to help explain protein evolution.
-\newblock Science 185:862--864.
+Grantham, R. 1974. Amino acid difference formula to help explain protein
+  evolution. Science 185:862--864.
+\bibAnnoteFile{Grantham1974}
 
 \bibitem[{Halpern and Bruno(1998)}]{HalpernAndBruno1998}
-Halpern, A.~L. and W.~J. Bruno. 1998.
-\newblock Evolutionary distances for protein-coding sequences: Modeling
-  site-specific residue frequencies.
-\newblock Molecular Biology And Evolution 15:910--917.
-
-\bibitem[{Holstege et~al.(1998)Holstege, Jennings, Wyrick, Lee, Hengartner,
-  Green, Golub, Lander, and Young}]{HolstegeEtAl1998}
-Holstege, F. C.~P., E.~G. Jennings, J.~J. Wyrick, T.~I. Lee, C.~J. Hengartner,
-  et~al. 1998.
-\newblock Dissecting the regulatory circuitry of a eukaryotic genome.
-\newblock Cell 95:717 -- 728.
+Halpern, A.~L. and W.~J. Bruno. 1998. Evolutionary distances for protein-coding
+  sequences: Modeling site-specific residue frequencies. Molecular Biology And
+  Evolution 15:910--917.
+\bibAnnoteFile{HalpernAndBruno1998}
 
 \bibitem[{Hughes and Nei(1988)}]{HughesAndNei1988}
-Hughes, A.~L. and M.~Nei. 1988.
-\newblock Pattern of nucleotide substitution at major histocompatibility
-  complex class-i loci reveals overdominant selection.
-\newblock Nature 335:167--170.
+Hughes, A.~L. and M.~Nei. 1988. Pattern of nucleotide substitution at major
+  histocompatibility complex class-i loci reveals overdominant selection.
+  Nature 335:167--170.
+\bibAnnoteFile{HughesAndNei1988}
 
-\bibitem[{Ingolia et~al.(2009)Ingolia, Ghaemmaghami, Newman, and
-  Weissman}]{IngoliaEtAl2009}
-Ingolia, N.~T., S.~Ghaemmaghami, J.~R.~S. Newman, and J.~S. Weissman. 2009.
-\newblock {Genome-Wide Analysis in Vivo of Translation with Nucleotide
-  Resolution Using Ribosome Profiling}.
-\newblock Science 324:218--223.
+\bibitem[{Höhna et~al.(2016)Höhna, Landis, Heath, Boussau, Lartillot, Moore,
+  Huelsenbeck, and Ronquist}]{revbayes}
+Höhna, S., M.~J. Landis, T.~A. Heath, B.~Boussau, N.~Lartillot, B.~R. Moore,
+  J.~P. Huelsenbeck, and F.~Ronquist. 2016. RevBayes: Bayesian Phylogenetic
+  Inference Using Graphical Models and an Interactive Model-Specification
+  Language. Systematic Biology 65:726.
+\bibAnnoteFile{revbayes}
 
 \bibitem[{Iwasa(1988)}]{Iwasa1988}
-Iwasa, Y. 1988.
-\newblock Free fitness that always increases in evolution.
-\newblock Journal of Theoretical Biology 135:265--281.
+Iwasa, Y. 1988. Free fitness that always increases in evolution. Journal of
+  Theoretical Biology 135:265--281.
+\bibAnnoteFile{Iwasa1988}
+
+\bibitem[{Johnson(2012)}]{Johnson2012}
+Johnson, S.~G. 2012. The NLopt nonlinear-optimization package. Version 2.4.2 --
+  Released 20 May 2014.
+\bibAnnoteFile{Johnson2012}
 
 \bibitem[{Kimura(1962)}]{Kimura1962}
-Kimura, M. 1962.
-\newblock on the probability of fixation of mutant genes in a population.
-\newblock Genetics 47:713--719.
+Kimura, M. 1962. on the probability of fixation of mutant genes in a
+  population. Genetics 47:713--719.
+\bibAnnoteFile{Kimura1962}
 
 \bibitem[{Koshi and Goldstein(1997)}]{KoshiAndGoldstein1997}
-Koshi, J.~M. and R.~A. Goldstein. 1997.
-\newblock Mutation matrices and physical-chemical properties: Correlations and
-  implications.
-\newblock Proteins-Structure Function And Genetics 27:336--344.
+Koshi, J.~M. and R.~A. Goldstein. 1997. Mutation matrices and physical-chemical
+  properties: Correlations and implications. Proteins-Structure Function And
+  Genetics 27:336--344.
+\bibAnnoteFile{KoshiAndGoldstein1997}
 
 \bibitem[{Koshi and Goldstein(2000)}]{KoshiAndGoldstein2001}
-Koshi, J.~M. and R.~A. Goldstein. 2000.
-\newblock Analyzing site heterogeneity during protein evolution.
-\newblock \emph{In} Biocomputing 2001. World Scientific, 191--202.
+Koshi, J.~M. and R.~A. Goldstein. 2000. Analyzing site heterogeneity during
+  protein evolution. Pages~191--202 \emph{in} Biocomputing 2001. World
+  Scientific.
+\bibAnnoteFile{KoshiAndGoldstein2001}
 
 \bibitem[{Koshi et~al.(1999)Koshi, Mindell, and Goldstein}]{KoshiEtAl1999}
-Koshi, J.~M., D.~P. Mindell, and R.~A. Goldstein. 1999.
-\newblock Using physical-chemistry-based substitution models in phylogenetic
-  analyses of hiv-1 subtypes.
-\newblock Molecular biology and evolution 16:173--179.
+Koshi, J.~M., D.~P. Mindell, and R.~A. Goldstein. 1999. Using
+  physical-chemistry-based substitution models in phylogenetic analyses of
+  HIV-1 subtypes. Molecular biology and evolution 16:173--179.
+\bibAnnoteFile{KoshiEtAl1999}
 
 \bibitem[{Lartillot and Philippe(2004)}]{LartillotAndPhilippe2004}
-Lartillot, N. and H.~Philippe. 2004.
-\newblock A bayesian mixture model for across-site heterogeneities in the
-  amino-acid replacement process.
-\newblock Molecular Biology And Evolution 21:1095--1109.
+Lartillot, N. and H.~Philippe. 2004. A Bayesian mixture model for across-site
+  heterogeneities in the amino-acid replacement process. Molecular Biology And
+  Evolution 21:1095--1109.
+\bibAnnoteFile{LartillotAndPhilippe2004}
+
+\bibitem[{Mayrose et~al.(2005)Mayrose, Friedman, and Pupko}]{MayroseEtAl2005}
+Mayrose, I., N.~Friedman, and T.~Pupko. 2005. A Gamma mixture model better
+  accounts for among site rate heterogeneity. Bioinformatics 21:ii151--ii158.
+\bibAnnoteFile{MayroseEtAl2005}
+
+\bibitem[{McCandlish and Stoltzfus(2014)}]{McCandlishAndStoltzfus2014}
+McCandlish, D.~M. and A.~Stoltzfus. 2014. Modeling evolution using the
+  probability of fixation: History and implications. The Quarterly Review of
+  Biology 89:225--252.
+\bibAnnoteFile{McCandlishAndStoltzfus2014}
 
 \bibitem[{Muse and Gaut(1994)}]{MuseAndGaut1994}
-Muse, S.~V. and B.~S. Gaut. 1994.
-\newblock A likelihood approach for comparing synonymous and nonsynonymous
-  nucleotide substitution rates, with application to the chloroplast genome.
-\newblock Molecular Biology and Evolution 11:715--724.
+Muse, S.~V. and B.~S. Gaut. 1994. A likelihood approach for comparing
+  synonymous and nonsynonymous nucleotide substitution rates, with application
+  to the chloroplast genome. Molecular Biology and Evolution 11:715--724.
+\bibAnnoteFile{MuseAndGaut1994}
 
 \bibitem[{Nowak(2006)}]{Nowak2006}
-Nowak, M.~A. 2006.
-\newblock Evolutionary Dynamics: Exploring the Equations of Life.
-\newblock Belknap of Harvard University Press, Cambridge, MA.
+Nowak, M.~A. 2006. Evolutionary Dynamics: Exploring the Equations of Life.
+  Belknap of Harvard University Press, Cambridge, MA.
+\bibAnnoteFile{Nowak2006}
 
 \bibitem[{Robinson et~al.(2003)Robinson, Jones, Kishino, Goldman, and
   Thorne}]{RobinsonEtAl2003}
 Robinson, D.~M., D.~T. Jones, H.~Kishino, N.~Goldman, and J.~L. Thorne. 2003.
-\newblock Protein evolution with dependence among codons due to tertiary
-  structure.
-\newblock Molecular Biology And Evolution 20:1692--1704.
+  Protein evolution with dependence among codons due to tertiary structure.
+  Molecular Biology And Evolution 20:1692--1704.
+\bibAnnoteFile{RobinsonEtAl2003}
 
 \bibitem[{Rodrigue and Lartillot(2014)}]{RodrigueAndLartillot2014}
-Rodrigue, N. and N.~Lartillot. 2014.
-\newblock Site-heterogeneous mutation-selection models within the
-  phylobayes-mpi package.
-\newblock Bioinformatics 30:1020--1021.
+Rodrigue, N. and N.~Lartillot. 2014. Site-heterogeneous mutation-selection
+  models within the PhyloBayes-MPI package. Bioinformatics 30:1020--1021.
+\bibAnnoteFile{RodrigueAndLartillot2014}
 
 \bibitem[{Rodrigue et~al.(2005)Rodrigue, Lartillot, Bryant, and
   Philippe}]{RodrigueEtAl2005}
-Rodrigue, N., N.~Lartillot, D.~Bryant, and H.~Philippe. 2005.
-\newblock Site interdependence attributed to tertiary structure in amino acid
-  sequence evolution.
-\newblock Gene 347:207--217.
+Rodrigue, N., N.~Lartillot, D.~Bryant, and H.~Philippe. 2005. Site
+  interdependence attributed to tertiary structure in amino acid sequence
+  evolution. Gene 347:207--217.
+\bibAnnoteFile{RodrigueEtAl2005}
+
+\bibitem[{Rokas et~al.(2003)Rokas, Williams, King, and Carroll}]{RokasEtAl2003}
+Rokas, A., B.~L. Williams, N.~King, and S.~B. Carroll. 2003. Genome-scale
+  approaches to resolving incongruence in molecular phylogenies. Nature
+  425:798--804.
+\bibAnnoteFile{RokasEtAl2003}
+
+\bibitem[{Rowan(1990)}]{Rowan1990}
+Rowan, T. 1990. Functional Stability Analysis of Numerical Algorithms. Ph.D.
+  thesis University of Texas, Austin.
+\bibAnnoteFile{Rowan1990}
+
+\bibitem[{Salichos and Rokas(2013)}]{SalichosAndRokas2013}
+Salichos, L. and A.~Rokas. 2013. Inferring ancient divergences requires genes
+  with strong phylogenetic signals. Nature 497:327--331.
+\bibAnnoteFile{SalichosAndRokas2013}
 
 \bibitem[{Sella and Hirsh(2005)}]{SellaAndHirsh2005}
-Sella, G. and A.~E. Hirsh. 2005.
-\newblock The application of statistical physics to evolutionary biology.
-\newblock Proceedings of the National Academy of Sciences of the United States
-  of America 102:9541--9546.
+Sella, G. and A.~E. Hirsh. 2005. The application of statistical physics to
+  evolutionary biology. Proceedings of the National Academy of Sciences of the
+  United States of America 102:9541--9546.
+\bibAnnoteFile{SellaAndHirsh2005}
 
 \bibitem[{Shah and Gilchrist(2011)}]{ShahAndGilchrist2011}
-Shah, P. and M.~A. Gilchrist. 2011.
-\newblock Explaining complex codon usage patterns with selection for
-  translational efficiency, mutation bias, and genetic drift.
-\newblock Proceedings of the National Academy of Sciences of the United States
+Shah, P. and M.~A. Gilchrist. 2011. Explaining complex codon usage patterns
+  with selection for translational efficiency, mutation bias, and genetic
+  drift. Proceedings of the National Academy of Sciences of the United States
   of America 108:10231--10236.
+\bibAnnoteFile{ShahAndGilchrist2011}
+
+\bibitem[{Stamatakis(2006)}]{Stamatakis2006}
+Stamatakis, A. 2006. {RAxML-VI-HPC}: maximum likelihood-based phylogenetic
+  analyses with thousands of taxa and mixed models. Bioinformatics
+  22:2688--2690.
+\bibAnnoteFile{Stamatakis2006}
 
 \bibitem[{Thorne et~al.(1996)Thorne, Goldman, and Jones}]{ThorneEtAl1996}
-Thorne, J.~L., N.~Goldman, and D.~T. Jones. 1996.
-\newblock Combining protein evolution and secondary structure.
-\newblock Molecular Biology and Evolution 13:666--673.
+Thorne, J.~L., N.~Goldman, and D.~T. Jones. 1996. Combining protein evolution
+  and secondary structure. Molecular Biology and Evolution 13:666--673.
+\bibAnnoteFile{ThorneEtAl1996}
 
 \bibitem[{Thorne et~al.(2012)Thorne, Lartillot, Rodrigue, and
   Choi}]{ThorneEtAl2012}
-Thorne, J.~L., N.~Lartillot, N.~Rodrigue, and S.~C. Choi. 2012.
-\newblock Codon models as a vehicle for reconciling population genetics with
-  inter-specific sequence data.
-\newblock Codon Evolution: Mechanisms And Models :97--110 D2
+Thorne, J.~L., N.~Lartillot, N.~Rodrigue, and S.~C. Choi. 2012. Codon models as
+  a vehicle for reconciling population genetics with inter-specific sequence
+  data. Codon Evolution: Mechanisms And Models Pages~97--110 D2
   10.1093/acprof:osobl/9780199601165.001.0001 ER.
+\bibAnnoteFile{ThorneEtAl2012}
 
 \bibitem[{Wright(1969)}]{Wright1969}
-Wright, S. 1969.
-\newblock Evolution and the genetics of populations. Vol. 2. The theory of gene
-  frequencies., vol.~2.
-\newblock University of Chicago Press.
+Wright, S. 1969. Evolution and the genetics of populations. Vol. 2. The theory
+  of gene frequencies. vol.~2. University of Chicago Press.
+\bibAnnoteFile{Wright1969}
 
 \bibitem[{Yang(2014)}]{Yang2014}
-Yang, Z. 2014.
-\newblock Molecular Evolution: A Statistical Approach.
-\newblock Oxford University Press, New York.
+Yang, Z. 2014. Molecular Evolution: A Statistical Approach. Oxford University
+  Press, New York.
+\bibAnnoteFile{Yang2014}
 
 \bibitem[{Yang(1994)}]{Yang1994}
-Yang, Z.~H. 1994.
-\newblock Maximum-likelihood phylogenetic estimation from {{DNA}}-sequences
-  with variable rates over sites - approximate methods.
-\newblock Journal Of Molecular Evolution 39:306--314.
+Yang, Z.~H. 1994. Maximum-likelihood phylogenetic estimation from
+  {{DNA}}-sequences with variable rates over sites - approximate methods.
+  Journal Of Molecular Evolution 39:306--314.
+\bibAnnoteFile{Yang1994}
+
+\bibitem[{Yang(2007)}]{Yang2007}
+Yang, Z.~H. 2007. PAML 4: Phylogenetic analysis by maximum likelihood.
+  Molecular Biology And Evolution 24:1586--1591.
+\bibAnnoteFile{Yang2007}
 
 \bibitem[{Yang and Nielsen(2008)}]{YangAndNielsen2008}
-Yang, Z.~H. and R.~Nielsen. 2008.
-\newblock Mutation-selection models of codon substitution and their use to
-  estimate selective strengths on codon usage.
-\newblock Molecular Biology and Evolution 25:568--579.
+Yang, Z.~H. and R.~Nielsen. 2008. Mutation-selection models of codon
+  substitution and their use to estimate selective strengths on codon usage.
+  Molecular Biology and Evolution 25:568--579.
+\bibAnnoteFile{YangAndNielsen2008}
 
 \end{thebibliography}
