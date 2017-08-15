@@ -636,11 +636,13 @@ JB was supported, in part, as a Postdoctoral Fellow at the National Institute fo
     \begin{tabular}{lrrrrl}
       &          &Parameters &          &        & Model\\
       Model                 	& logLik   & Estimated &     AIC& \DeltaAIC&  Weight\\\hline
-      GTR+$\Gamma$        		& -655166.4&        610& 1,311,553& 504,151&$<$0.001\\
-      GY94                  	& -612121.5&        210& 1,224,663& 417,261&$<$0.001\\
-      FMutSel0              		& -598848.2&       2810& 1,203,316& 395,914&$<$0.001\\
-      \selac          	        & -465616.7&       50,004&   831,226&  23,824&$<$0.001\\
-      \selacplusgamma 	        & -453706.0&       50,005&   807,402&       0& 0.999
+      GTR+$\Gamma$        		& -655166.4&        610& 1,311,553& 381,126&	$<$0.001\\
+      GY94                  	& -612121.5&        210& 1,224,663& 294,236&	$<$0.001\\
+      FMutSel0              	& -598848.2&       2810& 1,203,316& 272,889&	$<$0.001\\
+      \selac^*          	    & -478282.7&       123&   956,811 &  26,384&	$<$0.001\\
+      \selac                    & -465616.7&       50,004&   1,031,241&  100,814&	$<$0.001\\
+      \selac^*plusgamma 	    & -465089.7&       124&        930,427.5&     0& 	0.999\\
+      \selacplusgamma 	        & -453706.0&       50,005&   1,007,422&       76,955& 	$<$0.001\\
     \end{tabular}
     \caption{Comparison of model fits using $\DeltaAIC$.}
     \label{table:modelFits}

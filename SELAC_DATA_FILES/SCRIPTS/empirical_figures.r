@@ -23,6 +23,9 @@ FunctionalityCalculation <- function(site.pattern.counts, aa.data, optimal.aa, a
     return(functionality)
 }
 
+pp <- selac:::GetSelacPhiCat(result, codon.data.path="")
+tt <- selac:::LaguerreQuad(result$mle.pars[1,15], 4)
+
 #The code necessary for evaulating functionality across ALL genes:
 phy <- result$phy
 functionality <- c()
