@@ -502,12 +502,6 @@ We fit the two \selac models described above (i.e., \selac and \selacplusgamma),
 The FMutSel0 model, which assumes that the amino acid frequencies are determined by functional requirements of the protein, is the most similar to our model. 
 In all cases, we assumed that the model was partitioned by gene, but with branch lengths linked across genes.
 
-As part of our model set, we also included a reduced form of each of the two \selac models.
-Specifically, rather than optimizing the amino acid at any given site, we assume the optimal is the most abundantly observed amino acid at each site.
-We refer to these `majority rule' models as \selacmaj and \selacmajplusgamma.
-Since these models assume that the optimal amino acids are known, it is tempting to assume that the number of parameters in the model are reduced by the number of total sites being analyzed.
-However, 
-
 For \selac, we compared our estimates of $\phiprime = \psiprime/\Func$, which represents the average protein synthesis rate of a gene, to estimates of gene expression from empirical data.
 Specifically, we obtained expression data for five of the six species used - four species were measured during log-growth phase, whereas the other was measured at the beginning of the stationary phase (\emph{S. kudriavzevii}) from the Gene Expression Omnibus (GEO). 
 Gene expression was measured using either Microarray chips (\emph{C. glabrata}, \emph{S. castellii}, and \emph{S. kudriavzevii}) or RNA-Seq (\emph{S. paradoxus}, \emph{S. mikatae}, and \emph{S. cerevisiae}).
@@ -525,6 +519,25 @@ The marginal probabilities of each site are used to sample and assemble the star
 This sequence is then evolved along the branch, periodically being sampled and its current functionality assessed.
 We repeat this process 100 times and compare the distribution of trajectories against the observed functionality calculated for the gene.
 For comparison, we also conducted the same test, by simulating the sequence under the standard GTR + $\Gamma$ nucleotide model, which is often used on these data but does not account for the fact that the sequence codes for a specific protein, and under FMutSel0, which includes selection on codons but in a fundamentally different way as our model.
+
+\subsection{The appropriate estimator of bias for AIC}
+As part of the model set described above, we also included a reduced form of each of the two \selac models.
+Specifically, rather than optimizing the amino acid at any given site, we assume the optimal is the most abundantly observed amino acid at each site.
+We refer to these `majority rule' models as \selacmaj and \selacmajplusgamma.
+Since these models assume that the optimal amino acids are known, it is tempting to reduce the number of parameters in the model by the number of total sites being analyzed.
+However, phylogeneticists have long been guilty of using a statistical slight of hand by ignoring the fact that majority rule states are parameters and these parameters are estimated from the data.
+Thus, we feel it is statistically improper to not include these in our counts of the the number of parameters estimated from the data.
+In the end, the AIC for majority rule \emph{should} be only as good as or worse than the analysis where we determine the amino acid with maximum likelihood.
+
+Furthermore, it is unclear what variant of Akaike's Information Criterion (AIC) is the most appropriate for such a parameter rich models like our \selac model. 
+As an asymptotic estimator of the Kullback-Leibler (K-L) distance between a candidate model, $\m$, and the true model, $\m^*$, AIC operates under the assumption that the number of observations presented to the model greatly exceeds the number of parameters estimated from these observations.
+In the most complex form of our model, the number of parameters will always exceed the number of sites in the data matrix.
+In such cases, then, the sample-size corrected variant of AIC (AICc) may be more appropriate (CITATION).
+All of this assumes that the number of observations in a sequence-based model is equal to the number of sites, which is, of course, the convention (Sullivan?; Posada?).
+However, this is also complicated runs counter to phylogenetically-based comparative models, where the number of observations is equal to the taxa in the tree. 
+So, what is the 
+
+
 
 
 \section{Results}
