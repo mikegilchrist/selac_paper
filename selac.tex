@@ -524,36 +524,25 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 As part of the model set described above, we also included a reduced form of each of the two \selac models.
 Specifically, rather than optimizing the amino acid at any given site, we assume the optimal is the most abundantly observed amino acid at each site.
 We refer to these `majority rule' models as \selacmaj and \selacmajplusgamma.
-Since these models assume that the optimal amino acids are known, it is tempting to reduce the number of parameters in the model by the number of total sites being analyzed.
-However, phylogeneticists have long been guilty of using a statistical slight of hand by ignoring the fact that majority rule states are parameters and these parameters are estimated from the data.
-This does not matter when comparing nucleotide models with AIC: the difference in K when counting or not counting number of sites drops out in the comparison.
-It does matter for AICc, where K and n combine in the penalty term.
-This also matters in our case, where the number of estimated parameters for majority rule estimation differs based on whether one is looking at codons or single nucleotides.
-Moreover, in phylogenetics two variants of AICc are used.
-In comparative methods (Butler and King 2004, O'Meara et al. 2006, Beaulieu et al. 2013) the number data points, \n, is taken as the number of taxa.
-More taxa allows the fitting of more complex models, given more data.
-However, in DNA evolution, which can also effectively be the same as discrete character models used in comparative methods, \n is taken as the number of sites.
-Both cannot be correct.
-The derivation of AICc by Hurvich and Tsai (1989) assumed a regression model where the true model was in the set of examined models, as well as approximations in the derivation itself.
+Since these models assume that the optimal amino acids are known, it is tempting to reduce the number of parameters in the model by the number of total sites being analyzed
+However, phylogeneticists have long been guilty of using a statistical sleight of hand by ignoring the fact that majority rule states are parameters and these parameters are estimated from the data.
+Of course, this does not matter when comparing nucleotide models with AIC because the difference in $\K$ when counting or not counting number of sites drops out in the comparison.
+It does, however, matter for AICc, where the number of parameters, $\K$, and the sample size, $\n$, combine in the penalty term.
+This also matters in our case, where the number of estimated parameters for majority rule estimation differs based on whether one is looking at codons or single nucleotides. 
+
+In phylogenetics two variants of AICc are used.
+In comparative methods (e.g., Butler and King 2004, O'Meara et al. 2006, Beaulieu et al. 2013) the number data points, $\n$, is taken as the number of taxa.
+More taxa allow the fitting of more complex models, given more data.
+However, in DNA evolution, which is effectively the same as discrete character model used in comparative methods, the $\n$ is taken as the number of sites.
+Obviously, both cannot be correct.
+The original derivation of AICc by Hurvich and Tsai (1989) assumed a regression model, where the true model was in the set of examined models, as well as approximations in the derivation itself.
 It might not be an appropriate approximation for phylogenetic data, where data points are not independent of each other.
-We would argue that for phylogenetic data, a good estimate of data set size is number of taxa multiplied by number of sites.
-First, of all, this is what is conventionally seen as the size of the dataset in the field.
-Second, when considering how likelihood is calculated, for a given site it is the sum of the probabilities of each observed state at each tip, and this is then summed across sites.
-Jhwueng et al. (____) performed an analysis that investigated what variant of AIC and AICc worked best as an estimator but found inconclusive results.
-We have adopted their simulation approach to confirm this idea.
+In any case, we argue that for phylogenetic data, a good estimate of data set size is number of taxa multiplied by number of sites.
+First of all, this is what is conventionally seen as the size of the dataset in the field.
+Second, when considering how likelihood is calculated, for a given site it is the sum of the probabilities of each observed state at each tip, and this is then multiplied across sites.
+Recently, Jhwueng et al. (2014) performed an analysis that investigated what variant of AIC and AICc worked best as an estimator, but the results were inconclusive. 
+Here, we have adopted and extended the simulation approach of Jhwueng et al. (2014) in order to examine a large set of different penalty functions and how well they approximate the remaining portion of Kullback-Liebler divergence between two models after accounting for the deviance (i.e., $-2\Lik$).
 Please see Appendix 1 for details.
-
-Furthermore, it is unclear what variant of Akaike's Information Criterion (AIC) is the most appropriate for such a parameter rich models like our \selac model.
-As an asymptotic estimator of the Kullback-Leibler (K-L) distance between a candidate model, $\m$, and the true model, $\m^*$, AIC operates under the assumption that the number of observations presented to the model greatly exceeds the number of parameters estimated from these observations.
-In the most complex form of our model, the number of parameters will always exceed the number of sites in the data matrix.
-In such cases, then, the sample-size corrected variant of AIC (AICc) may be more appropriate (CITATION).
-All of this assumes that the number of observations in a sequence-based model is equal to the number of sites, which is, of course, the convention (Sullivan?; Posada?).
-However, this is also complicated runs counter to phylogenetically-based comparative models, where the number of observations is equal to the taxa in the tree.
-So, what is the
-
-NOTES: From Burnham and Anderson: "Some investigators have considered K to be a measure of complexity....We consider K primarily a simple expression for the asymptotic bias in the log-likelihood estimator..."
-Give justification to the regression model
-
 
 
 \section{Results}
