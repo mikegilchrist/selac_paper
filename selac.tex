@@ -528,7 +528,7 @@ Since these models assume that the optimal amino acids are known, it is tempting
 However, phylogeneticists have long been guilty of using a statistical sleight of hand by ignoring the fact that majority rule states are parameters and these parameters are estimated from the data.
 Of course, this does not matter when comparing nucleotide models with AIC because the difference in $\K$ when counting or not counting number of sites drops out in the comparison.
 It does, however, matter for AICc, where the number of parameters, $\K$, and the sample size, $\n$, combine in the penalty term.
-This also matters in our case, where the number of estimated parameters for majority rule estimation differs based on whether one is looking at codons or single nucleotides. 
+This also matters in our case, where the number of estimated parameters for majority rule estimation differs based on whether one is looking at codons or single nucleotides.
 
 In phylogenetics two variants of AICc are used.
 In comparative methods (e.g., Butler and King 2004, O'Meara et al. 2006, Beaulieu et al. 2013) the number data points, $\n$, is taken as the number of taxa.
@@ -540,7 +540,7 @@ It might not be an appropriate approximation for phylogenetic data, where data p
 In any case, we argue that for phylogenetic data, a good estimate of data set size is number of taxa multiplied by number of sites.
 First of all, this is what is conventionally seen as the size of the dataset in the field.
 Second, when considering how likelihood is calculated, for a given site it is the sum of the probabilities of each observed state at each tip, and this is then multiplied across sites.
-Recently, Jhwueng et al. (2014) performed an analysis that investigated what variant of AIC and AICc worked best as an estimator, but the results were inconclusive. 
+Recently, Jhwueng et al. (2014) performed an analysis that investigated what variant of AIC and AICc worked best as an estimator, but the results were inconclusive.
 Here, we have adopted and extended the simulation approach of Jhwueng et al. (2014) in order to examine a large set of different penalty functions and how well they approximate the remaining portion of Kullback-Liebler divergence between two models after accounting for the deviance (i.e., $-2\Lik$).
 Please see Appendix 1 for details.
 
@@ -572,6 +572,8 @@ In a way, this is somewhat unsurprising, given that both GTR + $\Gamma$ and FMut
 We do note that the adequacy of the \selac model does vary among individual taxa, and does not always perfectly match the observed functionality.
 For instance, \emph{S. castellii} is simulated with consistently higher functionality than observed (Figure \ref{fig:TreeAndAdequacy}c).
 We suspect this is an indication that assuming a single set of optimal amino acid across all taxa may be too simplistic, but we cannot also rule out other potential simplifying assumptions in our model, such as a single set of Grantham weights and $\alphag$ values or the simple, inverse relationship between physicochemical distance $d$ and benefit \Func.
+
+For our analysis to suggest what the best measure of dataset size is for AICc, it suggested using a scaled value of the product of number of sites and number of characters was the best at estimating KL distance. See Appendix 1 for more details.
 
 
 \section{Discussion}
