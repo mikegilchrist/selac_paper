@@ -540,6 +540,9 @@ It might not be an appropriate approximation for phylogenetic data, where data p
 In any case, we argue that for phylogenetic data, a good estimate of data set size is number of taxa multiplied by number of sites.
 First of all, this is what is conventionally seen as the size of the dataset in the field.
 Second, when considering how likelihood is calculated, for a given site it is the sum of the probabilities of each observed state at each tip, and this is then multiplied across sites.
+It is arguable that the conventional approach in comparative methods is calculating AICc in this way: number of taxa multiplied by number of sites equals the number of taxa, if only one site is examined, as remains remarkably common in comparative methods.
+An exception is _____SURFACE___, which uses multiple characters and taxa.
+While its default is to use AIC to compare models, if one chooses to use AICc, the number of samples is taken as the product of number of sites and number of taxa.
 Recently, Jhwueng et al. (2014) performed an analysis that investigated what variant of AIC and AICc worked best as an estimator, but the results were inconclusive.
 Here, we have adopted and extended the simulation approach of Jhwueng et al. (2014) in order to examine a large set of different penalty functions and how well they approximate the remaining portion of Kullback-Liebler divergence between two models after accounting for the deviance (i.e., $-2\Lik$).
 Please see Appendix 1 for details.
@@ -620,6 +623,15 @@ For example,  our current implementation ignores any selection on synonymous cod
 Including such selection is tricky because introducing the site specific cost effects of CUB leads to non-additive (i.e.~epistatic) interactions between sites.
 Relative to stabilizing selection on amino acid sequence, selection on CUB is thought to be substantially weaker.
 As a result, epistatic effects due to synonymous codon specific differences in assembly costs can likely be ignored and selection on CUB incorporated into our current framework.
+
+This work also points out the potential importance of further investigation into model choice in phylogenetics.
+For likelihood models, use of AICc has become standard, but the conflict in how number of data points is calculated remains in the field.
+Common sense suggests that dataset size is increased by adding taxa and/or sites: a dataset of 1000 taxa and 100 sites must have more information on substitution models than a dataset of 4 taxa and 100 sites.
+Our simple analyses agree that the number of observations in a dataset (number of sites times number of taxa) should be taken as the sample size for AICc, but we suspect this is still too simple.
+For example, one could imagine a phylogeny where one taxon is sister to a polytomy of 99 taxa, where each of the 99 has a zero length terminal branch.
+Absent measurement error or other intraspecific variation, one would have 100 species but only two unique trait values, and the only information about the process of evolution comes from one happens on the path connecting the lone taxon to the polytomy.
+A fully resolved 100-taxon tree with nonzero branch lengths would have much more information than the above tree, despite the same number of taxa.
+This is just one complexity; we expect there are many more, so a deeper investigation of this is warranted.
 
 There are still significant deficiencies in the approach outlined here.
 Most worrisome are biological flaws in the model.
