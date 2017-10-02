@@ -117,6 +117,7 @@
 \newcommand{\Costcveci}{\ensuremath{\Cost(\cveci)}\xspace}
 \newcommand{\Costcvecj}{\ensuremath{\Cost(\cvecj)}\xspace}
 \newcommand{\Cost}{\ensuremath{\text{\textbf{C}}}\xspace}
+\newcommand{\DeltaAIC}{\ensuremath{\Delta\text{AIC}}\xspace}
 \newcommand{\DeltaAICc}{\ensuremath{\Delta\text{AICc}}\xspace}
 \newcommand{\AICw}{\ensuremath{\text{AIC}_\text{w}}\xspace}
 \newcommand{\EE}{\mathbb{E}} %use for expectation function E()
@@ -147,8 +148,8 @@
 \newcommand{\simP}{\ensuremath{\sim P}\xspace}
 \newcommand{\selac}{SelAC\xspace}
 \newcommand{\selacplusgamma}{SelAC$+\Gamma$\xspace}
-\newcommand{\selacmaj}{SelAC$_{majAA}+\Gamma$\xspace}
-\newcommand{\selacmajplusgamma}{SelAC$_{majAA}+\Gamma$\xspace}
+\newcommand{\selacmaj}{SelAC$_{M}$\xspace}
+\newcommand{\selacmajplusgamma}{SelAC$_{M}+\Gamma$\xspace}
 \newcommand{\acivec}{\ensuremath{a\left(\cveci\right)}\xspace}
 \newcommand{\acvecg}{\ensuremath{a\left(\vec{c}_{i,g}\right)}\xspace}
 \newcommand{\acvecj}{\ensuremath{a\left(\cvecj\right)}\xspace}
@@ -524,9 +525,9 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 As part of the model set described above, we also included a reduced form of each of the two \selac models.
 Specifically, rather than optimizing the amino acid at any given site, we assume the optimal is the most abundantly observed amino acid at each site, which greatly decreased the computation time.
 We refer to these `majority rule' models as \selacmaj and \selacmajplusgamma.
-Since these models assume that the optimal amino acids are known, it is tempting to reduce the number of parameters in the model by the number of total sites being analyzed.
-However, phylogeneticists have long been guilty of using a statistical sleight of hand by ignoring the fact that majority rule states are parameters and these parameters are estimated from the data.
-Of course, this does not matter when comparing nucleotide models with AIC because the difference in $K$ when counting or not counting number of sites drops out in the comparison.
+Since these models assume that the optimal amino acids are known prior to fitting of our model, it is tempting to reduce the number of parameters in the model by the number of total sites being analyzed.
+Despite having become standard behavior in the field of phylogenetics, this reduction is statistically inappropriate due to the fact that determination of the majority rule amino acid is made by examining the data prior to the fitting of the model.
+Because the difference in $K$ when counting or not counting number of nucleotide sites drops out when comparing nucleotide models with AIC, this statistical issue does not apply to nucleotide models.
 It does, however, matter for AICc, where the number of parameters, $K$, and the sample size, $n$, combine in the penalty term.
 This also matters in our case, where the number of estimated parameters for the majority rule estimation differs based on whether one is looking at codons or single nucleotides.
 
@@ -660,6 +661,7 @@ Moreover, it demonstrates that there remains substantially more information in t
 \section{Acknowledgements}
 This work was supported in part by NSF Awards MCB-1120370 (MAG and RZ) and DEB-1355033 (BO, MAG, and RZ) with additional support from The University of Tennessee Knoxville and University of Arkansas (JB).
 JB was supported, in part, as a Postdoctoral Fellow at the National Institute for Mathematical and Biological Synthesis, an Institute sponsored by the National Science Foundation through NSF Award DBI-1300426, with additional support from UTK.
+The authors would like to thank Premal Shah and Todd Oakley for their helpful discussions and suggestions for this work.
 \clearpage
 
 
@@ -674,7 +676,7 @@ JB was supported, in part, as a Postdoctoral Fellow at the National Institute fo
 \section{Table}
 
   \begin{table}[H]
-    \begin{tabular}{lrrrrl}
+    \begin{tabular}{lrrrrrl}
                 				&		   &Parameters &              &              &            &    Model\\
       Model                 	& logLik   & Estimated &           AIC&          AICc&  \DeltaAICc&  Weight\\\hline
       GTR+$\Gamma$        		& -655166.4&        610& 	 1,311,553& 	1,311,554&     287,415&	$<$0.001\\
@@ -685,7 +687,10 @@ JB was supported, in part, as a Postdoctoral Fellow at the National Institute fo
       \selacmajplusgamma 	    & -465089.7&       50,005&   1,030,189&     1,046,906&      22,767& $<$0.001\\
       \selacplusgamma 	        & -453706.0&       50,005&   1,007,422&     1,024,139&           0& $<$0.999\\
     \end{tabular}
-    \caption{Comparison of model fits using $\DeltaAICs$ and \AICw.}
+    \caption{Comparison of model fits using AIC, AICc, and \AICw.
+Note the subscripts $M$ indicate model fits where the most common or 'majority rule' amino acid was fixed as the optimal amino acid \aopt for each site.  
+As discussed in text, despite the fact that \aopt for each site was not fitted by our algorithm, its value was determined by examining the data and, as a result, represent an additional parameter estimated from the data and are accounted for in our table.
+}
     \label{table:modelFits}
 \end{table}
 
