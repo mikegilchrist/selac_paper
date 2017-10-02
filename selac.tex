@@ -532,20 +532,20 @@ It does, however, matter for AICc, where the number of parameters, $K$, and the 
 This also matters in our case, where the number of estimated parameters for the majority rule estimation differs based on whether one is looking at codons or single nucleotides.
 
 In phylogenetics two variants of AICc are used.
-In comparative methods (e.g., Butler and King 2004, O'Meara et al. 2006, Beaulieu et al. 2013) the number data points, $n$, is taken as the number of taxa.
+In comparative methods \citep{e.g., ButlerKing2004, OMearaetal2006, BeaulieuEtAl2013} the number data points, $n$, is taken as the number of taxa.
 More taxa allow the fitting of more complex models, given more data.
 However, in DNA evolution, which is effectively the same as a discrete character model used in comparative methods, the $n$ is taken as the number of sites.
 Obviously, both cannot be correct.
-The original derivation of AICc by Hurvich and Tsai (1989) assumed a regression model, where the true model was in the set of examined models, as well as approximations in the derivation itself.
+The original derivation of AICc by \citet{HurvichTsai1989} assumed a regression model, where the true model was in the set of examined models, as well as approximations in the derivation itself.
 It might not be an appropriate approximation for phylogenetic data, where data points are not independent of each other.
 In any case, we argue that for phylogenetic data, a good estimate of data set size is number of taxa multiplied by number of sites.
 First of all, this is what is conventionally seen as the size of the dataset in the field.
 Second, when considering how likelihood is calculated, the likelihood for a given site it is the sum of the probabilities of each observed state at each tip, and this is then multiplied across sites.
 It is arguable that the conventional approach in comparative methods is calculating AICc in this way: number of taxa multiplied by number of sites equals the number of taxa, if only one site is examined, as remains remarkably common in comparative methods.
-An notable exception is the program SURFACE implemented by Ingram and Mahler (2013), which uses multiple characters and taxa.
+An notable exception is the program SURFACE implemented by \citet{IngramMahler2013}, which uses multiple characters and taxa.
 While its default is to use AIC to compare models, if one chooses to use AICc, the number of samples is taken as the product of number of sites and number of taxa.
-Recently, Jhwueng et al. (2014) performed an analysis that investigated what variant of AIC and AICc worked best as an estimator, but the results were inconclusive.
-Here, we have adopted and extended the simulation approach of Jhwueng et al. (2014) in order to examine a large set of different penalty functions and how well they approximate the remaining portion of Kullback-Liebler (KL) divergence between two models after accounting for the deviance (i.e., $-2\Lik$).
+Recently, \citet{Jhwuengetal2014} performed an analysis that investigated what variant of AIC and AICc worked best as an estimator, but the results were inconclusive.
+Here, we have adopted and extended the simulation approach of \citet{Jhwuengetal2014} in order to examine a large set of different penalty functions and how well they approximate the remaining portion of Kullback-Liebler (KL) divergence between two models after accounting for the deviance (i.e., $-2\Lik$).
 Please see Appendix 1 for details.
 
 
@@ -622,7 +622,7 @@ This assumption can be relaxed by allowing the optimal amino acid to change duri
 From a computational standpoint, the additive nature of selection between sites is desirable because it allows us to analyze sites within a gene largely independently of each other.
 From a biological standpoint, this additivity between site ignores any non-linear interactions between sites, such as epistasis, or between alleles, such as dominance.
 Thus, our work can be considered a first step to modeling to these more complex scenarios.
-For example,  our current implementation ignores any selection on synonymous codon usage bias (CUB).
+For example, our current implementation ignores any selection on synonymous codon usage bias (CUB).
 Including such selection is tricky because introducing the site specific cost effects of CUB leads to non-additive (i.e.~epistatic) interactions between sites.
 Relative to stabilizing selection on amino acid sequence, selection on CUB is thought to be substantially weaker.
 As a result, epistatic effects due to synonymous codon specific differences in assembly costs can likely be ignored and selection on CUB incorporated into our current framework.
@@ -652,7 +652,7 @@ It thus serves as a proof of concept, or of utility for targeted questions where
 Future work will encode \selac models into a variety of mature, popular tree-search programs.
 \selac also represents a hard optimization problem: the nested models reduce parameter complexity vastly, but there are still numerous parameters to optimize, including the discrete parameter of optimal amino acid at each site.
 A different implementation, more parameter-rich, would optimize values of three (or more) physiochemical properties per site.
-This would have the practical advantage of continuous parameter optimization rather than discrete, and biologically would be more realistic (as it is the properties that selection "sees," not the identity of the amino acid itself).
+This would have the practical advantage of continuous parameter optimization rather than discrete, and biologically would be more realistic (as it is the properties that selection "sees", not the identity of the amino acid itself).
 
 Overall, \selac represents an important step in uniting phylogenetic and population genetic models.
 It allows biologically relevant population genetic parameters to be estimated from phylogenetic information, while also dramatically improving fit and accuracy of phylogenetic models.
