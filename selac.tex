@@ -303,9 +303,9 @@ Thus, the simplest and most consistent interpretation of $\omega$ is that it des
 As a result, $\omega$ based approaches only reasonably describe a subset of scenarios such as over/underdominance or frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
 Because, as we show here, $\omega$ is well correlated with gene expression, its value is really an indicator of the strength of stabilizing selection on a coding sequence, rather than the 'nature' of that selection.
 
-Given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic analysis \citep[e.g.][]{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
+Given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic analysis \citep[e.g.~][]{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 One lesson from the field of population genetics is even when there are only a few fundamental evolutionary forces at play (mutation, drift, selection, and linkage effects), describing the evolutionary behavior of a system in which there are non-linear interactions between sites, such as epistasis, quickly becomes extremely challenging.
-The model formulation we evaluate here is a basic version of a more general cost-benefit model we've developed elsewhere \cite{Gilchrist2007,GilchristEtAl11}.
+The model formulation we evaluate here is a basic version of a more general cost-benefit model we've developed elsewhere \citep{Gilchrist2007,GilchristEtAl2009,ShahAndGilchrist2011,GilchristEtAl2015}.
 This basic version carefully avoids any non-linear interactions between evolutionary forces, resulting in simple additive effects between amino acid sites.
 This additivity between sites is critical to ensuring that calculation of our amino acid substitution matrix is relatively straightforward, though still computationally intensive.
 This additivity between sites also means our model is could be generalized further and simply posed as a more generic, non-mechanistic, additive model.
@@ -321,7 +321,7 @@ While this epistasis may be negligible under certain conditions, identifying suc
 
 We model the substitution process as a classic Wright-Fisher process which includes the forces of mutation, selection, and drift \citep{Fisher1930,Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005,McCandlishAndStoltzfus2014}.
 For simplicity, we ignore linkage effects and, as a result of this and other assumptions, our method behaves in a site independent manner.
-Our approach, which we call \selac (Selection on Amino acids and Codons), is developed in the same vein as previous phylogenetic applications of the Wright-Fisher process \citep[e.g.][]{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008,RodrigueEtAl2005,KoshiAndGoldstein1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
+Our approach, which we call \selac (Selection on Amino acids and Codons), is developed in the same vein as previous phylogenetic applications of the Wright-Fisher process \citep[e.g.~][]{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008,RodrigueEtAl2005,KoshiAndGoldstein1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 Similar to Lartillot's work \citep{LartillotAndPhilippe2004,RodrigueAndLartillot2014}, we assume there is a finite set of rate matrices describing the substitution process and that each position within a protein is assigned to a particular rate matrix category.
 Unlike this previous work, we assume \emph{a priori} there are 20 different families of rate matrices, one family for when a given amino acid is favored at a site.
 As a result, \selac allows us to quantitatively evaluate the support for a particular amino acid being favored at a particular position within the protein encoded by a particular gene.
@@ -547,7 +547,7 @@ It does, however, matter for AICc, where the number of parameters, $K$, and the 
 This also matters in our case, where the number of estimated parameters for the majority rule estimation differs based on whether one is looking at codons or single nucleotides.
 
 In phylogenetics two variants of AICc are used.
-In comparative methods \citep{e.g., ButlerKing2004, OMearaetal2006, BeaulieuEtAl2013} the number of data points, $n$, is taken as the number of taxa.
+In comparative methods \citep[e.g.~][]{ButlerKing2004, OMearaetal2006, BeaulieuEtAl2013} the number of data points, $n$, is taken as the number of taxa.
 More taxa allow the fitting of more complex models, given more data.
 However, in DNA evolution, which is effectively the same as a discrete character model used in comparative methods, the $n$ is taken as the number of sites.
 Obviously, both cannot be correct.
@@ -638,9 +638,9 @@ This assumption can be relaxed by allowing the optimal amino acid to change duri
 From a computational standpoint, the additive nature of selection between sites is desirable because it allows us to analyze sites within a gene largely independently of each other.
 From a biological standpoint, this additivity between site ignores any non-linear interactions between sites, such as epistasis, or between alleles, such as dominance.
 Thus, our work can be considered a first step to modeling to these more complex scenarios.
-For example, our current implementation ignores any selection on synonymous codon usage bias (CUB) \citep[c.f.][JEREMY AND BRIAN: DO YOU HAVE ANY OTHER REFERENCES?]{YangAndNielsen2008,PouyetEtAl2016}.
+For example, our current implementation ignores any selection on synonymous codon usage bias (CUB) \citep[c.f.~][JEREMY AND BRIAN: DO YOU HAVE ANY OTHER REFERENCES?]{YangAndNielsen2008,PouyetEtAl2016}.
 Including such selection is tricky because introducing the site specific cost effects of CUB, which is consistent with the hypothesis that codon usage affects the efficiency of protein assembly or \Cost, into a model where amino acids affect protein funcdtion or \Func, results in a cost-benefit ratio $\Cost/\Func$ with epistatic interactions between all sites.
-These epistatic effects can likely be ignored under certain conditions or reasonably approximated based on an expectation of codon specific costs \citep[e.g.][]{KubatkoEtAl2016}.
+These epistatic effects can likely be ignored under certain conditions or reasonably approximated based on an expectation of codon specific costs \citep[e.g.~][]{KubatkoEtAl2016}.
 Nevertheless, it is difficult to see how one could identify such conditions without modeling the way in which codon and amino acid usage affects $\Cost/\Func$.
 %We leave the identification of such conditions and approximations for future studies.
 
