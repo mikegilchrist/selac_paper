@@ -309,7 +309,7 @@ Fortunately, under the simplifying assumptions of additivity between sites and a
 
 \section{Materials \& Methods}
 
-\subsection{Overview}
+%\subsection{Overview}
 
 We model the substitution process as a classic Wright-Fisher process which includes the forces of mutation, selection, and drift \citep{Fisher1930,Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005,McCandlishAndStoltzfus2014}.
 For simplicity, we ignore linkage effects and, as a result of this and other assumptions, our method behaves in a site independent manner.
@@ -354,7 +354,7 @@ The final mutation rate matrix is the original mutation rate matrix multiplied b
 \subsection{Protein Synthesis Cost-Benefit Function $\eta$}
 \selac links fitness to the product of the cost-benefit function of a gene $g$, $\etag$, and the organism's average target synthesis rate of the functionality provided by gene $g$, $\psig$.
 This is because the average flux energy an organism spends to meet its target functionality provided by gene $g$ is $\etag \times \psig$.
-In order to link genotype to our cost-benefit function $\eta = \Func/\Cost$, we begin by defining our benefit function \Func.
+In order to link genotype to our cost-benefit function $\eta = \Cost/\Func$, we begin by defining our benefit function \Func.
 
 \subsubsection{Benefit:}
 Our benefit function \Func measures the functionality of the amino acid sequence \aveci encoded by a set of codons \cveci, i.e. $a(\cveci) = \aveci$ relative to that of an optimal sequence $\aoptvec$.
@@ -400,8 +400,8 @@ Ultimately, the scale of gene expression is affected by how we measure physicoch
 As a result, by default we set $\alphav = 3.990 \times 10^{-4}$, the value originally estimated by Grantham, and recognize that our our estimates of $\alphac$ and $\alphap$ and $\psi$ are scaled relative to this choice for $\alphav$.
 More specifically,
 \begin{align*}
-  d(a_i, \aopt) &= \left(\alphac \left(c\left(a_i\right) - c\left(\aopt\right)\right)^2 + \alphap \left(p\left(a_i\right) - p\left(\aopt\right)\right)^2 + \right.\\
-  & \;\;\;\;\;\left. \alphav \left(v\left(a_i\right) - v\left(\aopt\right)\right)^2\right)^{1/2}.
+  d(a_i, \aopt) &= \left(\alphac \left[c\left(a_i\right) - c\left(\aopt\right)\right]^2 + \alphap \left[p\left(a_i\right) - p\left(\aopt\right)\right]^2 + \right.\\
+  & \;\;\;\;\;\left. \alphav \left[v\left(a_i\right) - v\left(\aopt\right)\right]^2\right)^{1/2}.
 \end{align*}
 
 
@@ -410,9 +410,13 @@ Next we link the protein synthesis cost-benefit function $\eta$ of an allele wit
 First, we assume that each protein encoded within a genome provides some beneficial function and that the organism needs that functionality to be produced at a target average rate $\psi$.
 By definition, the optimal amino acid sequence for a given gene, \aoptvec, produces one unit of functionality.
 Second, we assume that protein expression is regulated by the organism to ensure that functionality is produced at rate $\psi$.
-As a result, the realized average protein synthesis rate of a gene, $\phi$, is equal to $\psi/\Func(\avec)$ and the total energy flux allocated towards meeting the target functionality of a particular gene is $\eta(\cvec) \psi$.
-The fitness cost for a genotype encoding a suboptimal protein sequence stems from the need to produce $1/\Func(\avec)$ proteins in order to produce the equivalent functionality of one protein consisting of the optimal amino acid sequence \aoptvec.
-For example, a protein encoding allele which has a 10\% reduction in functionality relative to the optimal sequence, i.e.~$\Func(\avec) = 0.9$, will have the same energetic burden and selective cost relative to its optimal sequence as a protein encoding allele of similar length which has a 20\% reduction in functionality but whose target synthesis rate is 1/2 of the first protein.
+As a result, the realized average protein synthesis rate of a gene, $\phi$, by definition, satisfies the equality  $\phi = \psi/\Func(\avec)$.
+In other words, the average production rate of a protein \avec with relative functionality $\Func(\avec) < 1$ must be $1/\Func(\avec)$ times higher than the production rate needed if the optimal amino acid sequence \aoptvec was encoded since, by definition, $\Func(\aoptvec) = 1$.
+ required to meet meeting the target functionality of a particular gene is the target functionality production rate $\psi$ multiplied  $\eta(\cvec) \psi$.
+For example, a cell with an allele \avec where $\Func(\avec) = 0.9$ will have to produce $1/9 \times 100\%=  11.11\%$ more proteins than a competitor cell with the optimal allele \aoptvec at that locus 
+Similarly, a cell with an allele \avec where $\Func(\avec) = 0.8$ will have to produce $1/8 \times 100\%=  12.5\%$ more proteins a cell with \aoptvec.  
+Simply put, the fitness cost for a genotype encoding a suboptimal protein sequence stems from the need to produce suboptimal proteins at a higher rate in order to compensate for their lower functionality.
+
 
 Third, we assume that every additional high energy phosphate bond \simP spent per unit time to meet the organism's target function synthesis rate $\psi$ leads to a slight and proportional decrease in fitness $W$.
 This assumption, in turn, implies
@@ -423,22 +427,22 @@ where $A_0$ describes the decline in fitness with every \simP wasted per unit ti
 Because $A_0$ shares the same time units as $\psi$ and $\phi$ and only occurs in \selac in conjunction with $\psi$, we do not need to explicitly identify our time units.
 
 Correspondingly, the ratio of fitness between two genotypes is,
-\begin{align*}
-  W_i/W_j &=  \exp\left[- A_0 \, \eta(\cveci) \psi\right]/\exp\left[- A_0 \, \eta(\cvecj) \psi\right]\\
-  &=  \exp\left[- A_0 \left(\eta(\cveci)- \eta(\cvecj)\right) \psi\right]\\
-\end{align*}
+\begin{align}
+  W_i/W_j &=  \exp\left[- A_0 \, \eta(\cveci) \psi\right]/\exp\left[- A_0 \, \eta(\cvecj) \psi\right]\\ 
+  &=  \exp\left[- A_0 \left(\eta(\cveci)- \eta(\cvecj)\right) \psi\right] \label{eq:Wratio}\\
+\end{align}
 Given our formulations of \Cost and \Func, the fitness effects between sites are multiplicative and, therefore, the substitution of an amino acid at one site can be modeled independently of the amino acids at the other sites within the coding sequence.
 As a result, the fitness ratio for two genotypes differing at a single site $p$ simplifies to
-\begin{align}
- \frac{W_i}{W_j}  &= \exp\left[- \frac{A_0 \left(A_1 + A_2 n\right)}{n} \right.\\
-  & \;\;\;  \left. \times \sum_{p \in \setP} \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] \psi \right]
-\end{align}
+\begin{align*}
+  \frac{W_i}{W_j}  &= \exp\left[- \frac{A_0 \left(A_1 + A_2 \ng\right)}{\ng} \right.\\ 
+  & \;\;\;  \left. \times \sum_{p \in \setP} \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] G_p \psi \right]
+\end{align*}
 where \setP represents the codon positions in which \cveci and \cvecj differ.
 Fourth, we make a weak mutation assumption, such that alleles can differ at only one position at any given time, i.e.~$|\setP| = 1$, and that the population is evolving according to a Fisher-Wright process.
 As a result, the probability a new mutant $j$ introduced via mutation into a resident population $i$ with effective size \Ne will go to fixation is,
 \begin{align*}
   u_{i,j} &=  \frac{1 - \left(W_i/W_j\right)^b}{1 - \left(W_i/W_j\right)^{2 \Ne}}\\
-   &= \frac{1- \exp\left\{- \frac{A_0}{n} \left(A_1 + A_2 n\right) \left[d\left(a_i,\aopt\right) - d\left(a_j,\aopt\right)\right] \psi \,  b\right\}}  {1-\exp\left\{- \frac{A_0}{n} \left(A_1 + A_2 n\right) \left[d\left(a_i,\aopt\right) - d\left(a_j,\aopt\right)\right] \psi \, 2\Ne\right\}}
+   &= \frac{1- \exp\left\{- \frac{A_0}{\ng} \left(A_1 + A_2 \ng\right) \left[d\left(a_i,\aopt\right) - d\left(a_j,\aopt\right)\right] G_p \psi \,  b\right\}}  {1-\exp\left\{- \frac{A_0}{\ng} \left(A_1 + A_2 \ng\right) \left[d\left(a_i,\aopt\right) - d\left(a_j,\aopt\right)\right] G_p \psi \, 2\Ne\right\}}
 \end{align*}
 where $b=1$ for a diploid population and $2$ for a haploid population \citep{Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005}.
 Finally, assuming a constant mutation rate between alleles $i$ and $j$, $\muij$, the substitution rate from allele $i$ to $j$ can be modeled as,
@@ -450,7 +454,7 @@ In the end, each optimal amino acid has a separate 64 x 64 substitution rate mat
 This results in the creation of 20 \Qmatrixa matrices, one for each amino acid, with up to 26,880 unique rates, based on few parameters (one to 11 mutation rates, two free Grantham weights, the cost of protein assembly, $A_1$ and $A_2$, the gene specific target functionality synthesis rate $\psi$, and optimal amino acid at each position $p$, \aoptp), which can either be specified \emph{a priori} or  estimated from the data.
 \selac can be generalized to allow transitions between optimal amino acids as well as between codons, which would result in a $(20 \times 64) \times (20 \times 64) =  1344 \times 1344$ matrix.
 
-Finally, given our assumption of independent evolution among sites, the probability of the whole data set is the product of the probabilities of observing the data at each individual site.
+Given our assumption of independent evolution among sites, it follows that the probability of the whole data set is the product of the probabilities of observing the data at each individual site.
 Thus, the log likelihood $\Lik$ of amino acid $a$ being optimal at a given site position $p$ is calculated as
 \begin{equation}
 \Lik\left(\Qmatrixa\middle| \Dmatrixp, \Tmatrix\right) \propto \Pmatrix\left(\Dmatrixp\middle|\Qmatrixa,\Tmatrix\right)
@@ -461,6 +465,9 @@ The pruning algorithm of \citet{Felsenstein1981} is used to calculate $\Lik(\Qma
 The log likelihood is maximized by estimating the genome scale parameters which consist of 11 mutation parameters which are implicitly scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
 Because $A_0$ and $\psi_g$ always co-occur and are scaled by \Ne, for each gene $g$ we estimate a composite term $\psiprime_g = \psi_g A_0 b \Ne$ and the optimal amino acid for each position \aoptp of protein.
 When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using the generalized Laguerre quadrature with $k = 4$ points \citep{Felsenstein2001}.
+
+Finally, we note that because we infer the ancestral state of the system, our approach does not rely on any assumptions of model stationary.
+Nevertheless, as our branch lengths grow the probability of observing a particular amino acid $a$ at a given site approaches a stationary value proportional to $W(a)^{2 \Ne -b}$ \citep{SellaAndHirsh2005}.
 
 \subsection{Implementation}
 All methods described above are implemented in the new R package, \texttt{selac} available through GitHub (\url{https://github.com/bomeara/selac}) [it will be uploaded to CRAN once peer review has completed].
@@ -583,14 +590,13 @@ For more details on the simulation approach, see Appendix 1.
 
 
 \section{Discussion}
-
 The work presented here contributes to the field of phylogenetics and molecular evolution in a number of ways.
 First, \selac provides an complementary example to \citet{ThorneEtAl2012} studies of how models of molecular and evolutionary scales can be combined together in a nested manner.
 While the mapping between genotype and phenotype is more abstract than \citet{ThorneEtAl2012}, \selac has the advantage of not requiring knowledge of a protein's native folding.
 Second, our use of model nesting also allows us to formulate and test specific biological hypotheses.
 For example, we are able to compare a model formulation which assumes that physiochemical deviations from the optimal sequence are equally disruptive at all sites within a protein to one which assumes the effect of deviation from the optimal amino acid's physicochemical properties on protein function varies between sites.
 By linking the strength of stabilizing selection for an optimal amino acid sequence to gene expression, we can weight the historical information encoded in genes evolving at vastly different rates in a biologically plausible manner while simultaneously estimating their expression levels.
-Finally, because our fitness functions are well defined, we can provide estimates of key evolutionary statistics such as the distribution of effects on fitness and genetic load.
+Finally, because our fitness functions are well defined, we can provide estimates of key evolutionary statistics such as the distribution of the effects of amino acid substitutions on fitness and genetic load.
 
 As phylogenetic methods become ever more ubiquitous in biology, and data set size and complexity increase, there is a need and an opportunity for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004}.
 Despite their widespread use, phylogenetic models based on purifying and diversifying selection, i.e.~\citet{GoldmanAndYang1994} and extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid, not for tree inference itself.
@@ -600,6 +606,7 @@ Starting with \citet{HalpernAndBruno1998}, a number of researchers have develope
 Our work follows this tradition, but includes some key advances.
 For instance, even though \selac requires a large number of matrices, because of our assumption about protein functionality and physicochemical distance from the optimum, we are able to parameterize our substitution matrices using a relatively small number of genome-wide parameters and one gene specific parameter.
 We show that all of these parameters can be estimated simultaneously with branch lengths from the data at the tips of the tree.
+
 
 By assuming fitness declines with extraneous energy flux, \selac explicitly links the variation in the strength of stabilizing selection for the optimal protein sequence among genes, to the variation among genes in their target expression levels $\psi$.
 Furthermore, by linking expression and selection, \selac provides a natural framework for combining information from protein coding genes with very different rates of evolution with the low expression genes providing information on shallow branches and the high expression genes providing information on deep branches.
@@ -614,6 +621,7 @@ Thus, a larger and more informative set of Grantham weights might improve our mo
 Even if other physicochemical properties are considered, the idea of a consistent, genome wide Grantham weighting of these terms seems highly unlikely.
 Since the importance of an amino acid's physicochemical properties likely changes with where it lies in a folded protein, one way to incorporate such effects is to test whether the data supports multiple sets of Grantham weights for either subsets of genes or regions within genes, rather than a single set.
 
+
 Both of these points highlight the advantage of the detailed, mechanistic modeling approach underlying \selac.
 Because there is a clear link between protein expression, synthesis cost, and functionality, \selac can be extended by increasing the realism of the mapping between these terms and the coding sequences being analyzed.
 For example, \selac currently assumes the optimal amino acid for any site is fixed along all branches.
@@ -623,9 +631,11 @@ From a computational standpoint, the additive nature of selection between sites 
 From a biological standpoint, this additivity between site ignores any non-linear interactions between sites, such as epistasis, or between alleles, such as dominance.
 Thus, our work can be considered a first step to modeling to these more complex scenarios.
 For example, our current implementation ignores any selection on synonymous codon usage bias (CUB).
-Including such selection is tricky because introducing the site specific cost effects of CUB leads to non-additive (i.e.~epistatic) interactions between sites.
-Relative to stabilizing selection on amino acid sequence, selection on CUB is thought to be substantially weaker.
-As a result, epistatic effects due to synonymous codon specific differences in assembly costs can likely be ignored and selection on CUB incorporated into our current framework.
+Including such selection is tricky because introducing the site specific cost effects of CUB results in a model where the cost-benefit ratio that is no longer additive and results in epistatic interactions between sites.
+Fortunately, relative to stabilizing selection on amino acid sequence, selection on CUB is thought to be substantially weaker.
+As a result, epistatic effects due to synonymous codon specific differences in assembly costs can likely be ignored and selection on CUB incorporated into our current framework, but we leave the examination this conjecture for future studies. 
+
+
 
 This work also points out the potential importance of further investigation into model choice in phylogenetics.
 For likelihood models, use of AICc has become standard, but, in our view, the conflict in how number of data points is calculated remains.
