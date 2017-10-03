@@ -1,4 +1,4 @@
-\begin{thebibliography}{52}
+\begin{thebibliography}{53}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\selectlanguage}[1]{\relax}
 \providecommand{\bibAnnoteFile}[1]{%
@@ -57,6 +57,13 @@ Felsenstein, J. 2001. Taking Variation of Evolutionary Rates Between Sites into
 Fisher, S., Ronald~A. 1930. The Genetical Theory of Natural Selection. Oxford
   University Press, Oxford.
 \bibAnnoteFile{Fisher1930}
+
+\bibitem[{Gilchrist et~al.(2009)Gilchrist, Shah, and
+  Zaretzki}]{GilchristEtAl2009}
+Gilchrist, M., P.~Shah, and R.~Zaretzki. 2009. Measuring and detecting
+  molecular adaptation in codon usage against nonsense errors during protein
+  translation. Genetics 183:1493--1505.
+\bibAnnoteFile{GilchristEtAl2009}
 
 \bibitem[{Gilchrist(2007)}]{Gilchrist2007}
 Gilchrist, M.~A. 2007. Combining Models of Protein Translation and Population
