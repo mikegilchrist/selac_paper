@@ -308,10 +308,10 @@ One lesson from the field of population genetics is even when there are only a f
 The model formulation we evaluate here is a basic version of a more general cost-benefit model we've developed elsewhere \citep{Gilchrist2007,GilchristEtAl2009,ShahAndGilchrist2011,GilchristEtAl2015}.
 This basic version carefully avoids any non-linear interactions between evolutionary forces, resulting in simple additive effects between amino acid sites.
 This additivity between sites is critical to ensuring that calculation of our amino acid substitution matrix is relatively straightforward, though still computationally intensive.
-This additivity between sites also means our model is could be generalized further and simply posed as a more generic, non-mechanistic, additive model.
-While often useful in the early stages of a field's development, given the maturity of the field of phylogenetics, we believe such model generalization is now counter productive.
+This additivity between sites also means our model could be generalized further and simply posed as a more generic, non-mechanistic, additive model.
+While often useful in the early stages of a field's development, given the maturity of the field of phylogenetics, we believe such model generalization is now counterproductive.
 The misinterpretation of GY94's $\omega$ we discuss above is a case in point.
-Another example, which we touch upon in the Discussion, is the fact that models that to include codon specific effects, which presumably affect protein assembly costs, and amino acid specific effects, which presumably affect protein functionality, inherently lead to epistatic interactions between sites.
+Another example, which we touch upon in the Discussion, is the fact that models, which include codon specific effects that presumably affect protein assembly costs and amino acid specific effects, presumably also affect protein functionality, inherently leading to epistatic interactions between sites.
 While this epistasis may be negligible under certain conditions, identifying such conditions is only possible with more mechanistic models, such as the cost-benefit one we present here.
 
 
@@ -327,13 +327,13 @@ Unlike this previous work, we assume \emph{a priori} there are 20 different fami
 As a result, \selac allows us to quantitatively evaluate the support for a particular amino acid being favored at a particular position within the protein encoded by a particular gene.
 
 Because \selac requires twenty families of $61 \times 61$ matrices, the number of parameters needed to implement \selac would, without further assumptions, be extremely large.
-To reduce the number of parameters needed while still maintaining a high degree of biological realism, we construct our gene and amino acid specific substitution matrices using a submodel nested within our substitution model, similar to approaches in \citet{Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
+To reduce the number of parameters needed, while still maintaining a high degree of biological realism, we construct our gene and amino acid specific substitution matrices using a submodel nested within our substitution model, similar to approaches in \citet{Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
 
-One advantage of a nested modeling framework is that it requires only a handful of genome wide parameters such as nucleotide specific mutation rates (scaled by effective population size \Ne), side chain physicochemical weighting parameters, and a shape parameter describing the distribution of site sensitivities. % around a mean value of 1.
-In addition to these genome wide parameters, \selac requires a gene $g$ specific expression parameter $\psi_g$ which describes the average rate at which the protein's functionality is produced by the organism.
+One advantage of a nested modeling framework is that it requires only a handful of genome-wide parameters such as nucleotide specific mutation rates (scaled by effective population size \Ne), side chain physicochemical weighting parameters, and a shape parameter describing the distribution of site sensitivities. % around a mean value of 1.
+In addition to these genome-wide parameters, \selac requires a gene $g$ specific expression parameter $\psi_g$ which describes the average rate at which the protein's functionality is produced by the organism.
 Currently, $\psi$ is fixed across the phylogeny, though relaxing this assumption is a goal of future work.
 The gene specific parameter $\psi_g$ is multiplied by additional model terms to make a composite term $\psiprime_g$ which scales the strength and efficacy of selection for the optimal amino acid sequence relative to drift.
-In terms of the functionality of the protein encoded, we assume that for any given gene there exists an optimal amino acid sequence \aoptvec and that, by definition, a complete, error free peptide consisting of \aoptvec provides one unit of the gene's functionality.
+In terms of the functionality of the protein encoded, we assume that for any given gene there exists an optimal amino acid sequence \aoptvec and that, by definition, is a complete, error free peptide consisting of \aoptvec, which provides one unit of the gene's functionality.
 We also assume that natural selection favors genotypes that are able to synthesize their proteome efficiently than their competitors and that each savings of an high energy phosphate bond per unit time leads to a constant proportional gain in fitness $q$.
 \selac also requires the specification (as part of parameter optimization) of an optimal amino acid at each position or site within a coding sequence which, in turn, makes it the largest category of parameters we estimate.
 Because we use a submodel to derive our substitution matrices, \selac requires the estimation of a fraction of the parameters required when compared to approaches where the substitution rates are allowed to vary independently \citep{HalpernAndBruno1998,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
@@ -426,7 +426,7 @@ Similarly, a cell with an allele \avec where $\Func(\avec) = 0.8$ will have to p
 Simply put, the fitness cost for a genotype encoding a suboptimal protein sequence stems from the need to produce suboptimal proteins at a higher rate in order to compensate for their lower functionality.
 
 
-Third, we assume that every additional high energy phosphate bond \simP spent per unit time to meet the organism's target function synthesis rate $\psi$ leads to a slight and proportional decrease in fitness $W$.
+Third, we assume that every additional high energy phosphate bond, \simP, spent per unit time to meet the organism's target function synthesis rate $\psi$ leads to a slight and proportional decrease in fitness $W$.
 This assumption, in turn, implies
 \begin{align}
   W_i\left(\cvec\right) &\propto \exp\left[- A_0 \, \eta(\cveci) \psi\right].
@@ -447,7 +447,7 @@ As a result, the fitness ratio for two genotypes differing at a single site $p$ 
 \end{align*}
 where \setP represents the codon positions in which \cveci and \cvecj differ.
 Fourth, we make a weak mutation assumption, such that alleles can differ at only one position at any given time, i.e.~$|\setP| = 1$, and that the population is evolving according to a Fisher-Wright process.
-As a result, the probability a new mutant $j$ introduced via mutation into a resident population $i$ with effective size \Ne will go to fixation is,
+As a result, the probability a new mutant, $j$, introduced via mutation into a resident population $i$ with effective size \Ne will go to fixation is,
 \begin{align*}
   u_{i,j} &=  \frac{1 - \left(W_i/W_j\right)^b}{1 - \left(W_i/W_j\right)^{2 \Ne}}\\
    &= \frac{1- \exp\left\{- \frac{A_0}{\ng} \left(A_1 + A_2 \ng\right) \left[d\left(a_i,\aopt\right) - d\left(a_j,\aopt\right)\right] G_p \psi \,  b\right\}}  {1-\exp\left\{- \frac{A_0}{\ng} \left(A_1 + A_2 \ng\right) \left[d\left(a_i,\aopt\right) - d\left(a_j,\aopt\right)\right] G_p \psi \, 2\Ne\right\}}
@@ -463,14 +463,14 @@ This results in the creation of 20 \Qmatrixa matrices, one for each amino acid, 
 \selac can be generalized to allow transitions between optimal amino acids as well as between codons, which would result in a $(20 \times 64) \times (20 \times 64) =  1344 \times 1344$ matrix.
 
 Given our assumption of independent evolution among sites, it follows that the probability of the whole data set is the product of the probabilities of observing the data at each individual site.
-Thus, the log likelihood $\Lik$ of amino acid $a$ being optimal at a given site position $p$ is calculated as
+Thus, the likelihood $\Lik$ of amino acid $a$ being optimal at a given site position $p$ is calculated as
 \begin{equation}
 \Lik\left(\Qmatrixa\middle| \Dmatrixp, \Tmatrix\right) \propto \Pmatrix\left(\Dmatrixp\middle|\Qmatrixa,\Tmatrix\right)
 \end{equation}
 In this case, the data, $\Dmatrixp$, are the observed codon states at position $p$ for the tips of the phylogenetic tree with topology $\Tmatrix$.
 For our purposes we take \Tmatrix as given but it could be estimated as well.
 The pruning algorithm of \citet{Felsenstein1981} is used to calculate $\Lik(\Qmatrixa)$.
-The log likelihood is maximized by estimating the genome scale parameters which consist of 11 mutation parameters which are implicitly scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
+The log of the likelihood is maximized by estimating the genome scale parameters which consist of 11 mutation parameters which are implicitly scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
 Because $A_0$ and $\psi_g$ always co-occur and are scaled by \Ne, for each gene $g$ we estimate a composite term $\psiprime_g = \psi_g A_0 b \Ne$ and the optimal amino acid for each position \aoptp of protein.
 When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using the generalized Laguerre quadrature with $k = 4$ points \citep{Felsenstein2001}.
 
@@ -484,7 +484,7 @@ In addition to the SelAC models, we implemented the GY94 codon model of \citet{G
 These likelihood-based models represent a sample of the types of popular models often fit to codon data.
 
 For the \selac models, the starting guess for the optimal amino acid at a site comes from `majority' rule, where the initial optimum is the most frequently observed amino acid at a given site (ties resolved randomly).
-Our optimization routine then proceeds by cycling though multiple phases.
+Our optimization routine then proceeds by cycling through multiple phases.
 The first phase optimizes the branch lengths while holding the model parameters constant.
 The second phase optimizes the gene specific composite parameter $ \psiprime = A_0 \psi \Ne$ across genes, while holding constant both the branch lengths and the model parameters shared across the genome (i.e., $\alphac$ and $\alphap$, and the sensitivity distribution parameter $\alphag$).
 This is followed by a third phase that optimizes the parameters across the genome, while keeping the branch lengths and the composite parameters constant.
@@ -529,6 +529,7 @@ While one of our main objectives was to determine the improvement of fit that \s
 Model fit, measured with assessments such as the Akaike Information Criterion (AIC), can tell which model is least bad as an approximation for the data, but it does not reveal whether a model is actually doing a good job of representing the biological processes.
 An adequate model does the latter, one measure of which is that data generated under the model resemble real data \citep{goldman1993statistical}.
 For example, \citet{BeaulieuEtAl2013} assessed whether parsimony scores and the size of monomorphic clades of empirical data were within the distributions of simulated under a new model and the best standard model; if the empirical summaries were outside the range for each, it would have suggested that neither model was adequately modeling this part of the biology.
+
 For a given gene we first remove a particular taxon from the data set and the phylogeny.
 A marginal reconstruction of the likeliest sequence across all remaining nodes is conducted under the model, including where the attachment point of pruned taxon to the tree.
 The marginal probabilities of each site are used to sample and assemble the starting coding sequence.
@@ -555,7 +556,7 @@ The original derivation of AICc by \citet{HurvichTsai1989} assumed a regression 
 It might not be an appropriate approximation for phylogenetic data, where data points are not independent of each other.
 In any case, we argue that for phylogenetic data, a good estimate of data set size is number of taxa multiplied by number of sites.
 First of all, this is what is conventionally seen as the size of the dataset in the field.
-Second, when considering how likelihood is calculated, the likelihood for a given site it is the sum of the probabilities of each observed state at each tip, and this is then multiplied across sites.
+Second, when considering how likelihood is calculated, the likelihood for a given site is the sum of the probabilities of each observed state at each tip, and this is then multiplied across sites.
 It is arguable that the conventional approach in comparative methods is calculating AICc in this way: number of taxa multiplied by number of sites equals the number of taxa, if only one site is examined, as remains remarkably common in comparative methods.
 An notable exception is the program SURFACE implemented by \citet{IngramMahler2013}, which uses multiple characters and taxa.
 While its default is to use AIC to compare models, if one chooses to use AICc, the number of samples is taken as the product of number of sites and number of taxa.
@@ -677,8 +678,8 @@ It allows biologically relevant population genetic parameters to be estimated fr
 Moreover, it demonstrates that there remains substantially more information in the coding sequences used for phylogenetic analysis than other methods acknowledge.
 
 \section{Acknowledgements}
-This work was supported in part by NSF Awards MCB-1120370 (MAG and RZ) and DEB-1355033 (BO, MAG, and RZ) with additional support from The University of Tennessee Knoxville and University of Arkansas (JB).
-JB was supported, in part, as a Postdoctoral Fellow at the National Institute for Mathematical and Biological Synthesis, an Institute sponsored by the National Science Foundation through NSF Award DBI-1300426, with additional support from UTK.
+This work was supported in part by NSF Awards MCB-1120370 (MAG and RZ) and DEB-1355033 (BO, MAG, and RZ) with additional support from The University of Tennessee Knoxville and University of Arkansas (JMB).
+JMB was supported, in part, as a Postdoctoral Fellow at the National Institute for Mathematical and Biological Synthesis, an Institute sponsored by the National Science Foundation through NSF Award DBI-1300426, with additional support from UTK.
 The authors would like to thank Premal Shah, Todd Oakley, and our two anonymous  for their helpful criticisms and suggestions for this work.
 \clearpage
 
