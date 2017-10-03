@@ -1,4 +1,4 @@
-\begin{thebibliography}{45}
+\begin{thebibliography}{52}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\selectlanguage}[1]{\relax}
 \providecommand{\bibAnnoteFile}[1]{%
@@ -26,6 +26,11 @@ Beaulieu, J.~M. and B.~C. O’Meara. 2016. Detecting Hidden Diversification
 Berg, J. and M.~L\"assig. 2003. Stochastic Evolution and Transcription Factor
   Binding Sites. Biophysics 48:S36--S44.
 \bibAnnoteFile{BergAndLassig2003}
+
+\bibitem[{Butler and King(2004)}]{ButlerKing2004}
+Butler, M.~A. and A.~A. King. 2004. Phylogenetic comparative analysis: a
+  modeling approach for adaptive evolution. American Naturalist 164:683--695.
+\bibAnnoteFile{ButlerKing2004}
 
 \bibitem[{Dimmic et~al.(2000)Dimmic, Mindell, and Goldstein}]{DimmicEtAl2000}
 Dimmic, M.~W., D.~P. Mindell, and R.~A. Goldstein. 2000. Modeling evolution at
@@ -107,18 +112,36 @@ Hughes, A.~L. and M.~Nei. 1988. Pattern of nucleotide substitution at major
   Nature 335:167--170.
 \bibAnnoteFile{HughesAndNei1988}
 
-\bibitem[{Hohna et~al.(2016)Hohna, Landis, Heath, Boussau, Lartillot, Moore,
+\bibitem[{Hurvich and Tsai(1989)}]{HurvichTsai1989}
+Hurvich, C.~M. and C.-L. Tsai. 1989. Regression and time series model selection
+  in small samples. Biometrika 76:297--307.
+\bibAnnoteFile{HurvichTsai1989}
+
+\bibitem[{Höhna et~al.(2016)Höhna, Landis, Heath, Boussau, Lartillot, Moore,
   Huelsenbeck, and Ronquist}]{revbayes}
-Hohna, S., M.~J. Landis, T.~A. Heath, B.~Boussau, N.~Lartillot, B.~R. Moore,
+Höhna, S., M.~J. Landis, T.~A. Heath, B.~Boussau, N.~Lartillot, B.~R. Moore,
   J.~P. Huelsenbeck, and F.~Ronquist. 2016. RevBayes: Bayesian Phylogenetic
   Inference Using Graphical Models and an Interactive Model-Specification
   Language. Systematic Biology 65:726.
 \bibAnnoteFile{revbayes}
 
+\bibitem[{Ingram and Mahler(2013)}]{IngramMahler2013}
+Ingram, T. and D.~L. Mahler. 2013. SURFACE: detecting convergent evolution from
+  data by fitting Ornstein-Uhlenbeck models with stepwise Akaike Information
+  Criterion. Methods in ecology and evolution 4:416--425.
+\bibAnnoteFile{IngramMahler2013}
+
 \bibitem[{Iwasa(1988)}]{Iwasa1988}
 Iwasa, Y. 1988. Free fitness that always increases in evolution. Journal of
   Theoretical Biology 135:265--281.
 \bibAnnoteFile{Iwasa1988}
+
+\bibitem[{Jhwueng et~al.(2014)Jhwueng, Snehalata, and
+  O'Meara}]{Jhwuengetal2014}
+Jhwueng, D.-C., H.~Snehalata, and L.~L. O'Meara, Brian~C. 2014. Investigating
+  the performance of AIC in selecting phylogenetic models. Statistical
+  applications in genetics and moleculr biology 13:459--475.
+\bibAnnoteFile{Jhwuengetal2014}
 
 \bibitem[{Johnson(2012)}]{Johnson2012}
 Johnson, S.~G. 2012. The NLopt nonlinear-optimization package. Version 2.4.2 --
@@ -148,6 +171,13 @@ Koshi, J.~M., D.~P. Mindell, and R.~A. Goldstein. 1999. Using
   HIV-1 subtypes. Molecular biology and evolution 16:173--179.
 \bibAnnoteFile{KoshiEtAl1999}
 
+\bibitem[{Kubatko et~al.(2016)Kubatko, Shah, Herbei, and
+  Gilchrist}]{KubatkoEtAl2016}
+Kubatko, L., P.~Shah, R.~Herbei, and M.~A. Gilchrist. 2016. A codon model of
+  nucleotide substitution with selection on synonymous codon usage. Molecular
+  Phylogenetics and Evolution 94:290 -- 297.
+\bibAnnoteFile{KubatkoEtAl2016}
+
 \bibitem[{Lartillot and Philippe(2004)}]{LartillotAndPhilippe2004}
 Lartillot, N. and H.~Philippe. 2004. A Bayesian mixture model for across-site
   heterogeneities in the amino-acid replacement process. Molecular Biology And
@@ -175,6 +205,20 @@ Muse, S.~V. and B.~S. Gaut. 1994. A likelihood approach for comparing
 Nowak, M.~A. 2006. Evolutionary Dynamics: Exploring the Equations of Life.
   Belknap of Harvard University Press, Cambridge, MA.
 \bibAnnoteFile{Nowak2006}
+
+\bibitem[{O'Meara et~al.(2006)O'Meara, Ane, Sanderson, and
+  P.C.}]{OMearaetal2006}
+O'Meara, B.~C., C.~Ane, M.~J. Sanderson, and W.~P.C. 2006. Testing for
+  different rates of continuous trait evolution using likelihood. Evolution
+  60:922--933.
+\bibAnnoteFile{OMearaetal2006}
+
+\bibitem[{Pouyet et~al.(2016)Pouyet, Bailly-Bechet, Mouchiroud, and
+  Guéguen}]{PouyetEtAl2016}
+Pouyet, F., M.~Bailly-Bechet, D.~Mouchiroud, and L.~Guéguen. 2016. SENCA: A
+  Multilayered Codon Model to Study the Origins and Dynamics of Codon Usage.
+  Genome Biology and Evolution 8:2427--2441.
+\bibAnnoteFile{PouyetEtAl2016}
 
 \bibitem[{Robinson et~al.(2003)Robinson, Jones, Kishino, Goldman, and
   Thorne}]{RobinsonEtAl2003}

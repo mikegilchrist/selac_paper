@@ -274,7 +274,7 @@ M\textsc{ICHAEL} A.~{G\textsc{ILCHRIST}}$^{2,3,*}$}
 
 \section{Abstract}
 We present a phylogenetic approach rooted in the field of population genetics that more realistically models the evolution of protein-coding DNA under the assumption of stabilizing selection for a gene specific, optimal amino acid sequence.
-In addition to being consistent with the fundamental principles of population genetics, our new set of models, which we collectively call SelAC (Selection on Amino acids and Codons), fit phylogenetic data astronomically better than popular models, suggesting strong potential for more accurate inference of phylogenetic trees and branch lengths.
+In addition to being consistent with the fundamental principles of population genetics, our new set of models, which we collectively call SelAC (Selection on Amino acids and Codons), fit phylogenetic data much better than popular models, suggesting strong potential for more accurate inference of phylogenetic trees and branch lengths.
 SelAC also demonstrates that a large amount of biologically meaningful information is accessible when using a nested set of mechanistic models.
 For example, for each position SelAC provides a probabilistic estimate of any given amino acid being optimal.
 SelAC also assumes the strength of selection is proportional to the expression level of a gene and, therefore, provides gene specific estimates of protein synthesis rates.
@@ -421,8 +421,8 @@ Second, we assume that protein expression is regulated by the organism to ensure
 As a result, the realized average protein synthesis rate of a gene, $\phi$, by definition, satisfies the equality  $\phi = \psi/\Func(\avec)$.
 In other words, the average production rate of a protein \avec with relative functionality $\Func(\avec) < 1$ must be $1/\Func(\avec)$ times higher than the production rate needed if the optimal amino acid sequence \aoptvec was encoded since, by definition, $\Func(\aoptvec) = 1$.
  required to meet meeting the target functionality of a particular gene is the target functionality production rate $\psi$ multiplied  $\eta(\cvec) \psi$.
-For example, a cell with an allele \avec where $\Func(\avec) = 0.9$ will have to produce $1/9 \times 100\%=  11.11\%$ more proteins than a competitor cell with the optimal allele \aoptvec at that locus 
-Similarly, a cell with an allele \avec where $\Func(\avec) = 0.8$ will have to produce $1/8 \times 100\%=  12.5\%$ more proteins a cell with \aoptvec.  
+For example, a cell with an allele \avec where $\Func(\avec) = 0.9$ will have to produce $1/9 \times 100\%=  11.11\%$ more proteins than a competitor cell with the optimal allele \aoptvec at that locus
+Similarly, a cell with an allele \avec where $\Func(\avec) = 0.8$ will have to produce $1/8 \times 100\%=  12.5\%$ more proteins a cell with \aoptvec.
 Simply put, the fitness cost for a genotype encoding a suboptimal protein sequence stems from the need to produce suboptimal proteins at a higher rate in order to compensate for their lower functionality.
 
 
@@ -436,13 +436,13 @@ Because $A_0$ shares the same time units as $\psi$ and $\phi$ and only occurs in
 
 Correspondingly, the ratio of fitness between two genotypes is,
 \begin{align}
-  W_i/W_j &=  \exp\left[- A_0 \, \eta(\cveci) \psi\right]/\exp\left[- A_0 \, \eta(\cvecj) \psi\right]\\ 
+  W_i/W_j &=  \exp\left[- A_0 \, \eta(\cveci) \psi\right]/\exp\left[- A_0 \, \eta(\cvecj) \psi\right]\\
   &=  \exp\left[- A_0 \left(\eta(\cveci)- \eta(\cvecj)\right) \psi\right] \label{eq:Wratio}\\
 \end{align}
 Given our formulations of \Cost and \Func, the fitness effects between sites are multiplicative and, therefore, the substitution of an amino acid at one site can be modeled independently of the amino acids at the other sites within the coding sequence.
 As a result, the fitness ratio for two genotypes differing at a single site $p$ simplifies to
 \begin{align*}
-  \frac{W_i}{W_j}  &= \exp\left[- \frac{A_0 \left(A_1 + A_2 \ng\right)}{\ng} \right.\\ 
+  \frac{W_i}{W_j}  &= \exp\left[- \frac{A_0 \left(A_1 + A_2 \ng\right)}{\ng} \right.\\
   & \;\;\;  \left. \times \sum_{p \in \setP} \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] G_p \psi \right]
 \end{align*}
 where \setP represents the codon positions in which \cveci and \cvecj differ.
@@ -642,7 +642,7 @@ For example, our current implementation ignores any selection on synonymous codo
 Including such selection is tricky because introducing the site specific cost effects of CUB, which is consistent with the hypothesis that codon usage affects the efficiency of protein assembly or \Cost, into a model where amino acids affect protein funcdtion or \Func, results in a cost-benefit ratio $\Cost/\Func$ with epistatic interactions between all sites.
 These epistatic effects can likely be ignored under certain conditions or reasonably approximated based on an expectation of codon specific costs \citep[e.g.][]{KubatkoEtAl2016}.
 Nevertheless, it is difficult to see how one could identify such conditions without modeling the way in which codon and amino acid usage affects $\Cost/\Func$.
-%We leave the identification of such conditions and approximations for future studies. 
+%We leave the identification of such conditions and approximations for future studies.
 
 
 This work also points out the potential importance of further investigation into model choice in phylogenetics.
@@ -706,7 +706,7 @@ The authors would like to thank Premal Shah, Todd Oakley, and our two anonymous 
       \selacplusgamma 	        & -453706.0&       50,005&   1,007,422&     1,024,139&           0& $>$0.999\\
     \end{tabular}
     \caption{Comparison of model fits using AIC, AICc, and \AICw.
-Note the subscripts $M$ indicate model fits where the most common or 'majority rule' amino acid was fixed as the optimal amino acid \aopt for each site.  
+Note the subscripts $M$ indicate model fits where the most common or 'majority rule' amino acid was fixed as the optimal amino acid \aopt for each site.
 As discussed in text, despite the fact that \aopt for each site was not fitted by our algorithm, its value was determined by examining the data and, as a result, represent an additional parameter estimated from the data and are accounted for in our table.
 }
     \label{table:modelFits}
