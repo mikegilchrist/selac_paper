@@ -290,7 +290,7 @@ While the scale and impact of phylogenetic studies has increased substantially o
 For example, the simplest but most popular models are nucleotide-based, which are naturally agnostic with regards to the different amino acid substitutions and their impact on gene function (e.g.~F81, F84, HYK85, TN93, and GTR, see \citet{Yang2014} for an overview).
 
 Another set of models attempt to include a `selection' term $\omega$, but the link between $\omega$ and the key parameters found in standard population genetics models such as \Ne, the distribution of fitness across genotype space, and mutation bias is far from clear.
-\marginpar{Does any one recall why we include mutation bias?  These models usually include nt specific mutation rates.}
+\marginpar{Does any one recall why we include mutation bias?  These models usually include nt specific mutation rates. JMB: Not sure either. Brian?}
 For instance, $\omega$ is generally interpreted as indicating whether a sequence is under `purifying' ($\omega < 1$) or `diversifying' ($\omega > 1$) selection.
 However, the actual behavior of the model is quite different.
 When $\omega < 1$ the model behaves as if the resident amino acid $i$ at a given site is favored by selection since synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions.
@@ -330,8 +330,8 @@ Similar to Lartillot's work \citep{LartillotAndPhilippe2004,RodrigueAndLartillot
 Unlike this previous work, we assume \emph{a priori} there are 20 different families of rate matrices, one family for when a given amino acid is favored at a site.
 As a result, \selac allows us to quantitatively evaluate the support for a particular amino acid being favored at a particular position within the protein encoded by a particular gene.
 
-Because \selac requires twenty families of $61 \times 61$ matrices, the number of parameters needed to implement \selac would, without further assumptions, be extremely large (i.e. on the order of 73,000 parameters).
-\marginpar{Could you confirm this 73k value correct?  I get it from $61 \times 60 \times 20 = 73,200$.} 
+Because \selac requires twenty families of $61 \times 61$ matrices, the number of parameters needed to implement \selac would, without further assumptions, be extremely large (i.e. on the order of 74,420 parameters).
+\marginpar{Could you confirm this 73k value correct?  I get it from $61 \times 60 \times 20 = 73,200$. JMB: made the change. Should it not be $61 \times 61 \times 20 = 74,420$?} 
 To reduce the number of parameters needed, while still maintaining a high degree of biological realism, we construct our gene and amino acid specific substitution matrices using a submodel nested within our substitution model, similar to approaches in \citet{Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
 
 One advantage of a nested modeling framework is that it requires only a handful of genome-wide parameters such as nucleotide specific mutation rates (scaled by effective population size \Ne), side chain physicochemical weighting parameters, and a shape parameter describing the distribution of site sensitivities. % around a mean value of 1.
@@ -353,21 +353,20 @@ We begin with a 4x4 nucleotide mutation matrix that defines a model for mutation
 For our purposes, we rely on the general unrestricted model\citep[UNREST]{Yang1994} because it makes no constraint on the instantaneous rate of change between any pair of nucleotides.
 In our view, the flexibility and potential for strong asymmetries in the transition among the different nucleotide states, and ultimately among the different codon states, is more consistent with our model.
 We note, however, that more constrained models, such as the Jukes-Cantor (JC), Hasegawa-Kishino-Yano (HKY), or the general time-reversible model (GTR), can also be used.
-\marginpar{Didn't we compare these models to UNREST and find UNREST better?  
-If so we should mention this fact.}
+\marginpar{Didn't we compare these models to UNREST and find UNREST better?  If so we should mention this fact. JMB: I believe at one point we did, but i thought we went with UNREST because it fit with our model assumptions.}
 The 12 parameter UNREST model defines the relative rates of change between a pair of nucleotides.
 Thus, we arbitrarily set the G$\rightarrow$T mutation rate to 1, resulting in 11 free mutation rate parameters in the 4x4 mutation nucleotide mutation matrix.
 The nucleotide mutation matrix is also scaled by a diagonal matrix \pimatrix whose entries, $\pi_{i,i} = \pi_i$, correspond to the equilibrium frequencies of each base.
 These equilibrium nucleotide frequencies are determined by analytically solving $\pimatrix \times \Qmatrix = 0$.
 We use this \Qmatrix to populate a $61 \times 61$ codon mutation matrix $\mumatrix$, whose entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a "weak mutation" assumption.
-That is, the rate of allele fixation is greater than \Nemu \marginpar{Shouldn't this be `$1/(2 \Ne)$ generations'?}  and $\Nemu \ll 1$, such that evolution is mutation limited, codon substitutions only occur one nucleotide at a time and, as a result, the rate of change between any pair of codons that differ by more than one nucleotide is zero.
+That is, the rate of allele fixation is greater than \Nemu \marginpar{Shouldn't this be `$1/(2 \Ne)$ generations'? JMB: I agree -- did not make change until Brian confirms.}  and $\Nemu \ll 1$, such that evolution is mutation limited, codon substitutions only occur one nucleotide at a time and, as a result, the rate of change between any pair of codons that differ by more than one nucleotide is zero.
 
 While the overall model does not assume equilibrium, we still need to scale our mutation matrices $\mu$ by a scaling factor $S$.
 As traditionally done, we rescale our time units such that at equilibrium, one unit of branch length represents one expected neutral substitution per site.
-More explicitly, $ S = 1/\left(\sum_{i \in \text{codons}} \mu_i \pi_i\right)$.
-\marginpar{I assume the $-$? in the previous version was a typo, correct?}
-Thus, the final mutation rate matrix is the original mutation rate matrix multiplied by $S$, and, on average, the expected rate of neutral evolution is 1 substitution per unit time.
-\marginpar{Are my corrections here correct?}
+More explicitly, $ S = \left(\sum_{i \in \text{codons}} \mu_i \pi_i\right)$.
+\marginpar{I assume the $-$? in the previous version was a typo, correct?. JMB: No, it should be negative. Brian -- you agree?}
+Thus, The final mutation rate matrix is the original mutation rate matrix multiplied by $1/S$, and represents one expected proposed mutation per site.
+\marginpar{Are my corrections here correct? JMB: No. Brian -- you agree.?}
 
 
 \subsection{Protein Synthesis Cost-Benefit Function $\eta$}
@@ -470,8 +469,8 @@ Finally, assuming a constant mutation rate between alleles $i$ and $j$, $\muij$,
 \end{align*}
 where, given our weak mutation assumption, $\muij = 0$ when two codons differ by more than one nucleotide.
 In the end, each optimal amino acid has a separate 64 x 64 substitution rate matrix \Qmatrixa, which incorporates selection for the amino acid (and the fixation rate matrix this creates) as well as the common mutation parameters across optimal amino acids.
-This results in the creation of 20 \Qmatrix matrices, one for each amino acid and each with  $26,880$\marginpar{where does this 26,880 come from?} unique rates, based on few parameters (one to 11 mutation rates, two free Grantham weights, the cost of protein assembly, $A_1$ and $A_2$, the gene specific target functionality synthesis rate $\psi$, and optimal amino acid at each position $p$, \aoptp), which can either be specified \emph{a priori} or  estimated from the data.
-\selac can be generalized to allow transitions between optimal amino acids as well as between codons, which would result in a $(20 \times 64) \times (20 \times 64) =  1344 \times 1344$ matrix.\marginpar{Is this worth mentioning?  If so why here instead of in Discussion?}
+This results in the creation of 20 \Qmatrix matrices, one for each amino acid and each with $3721$\marginpar{where does this 26,880 come from? JMB: No idea. Good catch. I have 61*61=3721. Made this change. Brian -- you agree?} unique rates, based on few parameters (one to 11 mutation rates, two free Grantham weights, the cost of protein assembly, $A_1$ and $A_2$, the gene specific target functionality synthesis rate $\psi$, and optimal amino acid at each position $p$, \aoptp), which can either be specified \emph{a priori} or  estimated from the data.
+\selac can be generalized to allow transitions between optimal amino acids as well as between codons, which would result in a $(20 \times 64) \times (20 \times 64) =  1344 \times 1344$ matrix.\marginpar{Is this worth mentioning?  If so why here instead of in Discussion? JMB: Yeah, this seems a bit out of place. I would just cut completely.}
 
 Given our assumption of independent evolution among sites, it follows that the probability of the whole data set is the product of the probabilities of observing the data at each individual site.
 Thus, the likelihood $\Lik$ of amino acid $a$ being optimal at a given site position $p$ is calculated as
@@ -484,7 +483,7 @@ The pruning algorithm of \citet{Felsenstein1981} is used to calculate $\Lik\left
 The log of the likelihood is maximized by estimating the genome scale parameters which consist of 11 mutation parameters which are implicitly scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
 Because $A_0$ and $\psi_g$ always co-occur and are scaled by \Ne, for each gene $g$ we estimate a composite term $\psiprime_g = \psi_g A_0 b \Ne$ and the optimal amino acid for each position \aoptp of protein.
 When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using the generalized Laguerre quadrature with $k = 4$ points \citep{Felsenstein2001}.
-\marginpar{I thought we used 8 points.}
+\marginpar{I thought we used 8 points. JMB: No. Takes way too long. Had to go with 4.}
 
 Finally, we note that because we infer the ancestral state of the system, our approach does not rely on any assumptions of model stationary.
 Nevertheless, as our branch lengths grow the probability of observing a particular amino acid $a$ at a given site approaches a stationary value proportional to $W(a)^{2 \Ne -b}$ \citep{SellaAndHirsh2005}.
@@ -502,14 +501,13 @@ The first stage optimizes the block of branch length parameters.
 The second stage optimizes the block of gene specific composite parameters $ \psiprime_g = A_0 \psi_g \Ne$.
 The third stage optimizes the model parameters shared across the genome $\alphac$ and $\alphap$, and the sensitivity distribution parameter $\alphag$.
 The fourth stage estimates the optimal amino acid at each site \aopt.
-This entire four stage cycle is repeated six times, by which point the change in the log-\Lik values for our analysis was less than XXX between cycles.
-\marginpar{Please replace XXX with appropriate numbers.}
+This entire four stage cycle is repeated six times.
 For optimization of a given set of parameters, we rely on a bounded subplex routine \citep{Rowan1990} in the package \texttt{NLopt} \citep{Johnson2012} to maximize the log-likelihood function.
 To help the optimization navigate through local peaks, we perform a set of independent analyses with different sets of naive starting points with respect to the gene specific composite $\psiprime$ parameters, $\alphac$, and $\alphap$.
 Confidence in the parameter estimates can be generated by an `adaptive search' procedure that we implemented to provide an estimate of the parameter space that is some pre-defined likelihood distance (e.g., 2 lnL units) from the maximum likelihood estimate (MLE), which follows  \citet{BeaulieuAndOMeara2016,edwards1984likelihood}.
 
-We note that our current implementation of \selac is painfully slow, and is best suited for  data sets with relatively few number of taxa (i.e.~$<10$).
-\marginpar{Is this $<10$ accurate?}
+We note that our current implementation of \selac is painfully slow, and is best suited for data sets with relatively few number of taxa (i.e.~$<10$).
+\marginpar{Is this $<10$ accurate? JMB: Yes. Our yeast example is less than 10 species and it took forever.}
 This is largely due to the size and quantity of matrices we create and manipulate to calculate the log-likelihood of an individual site.
 We have parallelized operations wherever possible, but the fact remains that, long term, this model may not be well-suited for R.
 Ongoing work will address the need for speed, with the eventual goal of implementing the model in popular phylogenetic inference toolkits, such as RevBayes \citep{revbayes}, PAML \citep{Yang2007} and RAxML \citep{Stamatakis2006}.
@@ -531,7 +529,7 @@ The complete data set of \citet{SalichosAndRokas2013} contain 1070 orthologs, wh
 We also focus our analyses only on \emph{Saccharomyces} \emph{sensu stricto}, including their sister taxon \emph{Candida glabrata}, and we rely on the phylogeny depicted in Fig. 1 of \citet{SalichosAndRokas2013} for our fixed tree.
 We fit the two \selac models described above (i.e., \selac and \selacplusgamma), as well as two codon models, GY94 and FMutSel0, and a standard GTR + $\Gamma$ nucleotide model.
 The FMutSel0 model, which assumes that the amino acid frequencies are determined by functional requirements of the protein, but where XXXX, is the most similar to our model.
-\marginpar{Can you fill in the XXX?}
+\marginpar{Can you fill in the XXX? JMB: I do not understand what is being communicated here.}
 In all cases, we assumed that the model was partitioned by gene, but with branch lengths linked across genes.
 
 For \selac, we compared our estimates of $\phiprime = \psiprime/\Func$, which represents the average protein synthesis rate of a gene, to estimates of gene expression from empirical data.
