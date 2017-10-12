@@ -356,16 +356,10 @@ Thus, we arbitrarily set the G$\rightarrow$T mutation rate to 1, resulting in 11
 The nucleotide mutation matrix is also scaled by a diagonal matrix \pimatrix whose entries, $\pi_{i,i} = \pi_i$, correspond to the equilibrium frequencies of each base.
 These equilibrium nucleotide frequencies are determined by analytically solving $\pimatrix \times \Qmatrix = 0$.
 We use this \Qmatrix to populate a $61 \times 61$ codon mutation matrix $\mumatrix$, whose entries $\muij$ describe the mutation rate from codon $i$ to $j$ under a "weak mutation" assumption, such that evolution is mutation limited, codon substitutions only occur one nucleotide at a time and, as a result, the rate of change between any pair of codons that differ by more than one nucleotide is zero.
-%\marginpar{Shouldn't this be `$1/(2 \Ne)$ generations'? JMB: I agree -- did not make change until Brian confirms. BCO: I don't agree: all we mean by weak mutation is no more than two alleles per site. I'd cut everything at "and $\Nemu \ll 1$" and following.
-%RESOLVED: Implemented BCO's recommendation.
-%Note that this is the mutation part of the model, not the substitution part, which I've updated.} 
 
 While the overall model does not assume equilibrium, we still need to scale our mutation matrices $\mu$ by a scaling factor $S$.
 As traditionally done, we rescale our time units such that at equilibrium, one unit of branch length represents one expected mutation per site (which equals the substitution rate under neutrality, but would not with selection).
 More explicitly, $ S = \left(\sum_{i \in \text{codons}} \mu_i \pi_i\right)$ where the final mutation rate matrix is the original mutation rate matrix multiplied by $1/S$.
-%\marginpar{I assume the $-$? in the previous version was a typo, correct?. JMB: No, it should be negative. Brian -- you agree?. BCO: Line 1081 of selac.R, so should be positive. It's neg originally b/c we're taking the neg of the diag, which itself is neg of the rowsums. RESOLVED: $-$ has been removed.}
-\marginpar{Are my corrections here correct? JMB: No. Brian -- you agree.? BCO: I'd delete the "and represents one expected proposed mutation per site" b/c it's actually 1 unit of brlen = 1 mutation (nothing about time in the original sentence) but it's too kludgy to write this.
-MAG: I think it's important to be clear about units and think my solution isn't very kludgy (though may be incorrect).}
 
 
 \subsection{Protein Synthesis Cost-Benefit Function $\eta$}
@@ -467,12 +461,11 @@ Finally, assuming a constant mutation rate between alleles $i$ and $j$, $\muij$,
 \begin{align*}
   q_{i,j} = \frac{2}{b} \muij \Ne u_{i,j}.
 \end{align*}
-where, given weak mutation assumption, $\muij = 0$ when two codons differ by more than one nucleotide and $\Ne \mu \ll 1$.
-\marginpar{MAG: Added weak mutation math here.}
+where, given the substitution model's weak mutation assumption, $\Ne \mu \ll 1$.
 In the end, each optimal amino acid has a separate 64 x 64 substitution rate matrix \Qmatrixa, which incorporates selection for the amino acid (and the fixation rate matrix this creates) as well as the common mutation parameters across optimal amino acids.
 This results in the creation of 20 \Qmatrix matrices, one for each amino acid and each with $3,721$ entries which are based on a relatively small number of model parameters (one to 11 mutation rates, two free Grantham weights, the cost of protein assembly, $A_1$ and $A_2$, the gene specific target functionality synthesis rate $\psi$, and optimal amino acid at each position $p$, \aoptp).
 These model parameters can either be specified \emph{a priori} or  estimated from the data.
-%\selac can be generalized to allow transitions between optimal amino acids as well as between codons, which would result in a $(20 \times 64) \times (20 \times 64) =  1344 \times 1344$ matrix.\marginpar{Is this worth mentioning?  If so why here instead of in Discussion? JMB: Yeah, this seems a bit out of place. I would just cut completely. BCO: Agree, cut. RESOLVED: Cut sentence.}
+
 
 Given our assumption of independent evolution among sites, it follows that the probability of the whole data set is the product of the probabilities of observing the data at each individual site.
 Thus, the likelihood $\Lik$ of amino acid $a$ being optimal at a given site position $p$ is calculated as
@@ -485,7 +478,7 @@ The pruning algorithm of \citet{Felsenstein1981} is used to calculate $\Lik\left
 The log of the likelihood is maximized by estimating the genome scale parameters which consist of 11 mutation parameters which are implicitly scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
 Because $A_0$ and $\psi_g$ always co-occur and are scaled by \Ne, for each gene $g$ we estimate a composite term $\psiprime_g = \psi_g A_0 b \Ne$ and the optimal amino acid for each position \aoptp of protein.
 When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using the generalized Laguerre quadrature with $k = 4$ points \citep{Felsenstein2001}.
-%\marginpar{I thought we used 8 points. JMB: No. Takes way too long. Had to go with 4. BCO: Ok. MAG: Dang.  I really think this is a likely source of error. RESOLVED: 4 is correct}
+
 
 Finally, we note that because we infer the ancestral state of the system, our approach does not rely on any assumptions of model stationary.
 Nevertheless, as our branch lengths grow the probability of observing a particular amino acid $a$ at a given site approaches a stationary value proportional to $W(a)^{2 \Ne -b}$ \citep{SellaAndHirsh2005}.
@@ -509,7 +502,6 @@ To help the optimization navigate through local peaks, we perform a set of indep
 Confidence in the parameter estimates can be generated by an `adaptive search' procedure that we implemented to provide an estimate of the parameter space that is some pre-defined likelihood distance (e.g., 2 lnL units) from the maximum likelihood estimate (MLE), which follows  \citet{BeaulieuAndOMeara2016,edwards1984likelihood}.
 
 We note that our current implementation of \selac is painfully slow, and is best suited for data sets with relatively few number of taxa (i.e.~$<10$).
-%\marginpar{Is this $<10$ accurate? JMB: Yes. Our yeast example is less than 10 species and it took forever. BCO: OK}
 This limitation is largely due to the size and quantity of matrices we create and manipulate to calculate the log-likelihood of an individual site.
 We have parallelized operations wherever possible, but the fact remains that, long term, this model may not be well-suited for R.
 Ongoing work will address the need for speed, with the eventual goal of implementing the model in popular phylogenetic inference toolkits, such as RevBayes \citep{revbayes}, PAML \citep{Yang2007} and RAxML \citep{Stamatakis2006}.
