@@ -1,0 +1,47 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: selac.aux
+The style file: ./sysbio.bst
+Database file #1: ./mike.bib
+Database file #2: ./omeara.bib
+You've used 54 entries,
+            2856 wiz_defined-function locations,
+            984 strings with 14711 characters,
+and the built_in function-call counts, 31947 in all, are:
+= -- 2825
+> -- 1307
+< -- 37
++ -- 443
+- -- 375
+* -- 2339
+:= -- 4979
+add.period$ -- 217
+call.type$ -- 54
+change.case$ -- 342
+chr.to.int$ -- 54
+cite$ -- 108
+duplicate$ -- 2263
+empty$ -- 2432
+format.name$ -- 541
+if$ -- 6603
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 497
+newline$ -- 227
+num.names$ -- 216
+pop$ -- 787
+preamble$ -- 1
+purify$ -- 341
+quote$ -- 0
+skip$ -- 785
+stack$ -- 0
+substring$ -- 1857
+swap$ -- 969
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 471
+warning$ -- 0
+while$ -- 219
+width$ -- 0
+write$ -- 655

@@ -1,4 +1,4 @@
-\begin{thebibliography}{53}
+\begin{thebibliography}{54}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\selectlanguage}[1]{\relax}
 \providecommand{\bibAnnoteFile}[1]{%
@@ -42,6 +42,11 @@ Dimmic, M.~W., D.~P. Mindell, and R.~A. Goldstein. 2000. Modeling evolution at
 Edwards, A. 1984. Likelihood. Cambridge science classics Cambridge University
   Press.
 \bibAnnoteFile{edwards1984likelihood}
+
+\bibitem[{El-Brolosy and Stainier(2017)}]{compensation}
+El-Brolosy, M.~A. and D.~Y.~R. Stainier. 2017. Genetic compensation: A
+  phenomenon in search of mechanisms. PLOS Genetics 13:1--17.
+\bibAnnoteFile{compensation}
 
 \bibitem[{Felsenstein(1981)}]{Felsenstein1981}
 Felsenstein, J. 1981. Evolutionary trees from {DNA}-sequences - a

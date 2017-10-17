@@ -364,7 +364,7 @@ More explicitly, $ S = \left(\sum_{i \in \text{codons}} \mu_i \pi_i\right)$ wher
 
 \subsection{Protein Synthesis Cost-Benefit Function $\eta$}
 \selac links fitness to the product of the cost-benefit function of a gene  $\eta$ and the organism's average target synthesis rate of the functionality provided by gene $\psi$.
-Compensatory changes that allow an organism to maintain functionality even with loss of one or both copies of a gene are widespread (reviewed in \cite{compensation}); here we assume that for finer scale problems than entire loss (for example, a 10% loss of functionality) the compensation is more production of the protein.
+Compensatory changes that allow an organism to maintain functionality even with loss of one or both copies of a gene are widespread (reviewed in \cite{compensation}); here we assume that for finer scale problems than entire loss (for example, a 10\% loss of functionality) the compensation is more production of the protein.
 This is because the average flux energy an organism spends to meet its target functionality provided by the gene is $\eta \times \psi$.
 In order to link genotype to our cost-benefit function $\eta = \Cost/\Func$, we begin by defining our benefit function \Func.
 
@@ -523,8 +523,7 @@ The yeast genome is an ideal system to examine our phylogenetic estimates of gen
 The complete data set of \citet{SalichosAndRokas2013} contain 1070 orthologs, where we selected 100 at random for our analyses.
 We also focus our analyses only on \emph{Saccharomyces} \emph{sensu stricto}, including their sister taxon \emph{Candida glabrata}, and we rely on the phylogeny depicted in Fig. 1 of \citet{SalichosAndRokas2013} for our fixed tree.
 We fit the two \selac models described above (i.e., \selac and \selacplusgamma), as well as two codon models, GY94 and FMutSel0, and a standard GTR + $\Gamma$ nucleotide model.
-The FMutSel0 model, which assumes that the amino acid frequencies are determined by functional requirements of the protein, but where XXXX, is the most similar to our model.
-\marginpar{Can you fill in the XXX? JMB: I do not understand what is being communicated here. BCO: I don't get it, either}
+The FMutSel0 model, which assumes that the amino acid frequencies are determined by functional requirements of the protein.
 In all cases, we assumed that the model was partitioned by gene, but with branch lengths linked across genes.
 
 For \selac, we compared our estimates of $\phiprime = \psiprime/\Func$, which represents the average protein synthesis rate of a gene, to estimates of gene expression from empirical data.
@@ -554,7 +553,7 @@ We refer to these `majority rule' models as \selacmaj and \selacmajplusgamma and
 
 Since these majority rule models assume that the optimal amino acids are known prior to fitting of our model, it is tempting to reduce the number of parameters in the model by the number of total sites being analyzed.
 Despite having become standard behavior in the field of phylogenetics, this reduction is statistically inappropriate due to the fact that identification of the majority rule amino acid is made by examining the same data as we fit to our model.
-Because the difference in $K$ when counting or not counting number of nucleotide sites drops out when comparing nucleotide models with AIC, this statistical issue does not apply to nucleotide models.
+Because the difference in $K$ when counting or not counting the number of nucleotide sites drops out when comparing nucleotide models with AIC, this statistical issue does not apply to nucleotide models.
 It does, however, matter for AICc, where the number of parameters, $K$, and the sample size, $n$, combine in the penalty term.
 This also matters in our case, where the number of estimated parameters for the majority rule estimation differs based on whether one is looking at codons or single nucleotides.
 
@@ -653,7 +652,7 @@ This assumption can be relaxed by allowing the optimal amino acid to change duri
 From a computational standpoint, the additive nature of selection between sites is desirable because it allows us to analyze sites within a gene largely independently of each other.
 From a biological standpoint, this additivity between site ignores any non-linear interactions between sites, such as epistasis, or between alleles, such as dominance.
 Thus, our work can be considered a first step to modeling to these more complex scenarios.
-For example, our current implementation ignores any selection on synonymous codon usage bias (CUB) \citep[c.f.~]{YangAndNielsen2008,PouyetEtAl2016}.
+For example, our current implementation ignores any selection on synonymous codon usage bias (CUB) \citep[c.f.~][]{YangAndNielsen2008,PouyetEtAl2016}.
 Including such selection is tricky because introducing the site specific cost effects of CUB, which is consistent with the hypothesis that codon usage affects the efficiency of protein assembly or \Cost, into a model where amino acids affect protein funcdtion or \Func, results in a cost-benefit ratio $\Cost/\Func$ with epistatic interactions between all sites.
 These epistatic effects can likely be ignored under certain conditions or reasonably approximated based on an expectation of codon specific costs \citep[e.g.~][]{KubatkoEtAl2016}.
 Nevertheless, it is difficult to see how one could identify such conditions without modeling the way in which codon and amino acid usage affects $\Cost/\Func$.
