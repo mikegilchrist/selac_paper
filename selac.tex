@@ -1,3 +1,4 @@
+%
 \pdfminorversion=7 %added to avoid warning about pdf versions
 %note Non-PDF special ignored! warning may be related to the .cls using ps commands somewhere.
 \documentclass[12pt,letterpaper]{article}
@@ -204,6 +205,7 @@
 \date{Last compiled on \today\xspace at \currenttime.}
 
 \begin{document}
+
 \noindent RH: BEAULIEU ET AL.--- Pop. Gen. Based Phylo.
 % put in your own RH (running head)
 % for POVs the RH is always POINT OF VIEW
@@ -277,7 +279,7 @@ In addition to being consistent with the fundamental principles of population ge
 SelAC also demonstrates that a large amount of biologically meaningful information is accessible when using a nested set of mechanistic models.
 For example, for each position SelAC provides a probabilistic estimate of any given amino acid being optimal.
 SelAC also assumes the strength of selection is proportional to the expression level of a gene and, therefore, provides gene specific estimates of protein synthesis rates.
-Finally, because SelAC's is a nested approach based on clearly stated biological assumptions, it can be expanded or simplified as needed.
+Finally, because SelAC is a nested approach based on clearly stated biological assumptions, it can be expanded or simplified as needed.
 
 \newpage
 
@@ -296,7 +298,7 @@ When $\omega < 1$ the model behaves as if the resident amino acid $i$ at a given
 Paradoxically, this selection regime for the resident amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
 As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ over all other amino acids, including $i$.
 This is now the opposite scenario to when $i$ was the resident.
-Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions the resident amino acid.
+Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions from the resident amino acid.
 In a parallel manner, this selection \emph{against} the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors} the former resident amino acid $i$ as well as the 18 others.
 Thus, the simplest and most consistent interpretation of $\omega$ is that it represents the rate at which the selection regime itself changes, and this change in selection perfectly coincides with the fixation of a new amino acid.
 As a result, $\omega$ based approaches only reasonably describe a subset of scenarios such as over/underdominance or frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
@@ -382,7 +384,7 @@ The term \gp describes the sensitivity of the protein's function to physicochemi
 There are many possible measures for physiochemical distance; we use \citet{Grantham1974} distances by default, though others may be chosen.
 We assume that $\gp \sim \text{Gamma}\left(\alpha = \alphag, \beta = \alphag\right)$ in order to ensure $\EE(\gp) = 1$.
 Given the definition of the Gamma distribution, the variance in \gp is equal to $\alpha/\beta^2 = 1/\alphag$.
-Further, at the limit of $\alphag \rightarrow \infty$, the model becomes equivalent to assuming model uniform sensitivity site sensitivity where  $\gp = 1$ for all positions $p$.
+Further, at the limit of $\alphag \rightarrow \infty$, the model becomes equivalent to assuming uniform site sensitivity where  $\gp = 1$ for all positions $p$.
 Finally, we note that  \Funcaveci is inversely proportional to the average physicochemical deviation of an amino acid sequence \aveci from the optimal sequence \aoptvec weighted by each site's sensitivity to this deviation.
 \Funcaveci can be generalized to include second and higher order terms of the distance measure $d$.
 
@@ -409,7 +411,7 @@ Following \cite{Grantham1974}, we focus on using composition $c$, polarity $p$, 
 We use the Euclidian distance between residue properties where each property $c$, $p$, and $v$ has its own weighting term, $\alphac$, $\alphap$, $\alphav$, respectively, which we refer to as `Grantham weights'.
 Because physicochemical distance is ultimately weighted by a gene's specific average protein synthesis rate $\psi$, another parameter we estimate, there is a problem with parameter identifiablity.
 Ultimately, the scale of gene expression is affected by how we measure physicochemical distances which, in turn, is determined by our choice of Grantham weights.
-As a result, by default we set $\alphav = 3.990 \times 10^{-4}$, the value originally estimated by Grantham, and recognize that our our estimates of $\alphac$ and $\alphap$ and $\psi$ are scaled relative to this choice for $\alphav$.
+As a result, by default we set $\alphav = 3.990 \times 10^{-4}$, the value originally estimated by Grantham, and recognize that our estimates of $\alphac$ and $\alphap$ and $\psi$ are scaled relative to this choice for $\alphav$.
 More specifically,
 \begin{align*}
   d(a_i, \aopt) &= \left(\alphac \left[c\left(a_i\right) - c\left(\aopt\right)\right]^2 + \alphap \left[p\left(a_i\right) - p\left(\aopt\right)\right]^2 + \right.\\
@@ -477,7 +479,7 @@ In this case, the data, $\Dmatrixp$, are the observed codon states at position $
 For our purposes we take \Tmatrix as given but it could be estimated as well.
 The pruning algorithm of \citet{Felsenstein1981} is used to calculate $\Lik\left(\Qmatrixa \middle| \Dmatrixp, \Tmatrix\right)$.
 The log of the likelihood is maximized by estimating the genome scale parameters which consist of 11 mutation parameters which are implicitly scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
-Because $A_0$ and $\psi_g$ always co-occur and are scaled by \Ne, for each gene $g$ we estimate a composite term $\psiprime_g = \psi_g A_0 b \Ne$ and the optimal amino acid for each position \aoptp of protein.
+Because $A_0$ and $\psi_g$ always co-occur and are scaled by \Ne, for each gene $g$ we estimate a composite term $\psiprime_g = \psi_g A_0 b \Ne$ and the optimal amino acid for each position \aoptp of the protein.
 When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using the generalized Laguerre quadrature with $k = 4$ points \citep{Felsenstein2001}.
 
 
@@ -486,7 +488,7 @@ Nevertheless, as our branch lengths grow the probability of observing a particul
 
 \subsection{Implementation}\label{sec:implementation}
 All methods described above are implemented in the new R package, \texttt{selac} available through GitHub (\url{https://github.com/bomeara/selac}) [it will be uploaded to CRAN once peer review has completed].
-Our package requires as input a set of fasta files that contain each coding sequence for a set of taxa, and the phylogeny depicting the hypothesized relationships among them.
+Our package requires as input a set of fasta files that each contain an alignment of coding sequence for a set of taxa, and the phylogeny depicting the hypothesized relationships among them.
 In addition to the SelAC models, we implemented the GY94 codon model of \citet{GoldmanAndYang1994}, the FMutSel0 mutation-selection model of \citet{YangAndNielsen2008}, and the standard general time-reversible nucleotide model that allows for $\Gamma$ distributed rates across sites.
 These likelihood-based models represent a sample of the types of popular models often fit to codon data.
 
@@ -497,7 +499,7 @@ The first stage optimizes the block of branch length parameters.
 The second stage optimizes the block of gene specific composite parameters $ \psiprime_g = A_0 \psi_g \Ne$.
 The third stage optimizes the model parameters shared across the genome $\alphac$ and $\alphap$, and the sensitivity distribution parameter $\alphag$.
 The fourth stage estimates the optimal amino acid at each site \aopt.
-This entire four stage cycle is repeated six times.
+This entire four stage cycle is repeated six more times.
 For optimization of a given set of parameters, we rely on a bounded subplex routine \citep{Rowan1990} in the package \texttt{NLopt} \citep{Johnson2012} to maximize the log-likelihood function.
 To help the optimization navigate through local peaks, we perform a set of independent analyses with different sets of naive starting points with respect to the gene specific composite $\psiprime$ parameters, $\alphac$, and $\alphap$.
 Confidence in the parameter estimates can be generated by an `adaptive search' procedure that we implemented to provide an estimate of the parameter space that is some pre-defined likelihood distance (e.g., 2 lnL units) from the maximum likelihood estimate (MLE), which follows  \citet{BeaulieuAndOMeara2016,edwards1984likelihood}.
@@ -540,7 +542,7 @@ An adequate model does the latter, one measure of which is that data generated u
 For example, \citet{BeaulieuEtAl2013} assessed whether parsimony scores and the size of monomorphic clades of empirical data were within the distributions of simulated under a new model and the best standard model; if the empirical summaries were outside the range for each, it would have suggested that neither model was adequately modeling this part of the biology.
 
 For a given gene we first remove a particular taxon from the data set and the phylogeny.
-A marginal reconstruction of the likeliest sequence across all remaining nodes is conducted under the model, including where the attachment point of pruned taxon to the tree.
+A marginal reconstruction of the likeliest sequence across all remaining nodes is conducted under the model, including the node where the pruned taxon attached to the tree.
 The marginal probabilities of each site are used to sample and assemble the starting coding sequence.
 This sequence is then evolved along the branch, periodically being sampled and its current functionality assessed.
 We repeat this process 100 times and compare the distribution of trajectories against the observed functionality calculated for the gene.
@@ -573,7 +575,7 @@ It is arguable that the conventional approach in comparative methods is calculat
 While its default is to use AIC to compare models, if one chooses to use AICc, the number of samples is taken as the product of number of sites and number of taxa.)
 
 Recently, \citet{Jhwuengetal2014} performed an analysis that investigated what variant of AIC and AICc worked best as an estimator, but the results were inconclusive.
-Here, we have adopted and extended the simulation approach of \citet{Jhwuengetal2014} in order to examine a large set of different penalty functions and how well they approximate the remaining portion of Kullback-Liebler (KL) divergence between two models after accounting for the deviance (i.e., $-2\Lik$) (see Appendix 1 for more details).
+Here, we have adopted and extended the simulation approach of \citet{Jhwuengetal2014} in order to examine a large set of different penalty functions and how well they approximate the remaining portion of the Kullback-Liebler (KL) divergence between two models after accounting for the deviance (i.e., $-2\Lik$) (see Appendix 1 for more details).
 
 
 \section{Results}
@@ -632,12 +634,12 @@ We show that all of these parameters can be estimated simultaneously with branch
 
 By assuming fitness declines with extraneous energy flux, \selac explicitly links the variation in the strength of stabilizing selection for the optimal protein sequence among genes, to the variation among genes in their target expression levels $\psi$.
 Furthermore, by linking expression and selection, \selac provides a natural framework for combining information from protein coding genes with very different rates of evolution with the low expression genes providing information on shallow branches and the high expression genes providing information on deep branches.
-This is in contrast to more traditional approach of concatenating gene sequences together, which is equivalent to assuming the same average protein synthesis rate $\psi$ for all of the genes, or more recent approaches where different models are fitted to different genes.
+This is in contrast to a more traditional approach of concatenating gene sequences together, which is equivalent to assuming the same average protein synthesis rate $\psi$ for all of the genes, or more recent approaches where different models are fitted to different genes.
 Our results indicate that including a gene specific $\psi$ value vastly improves \selac fits (Table \ref{table:modelFits}).
 Perhaps more convincingly, we find that the target expression level $\psi$ and realized protein synthesis rate $\phi$ are reasonably well correlated with laboratory measurements of gene expression ($r= 0.34-0.65$; Figures \ref{fig:PhivsEmpirical}, \ref{fig:PhivsROC}, and \ref{fig:ROCvsEmpirical}).
 The idea that quantitative information on gene expression is embedded within intra-genomic patterns of synonymous codon usage is well accepted; our work shows that this information can also be extracted from comparative data at the amino acid level.
 
-Of course, given the general nature of \selac and the complexity of biological systems, other biological forces besides selection for reducing energy flux likely contribute intergenic variation in the magnitude of stabilizing selection.
+Of course, given the general nature of \selac and the complexity of biological systems, other biological forces besides selection for reducing energy flux likely contribute to intergenic variation in the magnitude of stabilizing selection.
 Similarly, other physicochemical properties besides composition, volume, and charge likely contribute to site specific patterns of amino acid substitution. %CITE WORK ON THIS
 Thus, a larger and more informative set of Grantham weights might improve our model fit and reduce the noise in our estimates of $\phi$.
 Even if other physicochemical properties are considered, the idea of a consistent, genome wide Grantham weighting of these terms seems highly unlikely.
@@ -666,7 +668,7 @@ Common sense suggests that dataset size is increased by adding taxa and/or sites
 In other words, a dataset of 1000 taxa and 100 sites must have more information on substitution models than a dataset of 4 taxa and 100 sites.
 Our simple analyses agree that the number of observations in a dataset (number of sites $\times$ number of taxa) should be taken as the sample size for AICc, but this conclusion likely only applies when there is sufficient independence between taxa.
 For instance, one could imagine a phylogeny where one taxon is sister to a polytomy of 99 taxa that have zero length terminal branches.
-Absent measurement error or other intraspecific variation, one would have 100 species but only two unique trait values, and the only information about the process of evolution comes from one happens on the path connecting the lone taxon to the polytomy.
+Absent measurement error or other intraspecific variation, one would have 100 species but only two unique trait values, and the only information about the process of evolution comes from what happens on the path connecting the lone taxon to the polytomy.
 %A fully resolved 100-taxon tree with nonzero branch lengths would have much more information than the above tree, despite the same number of taxa.
 Although this is a rather extreme example, it seems prudent for researchers to use a simulation based approach similar to the one we take here to determine the appropriate means for calculating the effective number of data points in their data.
 
@@ -683,7 +685,7 @@ There are also deficiencies in our implementation.
 Though reasonable to use for a given topology with a modest number of species, it is too slow for practical use for tree search.
 It thus serves as a proof of concept, or of utility for targeted questions where a more realistic model may be of use (placement of particular taxa, for example).
 Future work will encode \selac models into a variety of mature, popular tree-search programs.
-\selac also represents a hard optimization problem: the nested models reduce parameter complexity vastly, but there are still numerous parameters to optimize, including the discrete parameter of optimal amino acid at each site.
+\selac also represents a hard optimization problem: the nested models reduce parameter complexity vastly, but there are still numerous parameters to optimize, including the discrete parameter of the optimal amino acid at each site.
 A different implementation, more parameter-rich, would optimize values of three (or more) physiochemical properties per site.
 This would have the practical advantage of continuous parameter optimization rather than discrete, and biologically would be more realistic (as it is the properties that selection "sees", not the identity of the amino acid itself).
 
@@ -714,15 +716,15 @@ The authors would like to thank Premal Shah, Todd Oakley, and our two anonymous 
 
   \begin{table}[H]
     \begin{tabular}{lrrrrrl}
-                				&		   &Parameters &              &              &            &    Model\\
-      Model                 	& logLik   & Estimated &           AIC&          AICc&  \DeltaAICc&  Weight\\\hline
-      GTR+$\Gamma$        		& -655166.4&        610& 	 1,311,553& 	1,311,554&     287,415&	$<$0.001\\
-      GY94                  	& -612121.5&        210& 	 1,224,663& 	1,224,663&     200,524&	$<$0.001\\
-      FMutSel0              	& -598848.2&       2810& 	 1,203,316& 	1,203,362&     179,223&	$<$0.001\\
-      \selacmaj          	    & -478282.7&       50,004&   1,056,573&     1,073,290&      49,151&	$<$0.001\\
-      \selac                    & -465616.7&       50,004&   1,031,241&     1,047,958&      23,819&	$<$0.001\\
-      \selacmajplusgamma 	    & -465089.7&       50,005&   1,030,189&     1,046,906&      22,767& $<$0.001\\
-      \selacplusgamma 	        & -453706.0&       50,005&   1,007,422&     1,024,139&           0& $>$0.999\\
+                                                &                  &Parameters &              &              &            &    Model\\
+      Model                     & logLik   & Estimated &           AIC&          AICc&  \DeltaAICc&  Weight\\\hline
+      GTR+$\Gamma$                      & -655166.4&        610&         1,311,553&      1,311,554&     287,415& $<$0.001\\
+      GY94                      & -612121.5&        210&         1,224,663&         1,224,663&     200,524& $<$0.001\\
+      FMutSel0                  & -598848.2&       2810&         1,203,316&         1,203,362&     179,223& $<$0.001\\
+      \selacmaj                     & -478282.7&       50,004&   1,056,573&     1,073,290&      49,151&     $<$0.001\\
+      \selac                    & -465616.7&       50,004&   1,031,241&     1,047,958&      23,819&      $<$0.001\\
+      \selacmajplusgamma            & -465089.7&       50,005&   1,030,189&     1,046,906&      22,767& $<$0.001\\
+      \selacplusgamma           & -453706.0&       50,005&   1,007,422&     1,024,139&           0& $>$0.999\\
     \end{tabular}
     \caption{Comparison of model fits using AIC, AICc, and \AICw.
 Note the subscripts $M$ indicate model fits where the most common or `majority rule' amino acid was fixed as the optimal amino acid \aopt for each site.
@@ -741,8 +743,8 @@ As discussed in text, despite the fact that \aopt for each site was not fitted b
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_1_SelACwG_vs_Empirical_by_spp.pdf}
   \caption{Comparisons between estimates of $\phi$ obtained from \selacplusgamma and direct measurements of expression for individual yeast taxa across the 100 selected genes from \citet{SalichosAndRokas2013}.
-  	Estimates of $\phi$ were obtained by solving for $\psi$ based on estimates of $\psiprime$, and then dividing by \Funcaveci.
-  	Gene expression was measured using either RNA-Seq (a-c) or Microarray chips (d), and the equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient $r$.
+        Estimates of $\phi$ were obtained by solving for $\psi$ based on estimates of $\psiprime$, and then dividing by \Funcaveci.
+        Gene expression was measured using either RNA-Seq (a-c) or Microarray chips (d). The equations in the upper right hand corner of each panel represent the regression fit and correlation coefficient $r$.
   }
   \label{fig:PhivsEmpirical}
 \end{figure}
@@ -794,15 +796,15 @@ As discussed in text, despite the fact that \aopt for each site was not fitted b
 
 In our model, the parameter $\phi$ measures the realized average protein synthesis rate of a gene.
 We compared our estimates of $\phi$ to two separate measures of gene expression, one empirical (Figure \ref{fig:PhivsROC}), and one model-based prediction that does not account for shared ancestry, for individual yeast taxa across the same set of genes.
-Our estimates of $\phi$ are positively correlated both measures, which are also strongly correlated with each other (Figure \ref{fig:PhivsEmpirical} - \ref{fig:ROCvsEmpirical})
+Our estimates of $\phi$ are positively correlated with both measures, which are also strongly correlated with each other (Figure \ref{fig:PhivsEmpirical} - \ref{fig:ROCvsEmpirical})
 On the whole, these comparisons indicate not only a high degree of consistency among all three measures, but also, importantly, that estimates of $\phi$ obtained from SelAC provide real biological insight into the expression level of a gene.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S1_SelACwG_vs_ROC_by_spp.pdf}
   \caption{Comparisons between estimates of $\phi$ obtained from \selacplusgamma and the predicted gene expression from the ROC SEMPER model (\citet{GilchristEtAl2015}) for individual yeast taxa across the 100 selected genes from \citet{SalichosAndRokas2013}.
-    	As with figures in the main text, estimates of $\phi$ were obtained by solving for $\psi$ based on estimates of $\psiprime$, and then dividing by \Funcaveci.
-  		The equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
+        As with figures in the main text, estimates of $\phi$ were obtained by solving for $\psi$ based on estimates of $\psiprime$, and then dividing by \Funcaveci.
+                The equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
   }
   \label{fig:PhivsROC}
 \end{figure}
@@ -812,7 +814,7 @@ On the whole, these comparisons indicate not only a high degree of consistency a
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S2_Empirical_vs_ROC_by_spp.pdf}
   \caption{Comparisons of predicted gene expression from the ROC SEMPER model (\citet{GilchristEtAl2015}) and direct measurements of expression from RNA-Seq or Microarray data for individual yeast taxa across the 100 selected genes from \citet{SalichosAndRokas2013}.
-      	The equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
+        The equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
   }
   \label{fig:ROCvsEmpirical}
 \end{figure}
@@ -820,7 +822,7 @@ On the whole, these comparisons indicate not only a high degree of consistency a
 
 \subsection{Simulations}
 
-Overall, the simulation results indicate that SelAC model can reasonably recover the known values of the generating model (Figure \ref{fig:SelacNoGSimRes} - \ref{fig:SelacWithGSimRes2}).
+Overall, the simulation results indicate that the SelAC model can reasonably recover the known values of the generating model (Figure \ref{fig:SelacNoGSimRes} - \ref{fig:SelacWithGSimRes2}).
 This includes not only the parameters in the model, but also the optimal amino acids for a given sequence as well as the estimates of the branch lengths.
 There are a few observations to note.
 First, the ability to accurately recover the true optimal amino acid sequence will largely depend on the magnitude of $\phi$.
@@ -836,10 +838,10 @@ Future work will address this issue.
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf}
-  \caption{Summary a 5-gene simulation for a SelAC model where we assume $\alphag = \infty$, and thus, no site-specific sensitivity in the generating model.
+  \caption{Summary of a 5-gene simulation for a SelAC model where we assume $\alphag = \infty$, and thus, no site-specific sensitivity in the generating model.
     The `known' parameters were based on fitting the same SelAC to the 106 gene data set and phylogeny of \citet{RokasEtAl2003}, with gene choice being based on five evenly spaced points along the rank order of the gene specific composite parameter $\psiprime_g$.
-		The points and associated uncertainty in the estimates of the gene-specific average protein synthesis rate, or $\psi$ (calculated from $\psiprime$)(a), nucleotide mutation rates under the UNREST model (b), proportion of correct optimal amino acids for a given gene (c), and estimates of the individual edge lengths are based the mean and 2.5\% and 97.5\% quantiles across on 50 simulated datasets (d).
-		Gene index on the x-axis refers to the arbitrary number assigned to the simulated gene.
+                The points and associated uncertainty in the estimates of the gene-specific average protein synthesis rate, or $\psi$ (calculated from $\psiprime$)(a), nucleotide mutation rates under the UNREST model (b), proportion of correct optimal amino acids for a given gene (c), and estimates of the individual edge lengths are based the mean and 2.5\% and 97.5\% quantiles across all 50 simulated datasets (d).
+                Gene index on the x-axis refers to the arbitrary number assigned to the simulated gene.
 }
   \label{fig:SelacNoGSimRes}
 \end{figure}
@@ -848,7 +850,7 @@ Future work will address this issue.
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG.pdf}
   \caption{The distribution of estimates of the Grantham weights, $\alphac$ and $\alphap$, in a SelAC model, where we assume $\alphag = \infty$, and thus no site-specific sensitivity in the generating model.
-  		The dashed line represents the value used in the generating model.
+                The dashed line represents the value used in the generating model.
   }
   \label{fig:SelacNoGSimRes2}
 \end{figure}
@@ -865,7 +867,7 @@ Future work will address this issue.
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S6_5genes_alpha_beta_gammashape_UNREST_WITHGAMMA.pdf}
   \caption{Same figure as in Figure S4, except the generating model includes site-specific sensitivity in the generating model (i.e., $\alphag$).
-  		Unlike, Grantham weights, which showed no systematic bias, there is a downward bias in estimates of $\alphag$.
+                Unlike, Grantham weights, which showed no systematic bias, there is a downward bias in estimates of $\alphag$.
   }
   \label{fig:SelacWithGSimRes2}
 \end{figure}
