@@ -28,6 +28,7 @@
 \usepackage{float}
 \usepackage{fullpage}
 \usepackage{graphicx}
+%\usepackage{nameref}
 \usepackage{hyperref} %also provides \nameref
 \usepackage{ifthen}
 \usepackage{indentfirst}
@@ -338,7 +339,7 @@ One advantage of a nested modeling framework is that it requires only a handful 
 In addition to these genome-wide parameters, \selac requires a gene $g$ specific expression parameter $\psi_g$ which describes the average rate at which the protein's functionality is produced by the organism.
 (For notational simplicity, we will ignore the gene specific indicator $_g$, unless explicitly needed.)
 Currently, $\psi$ is fixed across the phylogeny, though relaxing this assumption is a goal of future work.
-The gene specific parameter $\psi$ is multiplied by additional model terms to make a composite term $\psiprime$ which scales the strength and efficacy of selection for the optimal amino acid sequence relative to drift (see \nameref{sec:implementation}).
+The gene specific parameter $\psi$ is multiplied by additional model terms to make a composite term $\psiprime$ which scales the strength and efficacy of selection for the optimal amino acid sequence relative to drift (see Implementation below).
 In terms of the functionality of the protein encoded, we assume that for any given gene there exists an optimal amino acid sequence \aoptvec and that, by definition, is a complete, error free peptide consisting of \aoptvec and provides one unit of the gene's functionality.
 We also assume that natural selection favors genotypes that are able to synthesize their proteome more efficiently than their competitors and that each savings of an high energy phosphate bond per unit time leads to a constant proportional gain in fitness $A_0$.
 \selac also requires the specification (as part of parameter optimization) of an optimal amino acid at each position or site within a coding sequence which, in turn, makes it the largest category of parameters we estimate.
@@ -512,7 +513,7 @@ Ongoing work will address the need for speed, with the eventual goal of implemen
 \subsection{Simulations}
 We evaluated the performance of our codon model by simulating datasets and estimating the bias of the inferred model parameters from these data.
 Our `known' parameters under a given generating model were based on fitting SelAC to the 106 gene data set and phylogeny of \citet{RokasEtAl2003}.
-The tree used in these analyses is outdated with respect to the current hypothesis of relationships within \emph{Saccharomyces}, but we rely on it simply as a training set that is separate from our empirical analyses (see \nameref{sec:analysis}).
+The tree used in these analyses is outdated with respect to the current hypothesis of relationships within \emph{Saccharomyces}, but we rely on it simply as a training set that is separate from our empirical analyses (see section \emph{Analysis of yeast genomes} below). %\nameref{sec:analysis}).
 Bias in the model parameters were assessed under two generating models: one where we assumed a model of SelAC assuming uniform sensitivity across sites (i.e.~$\gp = 1$ for all sites, i.e.~$\alphag = \infty)$, and one where we estimated the Gamma distribution parameter $\alphag$ from the data.
 Under each of these two scenarios, we used parameter estimates from the corresponding empirical analysis and simulated 50 five-gene data sets.
 For the gene specific composite parameter $\psiprime_g$ the `known' values used for the simulation were five evenly spaced points along the rank order of the estimates across the 106 genes.
@@ -787,13 +788,12 @@ As discussed in text, despite the fact that \aopt for each site was not fitted b
 
 \setcounter{equation}{0}
 \appendix
-\part{\appendixname}
-%Supporting Materials for \emph{\thetitle} \  by Beaulieu \emph{et al.}~(In Review).
+%\part{\appendixname}
+
 
 \section{Supporting Materials}
-
+Supporting Materials for \emph{Population Genetics Based Phylogenetics Under Stabilizing Selection for an Optimal Amino Acid Sequence: A Nested Modeling Approach} \ by Beaulieu \emph{et al.}~(In Review).
 \subsection{Comparisons of SelAC gene expression estimates with empirical measurements}
-
 In our model, the parameter $\phi$ measures the realized average protein synthesis rate of a gene.
 We compared our estimates of $\phi$ to two separate measures of gene expression, one empirical (Figure \ref{fig:PhivsROC}), and one model-based prediction that does not account for shared ancestry, for individual yeast taxa across the same set of genes.
 Our estimates of $\phi$ are positively correlated with both measures, which are also strongly correlated with each other (Figure \ref{fig:PhivsEmpirical} - \ref{fig:ROCvsEmpirical})
