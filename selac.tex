@@ -96,11 +96,11 @@
 %\usepackage[normalem]{ulem} %strike out via \sout{}
 %\usepackage[small]{caption}
 \usepackage{datetime} %provides \currenttime command
-%\usepackage{float}
-%\usepackage{graphicx}
-%\usepackage{natbib}
+
+
+
 \usepackage{subfig}
-%\usepackage{url}
+
 \usepackage{xspace}
 \usepackage{lineno}
 \linenumbers
@@ -316,14 +316,14 @@ While often useful in the early stages of a field's development, given the matur
 The misinterpretation of GY94's $\omega$ we discuss above is a case in point.
 Another example, which we touch upon in the Discussion, is the natural emergence of epistsis between sites when site independent selection on both the codon usage and the amino acid usage occur.
 While this epistasis may be negligible under certain conditions, identifying such conditions is impossible without considering the mechanisms of selection.
-% models, such as the cost-benefit one we present here.
 
-% that models which include codon specific effects, which presumably affect protein assembly costs, and amino acid specific effects, which presumably affect protein functionality, inherently leading to a model with epistatic interactions between sites.
+
+
 
 
 \section{Materials \& Method}
 
-%\subsection{Overview}
+
 
 We model the substitution process as a classic Wright-Fisher process which includes the forces of mutation, selection, and drift \citep{Fisher1930,Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005,McCandlishAndStoltzfus2014}.
 For simplicity, we ignore linkage effects and, as a result of this and other assumptions, our method behaves in a site independent manner.
@@ -335,7 +335,7 @@ As a result, \selac allows us to quantitatively evaluate the support for a parti
 Because \selac requires twenty families of $61 \times 61$ matrices, the number of parameters needed to implement \selac would, without further assumptions, be extremely large (i.e. on the order of 74,420 parameters).
 To reduce the number of parameters needed, while still maintaining a high degree of biological realism, we construct our gene and amino acid specific substitution matrices using a submodel nested within our substitution model, similar to approaches in \citet{Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
 
-One advantage of a nested modeling framework is that it requires only a handful of genome-wide parameters such as nucleotide specific mutation rates (scaled by effective population size \Ne), side chain physicochemical weighting parameters, and a shape parameter describing the distribution of site sensitivities. % around a mean value of 1.
+One advantage of a nested modeling framework is that it requires only a handful of genome-wide parameters such as nucleotide specific mutation rates (scaled by effective population size \Ne), side chain physicochemical weighting parameters, and a shape parameter describing the distribution of site sensitivities. 
 In addition to these genome-wide parameters, \selac requires a gene $g$ specific expression parameter $\psi_g$ which describes the average rate at which the protein's functionality is produced by the organism.
 (For notational simplicity, we will ignore the gene specific indicator $_g$, unless explicitly needed.)
 Currently, $\psi$ is fixed across the phylogeny, though relaxing this assumption is a goal of future work.
@@ -427,7 +427,7 @@ By definition, the optimal amino acid sequence for a given gene, \aoptvec, produ
 Second, we assume that protein expression is regulated by the organism to ensure that functionality is produced at rate $\psi$.
 As a result, the realized average protein synthesis rate of a gene, $\phi$, by definition, satisfies the equality  $\phi = \psi/\Func(\avec)$.
 In other words, the average production rate of a protein \avec with relative functionality $\Func(\avec) < 1$ must be $1/\Func(\avec)$ times higher than the production rate needed if the optimal amino acid sequence \aoptvec was encoded since, by definition, $\Func(\aoptvec) = 1$.
-% required to meet meeting the target functionality of a particular gene is the target functionality production rate $\psi$ multiplied  $\eta(\cvec) \psi$.
+
 For example, a cell with an allele \avec where $\Func(\avec) = 0.9$ would have to produce the protein at rate $\phi = 10/9 \times \psi$.
 In contrast, a cell with the optimal allele \aoptvec would have to produce the protein at rate $\phi = \psi$.
 Similarly, a cell with an allele \avec where $\Func(\avec) = 1/2$ will have to produce the protein at $\phi = 2 \psi$.
@@ -513,7 +513,7 @@ Ongoing work will address the need for speed, with the eventual goal of implemen
 \subsection{Simulations}
 We evaluated the performance of our codon model by simulating datasets and estimating the bias of the inferred model parameters from these data.
 Our `known' parameters under a given generating model were based on fitting SelAC to the 106 gene data set and phylogeny of \citet{RokasEtAl2003}.
-The tree used in these analyses is outdated with respect to the current hypothesis of relationships within \emph{Saccharomyces}, but we rely on it simply as a training set that is separate from our empirical analyses (see section \emph{Analysis of yeast genomes} below). %\nameref{sec:analysis}).
+The tree used in these analyses is outdated with respect to the current hypothesis of relationships within \emph{Saccharomyces}, but we rely on it simply as a training set that is separate from our empirical analyses (see section \emph{Analysis of yeast genomes} below). 
 Bias in the model parameters were assessed under two generating models: one where we assumed a model of SelAC assuming uniform sensitivity across sites (i.e.~$\gp = 1$ for all sites, i.e.~$\alphag = \infty)$, and one where we estimated the Gamma distribution parameter $\alphag$ from the data.
 Under each of these two scenarios, we used parameter estimates from the corresponding empirical analysis and simulated 50 five-gene data sets.
 For the gene specific composite parameter $\psiprime_g$ the `known' values used for the simulation were five evenly spaced points along the rank order of the estimates across the 106 genes.
@@ -627,7 +627,7 @@ As phylogenetic methods become ever more ubiquitous in biology, and data set siz
 Despite their widespread use, phylogenetic models based on purifying and diversifying selection, i.e.~\citet{GoldmanAndYang1994} and extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid, not for tree inference itself.
 
 Instead of heuristically extending population genetic models of neutral evolution for use in phylogenetics, it makes sense to derive these extensions from population genetic models that \emph{explicitly} include the fundamental forces of mutation, drift, and natural selection.
-Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site-specific selection on protein sequence and phylogenetics\citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}. %[CHECK CITATIONS].
+Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site-specific selection on protein sequence and phylogenetics\citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}. 
 Our work follows this tradition, but includes some key advances.
 For instance, even though \selac requires a large number of substitution matrices, because of our assumption about protein functionality and physicochemical distance from the optimum, we are able to parameterize these matrices using a relatively small number of genome-wide parameters and one gene specific parameter.
 We show that all of these parameters can be estimated simultaneously with branch lengths from the data at the tips of the tree.
@@ -641,7 +641,7 @@ Perhaps more convincingly, we find that the target expression level $\psi$ and r
 The idea that quantitative information on gene expression is embedded within intra-genomic patterns of synonymous codon usage is well accepted; our work shows that this information can also be extracted from comparative data at the amino acid level.
 
 Of course, given the general nature of \selac and the complexity of biological systems, other biological forces besides selection for reducing energy flux likely contribute to intergenic variation in the magnitude of stabilizing selection.
-Similarly, other physicochemical properties besides composition, volume, and charge likely contribute to site specific patterns of amino acid substitution. %CITE WORK ON THIS
+Similarly, other physicochemical properties besides composition, volume, and charge likely contribute to site specific patterns of amino acid substitution. 
 Thus, a larger and more informative set of Grantham weights might improve our model fit and reduce the noise in our estimates of $\phi$.
 Even if other physicochemical properties are considered, the idea of a consistent, genome wide Grantham weighting of these terms seems highly unlikely.
 Since the importance of an amino acid's physicochemical properties likely changes with where it lies in a folded protein, one way to incorporate such effects is to test whether the data supports multiple sets of Grantham weights for either subsets of genes or regions within genes, rather than a single set.
@@ -659,7 +659,7 @@ For example, our current implementation ignores any selection on synonymous codo
 Including such selection is tricky because introducing the site specific cost effects of CUB, which is consistent with the hypothesis that codon usage affects the efficiency of protein assembly or \Cost, into a model where amino acids affect protein funcdtion or \Func, results in a cost-benefit ratio $\Cost/\Func$ with epistatic interactions between all sites.
 These epistatic effects can likely be ignored under certain conditions or reasonably approximated based on an expectation of codon specific costs \citep[e.g.~][]{KubatkoEtAl2016}.
 Nevertheless, it is difficult to see how one could identify such conditions without modeling the way in which codon and amino acid usage affects $\Cost/\Func$.
-%We leave the identification of such conditions and approximations for future studies.
+
 
 
 This work also points out the potential importance of further investigation into model choice in phylogenetics.
@@ -670,7 +670,7 @@ In other words, a dataset of 1000 taxa and 100 sites must have more information 
 Our simple analyses agree that the number of observations in a dataset (number of sites $\times$ number of taxa) should be taken as the sample size for AICc, but this conclusion likely only applies when there is sufficient independence between taxa.
 For instance, one could imagine a phylogeny where one taxon is sister to a polytomy of 99 taxa that have zero length terminal branches.
 Absent measurement error or other intraspecific variation, one would have 100 species but only two unique trait values, and the only information about the process of evolution comes from what happens on the path connecting the lone taxon to the polytomy.
-%A fully resolved 100-taxon tree with nonzero branch lengths would have much more information than the above tree, despite the same number of taxa.
+
 Although this is a rather extreme example, it seems prudent for researchers to use a simulation based approach similar to the one we take here to determine the appropriate means for calculating the effective number of data points in their data.
 
 There are still significant deficiencies in the approach outlined here.
@@ -706,7 +706,7 @@ The authors would like to thank Premal Shah, Todd Oakley, and our two anonymous 
 
 
 \bibliographystyle{./sysbio}
-%\bibliographystyle{./am.nat}
+
 \renewcommand\refname{\begin{center}{\normalfont\scshape References}\end{center}}
 \bibliography{./mike,./omeara}
 
@@ -788,12 +788,13 @@ As discussed in text, despite the fact that \aopt for each site was not fitted b
 
 \setcounter{equation}{0}
 \appendix
-%\part{\appendixname}
+
 
 
 \section{Supporting Materials}
 Supporting Materials for \emph{Population Genetics Based Phylogenetics Under Stabilizing Selection for an Optimal Amino Acid Sequence: A Nested Modeling Approach} \ by Beaulieu \emph{et al.}~(In Review).
 \subsection{Comparisons of SelAC gene expression estimates with empirical measurements}
+
 In our model, the parameter $\phi$ measures the realized average protein synthesis rate of a gene.
 We compared our estimates of $\phi$ to two separate measures of gene expression, one empirical (Figure \ref{fig:PhivsROC}), and one model-based prediction that does not account for shared ancestry, for individual yeast taxa across the same set of genes.
 Our estimates of $\phi$ are positively correlated with both measures, which are also strongly correlated with each other (Figure \ref{fig:PhivsEmpirical} - \ref{fig:ROCvsEmpirical})
