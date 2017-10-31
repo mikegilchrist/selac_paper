@@ -191,8 +191,8 @@
 \newcommand{\muvec}{\ensuremath{\Vec{\mu}}\xspace}
 \newcommand{\phig}{\ensuremath{\phi_{g}}\xspace}
 \newcommand{\phiprime}{\ensuremath{\phi^\prime}\xspace}
-\newcommand{\phihat}{\ensuremath{\hat{\phi}_{\selac}}\xspace}
-\newcommand{\psihat}{\ensuremath{\hat{\psi}_{\selac}}\xspace}
+\newcommand{\phihat}{\ensuremath{\hat{\phi}_{\text{\selac}}}\xspace}
+\newcommand{\psihat}{\ensuremath{\hat{\psi}_{\text{\selac}}}\xspace}
 \newcommand{\psig}{\ensuremath{\psi_{g}}\xspace}
 \newcommand{\psiprime}{\ensuremath{\psi^\prime}\xspace}
 \newcommand{\pij}{\ensuremath{p_{i,j}}\xspace}
@@ -528,8 +528,8 @@ The FMutSel0 model, which assumes that the amino acid frequencies are determined
 In all cases, we assumed that the model was partitioned by gene, but with branch lengths linked across genes.
 
 For \selac, we compared our estimates of $\phiprime = \psiprime/\Func$, which represents the average protein synthesis rate of a gene, to estimates of gene expression from empirical data.
-Specifically, we obtained gene expression data for five of the six species used - four species were measured during log-growth phase, whereas the other was measured at the beginning of the stationary phase (\emph{S. kudriavzevii}) from the Gene Expression Omnibus (GEO).
-Gene expression in this context corresponds to mRNA abundances which were measured using either microarrays (\emph{C. glabrata}, \emph{S. castellii}, and \emph{S. kudriavzevii}) or RNA-Seq (\emph{S. paradoxus}, \emph{S. mikatae}, and \emph{S. cerevisiae}).
+Specifically, we obtained gene expression data for five of the six species used - four species were measured during log-growth phase, whereas the other was measured at the beginning of the stationary phase (\emph{S.~kudriavzevii}) from the Gene Expression Omnibus (GEO).
+Gene expression in this context corresponds to mRNA abundances which were measured using either microarrays (\emph{C. glabrata}, \emph{S.~castellii}, and \emph{S.~kudriavzevii}) or RNA-Seq (\emph{S.~paradoxus}, \emph{S.~mikatae}, and \emph{S.~cerevisiae}).
 
 For further comparison, we also predicted the average protein synthesis rate for each gene $\phi$ by analyzing gene and genome-wide patterns of synonymous codon usage using ROC-SEMPPR \citep{GilchristEtAl2015} for each individual genome.
 While, like \selac, ROC-SEMPPR uses codon level information, it does not rely on any inter-specific comparisons and, unlike \selac, uses only the intra- and inter-genic frequencies of synonymous codon usage as its data.
@@ -600,10 +600,10 @@ In fact, $\omega$ showed similar, though slightly reduced correlations, with the
 This would give the impression that the same conclusions could have been gleaned using a much simpler model, both in terms of the number of parameters and the assumptions made.
 However, as we discussed earlier, not only is this model greatly restricted in terms of its biological feasibility, \selac clearly performs better in terms of its fit to the data and biological realism.
 
-For example, when we simulated the sequence for \emph{S. cervisieae}, starting from the ancestral sequence under both GTR + $\Gamma$ and FMutSel0, the functionality of the simulated sequence moves away from the observed sequence, whereas SelAC remains near the functionality of the observed sequence (Figure \ref{fig:TreeAndAdequacy}b).
+For example, when we simulated the sequence for \emph{S.~cervisieae}, starting from the ancestral sequence under both GTR + $\Gamma$ and FMutSel0, the functionality of the simulated sequence moves away from the observed sequence, whereas SelAC remains near the functionality of the observed sequence (Figure \ref{fig:TreeAndAdequacy}b).
 In a way, this is somewhat unsurprising, given that both GTR + $\Gamma$ and FMutSel0 are agnostic to the functionality of the gene, but it does highlight the improvement in biological realism in amino acid sequence evolution that \selac provides.
 We do note that the adequacy of the \selac model does vary among individual taxa, and does not always match the observed functionality.
-For instance, \emph{S. castellii} is simulated with consistently higher functionality than observed (Figure \ref{fig:TreeAndAdequacy}c).
+For instance, \emph{S.~castellii} is simulated with consistently higher functionality than observed (Figure \ref{fig:TreeAndAdequacy}c).
 We suspect this is an indication that assuming a single set of optimal amino acid across all taxa may be too simplistic, but we cannot also rule out other potential simplifying assumptions in our model, such as a single set of Grantham weights and $\alphag$ values or the simple, inverse relationship between physicochemical distance $d$ and benefit \Func.
 
 Finally, we note that our simulation analysis suggested that the best measure of dataset size for AICc uses a scaled value of the product of number of sites and number of characters was the best at estimating KL distance.
@@ -752,7 +752,7 @@ As discussed in text, despite the fact that \aopt for each site was not fitted b
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf}
-  \caption{Comparisons between $\omega$, which is the nonsynonymous/synonymous mutation ratio in FMutSel0, \selacplusgamma estimates of protein functionality production rates $\psihat$ (a), measurements of mRNA abundance (b), and model-based estimates of protein translation rates that do not account for ancestry (c), for \emph{S. cerevisiae} across the 100 selected genes from \citet{SalichosAndRokas2013}.
+  \caption{Comparisons between $\omega_{\text{FMutSel0}}$, which is the nonsynonymous/synonymous mutation ratio in FMutSel0, \selacplusgamma estimates of protein functionality production rates $\psihat$ (a), RNA-Seq based measurements of mRNA abundance $\phi_{\text{RNA-seq}}$ (b), and ROC-SEMPPER's estimates of protein translation rates $\phi_{\text{ROC}}$, which are based solely on \emph{S.~cerevisiae}'s patterns of codon usage bias (c), for \emph{S.~cerevisiae} across the 100 selected genes from \citet{SalichosAndRokas2013}.
     As in Figure \ref{fig:PhivsEmpirical}, the equations in the upper left hand corner of each panel provide the regression fit and correlation coefficient.
   }
   \label{fig:OmegavsPsi}
@@ -763,7 +763,7 @@ As discussed in text, despite the fact that \aopt for each site was not fitted b
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_3_Inferred_Tree_AND_Model_Adequacy.pdf}
   \caption{(a) Maximum likelihood estimates of branch lengths under \selacplusgamma for 100 selected genes from \citet{SalichosAndRokas2013}.
-    Tests of model adequacy for \emph{S. cerevisiae} (b) and \emph{S. castellii} (c) indicated that, when these taxa are removed from the tree, and their sequences are simulated, the parameters of \selacplusgamma exhibit functionality \Funcaobsvec that is far closer to the observed (dashed black line) than data sets produced from parameters of either FMutSel0 or GTR + $\Gamma$.
+    Tests of model adequacy for \emph{S.~cerevisiae} (b) and \emph{S.~castellii} (c) indicated that, when these taxa are removed from the tree, and their sequences are simulated, the parameters of \selacplusgamma exhibit functionality \Funcaobsvec that is far closer to the observed (dashed black line) than data sets produced from parameters of either FMutSel0 or GTR + $\Gamma$.
 }
   \label{fig:TreeAndAdequacy}
 \end{figure}
