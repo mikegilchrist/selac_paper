@@ -106,7 +106,13 @@
 
 \graphicspath{{./Figures/}} \DeclareGraphicsExtensions{.pdf, .jpg, .png}
 
-
+%reduce font size of margin paragraphs
+\makeatletter
+\long\def\@ympar#1{%
+  \@savemarbox\@marbox{\tiny #1}%
+  \global\setbox\@currbox\copy\@marbox
+  \@xympar}
+\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Local Commands%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Sort using M-x 'sort-lines'
@@ -304,12 +310,13 @@ This is now the opposite scenario to when $i$ was the resident.
 Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions from the resident amino acid.
 In a parallel manner, this selection \emph{against} the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors} the former resident amino acid $i$ as well as the 18 others.
 Thus, the simplest and most consistent interpretation of $\omega$ is that it represents the rate at which the \emph{selective environment itself} changes, and this change in selection perfectly coincides with the fixation of a new amino acid.
-Thus, contrary to popular belief,  $\omeaga$ does not describe whether a site is evolving under a constant regime of stabilizing or diversifying selection, but instead how the selective environment changes over time under and even then under very limited conditions.
+Thus, contrary to popular belief,  $\omega$ does not describe whether a site is evolving under a constant regime of stabilizing or diversifying selection, but instead how the selective environment changes over time under and even then under very limited conditions.
 Indeed, $\omega$ based approaches only reasonably approximate a subset of scenarios such as over/underdominance or frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
 
 By comparing our model fits to those using an $\omega$ based approach, we find that the yeast protein sequences we examine are substantially more consistent with a constant regime of stabilizing selection for the physico-chemical properties of an optimal amino acid sequence than an ever shifting fitness regime.
-Further, because we find that $\omega$ is well correlated with our model's gene expression term, its value is really an indicator of the strength of stabilizing selection on a coding sequence.
-This suggests that one of the most commonly used methods for detecting stabilizing or diversifying selection is not only often misunderstood, but that the conclusions drawn from its values are likely incorrect.
+Further, because we find that $\omega$ is strongly correlated with our model's and empirical estimates of  gene expression, its value is really an (inverse) indicator of the strength of stabilizing selection on a coding sequence.
+%That is, our model indicates that a genes' $\omega$ value is  , genes that appear to be permissive to substitutions are not under 
+This finding suggests that one of the most commonly used methods for detecting non-neutrality is not only often misunderstood, but that the conclusions drawn from its values are likely incorrect.
 While in its current form, our model only applies to stabilizing selection scenarios, it should be possible to extend our model to describe evolution under consistent, diversifying selection (see Discussion). %by relaxing our assumption that our site specific physico-chemical  sensitivity term $G$ be non-negative.
 %the frequency with which this occurs is a empirical question.
 
@@ -606,7 +613,8 @@ Our estimates of these weights only strongly deviate from Grantham's \citeyear{G
 Our estimate of the composition weighting factor of $\alphac$=0.484 is 1/4th the value estimate by Grantham which suggests that the substitution process is less sensitive to this physicochemical property when shared ancestry and variation in stabilizing selection are taken into account.
 
 It is important to note that the nonsynonymous/synonymous mutation ratio, or $\omega$, which we estimated for each gene under the FMutSel0 model strongly correlated with our estimates of $\phiprime = \psiprime/\Func$ where $\Func$ depends on the sequence of each taxa.
-In fact, $\omega$ showed similar, though slightly reduced correlations, with the same empirical estimates of gene expression described above (Figure \ref{fig:OmegavsPsi}).
+In fact, $\omega$ showed similar, though slightly reduced correlations, with the same empirical estimates of gene expression described above (Figure \ref{fig:OmegavsPsi})
+ \marginpar{JEREMY: IS THERE AN ERROR IN FIGURE \ref{fig:OmegavsPsi}? THERE ARE NO $\omega$ VALUES $> 1$ AND (b-c) APPEAR TO HAVE A VALUE B/W LOG(-1.5) AND LOG(-1), BUT NOT a). }
 This would give the impression that the same conclusions could have been gleaned using a much simpler model, both in terms of the number of parameters and the assumptions made.
 However, as we discussed earlier, not only is this model greatly restricted in terms of its biological feasibility, \selac clearly performs better in terms of its fit to the data and biological realism.
 
@@ -761,10 +769,10 @@ As discussed in text, despite the fact that \aopt for each site was not fitted b
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\linewidth]{FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf}
+  \includegraphics[width=0.9\linewidth]{FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf} 
   \caption{Comparisons between $\omega_{\text{FMutSel0}}$, which is the nonsynonymous/synonymous mutation ratio in FMutSel0, \selacplusgamma estimates of protein functionality production rates $\psihat$ (a), RNA-Seq based measurements of mRNA abundance $\phi_{\text{RNA-seq}}$ (b), and ROC-SEMPPER's estimates of protein translation rates $\phi_{\text{ROC}}$, which are based solely on \emph{S.~cerevisiae}'s patterns of codon usage bias (c), for \emph{S.~cerevisiae} across the 100 selected genes from \citet{SalichosAndRokas2013}.
     As in Figure \ref{fig:PhivsEmpirical}, the equations in the upper left hand corner of each panel provide the regression fit and correlation coefficient.
-  }
+}
   \label{fig:OmegavsPsi}
 \end{figure}
 
