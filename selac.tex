@@ -276,7 +276,7 @@ M\textsc{ICHAEL} A.~{G\textsc{ILCHRIST}}$^{2,3,*}$}
 \newpage
 
 \section{Abstract}
-We present a phylogenetic approach rooted in the field of population genetics that more realistically models the evolution of protein-coding DNA under the assumption of stabilizing selection for a gene specific, optimal amino acid sequence.
+We present a novel phylogenetic approach rooted in the field of population genetics that more realistically models the evolution of protein-coding DNA under the assumption of consistent, stabilizing selection for a gene specific, optimal amino acid sequence.
 In addition to being consistent with the fundamental principles of population genetics, our new set of models, which we collectively call SelAC (Selection on Amino acids and Codons), fit phylogenetic data much better than popular models, suggesting strong potential for more accurate inference of phylogenetic trees and branch lengths.
 SelAC also demonstrates that a large amount of biologically meaningful information is accessible when using a nested set of mechanistic models.
 For example, for each position SelAC provides a probabilistic estimate of any given amino acid being optimal.
@@ -293,18 +293,28 @@ Phylogenetic analysis now plays a critical role in most aspects of biology, part
 While the scale and impact of phylogenetic studies has increased substantially over the past two decades, the realism of the mathematical models on which these analyses are based has changed relatively little by comparison.
 For example, the simplest but most popular models are nucleotide-based, which are naturally agnostic with regards to the different amino acid substitutions and their impact on gene function (e.g.~F81, F84, HYK85, TN93, and GTR, see \citet{Yang2014} for an overview).
 
-Another set of models attempt to include a `selection' term $\omega$, but the link between $\omega$ and the key parameters found in standard population genetics models such as \Ne and the distribution of fitness across genotype space is far from clear.
-For instance, $\omega$ is generally interpreted as indicating whether a sequence is under `purifying' ($\omega < 1$) or `diversifying' ($\omega > 1$) selection.
-However, the actual behavior of the model is quite different.
+Another set of models attempt to include a `selection' term $\omega$, but the link between $\omega$ and the way it is usually interpreted is incorrect \citep[MORE CITATIONS!][]{GoldmanAndYang94}.
+Further, it ignores key properties found in standard population genetics models such as \Ne.
+For instance, $\omega$ is generally interpreted as indicating whether a sequence is under consistent `purifying' ($\omega < 1$) or `diversifying' ($\omega > 1$) selection.
+However, the biological behavior the model describes is quite different.
 When $\omega < 1$ the model behaves as if the resident amino acid $i$ at a given site is favored by selection since synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions.
 Paradoxically, this selection regime for the resident amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
 As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ over all other amino acids, including $i$.
 This is now the opposite scenario to when $i$ was the resident.
 Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions from the resident amino acid.
 In a parallel manner, this selection \emph{against} the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors} the former resident amino acid $i$ as well as the 18 others.
-Thus, the simplest and most consistent interpretation of $\omega$ is that it represents the rate at which the selection regime itself changes, and this change in selection perfectly coincides with the fixation of a new amino acid.
-As a result, $\omega$ based approaches only reasonably describe a subset of scenarios such as over/underdominance or frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
-Because, as we show here, $\omega$ is well correlated with gene expression, its value is really an indicator of the strength of stabilizing selection on a coding sequence, rather than the `nature' of that selection.
+Thus, the simplest and most consistent interpretation of $\omega$ is that it represents the rate at which the \emph{selective environment itself} changes, and this change in selection perfectly coincides with the fixation of a new amino acid.
+Thus, contrary to popular belief,  $\omeaga$ does not describe whether a site is evolving under a constant regime of stabilizing or diversifying selection, but instead how the selective environment changes over time under and even then under very limited conditions.
+Indeed, $\omega$ based approaches only reasonably approximate a subset of scenarios such as over/underdominance or frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
+
+By comparing our model fits to those using an $\omega$ based approach, we find that the yeast protein sequences we examine are substantially more consistent with a constant regime of stabilizing selection for the physico-chemical properties of an optimal amino acid sequence than an ever shifting fitness regime.
+Further, because we find that $\omega$ is well correlated with our model's gene expression term, its value is really an indicator of the strength of stabilizing selection on a coding sequence.
+This suggests that one of the most commonly used methods for detecting stabilizing or diversifying selection is not only often misunderstood, but that the conclusions drawn from its values are likely incorrect.
+While in its current form, our model only applies to stabilizing selection scenarios, it should be possible to extend our model to describe evolution under consistent, diversifying selection (see Discussion). %by relaxing our assumption that our site specific physico-chemical  sensitivity term $G$ be non-negative.
+%the frequency with which this occurs is a empirical question.
+
+[DO WE WANT TO MENTION APPLICATIONS BEYOND TREE BUILDING, SUCH AS INFERRING OPTIMAL AA SEQUENCE?
+COULD DO THIS WITHIN A DISCUSSION OF THE NUMBER OF MODEL PARAMETERS AND HOW WE CAN REDUCE THAT BY TAKING A HIERARCHICAL APPROACH WHERE WE STOP ESTIMATING BRANCH LENGTHS AND SIMPLY ESTIMATE THEIR UNDERLYING DISTRIBUTION.]
 
 Given the continual growth in computational power available to researchers, it is now possible to utilize a more general set of population genetics based models for the purpose of phylogenetic analysis \citep[e.g.~][]{HalpernAndBruno1998,RobinsonEtAl2003,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 One lesson from the field of population genetics is even when there are only a few fundamental evolutionary forces at play (mutation, drift, selection, and linkage effects), describing the evolutionary behavior of a system in which there are non-linear interactions between sites, such as epistasis, quickly becomes extremely challenging.
