@@ -311,6 +311,7 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
     \item stationary properties
   \item There are models that simplify this in various ways...
   \end{itemize}
+\item Growth in comparative sequence data creates need to interpret and extract biological information encoded in it.
 \item Confusion over interpreting $\omega$
 \item Model Overview
   \begin{itemize}
@@ -342,7 +343,7 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
 
 \subsection*{Discussion}
 \begin{itemize}
-  \item More mechanistic, but still many black boxes describing underlying relationships between model terms.
+\item More mechanistic, but still many black boxes describing underlying relationships between model terms.
 \item Despite simplistic nature, inferred gene specific average protein synthesis rate are consistent with empirical measurements.
 \item Quality of predictions likely due
   \begin{itemize}
@@ -381,7 +382,7 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
   \item Could expand our model to include shifts in optimal amino acid and even make them a function of shift in amino acid sequence ala GY94 family of models.
   \item Similarly, we could add a term to our distance function that acts as an indicator function and then estiamte its weight.
     This would allow us to more directly evaluate different hypotheses about whether it's the \PC properties that matter or simply the fact that the aa are different as done in other models.
-    \end{itemize}
+  \end{itemize}
 \item Predicting gene expression
   \begin{itemize}
   \item CUB consistent
@@ -402,10 +403,17 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
     More generic interpretation is that sensitivity of fitness from deviation from optimal sequence is proportional to gene expression.
     Our interpretation suggests we should be able to explain interlinage variation in a gene's expression using our cost-benefit function $\eta$. 
   \item Assume same \PC weighting for all parts of protein.
-  \item Only works with proteins, but approach could be extended to work with raw nucleotide sequences.
+  \item Only works with proteins
+  \end{itemize}
+\item many of  these shortcomings can be addressed in future work.
+ (e.g. extend approach to work with non-coding sequences such as 18s or UCEs.)
+\end{itemize}
+\item Predicting gene expression from sequence
+  \begin{itemize}
+  \item CUB work
+  \item \selac
   \end{itemize}
 \end{itemize}
-
 
 \pagebreak
 
