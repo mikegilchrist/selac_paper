@@ -320,12 +320,13 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
 \item  Can be refined further based on researchers' biological knowledge and interests.
   E.g.
 \begin{itemize}
-\item more complex distance function (non-linear, add indicator functions, etc)
+\item more complex distance function (non-linear, add indicator functions, further categorize proteins or domains within proteins for different weighting functions, sensitivity distributions, etc)
 \end{itemize}
 \end{itemize}
 \end{itemize}
 \subsection*{Discussion}
 \begin{itemize}
+  \item More mechanistic, but still many black boxes describing underlying relationships between model terms.
 \item Despite simplistic nature, inferred gene specific average protein synthesis rate are consistent with empirical measurements.
 \item Quality of predictions likely due 
   \begin{itemize}
@@ -354,6 +355,13 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
 \item Structure of fitness landscape: GY94, no suboptimal peaks, but possible in our work.
 \item Expand to allow $G$ be negative $\rightarrow$ model diversifying selection in manner more consistent with conceptual/verbal usage.
 \item Limitations of our work
+  \begin{itemize}
+  \item Model assumptions about gene regulation.
+    More generic interpretation is that sensitivity of fitness from deviation from optimal sequence is proportional to gene expression.
+    Our interpretation suggests we should be able to explain interlinage variation in a gene's expression using our cost-benefit function $\eta$. 
+  \item Assume same \PC weighting for all parts of protein.
+  \item Only works with proteins.
+  \end{itemize}
 \end{itemize}
 
 
