@@ -300,17 +300,27 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
 \section*{Outline}
 \subsection*{Introduction}
 \begin{itemize}
+\item Connection to past work
+\item Confusion about number of parameters addressed by KL
+\item Confusion over interpreting $\omega$
 \item Key results
   \begin{itemize}
-\item Connection between genotype, energy flux and fitness are simplistic, but
-  \begin{itemize}
-  \item  can be refined further based on researchers' biological knowledge and interests.
-  \item One interpretation of simple equations 
+\item Connection between genotype, energy flux and fitness are simplistic
   \begin{itemize}
   \item Fitness declines at constant rate $q$ with energy flux allocated to protein synthesis.
   \item Primary amino acid sequence is understabilizing selection.
   \item Protein function sensitive to deviation from \PC properties of optimal sequence.
   \end{itemize}
+\item Multiple ways to derive our equations on first principle.
+ Interpretation we use
+ \begin{itemize}
+ \item Assume gene regulation monitors reaction rates or close proxy and compensates expression accordingly.
+   Simplistic, but leads to simple relationship
+ \end{itemize}
+\item  Can be refined further based on researchers' biological knowledge and interests.
+  E.g.
+\begin{itemize}
+\item more complex distance function (non-linear, add indicator functions, etc)
 \end{itemize}
 \end{itemize}
 \end{itemize}
@@ -336,6 +346,14 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
   \item Similarly, we could add a term to our distance function that acts as an indicator function and then estiamte its weight. 
     This would allow us to more directly evaluate different hypotheses about whether it's the \PC properties that matter or simply the fact that the aa are different.
     \end{itemize}
+\item Predicting gene expression
+  \begin{itemize}
+  \item CUB consistent
+  \item Limits of integrating more direct empirical measurements across environments to get average.
+  \end{itemize}
+\item Structure of fitness landscape: GY94, no suboptimal peaks, but possible in our work.
+\item Expand to allow $G$ be negative $\rightarrow$ model diversifying selection in manner more consistent with conceptual/verbal usage.
+\item Limitations of our work
 \end{itemize}
 
 
