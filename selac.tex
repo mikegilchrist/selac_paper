@@ -295,9 +295,10 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
 
 
 
-\section{Introduction}
 
-\subsection*{Outline}
+
+\section*{Outline}
+\subsection*{Introduction}
 \begin{itemize}
 \item Key results
   \begin{itemize}
@@ -310,6 +311,10 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
   \item Primary amino acid sequence is understabilizing selection.
   \item Protein function sensitive to deviation from \PC properties of optimal sequence.
   \end{itemize}
+\end{itemize}
+
+\subsection*{Discussion}
+\begin{itemize}
 \item Despite simplistic nature, inferred gene specific average protein synthesis rate are consistent with empirical measurements.
 \item Quality of predictions likely due 
   \begin{itemize}
@@ -321,7 +326,6 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
   \end{itemize}
   \end{itemize}
   \item More broadly, our work is alternative to GY94 and its derivatives which assume  over/underdominance in fitness or  and/or frequency dependent selection.
-  \item Could expand our model to include shifts in optimal amino acid and even make them a function of shift in amino acid sequence ala GY94 family of models.
   \item KL analysis supports idea that when linages have diverged sufficiently, observations best described by number of sites \times number of taxa, not numer of taxa.
     This result will likely vary with dataset, but we provide example for how to assess this.
   \item  Given KL results, 
@@ -329,6 +333,9 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
     \item AICc support hypothesis that stabilizing selection for the \PC properties of an amino acid sequence explain comparative sequence data better than GY94 and derivatives/extensions.
     \item Not clear how much of improvement is due to different model of selection vs.~not treating all nonsynonymous substitutions as being equally different, thus ignoring \PC properties. 
       (We might have already tested this.  If not, we could easily do so if we can fit original GY94 model).
+  \item Could expand our model to include shifts in optimal amino acid and even make them a function of shift in amino acid sequence ala GY94 family of models.
+  \item Similarly, we could add a term to our distance function that acts as an indicator function and then estiamte its weight. 
+    This would allow us to more directly evaluate different hypotheses about whether it's the \PC properties that matter or simply the fact that the aa are different.
     \end{itemize}
 \end{itemize}
 
