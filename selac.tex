@@ -23,7 +23,7 @@
 \usepackage{caption}
 \usepackage{color}
 %\usepackage{epsfig}
-\usepackage{fixltx2e}
+%\usepackage{fixltx2e} %unneeded after 2015
 \usepackage{float}
 \usepackage{fullpage}
 \usepackage{graphicx}
@@ -297,41 +297,49 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
 
 
 
-\section*{Outline}
-\subsection*{Introduction}
+\section{Outline}
+\subsection{Introduction}
 \begin{itemize}
 \item Connection to past work
   \begin{itemize}
   \item Biologically we know protein-coding DNA sequences evolve with a mixture of mutations that then become fixed due to selection and/or drift
-  \item There are many kinds of selection: towards some optimal protein structure, to reduce cost of synthesis, towards robustness to errors, etc.
+  \item Selection on protein coding regions can take many forms, but can generally be related to the cost of producing the protein and the functional benefit (or potential harm) caused by the protein product.  
+    \begin{itemize}
+    \item Cost can be affected by cost of amino acid synthesis, direct and indirect costs of protein synthesis, and lifespan of protein.  
+    \item Benefit can be affected by the amino acid sequence itself, the manner in which the protein folds, which may occur co-translationally, or the probability of being error free.
+    \end{itemize}
+    \item stationary properties
   \item There are models that simplify this in various ways...
   \end{itemize}
 \item Confusion over interpreting $\omega$
+\item Model Overview
+  \begin{itemize}
+  \item Connection between genotype, energy flux and fitness are simplistic, but still more concrete in many ways that other previous work in field.
+    \begin{itemize}
+    \item Primary amino acid sequence is understabilizing selection.
+    \item Protein function sensitive to deviation from \PC properties of optimal sequence.
+    \item Additional assumptions
+      \begin{itemize}
+      \item Fitness declines at constant rate $q$ with energy flux allocated to protein synthesis.
+      \item Assume gene regulation monitors reaction rates or close proxy and compensates expression accordingly.
+      \end{itemize}
+      allow us to more explicitly link genotype to phenotype to fitness.
+    \end{itemize}
+  \item Illustrates how equations can be interpreted and revised based on researchers' biological knowledge and interests.  
+  \end{itemize}
+\item Model shortcomings include 
+  \begin{itemize}
+  \item Computationally intensive
+  \item large increase in number of parameters (though not as large as could be, \citep[c.f.][HIV entropy models]{RodriguezAndLartillot2014}
+  \end{itemize}
 \item Confusion about number of parameters addressed by KL
   \begin{itemize}
+  \item Not restricted to phylogenetics
   \item Frame this as an issue in the field that affects interpretation of results, so we try various things, but readers should know -- they should see other paper being written for details
   \end{itemize}
-\item Key results
-  \begin{itemize}
-\item Connection between genotype, energy flux and fitness are simplistic
-  \begin{itemize}
-  \item Fitness declines at constant rate $q$ with energy flux allocated to protein synthesis.
-  \item Primary amino acid sequence is understabilizing selection.
-  \item Protein function sensitive to deviation from \PC properties of optimal sequence.
-  \end{itemize}
-\item Multiple ways to derive our equations on first principle.
- Interpretation we use
- \begin{itemize}
- \item Assume gene regulation monitors reaction rates or close proxy and compensates expression accordingly.
-   Simplistic, but leads to simple relationship
- \end{itemize}
-\item  Can be refined further based on researchers' biological knowledge and interests.
-  E.g.
-\begin{itemize}
-\item more complex distance function (non-linear, add indicator functions, further categorize proteins or domains within proteins for different weighting functions, sensitivity distributions, etc)
 \end{itemize}
-\end{itemize}
-\end{itemize}
+
+
 \subsection*{Discussion}
 \begin{itemize}
   \item More mechanistic, but still many black boxes describing underlying relationships between model terms.
@@ -343,7 +351,26 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
   \item noise inherent in empirical measurements
   \item condition specific nature of empirical data.
   \end{itemize}
+\item Key Points
+  \begin{itemize}
   \item More broadly, our work is alternative to GY94 and its derivatives which assume  over/underdominance in fitness or  and/or frequency dependent selection.
+  \item Our model is best viewed as an approximate description of the evolutionary process.
+  \item because many different mathematical formula can be approximated by the same function, there are multiple ways to derive our equations based on first principles.
+    Should be able to distinguish by evaluating  more subtle predictions.
+    e.g.~Variation in protein production rates empirically observed across taxa predicted to be an inverse function of distance from optimal aa sequence.
+  \item Assumptions about nature of fitness landscape
+    \begin{itemize}
+    \item Constant: Diversifying vs. stabilizing
+      \begin{itemize}
+      \item Expect to populations to climb landscape from maladaptive locations, but don't necessarily expect to see at optimum if size of near optimum set is large and differences in fitness between this set and optimum is small.
+      \item If process reaches stationarity (i.e.~current genotype state is independent of genotype state when selection environment was imposed), then, by definition, net probability flux from any give state to set of more adaptive and less adaptive alleles will be equal, due to property of detailed balance \citep{Iwasa1988,SellaAndHirsh2005}.
+      \end{itemize}
+    \item Dynamic: Over/underdominance positive and negative frequency dependence
+      \begin{itemize}
+      \item Fitness landscape shifts during substitution process.
+      \item As a result, we are either always fixing new, rare and adaptive alleles or new, rare maladaptive alleles.
+      \end{itemize}
+    \end{itemize}
   \item KL analysis supports idea that when linages have diverged sufficiently, observations best described by number of sites $\times$ number of taxa, not numer of taxa.
     This result will likely vary with dataset, but we provide example for how to assess this.
   \item  Given KL results,
@@ -353,7 +380,7 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
       (We might have already tested this.  If not, we could easily do so if we can fit original GY94 model).
   \item Could expand our model to include shifts in optimal amino acid and even make them a function of shift in amino acid sequence ala GY94 family of models.
   \item Similarly, we could add a term to our distance function that acts as an indicator function and then estiamte its weight.
-    This would allow us to more directly evaluate different hypotheses about whether it's the \PC properties that matter or simply the fact that the aa are different.
+    This would allow us to more directly evaluate different hypotheses about whether it's the \PC properties that matter or simply the fact that the aa are different as done in other models.
     \end{itemize}
 \item Predicting gene expression
   \begin{itemize}
@@ -362,19 +389,28 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
   \end{itemize}
 \item Structure of fitness landscape: GY94, no suboptimal peaks, but possible in our work.
 \item Expand to allow $G$ be negative $\rightarrow$ model diversifying selection in manner more consistent with conceptual/verbal usage.
+\item Try other, potentially more complex distance functions (non-linear, add indicator functions, further categorize proteins or domains within proteins for different weighting functions, sensitivity distributions, etc)
 \item Limitations of our work
   \begin{itemize}
+  \item Computational expense
+  \item Large number of model parameters
+    \begin{itemize}
+    \item Treat each site's optimal aa as a random effect if more interested in branch lengths and tree.
+    \item Treat branch lengths as random effect if more interested in inferring optimal aa sequence and site specific selection.
+    \end{itemize}
   \item Model assumptions about gene regulation.
     More generic interpretation is that sensitivity of fitness from deviation from optimal sequence is proportional to gene expression.
     Our interpretation suggests we should be able to explain interlinage variation in a gene's expression using our cost-benefit function $\eta$. 
   \item Assume same \PC weighting for all parts of protein.
-  \item Only works with proteins.
+  \item Only works with proteins, but approach could be extended to work with raw nucleotide sequences.
   \end{itemize}
 \end{itemize}
 
 
+\pagebreak
 
-There are many models of DNA substitution in molecular phylogenetics. The most popular are simple nucleotide models which are naturally agnostic with regards to the different amino acid substitutions and their impact on gene function (e.g.~F81, F84, HYK85, TN93, and GTR, see \citet{Yang2014} for an overview). However, a set of more complex models, starting with \citep{GoldmanAndYang1994}, take into account the underlying processes of mutation and selection. \citep{GoldmanAndYang1994} start by explicitly using distance between amino acids as a factor that affects relative substitution rates. More recent papers simplify this to just estimating a parameter, $\omega$, for the nonsynonomous/synonomyous substitution rate.
+There are many models of DNA substitution in molecular phylogenetics. The most popular are simple nucleotide models which are naturally agnostic with regards to the different amino acid substitutions and their impact on gene function (e.g.~F81, F84, HYK85, TN93, and GTR, see \citet{Yang2014} for an overview). However, a set of more complex models, starting with \citep{GoldmanAndYang1994,MuseAndGaut1994}, take into account the underlying processes of mutation and selection. \citet{GoldmanAndYang1994} and \citet{MuseAndGaut1994} independently introduced models which used the \PC distance between amino acids as a factor that affects relative substitution rates. 
+More recent papers simplify this approach by ignoring the \PC properties and simply use the parameter, $\omega$, to describe the ratio of nonsynonomous/synonomyous substitution rates.
 
 There are also papers that [fmutsel].
 
@@ -392,14 +428,17 @@ There is evidence of compensation for protein function. Metabolism with gene exp
 
 The cost of protein production is also known.
 There are two main costs: one is the cost of the protein itself: synthesis of the amino acids and energy to connect them. The other cost is in the use of the ribosome itself.
-A ribosome is an expensive piece of cellular machinery that has a finite lifespan, so requiring more use to produce more proteins is also expensive.
-Additional costs are costs of transcription, chaperones to help with protein folding, movement of the protein to its final destination, as well as factors like speed of translation (which is affected by things like tRNA abundance and codon wobble).
-In addition to these more direct costs, transcription and translation errors that lead to either the reduction of protein production rates or the functionality of the protein product can result in indirect costs.
-Translation errors, in particular, are thought to contribute lead to different translational efficencies between synonymous codons and, in turn, shape sequence evolution \citet{Kurland1991,Gilchrist2007,PlaceHolderRef}.
+A ribosome is a large, complex, and energetically expensive piece of cellular machinery to manufacture.
+Because ribosomes, like all cellular machinery, have finite lifespans, genotypes which utilize them efficiently should have a competitive advantage.
+Additional costs include the direct and indirect costs of transcription, synthesis of chaperones that aid in protein folding, the active movement of proteins to to their final destination, as well as factors like speed of translation (which is affected by things like tRNA abundance and codon wobble).
+In addition to these more direct costs, transcription and translation errors can impose indirect costs such as reducing a protein's production rate or the disruption of protein function.
+Translation errors, in particular, are thought to contribute lead to different translational efficencies between synonymous codons and, in turn, shape sequence evolution \citep{Kurland1991,Gilchrist2007,PlaceHolderRef}.
 
 Another key difference from existing models is the symmetry of rates.
-A common simplifying assumption under traditional models, even with selection, is that the rate at which a codon i to j mutation is fixed is the same as the rate at which a codon j to i mutation is fixed (though the frequency with which these mutations are proposed by evolution may not necessarily be equal).
-This overall rate is, in some models (\_\_\_\_\_), but not others (\_\_\_), related to a measure of distance of amino acid properties as a measure of difference in fitness.
+Although it is now common to have mutation rates vary between codon, traditional models such as GY94 generally assume the fixation rate of a mutation from codon $i$ to $j$ is the same as the fixation rate from $j$ to $i$.
+
+
+This overall rate is, in some models \citep{PlaceHolderRef}, but not others \citep{PlaceHolderRef}, related to a measure of distance of amino acid properties as a measure of difference in fitness.
 This assumption simplifies the problem: any rooting of the tree has equal likelihood, rather than trying to find the best rooting.
 However, the cost of this is that the fixation rate does not depend on which codon (or rather, the amino acid corresponding to the codon) has higher fitness.
 We would expect that fixation of a proposed codon with higher fitness should be at a higher rate than fixation of one that is less fit.
@@ -417,17 +456,7 @@ While the scale and impact of phylogenetic studies has increased substantially o
 For example, the simplest but most popular models are nucleotide-based, which are naturally agnostic with regards to the different amino acid substitutions and their impact on gene function (e.g.~F81, F84, HYK85, TN93, and GTR, see \citet{Yang2014} for an overview).
 
 Another set of models, starting with \citep[][commonly represented as GY94]{GoldmanAndYang1994}, attempt to include a `selection' term $\omega$.
-Interestingly, while $\omega$ is now associated with GY94, that paper actually did not use the term $\omega$ at all and, similar to our approach, used \PC based distances to scale substitution rates.
-For the record, it was a pair of papers by Yang and Nielsen \citep{NielsenAndYang1998,YangAndNielsen1998} that introduced the parameter $\omega$ as a simplified version of the original GY94 model in which \PC properties of the resident and replacement amino acids were ignored.
-For consistency with the literature, we will also refer to this simplifed version as GY94, unless otherwise noted
-
-
-[mikeg: NIELSENANDYANG2003 INCLUDES NE AND S BUT DOESN"T SEEM TO TALK ABOUT WHAT OMEGA MEANS.
-NEED TO CHECK]
-[BCO: Goldman Yang 1994 doesn't explicitly include omega]
-
-
-Perhaps because of its elegance and simplicity, a wide range of modifications have been incorporated into the GY94 model. %, such as allowing for variation in $\omega$ along a branch (as cited in Anisimova 2012)
+Perhaps because of its elegance and simplicity, a wide range of modifications have been incorporated into the GY94 model, such as allowing $\omega$ to vary between sites or \Ne to vary between branches (as cited in \citet{Anisimova2012})
 For example, \citet{NielsenAndYang2003} develop a series of models where $\omega$, most generally, is based on independent population size for each lineage and independent selection on each site, though with some necessary simplifications to make parameters identifiable (such as having the strength of selection come from a distribution rather than be estimated for each site).
 While these extensions do increase the flexibility of the model, they fail to address a major misinterpretation and, in turn, misunderstanding of the biology behind the model.
 To the best of our knowledge, this misinterpretation has gone unmentioned in the literature.
@@ -445,6 +474,12 @@ Thus, the simplest and most consistent interpretation of $\omega$ is that it rep
 This, in turn, implies that the rate of shifts in the optimal (or pessimal) amino acid is on the time scale as the rate of substitution.
 Thus, contrary to popular belief,  $\omega$ does not describe whether a site is evolving under a constant regime of stabilizing or diversifying selection, but instead how the selective environment changes over time under and even then under very limited conditions.
 Indeed, $\omega$ based approaches only reasonably approximate a subset of scenarios such as over/underdominance or positive/negative frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
+
+Interestingly, while $\omega$ is now associated with GY94, that paper actually did not use the term $\omega$ at all and, similar to our approach, used \PC based distances to scale substitution rates.
+For the record, it was a pair of papers by Yang and Nielsen \citep{NielsenAndYang1998,YangAndNielsen1998} that introduced the parameter $\omega$ as a simplified version of the original GY94 model in which \PC properties of the resident and replacement amino acids were ignored.
+For consistency with the literature, we will also refer to this simplifed version as GY94, unless otherwise noted
+[mikeg: WHERE SHOULD THIS GO? \citet{NielsenAndYang2003} INCLUDES NE AND S BUT DOESN"T SEEM TO TALK ABOUT WHAT OMEGA MEANS.
+NEED TO CHECK]
 
 There have been models that do incorporate selection more explicitly.
 
