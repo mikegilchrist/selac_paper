@@ -1,8 +1,48 @@
+
+Notes on GY94
+\begin{itemize}
+\item Comparison with this model allows us to ask whether or not fitness landscape is as dynamic as the model assumes. (See below)
+\item \citet[][p.~46]{Yang2014} discusses performance of \PC models as providing a significant but not extraordinary improvement of model fit over non \PC versions.
+Our results show that the performance of \PC models can be substantially improved when we assume that the optimal amino acid sequence does not change with amino acid substitutions and gene expression is taken into account.
+\item NOTE: WE could modify our \dij function such that it is simply the sum of absolute distances in \PC space, i.e.~$\dij = \sum_k w_k \delta_k(i,j)$. 
+\item Previous work with \PC models start with GY94, \citet{YangEtAl98} modified model to account for non-\PC based differences between amino acids.
+Unfortunately, this model is only consistent within the later $\omega$ framework where $\omega_{i,i} = 1$, by definition, when the distance function to be defined as $\dij = 1$ when $i\neq j$ and $\dij = 1/b + \ln(a)$ when $i=j$. 
+(NOTE: In the paper they actually include an alternative model where $\omega_{i,i} = 1$ in a consistent manner).
+Here $a$ seems to describe the rate at which the optimal amino acid shifts, independent of it previous and current \PC properties.
+\item Should be able to directly compare our model's performance with \citet{YangEtAl1998} model which includes Grantham's \PC properties and weights.
+This comparison should allow us to quantify the difference between the 'optimal aa switches with substitution' and 'optimal aa fixed over tree'.
+\item One reason \PC models may not perform well is because they are overly simplistic and ignore the likely fact that the importance of different \PC properties varies within a protein.
+We do not disagree with the hypothesis they lack important biological details, but we show here they can do substantially better when the fitness landscape is fixed and gene expression is taken into account.
+Further, because our model is structured, we could test this idea explicitly by categorizing amino acid sites based on other properties (external or internal side-chain, secondary structure, etc) and then using different \PC weightings for the different categorization
+[Revisit in Discussion]
+\item GY94 use $\exp[- d(a_1, a_2)/V]$ instead of $\omega $. 
+    For us, $1/V \sim G$.
+\item Given the link between $V$ and $G$ in the GY94 and our model, our formulation has the advantage of being able to continuously go between true diversifying and stabilizing selection as $G$ goes from negative to positive.
+\item In GY94 they link to substitution to \PC properties, but the optimal amino is always assumed to be current state.
+Thus, a substitution is implicitly saying there is a shift in the fitness landscape.
+\item When GY94 essentially assumes that more similar amino acids are more likely to transition between each other, while we assume that changes are more likely to go towards more optimal amino acids. 
+\item Even in its more sophisticated form, such that the NS substitution rate takes \PC properties into account, GY94 implicitly assumes the current state is the optimal state.
+Thus, their model confounds stabilizing/diversifying selection and shifts in fitness landscape.
+\item Unlike with $1/V$ in GY94, we can shift between stabilizing and diversifying selection in a continuous manner by removing the assumption of 0 being a lower bound on $\Gprime$.
+\item One key difference between our model and GY94 is that when estimating transition rates between two amino acids, we examine distance between the optimal amino acid and each rather than distance between the two amino acids themselves.
+This leads to substantial improvement in our model over GY94 (c.f. fixed $G$ or $1/V$) and, presumably, variable $1/V$ as explored in \citet{YangEtAl08}. NOTE: It is unclear if we've compared any of these models to variable $G$ selac.
+\item GY94 essentially assumes that more similar amino acids are more likely to transition between each other, while we assume that changes are more likely to go towards more optimal amino acids. 
+\item Muse and Gaut 1994 is actually more similar to the NielsenAndYang1998 and YangAndNielsen1998 in that it has an omega like term and doesn't deal with \PC properties.
+
+\end{itemize}
+\begin{itemize}
+    \item YN98 and NY98 reference their $\omega$ model as a simplified version of GY94 and ignore the \PC properties.
+    Doing so is equivalent to defining a \PC space where all amino acids are equally distant from one another, i.e. d() is an indicator function.
+    \item Reviewer 3 indicates we should cite the following papers
+\begin{itemize}
+    \item Bustamante CD. 2005. Population genetics of molecular evolution. Pp. 63-99 in Nielsen R, ed. Statistical Methods in Molecular Evolution. Springer, New York.
+    \item   Nielsen R, Yang Z. 2003. Estimating the distribution of selection coefficients from phylogenetic data with applications to mitochondrial and viral DNA. Mol Biol Evol 20:1231-1239.
+\end{itemize}
+
 \section*{Other Phylogenetic Models}
 While the scale and impact of phylogenetic studies has increased substantially over the past XXX decades, the realism of the models used to infer the trees has changed relatively little by comparison.
 Notable exception, however, include
 \begin{itemize}
-\item 
 \item \citet{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008} used MutSel model (FMutSel) 
 \item \citet{YangAndNielsen2008} used a model that used \citet{GoldmanAndYang1994} to describe rates of NS to S substitution and then added a MutSel model that described selection on codon usage.
   \begin{itemize}
@@ -16,7 +56,7 @@ Notable exception, however, include
       \end{quote}
       and
       \begin{quote}
-        The properties of proteins are not a function of the identities of the residues at each location but, rather, depend on the physical-chemical properties of these residues. The relative substitution rates can often be interpreted in terms of corresponding changes in these properties in a way that depends on the local context (Miyata, Miyazawa, and Yasunaga 1979; Koshi and Goldstein 1997). Motivated by this perspective, we recently developed a method for representing substitution matrices as a function of the physical-chemical properties of the amino acids (Koshi, Mindell, and Goldstein 1997; Koshi and Goldstein 1998)...  While there have been other substitution models that use physical-chemical properties to assign distances between the amino acids (Goldman and Yang 1994; Schmidt 1995), these models have been constructed based on preconceived notions of what physical-chemical properties are important and have not addressed the issue that the similarities between amino acids will be context-dependent. In contrast, the model described below includes site heterogeneity in a natural way and allows the parameters in the model to be optimized by likelihood maximization based on data sets of homologous proteins.
+        The properties of proteins are not a function of the identities of the residues at each location but, rather, depend on the physical-chemical properties of these residues. The relative substitution rates can often be interpreted in terms of corresponding changes in these properties in a way that depends on the local context (Miyata, Miyazawa, and Yasunaga 1979; Koshi and Goldstein 1997). Motivated by this perspective, we recently developed a method for representing substitution matrices as a function of the physical-chemical properties of the amino acids (Koshi, Mindell, and Goldstein 1997; Koshi and Goldstein 1998)...  While there have been other substitution models that use physical-chemical properties to assign distances between the amino acids (Goldman and Yang 1994; Schmidt 1995), these models have been constructed based on preconceived notions of what physicalchemical properties are important and have not addressed the issue that the similarities between amino acids will be context-dependent. In contrast, the model described below includes site heterogeneity in a natural way and allows the parameters in the model to be optimized by likelihood maximization based on data sets of homologous proteins.
       \end{quote}
     \item  Model structure
       \begin{quote}
@@ -35,18 +75,18 @@ Notable exception, however, include
   \item We scale substitution matrix by gene expression and explicitly include \Ne.
   \item Adaptive substitution probabilities occur at a constant rate while non-adaptive ones occur at rate based on fitness ratios rather than substitution probability as defined in Sella and Hirsh.
   \end{itemize}
-    \end{itemize}
-  \item \citet{LartillotAndPhilippe04} 
-    \begin{itemize}
-    \item Highly cited paper (550 as of 6/1/16)
-    \item ``Most current models of sequence evolution assume that all sites of a protein evolve under the same substitution process, characterized by a 20 x 20 substitution matrix.''
-      \item Sites classified based on ``their equilibrium frequencies over the 20 residues.''
-      \item Summary of previous work
-        \begin{quote}
-          As for proteins, a first approach has been proposed, in which substitutional heterogeneity is introduced through a set of eight to ten predefined categories, based on secondary structure and solvent accessibility considerations (Goldman, Thorne, and Jones 1996; Thorne, Goldman, and Jones 1996; Goldman, Thorne, and Jones 1998; Lio` and Goldman 1999). Each category has its own rate matrix, optimized by ML on real data sets. This model was shown to be significantly supported by real sequences, yet it does not address the question of the extent of heterogeneity actually present in the data. Furthermore, it makes specific hypotheses about its determining factors. An alternative method has been proposed in which no prior constraints are specified between the substitution processes and other features of the protein, like the secondary structure (Koshi and Goldstein 1998; Koshi, Mindell, and Goldstein 1999; Koshi and Goldstein 2001). However, the substitution processes themselves are constrained to conform to a prior biochemical model. Although this approach was generalized (Dimmic, Mindell, and Goldstein 2000; Soyer et al.  2002), the total number of categories is predetermined and is kept small, still for dimensionality reasons. A more radical approach was taken by Bruno (Bruno 1996; Halpern and Bruno 1998), through a model in which the equilibrium frequencies of the 20 amino acids are distinct at each site of the data set. The resulting model seems to capture important features of the substitution process along protein sequences, but it requires a large number of taxa in order for the statistics at each column to be significant.
-        \end{quote}
-      \item ``Here we propose a mixture model, CAT, which generalizes most of the previous approaches (Bruno 1996; Koshi and Goldstein 1998; Dimmic, Mindell, and Goldstein 2000). The model allows for a number K of classes, each of which is characterized by its own set of equilibrium frequencies, and lets each site `choose' the class under which its substitutional history is to be described.''
-      \item Use 'exchangability parameters, ($\rho_{lm}$), and assume substitutional symmetry  $\rho_{ij}=\rho_{ji}$.
+\end{itemize}
+\item \citet{LartillotAndPhilippe04} 
+  \begin{itemize}
+  \item Highly cited paper (550 as of 6/1/16)
+  \item ``Most current models of sequence evolution assume that all sites of a protein evolve under the same substitution process, characterized by a 20 x 20 substitution matrix.''
+  \item Sites classified based on ``their equilibrium frequencies over the 20 residues.''
+  \item Summary of previous work
+    \begin{quote}
+      As for proteins, a first approach has been proposed, in which substitutional heterogeneity is introduced through a set of eight to ten predefined categories, based on secondary structure and solvent accessibility considerations (Goldman, Thorne, and Jones 1996; Thorne, Goldman, and Jones 1996; Goldman, Thorne, and Jones 1998; Lio` and Goldman 1999). Each category has its own rate matrix, optimized by ML on real data sets. This model was shown to be significantly supported by real sequences, yet it does not address the question of the extent of heterogeneity actually present in the data. Furthermore, it makes specific hypotheses about its determining factors. An alternative method has been proposed in which no prior constraints are specified between the substitution processes and other features of the protein, like the secondary structure (Koshi and Goldstein 1998; Koshi, Mindell, and Goldstein 1999; Koshi and Goldstein 2001). However, the substitution processes themselves are constrained to conform to a prior biochemical model. Although this approach was generalized (Dimmic, Mindell, and Goldstein 2000; Soyer et al.  2002), the total number of categories is predetermined and is kept small, still for dimensionality reasons. A more radical approach was taken by Bruno (Bruno 1996; Halpern and Bruno 1998), through a model in which the equilibrium frequencies of the 20 amino acids are distinct at each site of the data set. The resulting model seems to capture important features of the substitution process along protein sequences, but it requires a large number of taxa in order for the statistics at each column to be significant.
+    \end{quote}
+  \item ``Here we propose a mixture model, CAT, which generalizes most of the previous approaches (Bruno 1996; Koshi and Goldstein 1998; Dimmic, Mindell, and Goldstein 2000). The model allows for a number K of classes, each of which is characterized by its own set of equilibrium frequencies, and lets each site `choose' the class under which its substitutional history is to be described.''
+  \item Use 'exchangability parameters, ($\rho_{lm}$), and assume substitutional symmetry  $\rho_{ij}=\rho_{ji}$.
         Further, in the model the employ they use the same $\rho$ values but let the stationary probabilities vary between categories. 
         This is confusing.
         At first thought the $\rho$ matrix ultimately determines the stationary probabilities, but actually it is the $Q$ matrix that does.  
@@ -73,7 +113,80 @@ Notable exception, however, include
 \item Site heterogeneity models are becoming popular. 
   For example, \citet{WuEtAl2013}
 \item None of the previous work using physiochemical properties used multiple matrices.
+\item \citet{HalpernAndBruno1998}
+  \begin{itemize}
+  \item From abstract, ``Current modeling of selection via site-to-site rate heterogeneity generally neglects another aspect of selection, namely position-specific amino acid frequencies. These frequencies determine the maximum dissimilarity expected for highly diverged but functionally and structurally conserved sequences, and hence are crucial for estimating long distances. We introduce a codon-level model of coding sequence evolution in which position-specific amino acid frequencies are free parameters.''
+  \item Results downplay importance of selection on CUB --
+    ``Site-to-site differences in rates, as well as synonymous/nonsynonymous and first/second/third-codon-position differences, arise as a natural consequence of the site-to-site differences in amino acid frequencies.''
+  \item ``However, when evolutionary distances are calculated based on coding sequences, as is often the case, failure to take into account effects of selection may lead to substantial underestimates of evolutionary distances. The factor by which distances are underestimated will increase with increasing distance.''
+  \item Very nice paper.
+  \item Their model estimates equilibrium frequencies of amino acids from observed tips of tree.
+    Their model then estimates fitness from these frequencies.
+    This approach might be a good way of choosing initial values for SelAC.
+    For example, we could try a regression approach to get initial estimates of $\phi$ by assuming that the most common aa at each site is the optimal (which I assume is already done) and then finding the $\phi$ that maximizes the likelihood of the frequencies of the other aa across all sites (or a sample of sites) w/in a protein. 
+  \item Our model differs in that
+    \begin{itemize}
+    \item  We don't estimate 19 frequencies per site.
+    Instead we have a sub-model of selection on aa properties which leads to these frequencies.
+  \item Their model is a codon level model. 
+    Ours is at AA level.
+  \item Unlike SelAC, where the selection that determines stationary aa frequencies at each site is estimated,  they use ``other methods'' to estimate the equilibrium aa frequencies.
+    It would be important to see if anyone has extended their method to do the estimation simultaneously.
+  \end{itemize}
+\item Equation (8) can be derived from detailed balance.
+  Using their terminology, $\pi_a p_{ab} 2 \Ne  f_{ab}  = \pi_b p_{ba} 2 \Ne f_{ba}$
+  Thus $f_{ab}/ f_{ba}  = \pi_b p_{ba}/\pi_a p_{ab} $
+\item Authors are able to ``to determine the substitution rate in terms of the mutation probabilities and the equilibrium frequencies''
+  I am, however, having a hard time understanding how they do all of the calculations to get $r$ in terms of equilibrium frequencies..
+  Intuitively, I understand that if I know equilibrium frequencies and mutation rates, I should be able to back calculate transition rates assuming detailed balance.
+  Upon re-reading the method section, I realize that understanding this reformulation in terms of stationary probabilities is not critical, but could possibly help in presenting our model.
+  \item Assumptions we make are the same as the 4 they list at the bottom of the first page.
+  \item ``As for the probability of fixation of a mutant, f iab, we make use of the weak-mutation model of Golding and Felsenstein (1990), according to which the time between introduction of a mutant and its eventual fixation is taken to be small (zero) relative to the time between fixations, so that polymorphism may be ignored and the equations of Kimura (1962) for the probability of fixation of a single mutant allele in an otherwise homogeneous population apply''
+  \item ``As required by reversibility, $r_{ab} /r_{ba} = \pi_b/\pi_a$. However, the total amount of substitution (the ‘‘flux’’) between two codons is not uniform but, rather, depends on their relative fitnesses: the greater the difference in fitness, the less overall substitution.''
+    Intuitively, this is because understrong selection, the probability of being at the favored site is high but the rate of substitution to the less fit is very low.
+    Conversely, while the rate of substitution from the disfavored to favored state is high, the probability of being at the disfavored state is very low.
+  \item ``At present, we have chosen to implement our model in a program which requires as input specification of the mutational and selectional parameters.'' 
+    \begin{itemize}
+    \item     So they avoid the estimation of many parameters per site.
+    \item Authors ignore selection on CUB.
+    \item ``We wish to emphasize, however, that the choice of a specific method for estimating amino acid frequencies is separate from the use of these estimates in the model described above, so the specific method we are about to describe could be replaced by other methods.''
+    \end{itemize}
+  \end{itemize}
 \end{itemize}
 
+\paragraph*{\citet{RodrigueAndLartillot2014}:} \citetitle{RodrigueAndLartillot2014} %biblatex command
+\begin{quote}
+  Halpern and Bruno (1998) first showed how to devise a model that accounts for both global mutational features at the nucleotide level and site-specific selective constraints at the amino acid level.
+Although their approach was
+directed to the estimation of evolutionary distances, it was later
+recognized as enabling the estimation of distributions of selection
+coefficients from phylogenetic data (see Thorne et al., 2012, for a
+review of these developments). However, a serious issue with
+the Halpern and Bruno model, and some of the subsequent re-implementations (e.g.Tamuri et al., 2012), lies in the use of site-specific parameters optimized to maximum likelihood estimates; such an approach induces the ‘infinitely many parameters trap’, in which each additional observation changes the form of the overall model (see Rodrigue, 2013).
+\end{quote}
+
+\begin{itemize}
+\item ``Subsequently, we proposed the use of a nonparametric ap-
+proach based on the Dirichlet process, providing a flexible and
+statistically well-founded method to accommodating across-site
+heterogeneity of amino acid constraints (Rodrigue et al., 2010).''
+\item ``we have expanded PhyloBayes-MPI for the implementation of
+several types of codon substitution models, including the
+Dirichlet process-based site-heterogeneous mutation-selection
+approach.''
+\item Our approach avoids this 'infinitely many parameters trap'.
+\end{itemize}
+
+\paragraph*{\citet{RobinsonEtAl2003}:} \citetitle{RobinsonEtAl2003}
+\begin{itemize}
+\item ``Because we abandon the assumption of independent changes among codons, we cannot follow the conventional practice (e.g., Goldman and Yang 1994; Muse and Gaut 1994) by usefully expressing our model with a series of 61 x 61 rate matrices that each describe change at a specific codon location in the protein.''
+\item ``To assess the effect of an amino acid replacement on protein stability, a measure is needed for how well the sequence fits the structure both before and after the replacement. \ldots [Our]0
+criterion can be split into two components, one component
+assessing solvent accessibility and the other assessing
+pairwise interactions between residues near to each other
+in 3-dimensional space.''
+\end{itemize}
+
+\paragraph*{Kosiol et al 2007}
 \bibliographystyle{./am.nat}
-\bibliography{./mike}
+\bibliography{~/BiBTeX/bibiliography.full.bib}
