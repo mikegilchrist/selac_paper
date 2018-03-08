@@ -295,7 +295,43 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
 
 
 
-%\section{Introduction}
+\section{Introduction}
+
+\subsection*{Outline}
+\begin{itemize}
+\item Key results
+  \begin{itemize}
+\item Connection between genotype, energy flux and fitness are simplistic, but
+  \begin{itemize}
+  \item  can be refined further based on researchers' biological knowledge and interests.
+\item One interpretation of simple equations 
+  \begin{itemize}
+  \item Fitness declines at constant rate $q$ with energy flux allocated to protein synthesis.
+  \item Primary amino acid sequence is understabilizing selection.
+  \item Protein function sensitive to deviation from \PC properties of optimal sequence.
+  \end{itemize}
+\item Despite simplistic nature, inferred gene specific average protein synthesis rate are consistent with empirical measurements.
+\item Quality of predictions likely due 
+  \begin{itemize}
+  \item to limit amount of info in data
+  \item simplicity of model
+  \item noise inherent in empirical measurements
+  \item condition specific nature of empirical data.
+  \end{itemize}
+  \end{itemize}
+  \end{itemize}
+  \item More broadly, our work is alternative to GY94 and its derivatives which assume  over/underdominance in fitness or  and/or frequency dependent selection.
+  \item Could expand our model to include shifts in optimal amino acid and even make them a function of shift in amino acid sequence ala GY94 family of models.
+  \item KL analysis supports idea that when linages have diverged sufficiently, observations best described by number of sites \times number of taxa, not numer of taxa.
+    This result will likely vary with dataset, but we provide example for how to assess this.
+  \item  Given KL results, 
+    \begin{itemize}
+    \item AICc support hypothesis that stabilizing selection for the \PC properties of an amino acid sequence explain comparative sequence data better than GY94 and derivatives/extensions.
+    \item Not clear how much of improvement is due to different model of selection vs.~not treating all nonsynonymous substitutions as being equally different, thus ignoring \PC properties. 
+      (We might have already tested this.  If not, we could easily do so if we can fit original GY94 model).
+    \end{itemize}
+\end{itemize}
+
 
 
 There are many models of DNA substitution in molecular phylogenetics. The most popular are simple nucleotide models which are naturally agnostic with regards to the different amino acid substitutions and their impact on gene function (e.g.~F81, F84, HYK85, TN93, and GTR, see \citet{Yang2014} for an overview). However, a set of more complex models, starting with \citep{GoldmanAndYang1994}, take into account the underlying processes of mutation and selection. \citep{GoldmanAndYang1994} start by explicitly using distance between amino acids as a factor that affects relative substitution rates. More recent papers simplify this to just estimating a parameter, $\omega$, for the nonsynonomous/synonomyous substitution rate. 
