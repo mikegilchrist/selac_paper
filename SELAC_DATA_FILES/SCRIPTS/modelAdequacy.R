@@ -34,25 +34,25 @@ PlotAdequacyResults <- function(adequate.obj.gtr, adequate.obj.mutsel, adequate.
 
 }
 
-#pdf("modelAdequacyBOTH.pdf", width=8, height=8)
-#par(mfcol=c(2,2),mar=c(4,4,0.5,0.5), oma=c(1.5,2,1,1))
-#plot(NULL)
-#plot(NULL)
-#load("adequacy_Scer_reconSelacWG_simSelacWG.Rsave")
-#selac.wg <- pp
-#load("adequacy_Scer_reconSelacWG_simFMutSel.Rsave")
-#selac.mutsel <- pp
-#load("adequacy_Scer_reconSelacWG_simGTRG.Rsave")
-#selac.gtr <- pp
-#PlotAdequacyResults(adequate.obj.gtr=selac.gtr, adequate.obj.mutsel=selac.mutsel, adequate.obj.selac.wg=selac.wg, known.functionality=0.9641194, file.name="modelAdequacyScer.pdf",taxon.names="S. cerevisiae")
-#load("adequacy_Scas_reconSelacWG_simSelacWG.Rsave")
-#selac.wg <- pp
-#load("adequacy_Scas_reconSelacWG_simFMutSel.Rsave")
-#selac.mutsel <- pp
-#load("adequacy_Scas_reconSelacWG_simGTRG.Rsave")
-#selac.gtr <- pp
-#PlotAdequacyResults(adequate.obj.gtr=selac.gtr, adequate.obj.mutsel=selac.mutsel, adequate.obj.selac.wg=selac.wg, known.functionality=0.8853037, file.name="modelAdequacyScas.pdf",taxon.names="S. castellii")
-#dev.off()
+pdf("modelAdequacyBOTH.pdf", width=8, height=8)
+par(mfcol=c(2,2),mar=c(4,4,0.5,0.5), oma=c(1.5,2,1,1))
+plot(NULL)
+plot(NULL)
+load("adequacy_Scer_reconSelacWG_simSelacWG.Rsave")
+selac.wg <- pp
+load("adequacy_Scer_reconSelacWG_simFMutSel.Rsave")
+selac.mutsel <- pp
+load("adequacy_Scer_reconSelacWG_simGTRG.Rsave")
+selac.gtr <- pp
+PlotAdequacyResults(adequate.obj.gtr=selac.gtr, adequate.obj.mutsel=selac.mutsel, adequate.obj.selac.wg=selac.wg, known.functionality=0.957376007, file.name="modelAdequacyScer.pdf",taxon.names="S. cerevisiae")
+load("adequacy_Scas_reconSelacWG_simSelacWG.Rsave")
+selac.wg <- pp
+load("adequacy_Scas_reconSelacWG_simFMutSel.Rsave")
+selac.mutsel <- pp
+load("adequacy_Scas_reconSelacWG_simGTRG.Rsave")
+selac.gtr <- pp
+PlotAdequacyResults(adequate.obj.gtr=selac.gtr, adequate.obj.mutsel=selac.mutsel, adequate.obj.selac.wg=selac.wg, known.functionality=0.880932978, file.name="modelAdequacyScas.pdf",taxon.names="S. castellii")
+dev.off()
 
 
 
@@ -71,10 +71,10 @@ setwd("../DATA")
 print("Doing Scer")
 ## Brewer's yeast adequacy
 pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="selac", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=selac.wg, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
-#save(pp, file="adequacy_Scer_reconSelacWG_simSelacWG.Rsave")
+save(pp, file="adequacy_Scer_reconSelacWG_simSelacWG.Rsave")
 
 pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="gtr", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=gtr.g, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
-#save(pp, file="adequacy_Scer_reconSelacWG_simGTRG.Rsave")
+save(pp, file="adequacy_Scer_reconSelacWG_simGTRG.Rsave")
 
 #pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="gtr", model.to.simulate.under="selac", selac.obj.to.reconstruct=gtr.g, selac.obj.to.simulate=selac.wg, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
 #save(pp, file="adequacy_Scer_reconSelacGTRG_simSelacWG.Rsave")
@@ -82,7 +82,7 @@ pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="sela
 #pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="gtr", model.to.simulate.under="gtr", selac.obj.to.reconstruct=gtr.g, selac.obj.to.simulate=gtr.g, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1, for.gtr.only=selac.wg)
 #save(pp, file="adequacy_Scer_reconGTRG_simGTRG.Rsave")
 
-pp <- GetAdequateManyReps(nreps=10, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="fmutsel", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=fmutsel, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
+pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="fmutsel", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=fmutsel, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
 save(pp, file="adequacy_Scer_reconSelacWG_simFMutSel.Rsave")
 
 
