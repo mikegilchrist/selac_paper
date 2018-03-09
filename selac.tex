@@ -300,6 +300,7 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
 \section{Outline}
 \subsection{Introduction}
 \begin{itemize}
+%\item Growth in comparative sequence data creates need to interpret and extract biological information encoded in it.
 \item Connection to past work
   \begin{itemize}
   \item Biologically we know protein-coding DNA sequences evolve with a mixture of mutations that then become fixed due to selection and/or drift
@@ -311,7 +312,9 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
     \item stationary properties
   \item There are models that simplify this in various ways...
   \end{itemize}
-\item Growth in comparative sequence data creates need to interpret and extract biological information encoded in it.
+\item Because we estimate other things behind branch length and tree, we can validate these things indirectly by comparing our other inference to empirical.
+\item Addressing why are we doing this: Trees vs aa vs gene expression. (really trees and aa, gene expression is interesting but there are better ways.)
+  If we weren't interested in aa, we could treat as a random effect the same way we do G. If we were more interested in G, we could estimate them individually.
 \item Confusion over interpreting $\omega$
 \item Model Overview
   \begin{itemize}
@@ -333,8 +336,12 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
   \item Computationally intensive
   \item large increase in number of parameters (though not as large as could be, \citep[c.f.][HIV entropy models]{RodriguezAndLartillot2014}
   \end{itemize}
-\item Confusion about number of parameters addressed by KL
+\item Confusion about number of parameters addressed by KL (Cedric thinks this should be minimized greatly.  
+  He finds it distracting.
+)
+
   \begin{itemize}
+  \item MLE parameters vs. 'majority rule' which some don't view as parameters, e.g.~\citet{YangAndNielsen2008}. (Does KL allow us to get at this?)
   \item Not restricted to phylogenetics
   \item Frame this as an issue in the field that affects interpretation of results, so we try various things, but readers should know -- they should see other paper being written for details
   \end{itemize}
@@ -385,8 +392,18 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
   \end{itemize}
 \item Predicting gene expression
   \begin{itemize}
+  \item One obvious explanation of variation in strength of selection between genes.
+    Really could be something correlated to $\psi$.
   \item CUB consistent
   \item Limits of integrating more direct empirical measurements across environments to get average.
+  \item Predictions are noisy.
+    Possible explanations.
+    \begin{itemize}
+    \item Noisy data
+    \item Compare empirical across species (Cedric)
+      
+    \item Model assumption of constant $\psi$ are likely violated (does this fit in with Cedric's analysis.)
+    \end{itemize}
   \end{itemize}
 \item Structure of fitness landscape: GY94, no suboptimal peaks, but possible in our work.
 \item Expand to allow $G$ be negative $\rightarrow$ model diversifying selection in manner more consistent with conceptual/verbal usage.
