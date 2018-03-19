@@ -299,6 +299,63 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
 
 \section{Outline}
 \subsection{Introduction}
+Phylogenetic analysis now plays a critical role in most aspects of biology, particularly in the fields of ecology, evolution, paleontology, medicine, and conservation.
+While the scale and impact of phylogenetic studies has increased substantially over the past two decades, the realism of the mathematical models on which these analyses are based has changed relatively little by comparison.
+The most popular models of DNA substitution used molecular phylogentics are simple nucleotide models.
+These models are inherently agnostic with regards to the different amino acid substitutions and their impact on gene function (e.g.~F81, F84, HYK85, TN93, and GTR, see \citet{Yang2014} for an overview) and, as a result, cannot describe the behavior of natural selection at the amino acid or protein level.
+To address this critical shortcoming, \citet{GoldmanAndYang1994} and \citet{MuseAndGaut1994} independently introduced models which assumed that differences in the \PC properties between amino acids, or \PC distances for short, could affect substitution rates. 
+Because of their computational costs, these \PC approaches have never been very popular.
+Instead, these \PC based models have served as the basis for an array of simpler and, in turn, more popular models that, starting with  \citep{YangAndNielsen1998,NielsenAndYang1998},  assume an equal fixation probability for \emph{all} non-synonymous mutations \footnote{Interestingly, while $\omega$ is now associated with GY94, that paper actually did not use the term $\omega$ at all and, similar to our approach, used \PC based distances to scale substitution rates.
+For the record, it was a pair of papers by Yang and Nielsen \citep{NielsenAndYang1998,YangAndNielsen1998} that introduced the parameter $\omega$ as a simplified version of the original GY94 model in which \PC properties of the resident and replacement amino acids were ignored.
+For consistency with the literature, we will also refer to this simplifed version as GY94, unless otherwise noted.
+}.
+Thus, these simpler models initially employed a single term, $\omega$, to model the differences in fixation probability between nonsynonomous and synonomyous changes at all sites.
+To improve their realism, more complex forms have been developed that allow $\omega$ to vary between sites or branches \citep[as cited in ]{Anisimova2012} and include selection on different synonymous for the same amino acid \cite[e.g.][]{YangAndNielsen08} (MIKE: AND POSSIBLY \citep{and possibly TamuriEtAl2012,RodrigueAndHerve2010})
+
+Despite these extensions, the nature of selection these models describe are a far cry from how biologists believe selection on protein sequences actually behaves.
+Equally troubling, in \citet{GoldmanAndYang1994,YangAndNielsen1998,NielsenAndYang1998} and later studies that based on their work that we've seen, $\omega$ is generally interpreted as indicating whether a sequence is under consistent `purifying' ($\omega < 1$) or `diversifying' ($\omega > 1$) selection.
+However, the biological behavior the model describes is quite different\footnote{Although \citet{GoldmanAndYang94} use a more complex, \PC based distance function instead of $\omega$, the criticisms below also apply to this work.}.
+When $\omega < 1$ the model behaves as if the resident amino acid $i$ at a given site is favored by selection since synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions.
+Paradoxically, this selection regime for the resident amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
+As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ over all other amino acids, including $i$.
+This is now the opposite scenario to when $i$ was the resident.
+Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions from the resident amino acid.
+In a parallel manner, this selection \emph{against} the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors} the former resident amino acid $i$ as well as the 18 others.
+
+Thus, the simplest and most consistent interpretation of $\omega$ is that it represents the rate at which the \emph{selective environment itself} changes, and this change in selection perfectly coincides with the fixation of a new amino acid.
+This, in turn, implies that the rate of shifts in the optimal (or pessimal) amino acid is on the time scale as the rate of substitution.
+Thus, contrary to popular belief,  $\omega$ does not describe whether a site is evolving under a constant regime of stabilizing or diversifying selection, but instead how the selective environment changes over time under and even then under very limited conditions.
+Indeed, $\omega$ based approaches only reasonably approximate a subset of scenarios such as over/underdominance or positive/negative frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
+
+
+It should be noted that the work by Lartillot and Rodrigue avoid these issues, but I'm not sure where this should be.
+[mikeg: WHERE SHOULD THIS GO? \citet{NielsenAndYang2003} INCLUDES NE AND S BUT DOESN"T SEEM TO TALK ABOUT WHAT OMEGA MEANS.
+NEED TO CHECK]
+
+Biologically we know protein-coding DNA sequences evolve with a mixture of mutations that then become fixed due to selection and/or drift.
+Selection on protein coding regions can take many forms, but can generally be related to the cost of producing the protein and the functional benefit (or potential harm) caused by the protein product.
+The gene specific cost of protein synthesis can be affected by the amino acids used, the direct and indirect costs of peptide assembly by the ribosome, and even the expected lifespan of the protein.  
+Protein benefit or 'function' can be affected by the amino acids at different sites and their interactions.
+As a result, amino acid substitutions can affect the functionality at key catalytic sites or, more broadly, the probability of particular folds and, in turn, the expected functionality of the protien.
+
+Here we propose a model where selection is based explicitly on selection to minimize the cost benefit function $\eta$ of a protein where protein function is determined soley by the \PC properties of the primary amino acid sequence.
+For simplicity, we assume that for any given desired biological function, there is a single optimal amino acid sequence and that the biological importance of this protein function is invariant across the tree (i.e.~constant selection for the \PC properties of the optimal amino acid).
+We readily acknowledge that the the \PC primary amino acid sequence is likely a poor model of protein function and that the biological importance of a function can vary over time.
+Nevertheless, we believe our cost-benefit approach to be substantial advance of the more simplictic $\omega$ models and lays the foundation for more realistic work in the future.
+
+Importantly, the cost-benefit approach we develop here allows us to link the strength of selection on a protein sequence to its expression level.
+Despite its well recognized importance in determining the rate of protein evolution \citet[e.g.][]{DrummondEtAl2005,DrummondEtAl2006a}, phylogenetic models have ignored the fact that expression levels vary between genes.
+In order to link gene expression and the strength of stabilizing selection on protein sequences, we simply assume that selection is proportional to the average protein synthesis rate of a gene.
+One possible mechanism behind such an assumption is compensatory gene expression where a reduction in protein function is compensated for by increasing the abundance of the protein.
+For example, a mutation which reduces the functionality of the protein to 90\% of the optimal protein, would require $1/0.9 = 1.11$ of these suboptimal proteins be produced relative to the optimal protein in order to maintain the same amount of that protein's functionality in the cell.
+Because the energetic cost of an 11\% increase in gene expression varies proportionally with gene expression, our assumptions naturally link functionality and expression.
+
+Under what circumstances cells actually respond in this manner, remains to be seen.
+In spite of their shortcomings and unlike $\omega$ based approaches, our assumptions lead to mechanstic and, thus, testable hypothesis about the relationship between mutation, protein function, gene expression, and rates of evolution.
+Our hope is that by moving away from the more phenomenological models we can better connect population genetics and phylogenetics, letting one inform the other.
+
+
+
 \begin{itemize}
 %\item Growth in comparative sequence data creates need to interpret and extract biological information encoded in it.
 \item Connection to past work
@@ -487,8 +544,7 @@ While these extensions do increase the flexibility of the model, they fail to ad
 To the best of our knowledge, this misinterpretation has gone unmentioned in the literature.
 
 In the original papers \citep{GoldmanAndYang1994,YangAndNielsen1998,NielsenAndYang1998} and later studies that based on GY94 that we've seen, $\omega$ is generally interpreted as indicating whether a sequence is under consistent `purifying' ($\omega < 1$) or `diversifying' ($\omega > 1$) selection.
-However, the biological behavior the model describes is quite different.
-When $\omega < 1$ the model behaves as if the resident amino acid $i$ at a given site is favored by selection since synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions.
+However, the biological behavior the model describes is quite different.When $\omega < 1$ the model behaves as if the resident amino acid $i$ at a given site is favored by selection since synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions.
 Paradoxically, this selection regime for the resident amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
 As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ over all other amino acids, including $i$.
 This is now the opposite scenario to when $i$ was the resident.
@@ -537,6 +593,9 @@ Another example, which we touch upon in the Discussion, is the natural emergence
 While this epistasis may be negligible under certain conditions, identifying such conditions is impossible without considering the mechanisms of selection.
 
 
+\subsection*{Text that has been cut but still might be used}
+It is similar to past mutation-selection models in structure but allows for a hypothesis about mechanism to be examined.
+If a protein is half as functional at its task, a cell must produce twice as much of it, which has a computable cost in terms of ATPs.
 
 
 

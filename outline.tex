@@ -1,0 +1,380 @@
+%\pdfminorversion=7 %added to avoid warning about pdf versions
+%note Non-PDF special ignored! warning may be related to the .cls using ps commands somewhere.
+\documentclass[12pt,letterpaper]{article}
+
+
+%%%%%%%%%%%BEGIN SYS BIO COMMANDS %%%%%%%%%%%%
+%%Taken from SB_LaTeX_Template.tex provided by OUP
+%% that file is almost identical to the version found on overleaf website.
+%\usepackage{bibtex}
+%\usepackage{html}
+%\usepackage{nag}
+%\usepackage{xcolor}
+\usepackage[english]{babel}
+\usepackage[normalem]{ulem}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{bm}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{color}
+%\usepackage{epsfig}
+%\usepackage{fixltx2e} %unneeded after 2015
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{graphicx}
+%\usepackage{nameref}
+\usepackage{hyperref} %also provides \nameref
+\usepackage{ifthen}
+\usepackage{indentfirst}
+\usepackage{latexsym}
+\usepackage{lscape}
+%\usepackage{mhchem}
+\usepackage{natbib}
+\usepackage{pifont}
+\usepackage{setspace}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{verbatim}
+
+
+\linespread{1.66}
+% All text should be double-spaced
+% with occasional exceptions for tables.
+\raggedright
+\setlength{\parindent}{0.5in}
+
+\setcounter{secnumdepth}{0}
+% Our sections are not numbered and our papers do not have
+% Tables of Contents. We don't
+% present a list of figures or list of tables, either.
+
+% Any common font is fine.
+% (A common sans-serif font should be used on figures, but figures should be
+% separate from the LaTeX document.)
+
+\pagestyle{empty}
+
+\renewcommand{\section}[1]{%
+\bigskip
+\begin{center}
+\begin{Large}
+\normalfont\scshape #1
+\medskip
+\end{Large}
+\end{center}}
+
+\renewcommand{\subsection}[1]{%
+\bigskip
+\begin{center}
+\begin{large}
+\normalfont\itshape #1
+\end{large}
+\end{center}}
+
+\renewcommand{\subsubsection}[1]{%
+\vspace{2ex}
+\noindent
+\textit{#1.}---}
+
+\renewcommand{\tableofcontents}{}
+
+\bibpunct{(}{)}{;}{a}{}{,}  % this is a citation format command for natbib
+
+%%%%%%%%%%%END SYS BIO COMMANDS %%%%%%%%%%%%
+
+
+%\usepackage[doublespacing]{setspace}
+%\usepackage[nomarkers,figuresonly]{endfloat}  %%place all figures at end
+%\usepackage{amsmath, amssymb,amsfonts}
+%\usepackage{fullpage} %this causes problems with the sysbio style file
+%\usepackage[normalem]{ulem} %strike out via \sout{}
+%\usepackage[small]{caption}
+\usepackage{datetime} %provides \currenttime command
+
+
+
+\usepackage{subfig}
+
+\usepackage{xspace}
+\usepackage{lineno}
+\linenumbers
+
+\graphicspath{{./Figures/}} \DeclareGraphicsExtensions{.pdf, .jpg, .png}
+
+%reduce font size of margin paragraphs
+\makeatletter
+\long\def\@ympar#1{%
+  \@savemarbox\@marbox{\tiny #1}%
+  \global\setbox\@currbox\copy\@marbox
+  \@xympar}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Local Commands%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Sort using M-x 'sort-lines'
+\newcommand{\PC}{physico-chemical\xspace}
+\newcommand{\Costaobsvec}{\ensuremath{\Cost(\aobsvec)}\xspace}
+\newcommand{\Costaveci}{\ensuremath{\Cost(\aveci)}\xspace}
+\newcommand{\Costavecj}{\ensuremath{\Cost(\avecj)}\xspace}
+\newcommand{\Costavec}{\ensuremath{\Cost(\avec)}\xspace}
+\newcommand{\Costcveci}{\ensuremath{\Cost(\cveci)}\xspace}
+\newcommand{\Costcvecj}{\ensuremath{\Cost(\cvecj)}\xspace}
+\newcommand{\Cost}{\ensuremath{\text{\textbf{C}}}\xspace}
+\newcommand{\DeltaAIC}{\ensuremath{\Delta\text{AIC}}\xspace}
+\newcommand{\DeltaAICc}{\ensuremath{\Delta\text{AICc}}\xspace}
+\newcommand{\AICw}{\ensuremath{\text{AIC}_\text{w}}\xspace}
+\newcommand{\EE}{\mathbb{E}} %use for expectation function E()
+\newcommand{\Funcaobsvec}{\ensuremath{\Func(\aobsvec|\aoptvec)}\xspace}
+\newcommand{\Funcaoptvec}{\ensuremath{\Func(\aoptvec)}\xspace}
+\newcommand{\Funcaveci}{\ensuremath{\Func(\aveci|\aoptvec)}\xspace}
+\newcommand{\Funcavecj}{\ensuremath{\Func(\avecj|\aoptvec)}\xspace}
+\newcommand{\Funcavec}{\ensuremath{\Func(\avec|\aoptvec)}\xspace}
+\newcommand{\Funccveci}{\ensuremath{\Func(\cveci|\aoptvec)}\xspace}
+\newcommand{\Funccvec}{\ensuremath{\Func(\cvec|\aoptvec)}\xspace}
+\newcommand{\Func}{\ensuremath{\text{\textbf{B}}}\xspace}
+\newcommand{\GTR}{GTR+$\Gamma$\xspace}
+\newcommand{\LogN}{\ensuremath{\text{LogN}}\xspace}
+\newcommand{\Ne}{\ensuremath{{N_e}}\xspace} %
+\newcommand{\Nemu}{\ensuremath{{N_e \mu}}\xspace} %
+\newcommand{\Lik}{\ensuremath{\mathcal{L}}\xspace}%replaces \Lmatrix which was inconsistent and, thus, confusing
+\newcommand{\pimatrix}{\ensuremath{\mathbf{\pi}}\xspace}
+\newcommand{\mumatrix}{\ensuremath{\mathbf{\mu}}\xspace}
+\newcommand{\Pmatrix}{\ensuremath{\mathbf{P}}\xspace}
+\newcommand{\Tmatrix}{\ensuremath{\mathbf{T}}\xspace}
+\newcommand{\Dmatrix}{\ensuremath{\mathbf{D}}\xspace}
+\newcommand{\Dmatrixp}{\ensuremath{\mathbf{D}_p}\xspace}
+\newcommand{\Mmatrix}{\ensuremath{\mathbf{M}}\xspace}
+\newcommand{\Qmatrix}{\ensuremath{\mathbf{Q}}\xspace}
+\newcommand{\Qmatrixa}{\ensuremath{\Qmatrix_a}\xspace}
+\newcommand{\Wi}{\ensuremath{{W_i}}\xspace}
+\newcommand{\Wj}{\ensuremath{{W_j}}\xspace}
+\newcommand{\simP}{\ensuremath{\sim P}\xspace}
+\newcommand{\selac}{SelAC\xspace}
+\newcommand{\selacplusgamma}{SelAC$+\Gamma$\xspace}
+\newcommand{\selacmaj}{SelAC$_{M}$\xspace}
+\newcommand{\selacmajplusgamma}{SelAC$_{M}+\Gamma$\xspace}
+\newcommand{\acivec}{\ensuremath{a\left(\cveci\right)}\xspace}
+\newcommand{\acvecg}{\ensuremath{a\left(\vec{c}_{i,g}\right)}\xspace}
+\newcommand{\acvecj}{\ensuremath{a\left(\cvecj\right)}\xspace}
+\newcommand{\acvec}{\ensuremath{a\left(\Vec{c}\right)}\xspace}
+\newcommand{\aip}{\ensuremath{a_{i,p}}\xspace}
+\newcommand{\aivecg}{\ensuremath{{\avec}_{i,g}}\xspace}
+\newcommand{\aivec}{\aveci}
+\newcommand{\ajp}{\ensuremath{a_{j,p}}\xspace}
+\newcommand{\ajvecg}{\ensuremath{{\ajvec}_{,g}}\xspace}
+\newcommand{\ajvec}{\ensuremath{\Vec{a}_{j}}\xspace}
+\newcommand{\aj}{\ensuremath{a__j}\xspace}
+\newcommand{\alphac}{\ensuremath{\alpha_c}\xspace}
+\newcommand{\alphag}{\ensuremath{\alpha_G}\xspace}
+\newcommand{\alphap}{\ensuremath{\alpha_p}\xspace}
+\newcommand{\alphavec}{\ensuremath{\Vec{\alpha}}\xspace}
+\newcommand{\alphav}{\ensuremath{\alpha_v}\xspace}
+\newcommand{\alphavValue}{\ensuremath{4 \times 10^{-4}}\xspace}
+\newcommand{\aobsvecg}{\ensuremath{{\avec}_{\text{obs},g}}\xspace}
+\newcommand{\aobsvec}{\ensuremath{\Vec{a}_{\text{obs}}}\xspace}
+\newcommand{\aobs}{\ensuremath{a_{\text{obs}}}\xspace}
+\newcommand{\aopt}{\ensuremath{a^*}\xspace}
+\newcommand{\aoptip}{\ensuremath{\aopt_{i,p}}\xspace}
+\newcommand{\aoptpg}{\ensuremath{\aopt_{p,g}}\xspace}
+\newcommand{\aoptp}{\ensuremath{a^*_p}\xspace}
+\newcommand{\aoptvecg}{\ensuremath{{{\aoptvec}_g}}\xspace}
+\newcommand{\aoptvec}{\ensuremath{\Vec{a}^*}\xspace}
+\newcommand{\aveci}{\ensuremath{\Vec{a}_i}\xspace}
+\newcommand{\avecj}{\ensuremath{\Vec{a}_j}\xspace}
+\newcommand{\avec}{\ensuremath{\Vec{a}}\xspace}
+\newcommand{\cveci}{\ensuremath{\cvec_i}\xspace}
+\newcommand{\cvecj}{\ensuremath{\cvec_j}\xspace}
+\newcommand{\cvec}{\ensuremath{\Vec{c}}\xspace}
+\newcommand{\deltaT}{\ensuremath{\delta t}\xspace}
+\newcommand{\etag}{\ensuremath{\eta_g}\xspace}
+\newcommand{\fij}{\ensuremath{f_{i,j}}\xspace}
+\newcommand{\jmax}{\ensuremath{{j_{\max}}}\xspace}
+\newcommand{\kmax}{\ensuremath{{k_{\max}}}\xspace}
+\newcommand{\muij}{\ensuremath{\mu_{i,j}}\xspace}
+\newcommand{\muvec}{\ensuremath{\Vec{\mu}}\xspace}
+\newcommand{\phig}{\ensuremath{\phi_{g}}\xspace}
+\newcommand{\phiprime}{\ensuremath{\phi^\prime}\xspace}
+\newcommand{\phihat}{\ensuremath{\hat{\phi}_{\text{\selac}}}\xspace}
+\newcommand{\psihat}{\ensuremath{\hat{\psi}_{\text{\selac}}}\xspace}
+\newcommand{\psig}{\ensuremath{\psi_{g}}\xspace}
+\newcommand{\psiprime}{\ensuremath{\psi^\prime}\xspace}
+\newcommand{\pij}{\ensuremath{p_{i,j}}\xspace}
+\newcommand{\qij}{\ensuremath{q_{i,j}}\xspace}
+\newcommand{\qji}{\ensuremath{q_{i,j}}\xspace}
+\newcommand{\setG}{\ensuremath{\mathbb{G}}\xspace}
+\newcommand{\setP}{\ensuremath{\mathbb{P}}\xspace}
+\renewcommand{\ng}{\ensuremath{{n_g}}\xspace}
+\newcommand{\gp}{\ensuremath{{G_p}}\xspace}
+\DeclareMathOperator{\Var}{Var}
+
+\date{Last compiled on \today\xspace at \currenttime.}
+
+\begin{document}
+
+\selac Outline
+
+\vfill
+\centerline{Version dated: \today}
+\vfill
+
+%\pagebreak
+
+
+%%FROM SB_.. .tex file
+%\begin{flushright}
+%Version dated: \today
+%\end{flushright}
+%\bigskip
+%\noindent RH:  A LATEX FORMATTING TEMPLATE FOR SYSTEMATIC
+%  BIOLOGY
+%% put in your own RH (running head)
+%% for POVs the RH is always POINT OF VIEW
+%
+%\bigskip
+%\medskip
+%
+
+%\history{Compiled \today; Submitted DAY-March-2017}
+
+%\maketitle
+
+\section{Outline}
+\subsection{Introduction}
+\begin{itemize}
+%\item Growth in comparative sequence data creates need to interpret and extract biological information encoded in it.
+\item Connection to past work
+  \begin{itemize}
+  \item Biologically we know protein-coding DNA sequences evolve with a mixture of mutations that then become fixed due to selection and/or drift
+  \item Selection on protein coding regions can take many forms, but can generally be related to the cost of producing the protein and the functional benefit (or potential harm) caused by the protein product.  
+    \begin{itemize}
+    \item Cost can be affected by cost of amino acid synthesis, direct and indirect costs of protein synthesis, and lifespan of protein.  
+    \item Benefit can be affected by the amino acid sequence itself, the manner in which the protein folds, which may occur co-translationally, or the probability of being error free.
+    \end{itemize}
+    \item stationary properties
+  \item There are models that simplify this in various ways...
+  \end{itemize}
+\item Because we estimate other things behind branch length and tree, we can validate these things indirectly by comparing our other inference to empirical.
+\item Addressing why are we doing this: Trees vs aa vs gene expression. (really trees and aa, gene expression is interesting but there are better ways.)
+  If we weren't interested in aa, we could treat as a random effect the same way we do G. If we were more interested in G, we could estimate them individually.
+\item Confusion over interpreting $\omega$
+\item Model Overview
+  \begin{itemize}
+  \item Connection between genotype, energy flux and fitness are simplistic, but still more concrete in many ways that other previous work in field.
+    \begin{itemize}
+    \item Primary amino acid sequence is understabilizing selection.
+    \item Protein function sensitive to deviation from \PC properties of optimal sequence.
+    \item Additional assumptions
+      \begin{itemize}
+      \item Fitness declines at constant rate $q$ with energy flux allocated to protein synthesis.
+      \item Assume gene regulation monitors reaction rates or close proxy and compensates expression accordingly.
+      \end{itemize}
+      allow us to more explicitly link genotype to phenotype to fitness.
+    \end{itemize}
+  \item Illustrates how equations can be interpreted and revised based on researchers' biological knowledge and interests.  
+  \end{itemize}
+\item Model shortcomings include 
+  \begin{itemize}
+  \item Computationally intensive
+  \item large increase in number of parameters (though not as large as could be, \citep[c.f.][HIV entropy models]{RodriguezAndLartillot2014}
+  \end{itemize}
+\item Confusion about number of parameters addressed by KL (Cedric thinks this should be minimized greatly.  
+  He finds it distracting.
+)
+
+  \begin{itemize}
+  \item MLE parameters vs. 'majority rule' which some don't view as parameters, e.g.~\citet{YangAndNielsen2008}. (Does KL allow us to get at this?)
+  \item Not restricted to phylogenetics
+  \item Frame this as an issue in the field that affects interpretation of results, so we try various things, but readers should know -- they should see other paper being written for details
+  \end{itemize}
+\end{itemize}
+
+
+\subsection*{Discussion}
+\begin{itemize}
+\item More mechanistic, but still many black boxes describing underlying relationships between model terms.
+\item Despite simplistic nature, inferred gene specific average protein synthesis rate are consistent with empirical measurements.
+\item Quality of predictions likely due
+  \begin{itemize}
+  \item to limit amount of info in data
+  \item simplicity of model
+  \item noise inherent in empirical measurements
+  \item condition specific nature of empirical data.
+  \end{itemize}
+\item Key Points
+  \begin{itemize}
+  \item More broadly, our work is alternative to GY94 and its derivatives which assume  over/underdominance in fitness or  and/or frequency dependent selection.
+  \item Our model is best viewed as an approximate description of the evolutionary process.
+  \item because many different mathematical formula can be approximated by the same function, there are multiple ways to derive our equations based on first principles.
+    Should be able to distinguish by evaluating  more subtle predictions.
+    e.g.~Variation in protein production rates empirically observed across taxa predicted to be an inverse function of distance from optimal aa sequence.
+  \item Assumptions about nature of fitness landscape
+    \begin{itemize}
+    \item Constant: Diversifying vs. stabilizing
+      \begin{itemize}
+      \item Expect to populations to climb landscape from maladaptive locations, but don't necessarily expect to see at optimum if size of near optimum set is large and differences in fitness between this set and optimum is small.
+      \item If process reaches stationarity (i.e.~current genotype state is independent of genotype state when selection environment was imposed), then, by definition, net probability flux from any give state to set of more adaptive and less adaptive alleles will be equal, due to property of detailed balance \citep{Iwasa1988,SellaAndHirsh2005}.
+      \end{itemize}
+    \item Dynamic: Over/underdominance positive and negative frequency dependence
+      \begin{itemize}
+      \item Fitness landscape shifts during substitution process.
+      \item As a result, we are either always fixing new, rare and adaptive alleles or new, rare maladaptive alleles.
+      \end{itemize}
+    \end{itemize}
+  \item KL analysis supports idea that when linages have diverged sufficiently, observations best described by number of sites $\times$ number of taxa, not numer of taxa.
+    This result will likely vary with dataset, but we provide example for how to assess this.
+  \item  Given KL results,
+    \begin{itemize}
+    \item AICc support hypothesis that stabilizing selection for the \PC properties of an amino acid sequence explain comparative sequence data better than GY94 and derivatives/extensions.
+    \item Not clear how much of improvement is due to different model of selection vs.~not treating all nonsynonymous substitutions as being equally different, thus ignoring \PC properties.
+      (We might have already tested this.  If not, we could easily do so if we can fit original GY94 model).
+  \item Could expand our model to include shifts in optimal amino acid and even make them a function of shift in amino acid sequence ala GY94 family of models.
+  \item Similarly, we could add a term to our distance function that acts as an indicator function and then estiamte its weight.
+    This would allow us to more directly evaluate different hypotheses about whether it's the \PC properties that matter or simply the fact that the aa are different as done in other models.
+  \end{itemize}
+\item Predicting gene expression
+  \begin{itemize}
+  \item One obvious explanation of variation in strength of selection between genes.
+    Really could be something correlated to $\psi$.
+  \item CUB consistent
+  \item Limits of integrating more direct empirical measurements across environments to get average.
+  \item Predictions are noisy.
+    Possible explanations.
+    \begin{itemize}
+    \item Noisy data
+    \item Compare empirical across species (Cedric)
+      
+    \item Model assumption of constant $\psi$ are likely violated (does this fit in with Cedric's analysis.)
+    \end{itemize}
+  \end{itemize}
+\item Structure of fitness landscape: GY94, no suboptimal peaks, but possible in our work.
+\item Expand to allow $G$ be negative $\rightarrow$ model diversifying selection in manner more consistent with conceptual/verbal usage.
+\item Try other, potentially more complex distance functions (non-linear, add indicator functions, further categorize proteins or domains within proteins for different weighting functions, sensitivity distributions, etc)
+\item Limitations of our work
+  \begin{itemize}
+  \item Computational expense
+  \item Large number of model parameters
+    \begin{itemize}
+    \item Treat each site's optimal aa as a random effect if more interested in branch lengths and tree.
+    \item Treat branch lengths as random effect if more interested in inferring optimal aa sequence and site specific selection.
+    \end{itemize}
+  \item Model assumptions about gene regulation.
+    More generic interpretation is that sensitivity of fitness from deviation from optimal sequence is proportional to gene expression.
+    Our interpretation suggests we should be able to explain interlinage variation in a gene's expression using our cost-benefit function $\eta$. 
+  \item Assume same \PC weighting for all parts of protein.
+  \item Only works with proteins
+  \end{itemize}
+\item many of  these shortcomings can be addressed in future work.
+ (e.g. extend approach to work with non-coding sequences such as 18s or UCEs.)
+\end{itemize}
+\item Predicting gene expression from sequence
+  \begin{itemize}
+  \item CUB work
+  \item \selac
+  \end{itemize}
+\end{itemize}
+
+\end{document}
