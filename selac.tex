@@ -310,11 +310,11 @@ For the record, it was a pair of papers by Yang and Nielsen \citep{NielsenAndYan
 For consistency with the literature, we will also refer to this simplifed version as GY94, unless otherwise noted.
 }.
 Thus, these simpler models initially employed a single term, $\omega$, to model the differences in fixation probability between nonsynonomous and synonomyous changes at all sites.
-To improve their realism, more complex forms have been developed that allow $\omega$ to vary between sites or branches \citep[as cited in ]{Anisimova2012} and include selection on different synonymous for the same amino acid \cite[e.g.][]{YangAndNielsen08} (MIKE: AND POSSIBLY \citep{and possibly TamuriEtAl2012,RodrigueAndHerve2010})
+To improve their realism, more complex forms have been developed that allow $\omega$ to vary between sites or branches \citep[as cited in ][]{Anisimova2012} and include selection on different synonymous for the same amino acid \cite[e.g.][]{YangAndNielsen2008} (MIKE: AND POSSIBLY \citep{TamuriEtAl2012,RodrigueAndHerve2010})
 
 Despite these extensions, the nature of selection these models describe are a far cry from how biologists believe selection on protein sequences actually behaves.
 Equally troubling, in \citet{GoldmanAndYang1994,YangAndNielsen1998,NielsenAndYang1998} and later studies that based on their work that we've seen, $\omega$ is generally interpreted as indicating whether a sequence is under consistent `purifying' ($\omega < 1$) or `diversifying' ($\omega > 1$) selection.
-However, the biological behavior the model describes is quite different\footnote{Although \citet{GoldmanAndYang94} use a more complex, \PC based distance function instead of $\omega$, the criticisms below also apply to this work.}.
+However, the biological behavior the model describes is quite different\footnote{Although \citet{GoldmanAndYang1994} use a more complex, \PC based distance function instead of $\omega$, the criticisms below also apply to this work.}.
 When $\omega < 1$ the model behaves as if the resident amino acid $i$ at a given site is favored by selection since synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions.
 Paradoxically, this selection regime for the resident amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
 As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ over all other amino acids, including $i$.
@@ -345,64 +345,17 @@ Nevertheless, we believe our cost-benefit approach to be substantial advance of 
 
 Importantly, the cost-benefit approach we develop here allows us to link the strength of selection on a protein sequence to its expression level.
 Despite its well recognized importance in determining the rate of protein evolution \citet[e.g.][]{DrummondEtAl2005,DrummondEtAl2006a}, phylogenetic models have ignored the fact that expression levels vary between genes.
-In order to link gene expression and the strength of stabilizing selection on protein sequences, we simply assume that selection is proportional to the average protein synthesis rate of a gene.
-One possible mechanism behind such an assumption is compensatory gene expression where a reduction in protein function is compensated for by increasing the abundance of the protein.
+In order to link gene expression and the strength of stabilizing selection on protein sequences, we simply assume that the strength of selection on a gene is proportional to the average protein synthesis rate of the gene.
+One possible mechanism consistent with this link between the strength of selection and gene expression is the assumption of compensatory gene expression, where a reduction in protein function is compensated for by increasing the abundance of the protein.
 For example, a mutation which reduces the functionality of the protein to 90\% of the optimal protein, would require $1/0.9 = 1.11$ of these suboptimal proteins be produced relative to the optimal protein in order to maintain the same amount of that protein's functionality in the cell.
 Because the energetic cost of an 11\% increase in gene expression varies proportionally with gene expression, our assumptions naturally link functionality and expression.
-
-Under what circumstances cells actually respond in this manner, remains to be seen.
-In spite of their shortcomings and unlike $\omega$ based approaches, our assumptions lead to mechanstic and, thus, testable hypothesis about the relationship between mutation, protein function, gene expression, and rates of evolution.
-Our hope is that by moving away from the more phenomenological models we can better connect population genetics and phylogenetics, letting one inform the other.
+Under what circumstances cells actually respond in this manner, remains to be determined.
 
 
-
-\begin{itemize}
-%\item Growth in comparative sequence data creates need to interpret and extract biological information encoded in it.
-\item Connection to past work
-  \begin{itemize}
-  \item Biologically we know protein-coding DNA sequences evolve with a mixture of mutations that then become fixed due to selection and/or drift
-  \item Selection on protein coding regions can take many forms, but can generally be related to the cost of producing the protein and the functional benefit (or potential harm) caused by the protein product.  
-    \begin{itemize}
-    \item Cost can be affected by cost of amino acid synthesis, direct and indirect costs of protein synthesis, and lifespan of protein.  
-    \item Benefit can be affected by the amino acid sequence itself, the manner in which the protein folds, which may occur co-translationally, or the probability of being error free.
-    \end{itemize}
-    \item stationary properties
-  \item There are models that simplify this in various ways...
-  \end{itemize}
-\item Because we estimate other things behind branch length and tree, we can validate these things indirectly by comparing our other inference to empirical.
-\item Addressing why are we doing this: Trees vs aa vs gene expression. (really trees and aa, gene expression is interesting but there are better ways.)
-  If we weren't interested in aa, we could treat as a random effect the same way we do G. If we were more interested in G, we could estimate them individually.
-\item Confusion over interpreting $\omega$
-\item Model Overview
-  \begin{itemize}
-  \item Connection between genotype, energy flux and fitness are simplistic, but still more concrete in many ways that other previous work in field.
-    \begin{itemize}
-    \item Primary amino acid sequence is understabilizing selection.
-    \item Protein function sensitive to deviation from \PC properties of optimal sequence.
-    \item Additional assumptions
-      \begin{itemize}
-      \item Fitness declines at constant rate $q$ with energy flux allocated to protein synthesis.
-      \item Assume gene regulation monitors reaction rates or close proxy and compensates expression accordingly.
-      \end{itemize}
-      allow us to more explicitly link genotype to phenotype to fitness.
-    \end{itemize}
-  \item Illustrates how equations can be interpreted and revised based on researchers' biological knowledge and interests.  
-  \end{itemize}
-\item Model shortcomings include 
-  \begin{itemize}
-  \item Computationally intensive
-  \item large increase in number of parameters (though not as large as could be, \citep[c.f.][HIV entropy models]{RodriguezAndLartillot2014}
-  \end{itemize}
-\item Confusion about number of parameters addressed by KL (Cedric thinks this should be minimized greatly.  
-  He finds it distracting.
-)
-
-  \begin{itemize}
-  \item MLE parameters vs. 'majority rule' which some don't view as parameters, e.g.~\citet{YangAndNielsen2008}. (Does KL allow us to get at this?)
-  \item Not restricted to phylogenetics
-  \item Frame this as an issue in the field that affects interpretation of results, so we try various things, but readers should know -- they should see other paper being written for details
-  \end{itemize}
-\end{itemize}
+Unlike $\omega$ based approaches, because we make inferences about things other than branch length and tree, we can validate the assumptions indirectly by comparing our inferences to other empirical data.
+More specifically, our assumptions lead to mechanstic and, thus, testable hypothesis about the relationship between mutation, protein function, gene expression, and rates of evolution.
+Alternative hypotheses could be used in place of ours and, in turn, phylogenetic and other types of data could be used to evaluate the support of these alternative models.
+Our hope is that by moving away from the more phenomenological models we can better connect population genetics, molecular biology, and phylogenetics allowing each area inform the others more effectively.
 
 
 \subsection*{Discussion}
@@ -487,7 +440,22 @@ Our hope is that by moving away from the more phenomenological models we can bet
   \item CUB work
   \item \selac
   \end{itemize}
+\item Model shortcomings include 
+  \begin{itemize}
+  \item Computationally intensive
+  \item large increase in number of parameters (though not as large as could be, \citep[c.f.][HIV entropy models]{RodrigueAndLartillot2014}
+  \end{itemize}
+\item Confusion about number of parameters addressed by KL (Cedric thinks this should be minimized greatly.  
+  He finds it distracting.
+)
+
+  \begin{itemize}
+  \item MLE parameters vs. 'majority rule' which some don't view as parameters, e.g.~\citet{YangAndNielsen2008}. (Does KL allow us to get at this?)
+  \item Not restricted to phylogenetics
+  \item Frame this as an issue in the field that affects interpretation of results, so we try various things, but readers should know -- they should see other paper being written for details
+  \end{itemize}
 \end{itemize}
+
 
 \pagebreak
 
@@ -594,10 +562,12 @@ While this epistasis may be negligible under certain conditions, identifying suc
 
 
 \subsection*{Text that has been cut but still might be used}
-It is similar to past mutation-selection models in structure but allows for a hypothesis about mechanism to be examined.
+\begin{itemize}
+\item It is similar to past mutation-selection models in structure but allows for a hypothesis about mechanism to be examined.
 If a protein is half as functional at its task, a cell must produce twice as much of it, which has a computable cost in terms of ATPs.
 
-
+\item Fitness declines at constant rate $q$ with energy flux allocated to protein synthesis.
+\end{itemize}
 
 \section{Materials \& Method}
 We model the substitution process as a classic Wright-Fisher process which includes the forces of mutation, selection, and drift \citep{Fisher1930,Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005,McCandlishAndStoltzfus2014}.
