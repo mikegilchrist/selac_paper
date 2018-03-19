@@ -358,107 +358,8 @@ Alternative hypotheses could be used in place of ours and, in turn, phylogenetic
 Our hope is that by moving away from the more phenomenological models we can better connect population genetics, molecular biology, and phylogenetics allowing each area inform the others more effectively.
 
 
-\subsection*{Discussion}
-\begin{itemize}
-\item More mechanistic, but still many black boxes describing underlying relationships between model terms.
-\item Despite simplistic nature, inferred gene specific average protein synthesis rate are consistent with empirical measurements.
-\item Quality of predictions likely due
-  \begin{itemize}
-  \item to limit amount of info in data
-  \item simplicity of model
-  \item noise inherent in empirical measurements
-  \item condition specific nature of empirical data.
-  \end{itemize}
-\item Key Points
-  \begin{itemize}
-  \item More broadly, our work is alternative to GY94 and its derivatives which assume  over/underdominance in fitness or  and/or frequency dependent selection.
-  \item Our model is best viewed as an approximate description of the evolutionary process.
-  \item because many different mathematical formula can be approximated by the same function, there are multiple ways to derive our equations based on first principles.
-    Should be able to distinguish by evaluating  more subtle predictions.
-    e.g.~Variation in protein production rates empirically observed across taxa predicted to be an inverse function of distance from optimal aa sequence.
-  \item Assumptions about nature of fitness landscape
-    \begin{itemize}
-    \item Constant: Diversifying vs. stabilizing
-      \begin{itemize}
-      \item Expect to populations to climb landscape from maladaptive locations, but don't necessarily expect to see at optimum if size of near optimum set is large and differences in fitness between this set and optimum is small.
-      \item If process reaches stationarity (i.e.~current genotype state is independent of genotype state when selection environment was imposed), then, by definition, net probability flux from any give state to set of more adaptive and less adaptive alleles will be equal, due to property of detailed balance \citep{Iwasa1988,SellaAndHirsh2005}.
-      \end{itemize}
-    \item Dynamic: Over/underdominance positive and negative frequency dependence
-      \begin{itemize}
-      \item Fitness landscape shifts during substitution process.
-      \item As a result, we are either always fixing new, rare and adaptive alleles or new, rare maladaptive alleles.
-      \end{itemize}
-    \end{itemize}
-  \item KL analysis supports idea that when linages have diverged sufficiently, observations best described by number of sites $\times$ number of taxa, not numer of taxa.
-    This result will likely vary with dataset, but we provide example for how to assess this.
-  \item  Given KL results,
-    \begin{itemize}
-    \item AICc support hypothesis that stabilizing selection for the \PC properties of an amino acid sequence explain comparative sequence data better than GY94 and derivatives/extensions.
-    \item Not clear how much of improvement is due to different model of selection vs.~not treating all nonsynonymous substitutions as being equally different, thus ignoring \PC properties.
-      (We might have already tested this.  If not, we could easily do so if we can fit original GY94 model).
-  \item Could expand our model to include shifts in optimal amino acid and even make them a function of shift in amino acid sequence ala GY94 family of models.
-  \item Similarly, we could add a term to our distance function that acts as an indicator function and then estiamte its weight.
-    This would allow us to more directly evaluate different hypotheses about whether it's the \PC properties that matter or simply the fact that the aa are different as done in other models.
-  \end{itemize}
-\item Predicting gene expression
-  \begin{itemize}
-  \item One obvious explanation of variation in strength of selection between genes.
-    Really could be something correlated to $\psi$.
-  \item CUB consistent
-  \item Limits of integrating more direct empirical measurements across environments to get average.
-  \item Predictions are noisy.
-    Possible explanations.
-    \begin{itemize}
-    \item Noisy data
-    \item Compare empirical across species (Cedric)
-      
-    \item Model assumption of constant $\psi$ are likely violated (does this fit in with Cedric's analysis.)
-    \end{itemize}
-  \end{itemize}
-\item Structure of fitness landscape: GY94, no suboptimal peaks, but possible in our work.
-\item Expand to allow $G$ be negative $\rightarrow$ model diversifying selection in manner more consistent with conceptual/verbal usage.
-\item Try other, potentially more complex distance functions (non-linear, add indicator functions, further categorize proteins or domains within proteins for different weighting functions, sensitivity distributions, etc)
-\item Limitations of our work
-  \begin{itemize}
-  \item Computational expense
-  \item Large number of model parameters
-    \begin{itemize}
-    \item Treat each site's optimal aa as a random effect if more interested in branch lengths and tree.
-    \item Treat branch lengths as random effect if more interested in inferring optimal aa sequence and site specific selection.
-    \end{itemize}
-  \item Model assumptions about gene regulation.
-    More generic interpretation is that sensitivity of fitness from deviation from optimal sequence is proportional to gene expression.
-    Our interpretation suggests we should be able to explain interlinage variation in a gene's expression using our cost-benefit function $\eta$. 
-  \item Assume same \PC weighting for all parts of protein.
-  \item Only works with proteins
-  \end{itemize}
-\item many of  these shortcomings can be addressed in future work.
- (e.g. extend approach to work with non-coding sequences such as 18s or UCEs.)
-\end{itemize}
-\item Predicting gene expression from sequence
-  \begin{itemize}
-  \item CUB work
-  \item \selac
-  \end{itemize}
-\item Model shortcomings include 
-  \begin{itemize}
-  \item Computationally intensive
-  \item large increase in number of parameters (though not as large as could be, \citep[c.f.][HIV entropy models]{RodrigueAndLartillot2014}
-  \end{itemize}
-\item Confusion about number of parameters addressed by KL (Cedric thinks this should be minimized greatly.  
-  He finds it distracting.
-)
 
-  \begin{itemize}
-  \item MLE parameters vs. 'majority rule' which some don't view as parameters, e.g.~\citet{YangAndNielsen2008}. (Does KL allow us to get at this?)
-  \item Not restricted to phylogenetics
-  \item Frame this as an issue in the field that affects interpretation of results, so we try various things, but readers should know -- they should see other paper being written for details
-  \end{itemize}
-\end{itemize}
-
-
-\pagebreak
-
+\subsection*{Old Intro}
 There are many models of DNA substitution in molecular phylogenetics. The most popular are simple nucleotide models which are naturally agnostic with regards to the different amino acid substitutions and their impact on gene function (e.g.~F81, F84, HYK85, TN93, and GTR, see \citet{Yang2014} for an overview). However, a set of more complex models, starting with \citep{GoldmanAndYang1994,MuseAndGaut1994}, take into account the underlying processes of mutation and selection. \citet{GoldmanAndYang1994} and \citet{MuseAndGaut1994} independently introduced models which used the \PC distance between amino acids as a factor that affects relative substitution rates. 
 More recent papers simplify this approach by ignoring the \PC properties and simply use the parameter, $\omega$, to describe the ratio of nonsynonomous/synonomyous substitution rates.
 
@@ -498,7 +399,7 @@ A mechanism to relax this assumption is proposed in the discussion.
 
 Choosing an appropriate model is important for phylogenetic inference: use of the wrong model can lead to changes in inference
 
-[New intro version above.]
+\subsection*{Even Older Intro}
 
 
 Phylogenetic analysis now plays a critical role in most aspects of biology, particularly in the fields of ecology, evolution, paleontology, medicine, and conservation.
