@@ -669,23 +669,56 @@ For more details on the simulation approach, see Appendix 1.
 
 
 \section{Discussion}
-The work presented here contributes to the field of phylogenetics and molecular evolution in a number of ways.
-First, \selac provides an complementary example to \citet{ThorneEtAl2012} studies of how models of molecular and evolutionary scales can be combined together in a nested manner.
-While the mapping between genotype and phenotype is more abstract than \citet{ThorneEtAl2012}, \selac has the advantage of not requiring knowledge of a protein's native folding.
-Second, our use of model nesting also allows us to formulate and test specific biological hypotheses.
-For example, we are able to compare a model formulation which assumes that physiochemical deviations from the optimal sequence are equally disruptive at all sites within a protein to one which assumes the effect of deviation from the optimal amino acid's physicochemical properties on protein function varies between sites.
-By linking the strength of stabilizing selection for an optimal amino acid sequence to gene expression, we can weight the historical information encoded in genes evolving at vastly different rates in a biologically plausible manner while simultaneously estimating their expression levels.
-Further, because our fitness functions are well defined, we can provide estimates of key evolutionary statistics such as the distribution of the effects of amino acid substitutions on fitness and genetic load.
-Finally, because our model is based on a mechanistic description of a sequence's cost-benefit function \Cost/\Func, relaxing any given biological assumption is relatively straightforward.
-
 As phylogenetic methods become ever more ubiquitous in biology, and data set size and complexity increase, there is a need and an opportunity for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004}.
-Despite their widespread use, phylogenetic models based on purifying and diversifying selection, i.e.~\citet{GoldmanAndYang1994} and extensions, are very narrow categories of selection that mostly apply to cases of positive and negative frequency dependent selection at the level of a particular amino acid, not for tree inference itself.
-
 Instead of heuristically extending population genetic models of neutral evolution for use in phylogenetics, it makes sense to derive these extensions from population genetic models that \emph{explicitly} include the fundamental forces of mutation, drift, and natural selection.
 Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site-specific selection on protein sequence and phylogenetics\citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}.
-Our work follows this tradition, but includes some key advances.
-For instance, even though \selac requires a large number of substitution matrices, because of our assumption about protein functionality and physicochemical distance from the optimum, we are able to parameterize these matrices using a relatively small number of genome-wide parameters and one gene specific parameter.
+Our work here follows this tradition, but includes some key advances.
+
+While the mapping between genotype and phenotype is more abstract than \citet{ThorneEtAl2012}, \selac has the advantage of not requiring knowledge of a protein's native folding.
+
+By nesting a model of a sequence's cost-benefit function \Cost/\Func within allows us to formulate and test more specific biological hypotheses than the approaches developed by others.
+For example, using a hierarchical approach we were able to relax the assumption that \PC  deviations from the optimal sequence \aoptvec are equally disruptive at all sites within a protein.
+We found strong support for the hypothesis that the strength of stabilizing selection against \PC deviations from \aoptvec varies between sites (\DeltaAICc XXXXXX) 
+
+In addition, because our substitution matrices are built on a formal description of a sequence's cost-benefit function \Cost/\Func, we are able to efficiently parameterize 20 different matrices using a relatively small number of genome-wide parameters, e.g.~our \PC weighting and $G$ distribution shape parameters,  and one gene specific gene expression parameter \psi.
+While the model we use to link amino acid sequence and protein function is simplistic, it leads to a substantial increase in our ability to explain the sequence data used to parameterize the model.
+In addition, because our model is built on a formal description of a sequence's \Cost/\Func, modifying our assumptions is relatively straightforward.
+Third, our use of nested models also allows us to make biologically meaningful and testable predictions.
+By linking a gene's expression level to the strength of purifying selection it is experience, we are able to provide coarse estimates of gene expression.
+In addition, when we apply this insight to the standard models, we find that $\omega$ is best explained as a proxy for gene expression, rather than the nature of selection on a sequence.
+
+
+
+
+In addition, our work can be viewed as a starting point for alternative or more realistic models of a protein's  \Cost/\Benefit function.
+
+
+The real increase in model parameters comes from the fact that, in its current formulation, we estimate an ancestral and optimal amino acid for each site.
+One way around this is to take a hierarchical approach where we estimate the distribution of optimal amino acids at the level of a protein region, individual gene, or set of genes.
+
+
+
+
+Further,  modifying our assumptions is relatively straightforward.
+While \selac requires a relatively large number of substitution matrices relative to more traditional phylogenetic approaches,   .
 We show that all of these parameters can be estimated simultaneously with branch lengths from the data at the tips of the tree.
+
+The work presented here addresses some of these needs in a number of ways.
+First, \selac provides an complementary example to \citet{ThorneEtAl2012} studies of how models of molecular and evolutionary scales can be combined together in a nested manner.
+First, 
+while the mapping between genotype and phenotype is more abstract than \citet{ThorneEtAl2012}, \selac has the advantage of not requiring knowledge of a protein's native folding.
+Second, our use of model nesting also allows us to formulate and test specific biological hypotheses.
+
+
+By linking the strength of stabilizing selection for an optimal amino acid sequence to gene expression, we can weight the historical information encoded in genes evolving at vastly different rates in a biologically plausible manner while simultaneously estimating their expression levels.
+This natural scaling of selection could, of course, be applied to other methods such as those developed by \citet{ThorneEtAl2012,RodrigueAndLartillot2014}
+
+
+
+
+
+
+
 
 
 As we mention in the introduction, the $\omega$ term in GY94 actually represents the rate at which the fitness landscape and, correspondingly, ancestral state [?word?] shift.
