@@ -669,7 +669,7 @@ For more details on the simulation approach, see Appendix 1.
 
 
 \section{Discussion}
-First and foremost as evolutionary biologists, we our goal is to use comparative sequence data in order to quantify the nature, strength, and, ultimately, shifts in the forces of natural selection relative to genetic drift and mutation.
+First and foremost as evolutionary biologists, our goal is to use comparative sequence data in order to quantify the nature, strength, and, ultimately, shifts in the forces of natural selection relative to genetic drift and mutation.
 Although extremely popular due to their elegance and computational efficiency, the utility of \omega based models in helping us reach this goal is substantially more limited than commonly recognized.
 Because they use only a single substitution matrix, they are only applicable for situations in which the substitution process and shifts in the selective environment are intrinsicly, such as with positive or negative frequency dependent selection.
 At the other end of the spectrum in terms of model generality lie the work of \citet{HalpernAndBruno1998}, where a vector of 19 expected amino acid frequencies are calculated for each amino acid site.
@@ -680,11 +680,13 @@ Conceptually, our work lies inbetween that of Lartillot's and Thorne's, where th
 One advantage of our approach over Thorne's group is the fact that there are a number of obvious generalizations.
 
 For example, if one views stabilizing and diversifying selection as opposite ends of the spectrum of how selection in nature behaves, then allowing our $G$ parameter to take on negative values provides a means of modeling this spectrum.
-Instead, allowing $G < 0$ implies that there is a pessimal, rather than optimal, amino acid for the site.
-In this case the amino acid most \PC dissimilar than the pessimal amino acid represents the highest peak.
+More specifically, letting $G < 0$ implies that there is a pessimal, rather than optimal, amino acid for the site.
+In this case, the amino acid in \PC qualities most dissimilar to the pessimal amino acid represents the highest fitness peak.
 It is worth noting that allowing $G < 0$ is not equivalent to choosing a different amino acid as being optimal. 
-For example, two amino acids could at opposite ends of \PC space could be equally dissimilar from the pessimal amino acid but would have similar fitness values and could represent alternative fitness peaks.
-This ability to extend our model and, in turn, sharpen our thinking about the nature of natural selection on amino acid sequences illustrates the value of moving from descriptive to more mechanistic models, in general, and phylogenetics, in particular.
+To see this, imagine a focal amino acid with alternative two amino acids equally distant from it in \PC but in opposite directions.
+If the focal amino acid is the pessimal amino acid for the site (i.e.~$G<0$), then the two alternative amino acids represent two alternative fitness peaks in different regions of the \PC.
+Treating one of the alternative amino acids as optimal (i.e.~$G > 0$) results in the other alternative amino acid having even lower fitness than the focal one; a distinctly different scenario than the pessimal case.
+This ability to extend our model and, in turn, sharpen our thinking about the nature of natural selection on amino acid sequences illustrates the value of moving from descriptive to more mechanistic models in general and phylogenetics in particular.
 
 In addition, modeling the optimal/pessimal sequence of a gene makes it possible to begin modeling shifts in this sequence over evolutionary time.
 For example, it is possible to extend our model to include a hidden markov process describing the shifts in the optimal/pessimal amino sequence.
