@@ -369,7 +369,7 @@ More importantly, by linking the strength of stabilizing selection for an optima
 
 
 Because \selac infers the optimal amino acid for each site, it is substantially more parameter rich than more commonly used models such as GTR$+\Gamma$, GY94, and FMutSel0.
-Despite this increase in number of model parameters, \selac drastically outperforms these models with AICc values on the order of 10,000 tos 100,000s.
+Despite this increase in number of model parameters, \selac drastically outperforms these models with AICc values on the order of 10,000s to 100,000s.
 We predict that \selac's performance could be improved even further if we use a hierarchical approach where the optimal amino acid is not estimated on a per site basis, but rather as a vector of probability an amino acid is optimal at the gene level.
 
 Unlike $\omega$ based approaches, because \selac makes inferences about things other than branch length and tree, we can validate the assumptions indirectly by comparing our inferences to other empirical data, such as we do with  protein synthesis data.
@@ -669,11 +669,39 @@ For more details on the simulation approach, see Appendix 1.
 
 
 \section{Discussion}
+First and foremost as evolutionary biologists, we our goal is to use comparative sequence data in order to quantify the nature, strength, and, ultimately, shifts in the forces of natural selection relative to genetic drift and mutation.
+Although extremely popular due to their elegance and computational efficiency, the utility of \omega based models in helping us reach this goal is substantially more limited than commonly recognized.
+Because they use only a single substitution matrix, they are only applicable for situations in which the substitution process and shifts in the selective environment are intrinsicly, such as with positive or negative frequency dependent selection.
+At the other end of the spectrum in terms of model generality lie the work of \citet{HalpernAndBruno1998}, where a vector of 19 expected amino acid frequencies are calculated for each amino acid site.
+Lartillot's work \citep{LartillotAndPhilippe2004,RodrigueAndLartillot2014} greatly reduces the parameterization of teh \citet{HalpernAndBruno1998} approach by grouping together sites with similar behaviors.
+While an important advance, these models are essentially descriptive in nature; they have no underly model of the nature of the stabilizing selection profiles they are estimating.
+While aspects of Lartillot's work could be incorporated into our approach and vice versa, our work differs in that we are attempting to provide an explicit model underlying this selection.
+Conceptually, our work lies inbetween that of Lartillot's and Thorne's, where the later is utlizing even more detailed models of protein structure as a means of linking amino acid substitutions and stabilizing selection.
+One advantage of our approach over Thorne's group is the fact that there are a number of obvious generalizations.
+
+For example, if one views stabilizing and diversifying selection as opposite ends of the spectrum of how selection in nature behaves, then allowing our $G$ parameter to take on negative values provides a means of modeling this spectrum.
+Instead, allowing $G < 0$ implies that there is a pessimal, rather than optimal, amino acid for the site.
+In this case the amino acid most \PC dissimilar than the pessimal amino acid represents the highest peak.
+It is worth noting that allowing $G < 0$ is not equivalent to choosing a different amino acid as being optimal. 
+For example, two amino acids could at opposite ends of \PC space could be equally dissimilar from the pessimal amino acid but would have similar fitness values and could represent alternative fitness peaks.
+This ability to extend our model and, in turn, sharpen our thinking about the nature of natural selection on amino acid sequences illustrates the value of moving from descriptive to more mechanistic models, in general, and phylogenetics, in particular.
+
+In addition, modeling the optimal/pessimal sequence of a gene makes it possible to begin modeling shifts in this sequence over evolutionary time.
+For example, it is possible to extend our model to include a hidden markov process describing the shifts in the optimal/pessimal amino sequence.
+Exending our model in this way, should eventually allow researchers to describe not only the dynamic shifts in natural selection, but evaluate how well a given dataset supports such a model.
+
+
+
 As phylogenetic methods become ever more ubiquitous in biology, and data set size and complexity increase, there is a need and an opportunity for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004}.
 Instead of heuristically extending population genetic models of neutral evolution for use in phylogenetics, it makes sense to derive these extensions from population genetic models that \emph{explicitly} include the fundamental forces of mutation, drift, and natural selection.
 Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site-specific selection on protein sequence and phylogenetics\citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}.
+
 Our work here follows this tradition, but includes some key advances.
 
+
+ in scactually provide little information on the nthese
+
+  ofused in phylogenetics do not Our approach provides the conceptual fr
 While the mapping between genotype and phenotype is more abstract than \citet{ThorneEtAl2012}, \selac has the advantage of not requiring knowledge of a protein's native folding.
 
 By nesting a model of a sequence's cost-benefit function \Cost/\Func within allows us to formulate and test more specific biological hypotheses than the approaches developed by others.
