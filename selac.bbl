@@ -1,4 +1,4 @@
-\begin{thebibliography}{54}
+\begin{thebibliography}{57}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\selectlanguage}[1]{\relax}
 \providecommand{\bibAnnoteFile}[1]{%
@@ -38,15 +38,23 @@ Dimmic, M.~W., D.~P. Mindell, and R.~A. Goldstein. 2000. Modeling evolution at
   Symposium on Biocomputing 5:18--29.
 \bibAnnoteFile{DimmicEtAl2000}
 
+\bibitem[{Drummond et~al.(2005)Drummond, Bloom, Adami, Wilke, and
+  Arnold}]{DrummondEtAl2005}
+Drummond, D.~A., J.~D. Bloom, C.~Adami, C.~O. Wilke, and F.~H. Arnold. 2005.
+  Why highly expressed proteins evolve slowly. Proceedings of the National
+  Academy of Sciences of the United States of America 102:14338--14343.
+\bibAnnoteFile{DrummondEtAl2005}
+
+\bibitem[{Drummond et~al.(2006)Drummond, Raval, and Wilke}]{DrummondEtAl2006a}
+Drummond, D.~A., A.~Raval, and C.~O. Wilke. 2006. A single determinant
+  dominates the rate of yeast protein evolution. Molecular Biology and
+  Evolution 23:327--337.
+\bibAnnoteFile{DrummondEtAl2006a}
+
 \bibitem[{Edwards(1984)}]{edwards1984likelihood}
 Edwards, A. 1984. Likelihood. Cambridge science classics Cambridge University
   Press.
 \bibAnnoteFile{edwards1984likelihood}
-
-\bibitem[{El-Brolosy and Stainier(2017)}]{compensation}
-El-Brolosy, M.~A. and D.~Y.~R. Stainier. 2017. Genetic compensation: A
-  phenomenon in search of mechanisms. PLOS Genetics 13:1--17.
-\bibAnnoteFile{compensation}
 
 \bibitem[{Felsenstein(1981)}]{Felsenstein1981}
 Felsenstein, J. 1981. Evolutionary trees from {DNA}-sequences - a
@@ -83,6 +91,12 @@ Gilchrist, M.~A., W.-C. Chen, P.~Shah, C.~L. Landerer, and R.~Zaretzki. 2015.
   Mutation Biases, and Selection Coefficients from Genomic Data Alone. Genome
   Biology and Evolution 7:1559--1579.
 \bibAnnoteFile{GilchristEtAl2015}
+
+\bibitem[{Gilchrist and Wagner(2006)}]{GilchristAndWagner2006}
+Gilchrist, M.~A. and A.~Wagner. 2006. A model of protein translation including
+  codon bias, nonsense errors, and ribosome recycling. Journal of Theoretical
+  Biology 239:417--434.
+\bibAnnoteFile{GilchristAndWagner2006}
 
 \bibitem[{Goldman(1993)}]{goldman1993statistical}
 Goldman, N. 1993. Statistical tests of models of DNA substitution. Journal of
@@ -298,6 +312,11 @@ Thorne, J.~L., N.~Lartillot, N.~Rodrigue, and S.~C. Choi. 2012. Codon models as
   data. Codon Evolution: Mechanisms And Models Pages~97--110 D2
   10.1093/acprof:osobl/9780199601165.001.0001 ER.
 \bibAnnoteFile{ThorneEtAl2012}
+
+\bibitem[{Wagner(2005)}]{Wagner2005}
+Wagner, A. 2005. Energy constraints on the evolution of gene expression.
+  Molecular Biology and Evolution 22:1365--1374.
+\bibAnnoteFile{Wagner2005}
 
 \bibitem[{Wright(1969)}]{Wright1969}
 Wright, S. 1969. Evolution and the genetics of populations. Vol. 2. The theory
