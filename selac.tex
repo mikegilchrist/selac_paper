@@ -666,18 +666,20 @@ For more details on the simulation approach, see Appendix 1.
 
 \section{Discussion}
 One goal of evolutionary biology is to quantify the nature, strength, and, ultimately, shifts in the forces of natural selection relative to genetic drift and mutation using genetic data.
-Although extremely popular due to their elegance and computational efficiency, the utility of \omega based models in helping us reach this goal is substantially more limited than commonly recognized. 
-For one, they use only a single substitution matrix and are only applicable for situations in which the substitution process and shifts in the selective environment intrinsically, such as with positive or negative frequency dependent selection. 
+\omega based models have been important in helping to achieve this. 
+However, their simplicity, which has benefits in both interpretability and speed, also has some costs.
+For example, their assumption that there is selection is about resistant to amino acid change, rather than for amino acid identity, limits the biological cases for which it is appropriate.
 At the other end of the spectrum, in terms of model generality, lie the work of \citet{HalpernAndBruno1998}, where a vector of 19 expected amino acid frequencies are calculated for each amino acid site. 
 The work of Lartillot and colleagues \citep{LartillotAndPhilippe2004,RodrigueAndLartillot2014} greatly reduces the parameterization of the \citet{HalpernAndBruno1998} approach by grouping together sites with similar behaviors. 
 While an important advance, these models are essentially descriptive in nature; they have no underlying model for the nature of the stabilizing selection profiles they are estimating. 
-There are aspects of Lartillot et al.’s work that could be incorporated into our approach, and vice versa. 
+There are aspects of Lartillot et al.'s work that could be incorporated into our approach, and vice versa. 
 However, our framework differs in that we are attempting to provide an explicit model underlying this selection. 
 
 Conceptually, our work lies between that of Lartillot et al. and Thorne et al., where the latter is utilizing even more detailed models about protein structure as a means of linking amino acid substitutions and stabilizing selection. 
-One advantage of our approach over the work of Thorne et al. is the fact that there are a number of obvious generalizations. 
-For example, if one views stabilizing and diversifying selection as opposite ends of the spectrum of how selection in nature behaves, then allowing our $G$ parameter to take on negative values provides a means of modeling this spectrum. 
+One advantage of our proposed framework is the fact that there are a number of obvious generalizations. 
+For example, if one views stabilizing and diversifying selection as opposite ends of the spectrum of how selection in nature behaves, then allowing the $G$ parameter to take on negative values provides a means of modeling this spectrum. 
 More specifically, letting $G < 0$ implies that there is a pessimal, rather than optimal, amino acid for the site. In this case, the amino acid in \PC qualities most dissimilar to the pessimal amino acid represents the highest fitness peak. 
+% Yeah, that's true. But is there a single biological realistic case? Or even a whiff of a case? Even for stuff like binding sites for viruses or other nasties, it's not that being as different as possible is a criterion -- still want it water soluble, for example. I'd cut the whole G < 0 section - discussion is already long. -BCO
 It is worth noting that allowing $G < 0$ is not equivalent to choosing a different amino acid as being optimal. 
 To see this, imagine a focal amino acid with two alternative amino acids equally distant from it in \PC but in opposite directions. 
 If the focal amino acid is the pessimal amino acid for the site (i.e.~$G<0$), then the two alternative amino acids represent two alternative fitness peaks in different regions of the \PC. 
