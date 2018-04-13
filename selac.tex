@@ -665,32 +665,11 @@ For more details on the simulation approach, see Appendix 1.
 
 
 \section{Discussion}
-One goal of evolutionary biology is to quantify the nature, strength, and, ultimately, shifts in the forces of natural selection relative to genetic drift and mutation using genetic data.
-\omega based models have been important in helping to achieve this. 
-However, their simplicity, which has benefits in both interpretability and speed, also has some costs.
-For example, their assumption that there is selection is about resistant to amino acid change, rather than for amino acid identity, limits the biological cases for which it is appropriate.
-At the other end of the spectrum, in terms of model generality, lie the work of \citet{HalpernAndBruno1998}, where a vector of 19 expected amino acid frequencies are calculated for each amino acid site. 
-The work of Lartillot and colleagues \citep{LartillotAndPhilippe2004,RodrigueAndLartillot2014} greatly reduces the parameterization of the \citet{HalpernAndBruno1998} approach by grouping together sites with similar behaviors. 
-While an important advance, these models are essentially descriptive in nature; they have no underlying model for the nature of the stabilizing selection profiles they are estimating. 
-There are aspects of Lartillot et al.'s work that could be incorporated into our approach, and vice versa. 
-However, our framework differs in that we are attempting to provide an explicit model underlying this selection. 
-
-Conceptually, our work lies between that of Lartillot et al. and Thorne et al., where the latter is utilizing even more detailed models about protein structure as a means of linking amino acid substitutions and stabilizing selection. 
-One advantage of our proposed framework is the fact that there are a number of obvious generalizations. 
-For example, if one views stabilizing and diversifying selection as opposite ends of the spectrum of how selection in nature behaves, then allowing the $G$ parameter to take on negative values provides a means of modeling this spectrum. 
-More specifically, letting $G < 0$ implies that there is a pessimal, rather than optimal, amino acid for the site. In this case, the amino acid in \PC qualities most dissimilar to the pessimal amino acid represents the highest fitness peak. 
-% Yeah, that's true. But is there a single biological realistic case? Or even a whiff of a case? Even for stuff like binding sites for viruses or other nasties, it's not that being as different as possible is a criterion -- still want it water soluble, for example. I'd cut the whole G < 0 section - discussion is already long. -BCO
-It is worth noting that allowing $G < 0$ is not equivalent to choosing a different amino acid as being optimal. 
-To see this, imagine a focal amino acid with two alternative amino acids equally distant from it in \PC but in opposite directions. 
-If the focal amino acid is the pessimal amino acid for the site (i.e.~$G<0$), then the two alternative amino acids represent two alternative fitness peaks in different regions of the \PC. 
-Treating one of the alternative amino acids as optimal (i.e.~$G > 0$) results in the other alternative amino acid having even lower fitness than the focal one; a distinctly different scenario than the pessimal case. 
-This ability to extend our model and, in turn, sharpen our thinking about the nature of natural selection on amino acid sequences, illustrates the value of moving from descriptive to more mechanistic models in general, particularly in area of molecular phylogenetics.
-
-As phylogenetic methods become ever more ubiquitous in biology, and data set size and complexity increase, there is a need for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004}. 
-Instead of heuristically extending population genetic models of neutral evolution for use in phylogenetics, it makes sense to derive these extensions from population genetic models that \emph{explicitly} include the fundamental forces of mutation, drift, and natural selection. Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site-specific selection on protein sequence and phylogenetics\citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}. 
-
+One goal of evolutionary biology is to quantify the nature, strength, and, ultimately, shifts in the forces of natural selection relative to genetic drift and mutation.
+As data set size and complexity increase, there is a need for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004} to accomplish this.
+Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site-specific selection on protein sequence and phylogenetics\citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}. 
 Our work here follows in this tradition, but includes some key advances. 
-First, by nesting a model of a sequence's cost-benefit function \Cost/\Func within allows us to formulate and test more specific biological hypotheses. 
+First, by nesting a model of a sequence's cost-benefit function \Cost/\Func within a broader model allows us to formulate and test more specific biological hypotheses. 
 For example, using a hierarchical approach we were able to relax the assumption that \PC deviations from the optimal sequence \aoptvec are equally disruptive at all sites within a protein. 
 We found strong support for the hypothesis that the strength of stabilizing selection against \PC deviations from \aoptvec varies between sites (\DeltaAICc XXXXXX). 
 Second, because our substitution matrices are built on a formal description of a sequence's cost-benefit function \Cost/\Func, we are able to efficiently parameterize 20 different matrices using a relatively small number of genome-wide parameters -- e.g.~our \PC weighting and $G$ distribution shape parameters, and one gene specific gene expression parameter \psi. 
@@ -756,7 +735,7 @@ For example, it is possible to extend our model to include a hidden Markov model
 Extending our model in this way, should eventually allow researchers to describe not only the dynamic shifts in natural selection throughout the phylogeny, but evaluate how well a given dataset supports such a model.
 
 There are also deficiencies in our implementation. 
-Though reasonable to use for a given topology with a modest number of species, it is too slow for practical use for tree search.
+Though reasonable to use for a given topology with a modest number of species, it is currently too slow for practical use for tree search.
 It thus serves as a proof of concept, or of utility for targeted questions where a more realistic model may be of use (placement of particular taxa, for example). 
 Future work will encode \selac models into a variety of mature, popular tree-search programs. 
 \selac also represents a hard optimization problem: the nested models reduce parameter complexity vastly, but there are still numerous parameters to optimize, including the discrete parameter of the optimal amino acid at each site. 
