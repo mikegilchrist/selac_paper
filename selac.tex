@@ -668,8 +668,12 @@ A central goal in evolutionary biology is to quantify the nature, strength, and,
 As data set size and complexity increase, so does the amount of potential information on these forces and their dynamics.
 As a result, there is a need for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004} to accomplish this.
 Although extremely popular due to their elegance and computational efficiency, the utility of $\omega$ based models in helping us reach this goal is substantially more limited than commonly recognized.
-Because they use only a single substitution matrix, they are only applicable for situations in which the substitution process and shifts in the selective environment are intrinsicly, such as with positive or negative frequency dependent selection.
-Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site-specific selection on protein sequence and phylogenetics\citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}. 
+Because they use only a single substitution matrix, they are only applicable for situations in which the substitution process and shifts in the selective environment are intrinsicly, such as with positive or negative frequency dependent selection; these models do not describe stabilizing or diversifying selection as commonly envisioned \citep[Oxford Encyclopedia Entry goes here][]{}.
+
+%from Oxford Encyclopedia of Evolution ed. M Pagel
+%``Selection can be stabilizing (maintaining the local phenotype), directional (selecting for a different mean phenotype), or diversifying (favoring two or more different phenotypes). ``
+
+Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site-specific selection on protein sequence and phylogenetics\citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014} 
 \citet{HalpernAndBruno1998} calculated  a vector of 19 expected amino acid frequencies for each amino acid site, making it the most general and most parameter rich of these methods.
 This generality, however, comes at the cost of being purely descriptive; there is no explicit biological mechanism is proposed to explain the site specific amino frequencies estimated. 
 By grouping together amino sites with similar evolutionary behaviors, Lartillot and colleagues retained the descriptive nature of \citet{HalpernAndBruno1998} work while greatly reduced the number of model parameters needed \citep{LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
@@ -738,8 +742,6 @@ Different enough proteins will fail to function entirely: the active site will n
 Yet, in our model, even random sequences still permit survival, just requiring more protein production. 
 Other oversimplifications include the assumption of no selection on codon usage, no change of optimal amino acids through time, and no change of the effect of physiochemical properties on fitness through time.
 However, because we take a mechanistic approach, all of these assumptions can be relaxed through further extension of our model. 
-For example, it is possible to extend our model to include a hidden Markov modelling (HMM) approach, which would allow for shifts in the optimal/pessimal amino sequence along any given branch in the phylogeny. 
-Extending our model in this way, should eventually allow researchers to describe not only the dynamic shifts in natural selection throughout the phylogeny, but evaluate how well a given dataset supports such a model.
 
 There are also deficiencies in our implementation. 
 Though reasonable to use for a given topology with a modest number of species, it is currently too slow for practical use for tree search.
@@ -749,29 +751,33 @@ Future work will encode \selac models into a variety of mature, popular tree-sea
 A different implementation, more parameter-rich, would optimize values of three (or more) physiochemical properties per site. 
 This would have the practical advantage of continuous parameter optimization rather than discrete, and biologically would be more realistic (as it is the properties that selection "sees", not the identity of the amino acid itself).
 
-Overall, \selac represents an important step in uniting phylogenetic and population genetic models. 
-It allows biologically relevant population genetic parameters to be estimated from phylogenetic information, while also dramatically improving fit and accuracy of phylogenetic models. 
+In spite of these difficulties, \selac represents an important step in uniting phylogenetic and population genetic models.While \citet{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014} are all models of constant, stabilizing selection, \selac can be generalized further to include diversifying selection.
+Specifically, by letting \selac's Grantham weighting term $G$, which we now assume is $\ge 0$,  to take on negative values, \selac now behaves as if there is a pessimal, rather than optimal, amino acid for the given site.
+In this diversifying selection scenario, amino acids with \PC qualities more dissimilar to the pessimal amino acid are increasingly favored, potentially resulting in multiple fitness peaks.
+This ability to extend our model and, in turn, sharpen our thinking about the nature of natural selection on amino acid sequences illustrates the value of moving from descriptive to more mechanistic models in general and phylogenetics in particular.
+How frequently diversifying selection of this nature occurs is an open, but addressable, question.
+%Fortunately, it is also a question that can be addressed using \selac in the future.
+Regardless of the frequency at which diversifying selection occurs, it leads to the question, ``How often does the optimal/pessimal amino sequence change along any given branch?''
+Due to its mechanistic nature, \selac can also be extended to include changes in the optimal/pessimal sequence over a  phylogeny using a hidden markov modelling approach.
+Extending \selac in these ways, will allow researchers to model only shifts in natural selection and, in turn, quantify their frequency and magnitude.
+
+%It is worth noting that allowing $G < 0$ is not equivalent to choosing a different amino acid as being optimal. 
+%To see this, imagine a focal amino acid with alternative two amino acids equally distant from it in \PC but in opposite directions.
+%If the focal amino acid is the pessimal amino acid for the site (i.e.~$G<0$), then the two alternative amino acids represent two alternative fitness peaks in different regions of the \PC.
+%Treating one of the alternative amino acids as optimal (i.e.~$G > 0$) results in the other alternative amino acid having even lower fitness than the focal one; a distinctly different scenario than the pessimal case.
+
+ 
+
+In summary, \selac allows biologically relevant population genetic parameters to be estimated from phylogenetic information, while also dramatically improving fit and accuracy of phylogenetic models. 
+By explicitly modeling the optimal/pessimal sequence of a gene, \selac can be extended to include shifts in the optimal/pessimal sequence over evolutionary time.
+Exending our model in this way, will allow researchers to describe not only the dynamic shifts in natural selection, but evaluate how well a given dataset supports such a model.
 Moreover, it demonstrates that there remains substantially more information in the coding sequences used for phylogenetic analysis than other methods can access. 
 Given the enormous amount of efforts expended to generate sequence datasets, it makes sense for researchers to continue developing more realistic models of sequence evolution in order to extract the biological information embedded in these datasets. 
 The cost-benefit model we develop here is just one of many possible paths of mechanistic model development.
 
 
 
-TEXT MIKE WANTS TO INCLUDE:
-\selac, Thorne, Halpern, etc are all models of stabilizing selection.
-However, how one would alter these models to describe diversifying selection is unclear for all except \selac. 
-For example, if one views stabilizing and diversifying selection as opposite ends of the spectrum of how selection in nature behaves, then allowing our $G$ parameter to take on negative values provides a means of modeling this spectrum.
-More specifically, letting $G < 0$ implies that there is a pessimal, rather than optimal, amino acid for the site.
-In this case, the amino acid in \PC qualities most dissimilar to the pessimal amino acid represents the highest fitness peak.
-It is worth noting that allowing $G < 0$ is not equivalent to choosing a different amino acid as being optimal. 
-To see this, imagine a focal amino acid with alternative two amino acids equally distant from it in \PC but in opposite directions.
-If the focal amino acid is the pessimal amino acid for the site (i.e.~$G<0$), then the two alternative amino acids represent two alternative fitness peaks in different regions of the \PC.
-Treating one of the alternative amino acids as optimal (i.e.~$G > 0$) results in the other alternative amino acid having even lower fitness than the focal one; a distinctly different scenario than the pessimal case.
-This ability to extend our model and, in turn, sharpen our thinking about the nature of natural selection on amino acid sequences illustrates the value of moving from descriptive to more mechanistic models in general and phylogenetics in particular.
 
-In addition, modeling the optimal/pessimal sequence of a gene makes it possible to begin modeling shifts in this sequence over evolutionary time.
-For example, it is possible to extend our model to include a hidden markov process describing the shifts in the optimal/pessimal amino sequence.
-Exending our model in this way, should eventually allow researchers to describe not only the dynamic shifts in natural selection, but evaluate how well a given dataset supports such a model.
 
 
 \section{Acknowledgements}
