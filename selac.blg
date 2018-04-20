@@ -1,57 +1,50 @@
-This is BibTeX, Version 0.99d (TeX Live 2016)
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: selac.aux
 The style file: ./sysbio.bst
 Database file #1: ./mike.bib
 Database file #2: ./omeara.bib
-Warning--I didn't find a database entry for "YangAndNielsen1998"
-Warning--I didn't find a database entry for "NielsenAndYang1998"
-Warning--I didn't find a database entry for "Anisimova2012"
-Warning--I didn't find a database entry for "LynchAndMarinov2015"
-Warning--I didn't find a database entry for ""
-Warning--I didn't find a database entry for "https://www.nature.com/articles/ncomms1928"
-Warning--I didn't find a database entry for "https://www.sciencedirect.com/science/article/pii/S0958166914002316"
-Warning--I didn't find a database entry for "http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0045635"
+Warning--I didn't find a database entry for "PLACEHOLDER"
 Warning--I didn't find a database entry for "."
-You've used 57 entries,
+You've used 63 entries,
             2856 wiz_defined-function locations,
-            1016 strings with 15833 characters,
-and the built_in function-call counts, 33917 in all, are:
-= -- 2998
-> -- 1398
-< -- 38
-+ -- 477
-- -- 402
-* -- 2491
-:= -- 5284
-add.period$ -- 229
-call.type$ -- 57
-change.case$ -- 363
-chr.to.int$ -- 57
-cite$ -- 114
-duplicate$ -- 2396
-empty$ -- 2576
-format.name$ -- 575
-if$ -- 7003
+            1050 strings with 16420 characters,
+and the built_in function-call counts, 37672 in all, are:
+= -- 3334
+> -- 1509
+< -- 46
++ -- 515
+- -- 432
+* -- 2753
+:= -- 5833
+add.period$ -- 255
+call.type$ -- 63
+change.case$ -- 399
+chr.to.int$ -- 63
+cite$ -- 126
+duplicate$ -- 2679
+empty$ -- 2891
+format.name$ -- 624
+if$ -- 7817
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 527
-newline$ -- 239
-num.names$ -- 228
-pop$ -- 833
+missing$ -- 586
+newline$ -- 263
+num.names$ -- 256
+pop$ -- 929
 preamble$ -- 1
-purify$ -- 362
+purify$ -- 395
 quote$ -- 0
-skip$ -- 825
+skip$ -- 943
 stack$ -- 0
-substring$ -- 1992
-swap$ -- 1027
-text.length$ -- 1
+substring$ -- 2205
+swap$ -- 1171
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 498
+type$ -- 549
 warning$ -- 0
-while$ -- 233
+while$ -- 262
 width$ -- 0
-write$ -- 691
-(There were 9 warnings)
+write$ -- 768
+(There were 2 warnings)

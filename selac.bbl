@@ -1,4 +1,4 @@
-\begin{thebibliography}{57}
+\begin{thebibliography}{63}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\selectlanguage}[1]{\relax}
 \providecommand{\bibAnnoteFile}[1]{%
@@ -7,6 +7,12 @@
 \providecommand{\bibAnnote}[2]{%
   \begin{quotation}\noindent\textsc{Key:} #1\\
   \textsc{Annotation:}\ #2\end{quotation}}
+
+\bibitem[{Anisimova(2012)}]{Anisimova2012}
+Anisimova, M. 2012. Parametric models of codon evolution. Pages~12--33
+  \emph{in} Codon Evolution: Mechanisms and Models (G.~M. Cannarozzi and
+  A.~Schneider, eds.). Oxford University Press, Oxford, UK.
+\bibAnnoteFile{Anisimova2012}
 
 \bibitem[{Beaulieu et~al.(2013)Beaulieu, O'Meara, and
   Donoghue}]{BeaulieuEtAl2013}
@@ -55,6 +61,12 @@ Drummond, D.~A., A.~Raval, and C.~O. Wilke. 2006. A single determinant
 Edwards, A. 1984. Likelihood. Cambridge science classics Cambridge University
   Press.
 \bibAnnoteFile{edwards1984likelihood}
+
+\bibitem[{Endler(1986)}]{Endler1986a}
+Endler, J.~A. 1986. Natural Selection in the Wild Pages~16--17. No.~21 in
+  Monographs in Population Biology Princeton University Press, Princeton, NJ
+  reference for definition of diversifying selection.
+\bibAnnoteFile{Endler1986a}
 
 \bibitem[{Felsenstein(1981)}]{Felsenstein1981}
 Felsenstein, J. 1981. Evolutionary trees from {DNA}-sequences - a
@@ -210,6 +222,12 @@ Lartillot, N. and H.~Philippe. 2004. A Bayesian mixture model for across-site
   Evolution 21:1095--1109.
 \bibAnnoteFile{LartillotAndPhilippe2004}
 
+\bibitem[{Lynch and Marinov(2015)}]{LynchAndMarinov2015}
+Lynch, M. and G.~K. Marinov. 2015. The bioenergetic costs of a gene.
+  Proceedings Of The National Academy Of Sciences Of The United States Of
+  America 112:15690--15695.
+\bibAnnoteFile{LynchAndMarinov2015}
+
 \bibitem[{Mayrose et~al.(2005)Mayrose, Friedman, and Pupko}]{MayroseEtAl2005}
 Mayrose, I., N.~Friedman, and T.~Pupko. 2005. A Gamma mixture model better
   accounts for among site rate heterogeneity. Bioinformatics 21:ii151--ii158.
@@ -227,6 +245,12 @@ Muse, S.~V. and B.~S. Gaut. 1994. A likelihood approach for comparing
   to the chloroplast genome. Molecular Biology and Evolution 11:715--724.
 \bibAnnoteFile{MuseAndGaut1994}
 
+\bibitem[{Nielsen and Yang(1998)}]{NielsenAndYang1998}
+Nielsen, R. and Z.~H. Yang. 1998. Likelihood models for detecting positively
+  selected amino acid sites and applications to the HIV-1 envelope gene.
+  Genetics 148:929--936.
+\bibAnnoteFile{NielsenAndYang1998}
+
 \bibitem[{Nowak(2006)}]{Nowak2006}
 Nowak, M.~A. 2006. Evolutionary Dynamics: Exploring the Equations of Life.
   Belknap of Harvard University Press, Cambridge, MA.
@@ -238,6 +262,11 @@ O'Meara, B.~C., C.~Ane, M.~J. Sanderson, and W.~P.C. 2006. Testing for
   different rates of continuous trait evolution using likelihood. Evolution
   60:922--933.
 \bibAnnoteFile{OMearaetal2006}
+
+\bibitem[{Pelmyr(2002)}]{Pelmyr2002}
+Pelmyr, O. 2002. Microevolution. Pages~731--732 \emph{in} Encyclopedia of
+  Evolution (M.~Pagel, ed.) vol.~2. Oxford University Press, Oxford, UK.
+\bibAnnoteFile{Pelmyr2002}
 
 \bibitem[{Pouyet et~al.(2016)Pouyet, Bailly-Bechet, Mouchiroud, and
   Guéguen}]{PouyetEtAl2016}
@@ -338,6 +367,11 @@ Yang, Z.~H. 1994. Maximum-likelihood phylogenetic estimation from
 Yang, Z.~H. 2007. PAML 4: Phylogenetic analysis by maximum likelihood.
   Molecular Biology And Evolution 24:1586--1591.
 \bibAnnoteFile{Yang2007}
+
+\bibitem[{Yang and Nielsen(1998)}]{YangAndNielsen1998}
+Yang, Z.~H. and R.~Nielsen. 1998. Synonymous and nonsynonymous rate variation
+  in nuclear genes of mammals. Journal Of Molecular Evolution 46:409--418.
+\bibAnnoteFile{YangAndNielsen1998}
 
 \bibitem[{Yang and Nielsen(2008)}]{YangAndNielsen2008}
 Yang, Z.~H. and R.~Nielsen. 2008. Mutation-selection models of codon
