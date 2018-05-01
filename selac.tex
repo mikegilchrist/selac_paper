@@ -287,13 +287,19 @@ M\textsc{ICHAEL} A.~{G\textsc{ILCHRIST}}$^{2,3,*}$}
 \newpage
 
 \section{Abstract}
-We present a novel phylogenetic approach rooted in the field of population genetics that more realistically models the evolution of protein-coding DNA under the assumption of consistent, stabilizing selection for a gene specific, optimal amino acid sequence.
-In addition to being consistent with the fundamental principles of population genetics, our new set of models, which we collectively call \selac (Selection on Amino acids and Codons), fit phylogenetic data much better than popular models, suggesting strong potential for more accurate inference of phylogenetic trees and branch lengths.
+We present a novel phylogenetic approach nested in a model of population genetics.
+Unlike simpler models such as GY94, which assume a single substitution matrix for all sites, our model more realistically represents the evolution of protein-coding DNA under the assumption of consistent, stabilizing selection for a gene specific, optimal amino acid sequence.
+By modeling the cost-benefit function of an amino acid sequence, our model naturally links the strength of stabilizing selection to protein synthesis levels, which, in turn, can be estimated.
+Our new set of models, which we collectively call \selac (Selection on Amino acids and Codons), fit phylogenetic data much better than popular models, suggesting strong potential for more accurate inference of phylogenetic trees and branch lengths from existing data.
 \selac also demonstrates that a large amount of biologically meaningful information is accessible when using a nested set of mechanistic models.
-For example, because \selac assumes the strength of selection is proportional to the expression level of a gene and, therefore, provides gene specific estimates of protein synthesis rates.
-\selac also provides quantitative estimates of probability a given amino acid is optimal for a given site.
-Finally, because SelAC is a nested approach based on clearly stated biological assumptions, it can be expanded or simplified as needed.
+For example, \selac prediction of gene specific protein synthesis rates correlates well with both empirical ($r = 0.34-0.48$) and other theoretical predictions ($r=0.59-0.64$) for multiple species.
+\selac also provides quantitative estimates of probability a given amino acid is optimal for a given site.\marginpar{MIKE: Do we ever present such results?}
+Finally, because SelAC is a nested approach based on clearly stated biological assumptions, it can be simplified or expanded as needed, such as including shifts in the optimal amino acid sequence within or across lineages. 
 
+\begin{itemize}
+\item No mention of AICc
+\item No mention of number of parameters
+\end{itemize}
 \newpage
 
 
