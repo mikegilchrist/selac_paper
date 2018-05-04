@@ -534,7 +534,7 @@ As a result, the fitness ratio for two genotypes differing at a multiple site si
 %  & \;\;\;  \left. \times \sum_{p \in \setP} \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] G_p \psi \right]
 \end{align*}
 where \setP represents the codon positions in which \cveci and \cvecj differ.
-Fourth, we make a weak mutation assumption, such that alleles can differ at only one position at any given time, i.e.~$|\setP| = 1$, and that the population is evolving according to a Fisher-Wright process.
+Fourth, we make a weak mutation assumption, such that alleles can differ at only one position at any given time, i.e.~$|\setP| = 1$, and that the population is evolving according to a Wright-Fisher process.
 As a result, the probability a new mutant, $j$, introduced via mutation into a resident population $i$ with effective size \Ne will go to fixation is,
 \begin{align*}
   u_{i,j} &=  \frac{1 - \left(W_i/W_j\right)^b}{1 - \left(W_i/W_j\right)^{2 \Ne}}\\
@@ -621,9 +621,9 @@ Nevertheless, ROC-SEMPPR predictions of gene expression $\phi$ correlates strong
 While one of our main objectives was to determine the improvement of fit that \selac has with respect to other standard phylogenetic models, we also evaluated the adequacy of \selac.
 Model fit, measured with assessments such as the Akaike Information Criterion (AIC), can tell which model is least bad as an approximation for the data, but it does not reveal whether a model is actually doing a good job of representing the data. %biological processes.
 An adequate model does the latter, one measure of which is that data generated under the model resemble real data \citep{goldman1993statistical}.
-For example, \citet{BeaulieuEtAl2013} assessed whether parsimony scores and the size of monomorphic clades of empirical data were within the distributions of simulated under a new model and the best standard model; if the empirical summaries were outside the range for each, it would have suggested that neither model was adequately modeling this part of the biology.
+For example, \citet{BeaulieuEtAl2013} assessed whether parsimony scores and the size of monomorphic clades of empirical data were within the distributions of simulated data under a new model and the best standard model; if the empirical summaries were outside the range for each, it would have suggested that neither model was adequately modeling this part of the biology.
 
-In order to [MIKE: BRIAN PLEASE COMPLETE THIS CLAUSE], for a given gene we first remove a particular taxon from the data set and the phylogeny.
+In order to test adequacy for a given gene we first remove a particular taxon from the data set and the phylogeny.
 A marginal reconstruction of the likeliest sequence across all remaining nodes is conducted under the model, including the node where the pruned taxon attached to the tree.
 The marginal probabilities of each site are used to sample and assemble the starting coding sequence.
 This sequence is then evolved along the branch, periodically being sampled and its current functionality assessed.
@@ -633,7 +633,7 @@ For comparison, we also conducted the same test, by simulating the sequence unde
 \subsection{The appropriate estimator of bias for AIC}
 As part of the model set described above, we also included a reduced form of each of the two \selac models, \selac and \selacplusgamma.
 Specifically, rather than optimizing the amino acid at any given site, we assume the  the most frequently observed amino acid at each site is the optimal amino acid \aopt.
-We refer to these `majority rule' models as \selacmaj and \selacmajplusgamma and the majority rule parameterization greatly accelerates model fitting.
+We refer to these `majority rule' models as \selacmaj and \selacmajplusgamma and the majority rule parameterization accelerates model fitting.
 
 Since these majority rule models assume that the optimal amino acids are known prior to fitting of our model, it is tempting to reduce the count of estimated parameters in the model by the number of parameters estimated using majority rule.
 Despite having become standard behavior in the field of phylogenetics, this reduction is statistically inappropriate unless one uses an additional dataset for this purpose, something we have not seen.
