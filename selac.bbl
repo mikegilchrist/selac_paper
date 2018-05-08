@@ -1,4 +1,4 @@
-\begin{thebibliography}{63}
+\begin{thebibliography}{64}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\selectlanguage}[1]{\relax}
 \providecommand{\bibAnnoteFile}[1]{%
@@ -262,6 +262,11 @@ O'Meara, B.~C., C.~Ane, M.~J. Sanderson, and W.~P.C. 2006. Testing for
   different rates of continuous trait evolution using likelihood. Evolution
   60:922--933.
 \bibAnnoteFile{OMearaetal2006}
+
+\bibitem[{Pellmyr(2002)}]{Pellmyr2002}
+Pellmyr, O. 2002. Microevolution. Pages~731--732 \emph{in} Encyclopedia of
+  Evolution (M.~Pagel, ed.). Oxford University Press, Oxford, UK.
+\bibAnnoteFile{Pellmyr2002}
 
 \bibitem[{Pelmyr(2002)}]{Pelmyr2002}
 Pelmyr, O. 2002. Microevolution. Pages~731--732 \emph{in} Encyclopedia of

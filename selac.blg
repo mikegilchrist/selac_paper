@@ -1,50 +1,47 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2016)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: selac.aux
 The style file: ./sysbio.bst
 Database file #1: ./mike.bib
 Database file #2: ./omeara.bib
-Warning--I didn't find a database entry for "PLACEHOLDER"
-Warning--I didn't find a database entry for "."
-You've used 63 entries,
+You've used 64 entries,
             2856 wiz_defined-function locations,
-            1050 strings with 16420 characters,
-and the built_in function-call counts, 37672 in all, are:
-= -- 3334
-> -- 1509
-< -- 46
-+ -- 515
-- -- 432
-* -- 2753
-:= -- 5833
-add.period$ -- 255
-call.type$ -- 63
-change.case$ -- 399
-chr.to.int$ -- 63
-cite$ -- 126
-duplicate$ -- 2679
-empty$ -- 2891
-format.name$ -- 624
-if$ -- 7817
+            1050 strings with 16432 characters,
+and the built_in function-call counts, 38349 in all, are:
+= -- 3395
+> -- 1524
+< -- 47
++ -- 520
+- -- 436
+* -- 2796
+:= -- 5930
+add.period$ -- 260
+call.type$ -- 64
+change.case$ -- 404
+chr.to.int$ -- 64
+cite$ -- 128
+duplicate$ -- 2732
+empty$ -- 2954
+format.name$ -- 629
+if$ -- 7970
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 586
-newline$ -- 263
-num.names$ -- 256
-pop$ -- 929
+missing$ -- 595
+newline$ -- 267
+num.names$ -- 262
+pop$ -- 945
 preamble$ -- 1
-purify$ -- 395
+purify$ -- 400
 quote$ -- 0
-skip$ -- 943
+skip$ -- 970
 stack$ -- 0
-substring$ -- 2205
-swap$ -- 1171
+substring$ -- 2244
+swap$ -- 1200
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 549
+type$ -- 558
 warning$ -- 0
-while$ -- 262
+while$ -- 268
 width$ -- 0
-write$ -- 768
-(There were 2 warnings)
+write$ -- 781
