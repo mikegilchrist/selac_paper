@@ -64,7 +64,7 @@ load("yeastSalRokSelacUNRESTgamma_NEW_.Rdata")
 selac.wg <- result
 load("yeastSalRokGTRG.Rdata")
 gtr.g <- result
-load("yeastSalRokSelacFMutSel.Rdata")
+load("yeastSalRokSelacFMutSel_NEW.Rdata")
 fmutsel <- result
 setwd("../DATA")
 
@@ -82,7 +82,7 @@ save(pp, file="adequacy_Scer_reconSelacWG_simGTRG.Rsave")
 #pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="gtr", model.to.simulate.under="gtr", selac.obj.to.reconstruct=gtr.g, selac.obj.to.simulate=gtr.g, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1, for.gtr.only=selac.wg)
 #save(pp, file="adequacy_Scer_reconGTRG_simGTRG.Rsave")
 
-pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="fmutsel", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=fmutsel, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
+pp <- GetAdequateManyReps(nreps=1, n.cores=1, model.to.reconstruct.under="selac", model.to.simulate.under="fmutsel", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=fmutsel, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
 save(pp, file="adequacy_Scer_reconSelacWG_simFMutSel.Rsave")
 
 
