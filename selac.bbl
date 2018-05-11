@@ -1,4 +1,4 @@
-\begin{thebibliography}{64}
+\begin{thebibliography}{65}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\selectlanguage}[1]{\relax}
 \providecommand{\bibAnnoteFile}[1]{%
@@ -150,11 +150,6 @@ Hughes, A.~L. and M.~Nei. 1988. Pattern of nucleotide substitution at major
   Nature 335:167--170.
 \bibAnnoteFile{HughesAndNei1988}
 
-\bibitem[{Hurvich and Tsai(1989)}]{HurvichTsai1989}
-Hurvich, C.~M. and C.-L. Tsai. 1989. Regression and time series model selection
-  in small samples. Biometrika 76:297--307.
-\bibAnnoteFile{HurvichTsai1989}
-
 \bibitem[{Höhna et~al.(2016)Höhna, Landis, Heath, Boussau, Lartillot, Moore,
   Huelsenbeck, and Ronquist}]{revbayes}
 Höhna, S., M.~J. Landis, T.~A. Heath, B.~Boussau, N.~Lartillot, B.~R. Moore,
@@ -273,6 +268,12 @@ Pelmyr, O. 2002. Microevolution. Pages~731--732 \emph{in} Encyclopedia of
   Evolution (M.~Pagel, ed.) vol.~2. Oxford University Press, Oxford, UK.
 \bibAnnoteFile{Pelmyr2002}
 
+\bibitem[{Posada and Buckley(2004)}]{posadaBuckley2004}
+Posada, D. and T.~R. Buckley. 2004. Model Selection and Model Averaging in
+  Phylogenetics: Advantages of Akaike Information Criterion and Bayesian
+  Approaches over Likelihood Ratio Tests. Systematic Biology 53:793--808.
+\bibAnnoteFile{posadaBuckley2004}
+
 \bibitem[{Pouyet et~al.(2016)Pouyet, Bailly-Bechet, Mouchiroud, and
   Guéguen}]{PouyetEtAl2016}
 Pouyet, F., M.~Bailly-Bechet, D.~Mouchiroud, and L.~Guéguen. 2016. SENCA: A
@@ -333,6 +334,11 @@ Stamatakis, A. 2006. {RAxML-VI-HPC}: maximum likelihood-based phylogenetic
   analyses with thousands of taxa and mixed models. Bioinformatics
   22:2688--2690.
 \bibAnnoteFile{Stamatakis2006}
+
+\bibitem[{Sullivan and Joyce(2005)}]{SullivanJoyce2005}
+Sullivan, J. and P.~Joyce. 2005. Model Selection in Phylogenetics. Annual
+  Review of Ecology, Evolution, and Systematics 36:445--466.
+\bibAnnoteFile{SullivanJoyce2005}
 
 \bibitem[{Thorne et~al.(1996)Thorne, Goldman, and Jones}]{ThorneEtAl1996}
 Thorne, J.~L., N.~Goldman, and D.~T. Jones. 1996. Combining protein evolution

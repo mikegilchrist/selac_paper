@@ -342,14 +342,6 @@ Unlike Lartillot's work, we assume \emph{a priori} there are 20 different famili
 The key parameters underlying these matrices are shared across genes except for gene expression.
 As a result, \selac allows us to quantitatively evaluate the support for a particular amino acid being favored at a particular position within the protein sequence.
 
-\marginpar{JMB: At this point, this seems like a natural break. After this it sort of gives away the punchline of the model and it reads like a discussion. I suggest cutting this next bit or moving it elsewhere. As of now, the intro is way too long.}
-
-\marginpar{BCO: I agree. We're talking about the benefits of the model, but people have no idea what it is yet. I'm moving it to discussion.}
-
-
-
-
-
 \section{Materials \& Methods}
 \subsection{Overview}
 We model the substitution process as a classic Wright-Fisher process which includes the forces of mutation, selection, and drift \citep{Fisher1930,Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005,McCandlishAndStoltzfus2014}.
@@ -562,7 +554,6 @@ The complete data set of \citet{SalichosAndRokas2013} contain 1070 orthologs, wh
 We also focus our analyses on \emph{Saccharomyces} \emph{sensu stricto} and their sister taxon \emph{Candida glabrata}, and we used the phylogeny depicted in Fig. 1 of \citet{SalichosAndRokas2013} for our fixed tree.
 We fit the two \selac models described above (i.e., \selac and \selacplusgamma), as well as two codon models, GY94 and FMutSel, and a standard GTR + $\Gamma$ nucleotide model.
 The FMutSel model assumes that the amino acid frequencies are determined by functional requirements of the protein while the other models make no assumptions about amino acid frequencies.
-\marginpar{MIKE: Can someone verify this last statement about FMutSel? JMB: This seems right based on what I understand about this model.}
 In all cases, we assumed that the model was partitioned by gene, but with branch lengths linked across genes.
 
 For \selac, we compared our estimates of $\phiprime = \psiprime/\Func$, which represents the average protein synthesis rate of a gene, to estimates of gene expression from empirical data.
@@ -593,7 +584,7 @@ We refer to these `majority rule' models as \selacmaj and \selacmajplusgamma and
 Since these majority rule models assume that the optimal amino acids are known prior to fitting of our model, it is tempting to reduce the count of estimated parameters in the model by the number of parameters estimated using majority rule.
 Despite having become standard behavior in the field of phylogenetics, this reduction is statistically inappropriate unless one uses an additional dataset for this purpose, something we have not seen.
 %This is because the identification of the optimal amino acid using majority rule is done using the data.
-Thus, although using majority rule doesn't necessarily give you the most likely parameter estimate, it still uses the data to generate the estimate and, thus, represents a parameter estimated from the data.
+Thus, although using majority rule does not necessarily provide the most likely parameter estimate, it still uses the data to generate the estimate and, thus, represents a parameter estimated from the data.
 Because the difference in the number of parameters $K$ when counting or not counting the number of nucleotide sites drops out when comparing nucleotide models with AIC, this statistical issue does not apply to nucleotide models.
 It does, however, matter for AICc, where $K$ and the sample size $n$ combine in the penalty term.
 This also matters in our case, where the number of estimated parameters for the majority rule estimation differs based on whether one is looking at codons or single nucleotides.
@@ -603,17 +594,10 @@ In comparative methods \citep[e.g.~][]{ButlerKing2004, OMearaetal2006, BeaulieuE
 More taxa allow the fitting of more complex models, given more data.
 However, in DNA evolution, which is effectively the same as a discrete character model used in comparative methods, the $n$ is taken as the number of sites.
 Obviously, both cannot be correct.
-
-The original derivation of AICc by \citet{HurvichTsai1989} assumed a regression model, where the true model was in the set of examined models, as well as approximations in the derivation itself.
-The appropriateness of this approximation for phylogenetic data, where shared evolutionary history means data points between taxa lack independence is unclear.
-In any case, we argue that for phylogenetic data, a good estimate of data set size is number of taxa multiplied by number of sites.
-First, this is what is conventionally seen as the size of the dataset in the field.
-Second, when considering how likelihood is calculated, the likelihood for a given site is the sum of the probabilities of each observed state at each tip, which is then multiplied across sites.
-It is arguable that the conventional approach in comparative methods is calculating AICc in the same way.
-That is, if only one column of data (or "site") is examined, as remains remarkably common in comparative methods, when we refer to sample size, it is technically the number of taxa multiplied by number of sites, even though it is referred to simply as the number of taxa.
-\marginpar{MIKE: This sentence doesn't make any sense to me. JMB: Me neither. But I know what it is trying to say. Modified for clarity.}
-One notable exception to this appoach to calculating AICc is the program SURFACE implemented by \citet{IngramMahler2013}, which uses multiple characters and taxa.
-%While its default is to use AIC to compare models, if one chooses to use AICc, the number of samples is taken as the product of number of sites and number of taxa.)
+This uncertainty was highlighted by \citet{posadaBuckley2004}: they chose to use number of sites, but mentioned in their discussion that sample size also depends on the number of taxa.
+\citet{SullivanJoyce2005} also mention that the number of sites is often taken as sample size, but whether that is appropriate in phylogenetics is not entirely clear.
+One approach incorporating both number of taxa and sites is in calculating AICc is the program SURFACE implemented by \citet{IngramMahler2013}, which uses multiple characters and taxa.
+While its default is to use AIC to compare models, if one chooses to use AICc, the number of samples is taken as the product of number of sites and number of taxa.
 
 Recently, \citet{Jhwuengetal2014} performed an analysis that investigated what variant of AIC and AICc worked best as an estimator, but the results were inconclusive.
 Here, we have adopted and extended the simulation approach of \citet{Jhwuengetal2014} in order to examine a large set of different penalty functions and how well they approximate the remaining portion of the Kullback-Liebler (KL) divergence between two models after accounting for the deviance (i.e., $-2\Lik$) (see Appendix 1 for more details).
@@ -628,7 +612,10 @@ Using either \DeltaAICc or \AICw as our measure of model support, the \selac mod
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which accounts for 49,881 additional model parameters.
 Even when compared to the next most parameter rich codon model in our model set, FMutSel, \selacplusgamma model shows over 160,000 AIC unit improvement over FMutSel.
 
-\marginpar{JMB: I know that the details of the AIC analyses are in the appendix, but this seems like a great place to mention the main highlights here. A reader may get here and just say poo-poo the rest because of the AICc thing.}
+The analysis building upon \citet{Jhwuengetal2014}  suggests that using the number of taxa times the number of sites as the sample size performs best as a small sample size correction for estimating Kullback-Liebler distance in phylogenetic models. This also has intuitive appeal: in models that have at least some parameters shared across sites and some parameters shared across taxa, increasing the number of sites and/or taxa should be adding more samples for the parameters to estimate.
+This is consistent in considering how likelihood is calculated for phylogenetic models: the likelihood for a given site is the sum of the probabilities of each observed state at each tip, which is then multiplied across sites.
+It is arguable that the conventional approach in comparative methods is calculating AICc in the same way.
+That is, if only one column of data (or "site") is examined, as remains remarkably common in comparative methods, when we refer to sample size, it is technically the number of taxa multiplied by number of sites, even though it is referred to simply as the number of taxa.
 
 With respect to estimates of $\phi$ within \selac, they were strongly correlated with both our empirical measurements (Pearson $r = 0.34-0.48$) and theoretical predictions (Pearson $r = 0.59-0.64$) of gene expression (Figure \ref{fig:PhivsEmpirical} and Figures S1-S2, respectively).
 In other words, using only codon sequences, our model can predict which genes have high or low expression levels.
