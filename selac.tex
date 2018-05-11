@@ -358,7 +358,7 @@ For simplicity, we ignore linkage effects and, as a result of this and other ass
 Because \selac requires twenty families of $61 \times 61$ matrices, the number of parameters needed to implement \selac would, without further assumptions, be extremely large (i.e. on the order of 74,420 parameters).
 To reduce the number of parameters needed, while still maintaining a high degree of biological realism, we construct our gene and amino acid specific substitution matrices using a submodel nested within our substitution model, similar to approaches in \citet{Gilchrist2007,ShahAndGilchrist2011,GilchristEtAl2015}.
 
-One advantage of a nested modeling framework is that it requires only a handful of genome-wide parameters such as nucleotide specific mutation rates (scaled by effective population size \Ne), side chain physicochemical weighting parameters, and a shape parameter describing the distribution of site sensitivities.
+One advantage of a nested modeling framework is that it requires only a handful of genome-wide parameters such as nucleotide specific mutation rates (scaled by effective population size \Ne), amino acid side chain physicochemical weighting parameters, and a shape parameter describing the distribution of site sensitivities.
 In addition to these genome-wide parameters, \selac requires a gene $g$ specific expression parameter $\psig$ which describes the average rate at which the protein's functionality is produced by the organism or a gene's `average functionality production rate' for short (for notational simplicity, we will ignore the gene specific indicator $_g$, unless explicitly needed).
 Currently, $\psi$ is fixed across the phylogeny, though relaxing this assumption is a goal of future work.
 The gene specific parameter $\psi$ is multiplied by additional model terms to make a composite term $\psiprime$ which scales the strength and efficacy of selection for the optimal amino acid sequence relative to drift (see Implementation below).
@@ -368,36 +368,32 @@ We also assume that natural selection favors genotypes that are able to synthesi
 This requirement of one \aopt per site makes our \aoptvec the largest category of parameters \selac estimates.
 Despite the need to specify \aopt for each site, because we use a submodel to derive our substitution matrices, \selac estimates a relatively small number of the parameters when compared to more general approaches where the fitness of each amino acid is allowed to vary freely of any \PC properties \citep{HalpernAndBruno1998,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 
-As with other phylogenetic methods, we generate estimates of branch lengths and nucleotide specific mutation rates.
+As with other phylogenetic methods, \selac generates estimates of branch lengths and nucleotide specific mutation rates.
 In addition, the method can also be used to make quantitative inferences on the optimal amino acid sequence of a given protein as well as the realized average synthesis rate of each protein used in the analysis.
 The mechanistic basis of \selac also means it can be easily extended to include more biological realism and test more explicit hypotheses about sequence evolution.
 
 \subsection{Mutation Rate Matrix \mumatrix}
 We begin with a 4x4 nucleotide mutation matrix \mumatrix that describes mutation rates between different bases and, in turn, different codons.
 For our purposes, we rely on the general unrestricted model \citep[UNREST from ][]{Yang1994} because it imposes no constraints on the instantaneous rate of change between any pair of nucleotides.
-%In our view, the flexibility and potential for strong asymmetries in the transition among the different nucleotide states, and ultimately among the different codon states, is more consistent with our model.
-More constrained models, such as the Jukes-Cantor (JC), Hasegawa-Kishino-Yano (HKY), or the general time-reversible model (GTR), can also be used.
+More constrained models, such as the Jukes-Cantor (JC), Hasegawa-Kishino-Yano (HKY), or the general time-reversible model (GTR), could also be used.
 
 The 12 parameter UNREST model defines the relative rates of change between a pair of nucleotides.
 Thus, we arbitrarily set the G$\rightarrow$T mutation rate to 1, resulting in 11 free mutation rate parameters in the 4x4 mutation nucleotide mutation matrix.
 The nucleotide mutation matrix is also scaled by a diagonal matrix \pimatrix whose entries, $\pi_{i,i}$, correspond to the equilibrium frequencies of each base.
 These equilibrium nucleotide frequencies are determined by analytically solving $\pimatrix \times \Qmatrix = 0$.
 We use this \Qmatrix to populate a $61 \times 61$ codon mutation matrix $\mumatrix$, whose entries $\muij$ $i\neq j$ describes the mutation rate from codon $i$ to $j$ and $\mu_{i,i} = - \sum_j \mu_{i,j}$.
-\marginpar{MIKE: Is this definition of $\mu_{i,i}$ correct? JMB: Correct.}
 We generate this matrix using a ``weak mutation'' assumption, such that evolution is mutation limited, codon substitutions only occur one nucleotide at a time.
 As a result, the rate of change between any pair of codons that differ by more than one nucleotide is zero.
 
 While the overall model does not assume equilibrium, we still need to scale our mutation matrices $\mu$ by a scaling factor $S$.
 As traditionally done, we rescale our time units such that at equilibrium, one unit of branch length represents one expected mutation per site (which equals the substitution rate under neutrality, but would not with selection).
-More explicitly, $ S = -\left(\sum_{i \in \text{codons}} \mu_{i,i} \pi_{i,i}\right)$ where the final mutation rate matrix is the original mutation rate matrix multiplied by $1/S$. \marginpar{MIKE: I updated the definition of $S$.
-Please ensure it is correct. JMB: Technically, the negative is shown as outside the equation (in every paper I've seen it in), but I don't think it matters. However I changed to be consistent.
-}
+More explicitly, $ S = -\left(\sum_{i \in \text{codons}} \mu_{i,i} \pi_{i,i}\right)$ where the final mutation rate matrix is the original mutation rate matrix multiplied by $1/S$.
 
 
 \subsection{Protein Synthesis Cost-Benefit Function $\eta$}
 \selac links fitness to the product of the cost-benefit function of a gene $\eta$ and the organism's average target synthesis rate of the functionality provided by gene $\psi$.
 This is because the average flux energy an organism spends to meet its target functionality provided by the gene is, by definition, $\eta \times \psi$.
-Compensatory changes that allow an organism to maintain functionality even with loss of one or both copies of a gene are widespread (reviewed in \marginpar{MIKE: Brian, please provide references or cut.}
+Compensatory changes that allow an organism to maintain functionality even with loss of one or both copies of a gene are widespread (reviewed in \marginpar{MIKE: Brian, please provide references or cut. BRIAN: Cedric had suggestions, or we can pull from footnote}
 \footnote{From Cruft:
 There is evidence of compensation for protein function. Metabolism with gene expression models (ME-models) link those factors to successfully make predictions about response to perturbations in a cell \url{https://www.nature.com/articles/ncomms1928}, \url{https://www.sciencedirect.com/science/article/pii/S0958166914002316}. For example, an ME-model for *E. coli* successfully predicted gene expression levels in vivo \url{http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0045635}.
 }
@@ -448,8 +444,6 @@ We use the Euclidian distance between residue properties where each property $c$
 Because physicochemical distance is ultimately weighted by a gene's specific average protein synthesis rate $\psi$, another parameter we estimate, there is a problem with parameter identifiablity.
 The scale of gene expression is affected by how we measure physicochemical distances which, in turn, is determined by our choice of Grantham weights.
 As a result, by default we set $\alphav = 3.990 \times 10^{-4}$, the value originally estimated by Grantham, and recognize that our estimates of $\alphac$ and $\alphap$ and $\psi$ are scaled relative to this choice for $\alphav$.
-\marginpar{MIKEG: Jeremy, is this still true? JMB: Yes it is.
-I thought the final state was assuming they summed to 1.}
 More specifically,
 \begin{align*}
   d(a_i, \aopt) &= \left(\alphac \left[c\left(a_i\right) - c\left(\aopt\right)\right]^2 + \alphap \left[p\left(a_i\right) - p\left(\aopt\right)\right]^2 + \right.\\
