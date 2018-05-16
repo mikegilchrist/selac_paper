@@ -4,44 +4,44 @@ The top-level auxiliary file: selac.aux
 The style file: ./sysbio.bst
 Database file #1: ./mike.bib
 Database file #2: ./omeara.bib
-You've used 64 entries,
+You've used 65 entries,
             2856 wiz_defined-function locations,
-            1050 strings with 16432 characters,
-and the built_in function-call counts, 38349 in all, are:
-= -- 3395
-> -- 1524
-< -- 47
-+ -- 520
-- -- 436
-* -- 2796
-:= -- 5930
-add.period$ -- 260
-call.type$ -- 64
-change.case$ -- 404
-chr.to.int$ -- 64
-cite$ -- 128
-duplicate$ -- 2732
-empty$ -- 2954
-format.name$ -- 629
-if$ -- 7970
+            1054 strings with 16716 characters,
+and the built_in function-call counts, 38940 in all, are:
+= -- 3451
+> -- 1546
+< -- 48
++ -- 527
+- -- 442
+* -- 2840
+:= -- 6020
+add.period$ -- 264
+call.type$ -- 65
+change.case$ -- 410
+chr.to.int$ -- 65
+cite$ -- 130
+duplicate$ -- 2774
+empty$ -- 2998
+format.name$ -- 640
+if$ -- 8091
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 595
-newline$ -- 267
-num.names$ -- 262
-pop$ -- 945
+missing$ -- 604
+newline$ -- 271
+num.names$ -- 266
+pop$ -- 959
 preamble$ -- 1
-purify$ -- 400
+purify$ -- 406
 quote$ -- 0
-skip$ -- 970
+skip$ -- 985
 stack$ -- 0
-substring$ -- 2244
-swap$ -- 1200
+substring$ -- 2280
+swap$ -- 1219
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 558
+type$ -- 567
 warning$ -- 0
-while$ -- 268
+while$ -- 273
 width$ -- 0
-write$ -- 781
+write$ -- 793

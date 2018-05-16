@@ -27,7 +27,7 @@ PlotAdequacyResults <- function(adequate.obj.gtr, adequate.obj.mutsel, adequate.
     axis(1, at = seq(0, 1, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(1,.5,0))
     abline(h=known.functionality, lty=2)
     text(.15, .4, "SelAC", col=cols[3])
-    text(.15, .35, "FMutSel0", col=cols[2])
+    text(.15, .35, "FMutSel", col=cols[2])
     text(.15, .3, expression(GTR+Gamma), col=cols[1])
     text(.15, 1, taxon.names)
     #dev.off()
@@ -64,7 +64,7 @@ load("yeastSalRokSelacUNRESTgamma_NEW_.Rdata")
 selac.wg <- result
 load("yeastSalRokGTRG.Rdata")
 gtr.g <- result
-load("yeastSalRokSelacFMutSel.Rdata")
+load("yeastSalRokSelacFMutSel_NEW.Rdata")
 fmutsel <- result
 setwd("../DATA")
 
@@ -82,7 +82,7 @@ save(pp, file="adequacy_Scer_reconSelacWG_simGTRG.Rsave")
 #pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="gtr", model.to.simulate.under="gtr", selac.obj.to.reconstruct=gtr.g, selac.obj.to.simulate=gtr.g, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1, for.gtr.only=selac.wg)
 #save(pp, file="adequacy_Scer_reconGTRG_simGTRG.Rsave")
 
-pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="fmutsel", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=fmutsel, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
+pp <- GetAdequateManyReps(nreps=1, n.cores=1, model.to.reconstruct.under="selac", model.to.simulate.under="fmutsel", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=fmutsel, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
 save(pp, file="adequacy_Scer_reconSelacWG_simFMutSel.Rsave")
 
 
