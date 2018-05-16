@@ -288,12 +288,12 @@ M\textsc{ICHAEL} A.~{G\textsc{ILCHRIST}}$^{2,3,*}$}
 \newpage
 
 \section{Abstract}
-We present a novel phylogenetic approach based of substitution rates generated from a nested population genetics model.
-Unlike many simpler codon models, which assume a single substitution matrix for all sites, our model more realistically represents the evolution of protein-coding DNA under the assumption of consistent, stabilizing selection for a gene specific, optimal amino acid sequence.
+We present a new phylogenetic approach, collectively called \selac (Selection on Amino acids and Codons), which uses substitution rates generated using a nestedapproach grounded in population genetics.
+Unlike many simpler codon models, which assume a single substitution matrix for all sites, our model more realistically represents the evolution of protein-coding DNA under the assumption of consistent, stabilizing selection for a gene specific optimal amino acid sequence.
 By modeling the cost-benefit function of an amino acid sequence, our model naturally links the strength of stabilizing selection to protein synthesis levels, which, in turn, can be estimated.
-Our new set of models, which we collectively call \selac (Selection on Amino acids and Codons), fit phylogenetic data much better than popular models, suggesting strong potential for more accurate inference of phylogenetic trees and branch lengths from existing data.
+ fit phylogenetic data much better than popular models, suggesting strong potential for more accurate inference of phylogenetic trees and branch lengths from existing data.
 \selac also demonstrates that a large amount of biologically meaningful information is accessible when using a nested set of mechanistic models.
-For example, \selac prediction of gene specific protein synthesis rates correlates well with both empirical ($r = 0.34-0.48$) and other theoretical predictions ($r=0.59-0.64$) for multiple species.
+For example, \selac prediction of gene specific protein synthesis rates correlates well with both empirical ($r = 0.34-0.48$) and other theoretical predictions ($r=0.59-0.64$) for multiple yeast species.
 \selac also provides estimates of which amino acid is optimal for a given site.
 Finally, because SelAC is a nested approach based on clearly stated biological assumptions, it can be simplified or expanded as needed, such as including shifts in the optimal amino acid sequence within or across lineages.
 \newpage
@@ -306,7 +306,7 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
 %\subsection{Introduction}
 Phylogenetic analyses plays a critical role in most aspects of biology, particularly in the fields of ecology, evolution, paleontology, medicine, and conservation.
 While the scale and impact of phylogenetic studies has increased substantially over the past two decades, the realism of the mathematical models on which these analyses are based has changed relatively little by comparison.
-The most popular models of DNA substitution used by molecular phylogenetics are simple nucleotide models that are indifferent to the type of sequences to which they are applied.
+The most popular models of DNA substitution used in molecular phylogenetics are simple nucleotide models that are indifferent to the type of sequences to which they are applied.
 For example, when evaluating protein-coding sequences these models are inherently agnostic with regards to the different amino acid substitutions and their impact on gene function (e.g.~F81, F84, HYK85, TN93, and GTR, see \citet{Yang2014} for an overview) and, as a result, cannot describe the behavior of natural selection at the amino acid or protein level.
 
 To address this critical shortcoming, \citet{GoldmanAndYang1994} and \citet{MuseAndGaut1994} independently introduced models which assumed that differences in the \PC properties between amino acids, or \PC distances for short, could affect substitution rates.
@@ -320,27 +320,48 @@ To improve their realism, more complex forms have been developed that allow $\om
 
 %Despite these extensions, these models do not actually  behavior of stabilizing or diversifying selection.
 In \citet{GoldmanAndYang1994,YangAndNielsen1998,NielsenAndYang1998} and later studies based on their work, $\omega$ is suggested to indicate whether a given site within a protein sequence is under consistent `stabilizing ($\omega < 1$) or `diversifying' ($\omega > 1$) selection.
-However, the model's actual behavior is inconsistent with how these terms are typically defined and understood \citep[e.g.~see][]{Pellmyr2002}. %\footnote{Although \citet{GoldmanAndYang1994} use a more complex, \PC based distance function instead of $\omega$, the criticisms below also apply to this work.}.
-Because synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions when $\omega < 1$, the model behaves as if the resident amino acid $i$ at a given site is favored by natural selection.
-Even when $\omega$ is allowed to vary between sites, the symmetrical nature of the model means that for any given site the strength of selection for the resident amino acid $i$ over its 19 alternatives is equally strong regardless of their \PC properties.
+Contrary to popular belief, $\omega$ does not describe whether a site is evolving under a constant regime of stabilizing or diversifying selection, but instead how a very particular selective environment changes over time.
+As we explain below, the actual behavior of these models is inconsistent with how these terms are typically defined and understood \citep[e.g.~see][]{Pellmyr2002}. %\footnote{Although \citet{GoldmanAndYang1994} use a more complex, \PC based distance function instead of $\omega$, the criticisms below also apply to this work.}.
+
+For example, when $\omega < 1$, synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions.
+As a result, the model behaves as if the resident amino acid $i$ at a given site is favored by natural selection.
+Even when $\omega$ is allowed to vary between sites, symmetrical aspects  of the model means that for any given site the strength of selection for the resident amino acid $i$ over its 19 alternatives is equally strong regardless of their \PC properties.
 Paradoxically, selection for amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
 As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ equally over all other amino acids, including amino acid $i$.
 This is now the opposite scenario from when $i$ was the resident.
+Thus, the simplest and most consistent interpretation of $\omega$ is that it represents the rate at which the \emph{selective environment itself} changes, and this change in selection perfectly coincides with the fixation of a new amino acid.
+
 Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions from the resident amino acid.
-Again due to the model's symmetry, the selection \emph{against} the resident amino acid $i$ is equally strong relative to alternative amino acids.
+Again due to the model's symmetrical nature, the selection \emph{against} the resident amino acid $i$ is equally strong relative to alternative amino acids.
 The selection against the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors} amino acid $i$, as well as the 18 other amino acids, to the same degree $i$ was previously disfavored.
 
-Thus, the simplest and most consistent interpretation of $\omega$ is that it represents the rate at which the \emph{selective environment itself} changes, and this change in selection perfectly coincides with the fixation of a new amino acid.
-This, in turn, implies that the rate of shifts in the optimal (or pessimal) amino acid is on the time scale as the rate of substitution.
-Contrary to popular belief, $\omega$ does not describe whether a site is evolving under a constant regime of stabilizing or diversifying selection, but instead how a very particular selective environment changes over time.
 Given this behavior, $\omega$ based models are likely to only reasonably approximate a subset of scenarios such as perfectly symmetrical over-/under-dominance or positive/negative frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
+Further, $\omega$ based models implicitly assumes the substitution is on the same timescale as the shifts in the optimal (or pessimal) amino acid.
 
-Here we propose an approach where selection explicitly favors minimizing the cost-benefit function $\eta$ of a protein whose relative performance is determined by the order and \PC properties of its amino acids.
+To address these short comings, we present an approach where selection explicitly favors minimizing the cost-benefit function $\eta$ of a protein whose relative performance is determined by the order and \PC properties of its amino acids.
 Our approach, which we call \selac (Selection on Amino acids and Codons), is developed in the same vein as previous phylogenetic applications of the Wright-Fisher process \citep[e.g.~][]{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008,RodrigueEtAl2005,KoshiAndGoldstein1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 Similar to Lartillot's work \citep{LartillotAndPhilippe2004,RodrigueAndLartillot2014}, we assume there is a finite set of rate matrices describing the substitution process and that each position within a protein is assigned to a particular rate matrix category.
 Unlike Lartillot's work, we assume \emph{a priori} there are 20 different families of rate matrices, one family for when a given amino acid is favored at a site.
 The key parameters underlying these matrices are shared across genes except for gene expression.
-As a result, \selac allows us to quantitatively evaluate the support for a particular amino acid being favored at a particular position within the protein sequence.
+As a result, \selac allows us to quantitatively evaluate the support for a particular amino acid at a particular position within a protein being favored by natural selection using a simple cost-benefit approach.
+
+While natural selection on protein coding regions can take many forms, one general approach to describing its effects is by relating to the cost of producing the protein and the functional benefit (or potential harm) caused by the protein product to its codon sequence.
+The gene specific cost of protein synthesis can be affected by the amino acids used, the direct and indirect costs of peptide assembly by the ribosome, the use of chaparones to aid in folding, and even the expected lifespan of the protein.
+Importantly, these costs can be computed to varying degrees of realism \citep[e.g.][]{Wagner2005,LynchAndMarinov2015}.
+We have previously presented models of protein synthesis costs that, alternatively, take into account the cost of ribosome pausing \citep{ShahAndGilchrist2011} or premature termination errors \citep{GilchristAndWagner2006,Gilchrist2007,GilchristEtAl2009}.
+
+Protein function or 'benefit' can be affected by the amino acids at each site and their interactions.
+As a result, amino acid substitutions can affect the functionality at key catalytic sites or, more broadly, the probability of a particular protein fold and, in turn, the expected functionality of the protein.
+Linking amino acid sequence to protein function is a daunting task; thus for simplicity, we assume that for any given desired biological function to be carried out by a protein, that (a) the biological importance of this protein function is invariant across the tree, (b) single optimal amino acid sequence that carries out this function best, and (c) the functionality of alternative amino acid sequences declines with their \PC distance from the optimum on a site by site basis.
+While we believe \selac is substantially more realistic than $\omega$ based approaches, we also discuss a number of shortcomings of this and other assumptions in the Discussion.
+ 
+Beyond making quantiative tree inferences, \selac also makes inferences about other biological phenomena.
+By comparing these inferences to other empirical data, such as we do with protein synthesis data, we can evaluate \selac's performance independent of the data is fitted.
+Indeed, \selac's assumptions lead to mechanistic and, thus, testable hypothesis about the nature of and relationships between mutation, protein function, gene expression, and rates of evolution.
+More importantly, alternative hypotheses could be used in place of ours and, in turn, phylogenetic and other types of data could be used to evaluate the support of these alternative models.
+Our hope is that by moving away from the more phenomenological models we can better connect population genetics, molecular biology, and phylogenetics allowing each area inform the others more effectively.
+\marginpar{MAG: I have moved about 4 paragraphs back to the intro from the discussion.
+}
 
 \section{Materials \& Methods}
 \subsection{Overview}
@@ -650,17 +671,48 @@ For more details on the simulation approach, see Appendix 1.
 
 
 \section{Discussion}
-Biologically, we know protein-coding DNA sequences largely evolve through the introduction of new mutations that either become fixed or lost due to selection and/or drift.
-Selection on protein coding regions can take many forms, but can generally be related to the cost of producing the protein and the functional benefit (or potential harm) caused by the protein product.
-The gene specific cost of protein synthesis can be affected by the amino acids used, the direct and indirect costs of peptide assembly by the ribosome, the use of chaparones to aid in folding, and even the expected lifespan of the protein.
-Importantly, these costs can be computed to varying degrees of realism \citep[e.g.][]{Wagner2005,LynchAndMarinov2015}.
-We have previously presented models of protein synthesis costs that, alternatively, take into account the cost of ribosome pausing \citep{ShahAndGilchrist2011} or premature termination errors \citep{GilchristAndWagner2006,Gilchrist2007,GilchristEtAl2009}.
+A central goal in evolutionary biology is to quantify the nature, strength, and, ultimately, shifts in the forces of natural selection relative to genetic drift and mutation.
+As data set size and complexity increase, so does the amount of potential information on these forces and their dynamics.
+As a result, there is a need for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004} to accomplish this goal.
+Although extremely popular due to their elegance and computational efficiency, the utility of $\omega$ based models in helping us reach this goal is substantially more limited than commonly recognized.
+Because these $\omega$ models use a single substitution matrix, they are only applicable for situations in which the substitution process and shifts in the selective environment are intrinsic to the sequence, such as with positive or negative frequency dependent selection; these models do not describe stabilizing or diversifying selection as commonly envisioned \citep{Endler1986a,Pelmyr2002}.
 
-Protein benefit or `function' can be affected by the amino acids at each site and their interactions.
-As a result, amino acid substitutions can affect the functionality at key catalytic sites or, more broadly, the probability of a particular protein fold and, in turn, the expected functionality of the protein.
-Linking amino acid sequence to protein function is a daunting task; thus for simplicity, we assume that for any given desired biological function to be carried out by a protein, that (a) the biological importance of this protein function is invariant across the tree, (b) single optimal amino acid sequence that carries out this function best, and (c) the functionality of alternative amino acid sequences declines with their \PC distance from the optimum on a site by site basis.
+Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site-specific selection on protein sequence and phylogenetics \citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}
+\citet{HalpernAndBruno1998} calculated  a vector of 19 expected amino acid frequencies for each amino acid site, making it the most general and most parameter rich of these methods.
+This generality, however, comes at the cost of being purely descriptive; there is no explicit biological mechanism proposed to explain the site specific amino acid frequencies estimated.
+By grouping together amino sites with similar evolutionary behaviors, Lartillot and colleagues retained the descriptive nature of \citet{HalpernAndBruno1998} work while greatly reduced the number of model parameters needed \citep{LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
+\selac follows in this tradition of using multiple substitution matrices, but includes some key advances.
 
+First, by nesting a model of a sequence's cost-benefit function \Cost/\Func within a broader model, \selac allows us to formulate and test a hierarchical, mechanistic models of stabilizing selection.
+More precisely, our nested approach allows us to relax the assumption that \PC deviations from the optimal sequence \aoptvec are equally disruptive at all sites within a protein.
+We found strong support for \selac's hypothesis that the strength of stabilizing selection against \PC deviations from \aoptvec varies between sites (\DeltaAICc = 20,983).
+Second, because our substitution matrices are built on a formal description of a sequence's cost-benefit function \Cost/\Func, we are able to efficiently parameterize 20 different matrices using a relatively small number of genome-wide parameters -- e.g.~our \PC weighting and $G$ distribution shape parameters, and one gene specific gene expression parameter $\psi$.
+While the \Cost/\Func function on which \selac currently rests is very simple, nevertheless, it leads to a dramatic increase in our ability to explain the sequence data we analyzed.
+Importantly, because \selac uses a formal description of a sequence's \Cost/\Func,  replacing our assumptions with more sophisticated ones in the future is relatively straightforward.
+Conceptually, our work lies in between that of Lartillot's and Thorne's, where the latter is utilizing even more detailed models of protein structure as a means of linking amino acid substitutions and stabilizing selection.
+Third, our use of nested models also allows us to make biologically meaningful and testable predictions. By linking a gene's expression level to the strength of purifying selection it experiences, we are able to provide coarse estimates of gene expression. This also suggests that $\omega$ is best explained as a proxy for gene expression, rather than the nature of selection on a sequence.
+
+
+%Begin shortcomings of selac.
+% first paragraph was pre-existing in Discussion.
+One simplifying assumption we make is that the organism can and does compensate for any reduction in protein function by simply increasing the protein's production rate.
+While this production compensation assumption will clearly not hold in many situations, it does allow us to connect protein function and energetic costs in a simple and biologically plausible manner.
+Of course, researchers could employ and test other assumptions within our framework, namely, by utilizing more detailed, gene specific knowledge about the relationship between protein function and organism fitness.
+For example, suppose a protein for a glucose transporter is far less efficient than usual.
+One possible response and the one envisioned here is that the protein is thus produced at a higher rate to compensate.
+This would leave the overall ability to transport glucose unchanged.
+An alternative is that the cell is just less able to transport glucose across membranes.
+In biology, it is likely that a mixture of such effects exists.
+However, the production compensation mechanism is likely to have the same costs across proteins, making it a useful first approximation, while the same expression but reduced functionality will have gene specific effects more difficult to model generally (e.g., how does the cost of having glucose transport slow by half compare to the cost of underproducing an anthocyanin for flower color or fewer taste receptor proteins?).
+Moreover, there is evidence that cells do compensate for lower protein function by increasing gene expression.
+\marginpar{MIKE: Cut unless we provide citations.}
+Nevertheless, by assuming that fitness declines with extraneous energy flux, \selac explicitly links the variation in the strength of stabilizing selection for the optimal protein sequence among genes, to the variation among genes in their target expression levels $\psi$.
+
+
+%weaknesses/shortcomings of selac moved from intro
 We readily acknowledge that sequence space may have more than one local optimum, that \PC distance from the optimal primary amino acid sequence is likely a poor model of protein function, and that the biological importance of a function can vary over time.
+\marginpar{MIKE: The section moved from intro starts here.
+Need to tighten and integrate with above paragraph}
 Nevertheless, we believe our cost-benefit approach to be a substantial advance of the more simplistic $\omega$ models, is complementary to the work of others in the field \citep[e.g.][]{ThorneEtAl2012,RodrigueAndLartillot2014}, and, in turn, lays the foundation for more realistic work in the future.
 
 For instance, by assuming there is an optimal amino acid for each site, \selac naturally leads to a non-symmetrical and, thus, more cogent model of protein sequence evolution.
@@ -684,47 +736,10 @@ Because \selac infers the optimal amino acid for each site, it is substantially 
 Despite this increase in number of model parameters, \selac drastically outperforms these models with AICc values on the order of 10,000s to 100,000s.
 We predict that \selac's performance could be improved even further if we use a hierarchical approach where the optimal amino acid is not estimated on a per site basis, but rather as a vector of probability an amino acid is optimal at the gene level.
 
-\selac makes inferences about the tree, but also about population genetic parameters, and we can validate the assumptions indirectly by comparing our inferences to other empirical data, such as we do with protein synthesis data.
-More generally, \selac's assumptions lead to mechanistic and, thus, testable hypothesis about the relationship between mutation, protein function, gene expression, and rates of evolution.
-More importantly, alternative hypotheses could be used in place of ours and, in turn, phylogenetic and other types of data could be used to evaluate the support of these alternative models.
-Our hope is that by moving away from the more phenomenological models we can better connect population genetics, molecular biology, and phylogenetics allowing each area inform the others more effectively.
-\marginpar{MAG: Seems like some merging of the above text moved from the intro and the following text that previously opened the intro could be done.
-I will take a stab at later today.
-}
 
-A central goal in evolutionary biology is to quantify the nature, strength, and, ultimately, shifts in the forces of natural selection relative to genetic drift and mutation.
-As data set size and complexity increase, so does the amount of potential information on these forces and their dynamics.
-As a result, there is a need for more complex and realistic models \citep{GoldmanEtAl1996,ThorneEtAl1996,GoldmanEtAl1998,HalpernAndBruno1998,LartillotAndPhilippe2004} to accomplish this goal.
-Although extremely popular due to their elegance and computational efficiency, the utility of $\omega$ based models in helping us reach this goal is substantially more limited than commonly recognized.
-Because these $\omega$ models use a single substitution matrix, they are only applicable for situations in which the substitution process and shifts in the selective environment are intrinsic to the sequence, such as with positive or negative frequency dependent selection; these models do not describe stabilizing or diversifying selection as commonly envisioned \citep{Endler1986a,Pelmyr2002}.
 
-Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site-specific selection on protein sequence and phylogenetics \citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}
-\citet{HalpernAndBruno1998} calculated  a vector of 19 expected amino acid frequencies for each amino acid site, making it the most general and most parameter rich of these methods.
-This generality, however, comes at the cost of being purely descriptive; there is no explicit biological mechanism proposed to explain the site specific amino acid frequencies estimated.
-By grouping together amino sites with similar evolutionary behaviors, Lartillot and colleagues retained the descriptive nature of \citet{HalpernAndBruno1998} work while greatly reduced the number of model parameters needed \citep{LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
-\selac follows in this tradition of using multiple substitution matrices, but includes some key advances.
 
-First, by nesting a model of a sequence's cost-benefit function \Cost/\Func within a broader model, \selac allows us to formulate and test a hierarchical, mechanistic models of stabilizing selection.
-More precisely, our nested approach allows us to relax the assumption that \PC deviations from the optimal sequence \aoptvec are equally disruptive at all sites within a protein.
-We found strong support for \selac's hypothesis that the strength of stabilizing selection against \PC deviations from \aoptvec varies between sites (\DeltaAICc = 20,983).
-Second, because our substitution matrices are built on a formal description of a sequence's cost-benefit function \Cost/\Func, we are able to efficiently parameterize 20 different matrices using a relatively small number of genome-wide parameters -- e.g.~our \PC weighting and $G$ distribution shape parameters, and one gene specific gene expression parameter $\psi$.
-While the \Cost/\Func function on which \selac currently rests is very simple, nevertheless, it leads to a dramatic increase in our ability to explain the sequence data we analyzed.
-Importantly, because \selac uses a formal description of a sequence's \Cost/\Func,  replacing our assumptions with more sophisticated ones in the future is relatively straightforward.
-Conceptually, our work lies in between that of Lartillot's and Thorne's, where the latter is utilizing even more detailed models of protein structure as a means of linking amino acid substitutions and stabilizing selection.
-Third, our use of nested models also allows us to make biologically meaningful and testable predictions. By linking a gene's expression level to the strength of purifying selection it experiences, we are able to provide coarse estimates of gene expression. This also suggests that $\omega$ is best explained as a proxy for gene expression, rather than the nature of selection on a sequence.
-
-One simplifying assumption we make is that the organism can and does compensate for any reduction in protein function by simply increasing the protein's production rate.
-While this production compensation assumption will clearly not hold in many situations, it does allow us to connect protein function and energetic costs in a simple and biologically plausible manner.
-Of course, researchers could employ and test other assumptions within our framework, namely, by utilizing more detailed, gene specific knowledge about the relationship between protein function and organism fitness.
-For example, suppose a protein for a glucose transporter is far less efficient than usual.
-One possible response and the one envisioned here is that the protein is thus produced at a higher rate to compensate.
-This would leave the overall ability to transport glucose unchanged.
-An alternative is that the cell is just less able to transport glucose across membranes.
-In biology, it is likely that a mixture of such effects exists.
-However, the production compensation mechanism is likely to have the same costs across proteins, making it a useful first approximation, while the same expression but reduced functionality will have gene specific effects more difficult to model generally (e.g., how does the cost of having glucose transport slow by half compare to the cost of underproducing an anthocyanin for flower color or fewer taste receptor proteins?).
-Moreover, there is evidence that cells do compensate for lower protein function by increasing gene expression.
-\marginpar{MIKE: Cut unless we provide citations.}
-Nevertheless, by assuming that fitness declines with extraneous energy flux, \selac explicitly links the variation in the strength of stabilizing selection for the optimal protein sequence among genes, to the variation among genes in their target expression levels $\psi$.
+%end discussion of shortcomings
 
 Furthermore, by linking expression and selection, \selac provides a natural framework for combining information from protein coding genes with very different rates of evolution; from low expression genes providing information on shallow branches to high expression genes providing information on deep branches.
 This is in contrast to a more traditional approach of concatenating gene sequences together, which is equivalent to assuming the same average protein synthesis rate $\psi$ for all of the genes, or more recent approaches where different models are fitted to different genes.
