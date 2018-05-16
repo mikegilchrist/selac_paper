@@ -678,7 +678,7 @@ Although extremely popular due to their elegance and computational efficiency, t
 Because these $\omega$ models use a single substitution matrix, they are only applicable for situations in which the substitution process and shifts in the selective environment are intrinsic to the sequence, such as with positive or negative frequency dependent selection; these models do not describe stabilizing or diversifying selection as commonly envisioned \citep{Endler1986a,Pelmyr2002}.
 
 Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site-specific selection on protein sequence and phylogenetics \citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}
-\citet{HalpernAndBruno1998} calculated  a vector of 19 expected amino acid frequencies for each amino acid site, making it the most general and most parameter rich of these methods.
+\citet{HalpernAndBruno1998} calculated  a vector of 20 expected amino acid frequencies for each amino acid site, making it the most general and most parameter rich of these methods.
 This generality, however, comes at the cost of being purely descriptive; there is no explicit biological mechanism proposed to explain the site specific amino acid frequencies estimated.
 By grouping together amino sites with similar evolutionary behaviors, Lartillot and colleagues retained the descriptive nature of \citet{HalpernAndBruno1998} work while greatly reduced the number of model parameters needed \citep{LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 \selac follows in this tradition of using multiple substitution matrices, but includes some key advances.
@@ -686,7 +686,7 @@ By grouping together amino sites with similar evolutionary behaviors, Lartillot 
 First, by nesting a model of a sequence's cost-benefit function \Cost/\Func within a broader model, \selac allows us to formulate and test a hierarchical, mechanistic models of stabilizing selection.
 More precisely, our nested approach allows us to relax the assumption that \PC deviations from the optimal sequence \aoptvec are equally disruptive at all sites within a protein.
 We found strong support for \selac's hypothesis that the strength of stabilizing selection against \PC deviations from \aoptvec varies between sites (\DeltaAICc = 20,983).
-Second, because our substitution matrices are built on a formal description of a sequence's cost-benefit function \Cost/\Func, we are able to efficiently parameterize 20 different matrices using a relatively small number of genome-wide parameters -- e.g.~our \PC weighting and $G$ distribution shape parameters, and one gene specific gene expression parameter $\psi$.
+Second, because our substitution matrices are built on a formal description of a sequence's cost-benefit function \Cost/\Func, we are able to efficiently parameterize 20 different matrices using a relatively small number of genome-wide parameters -- e.g.~our \PC weightings, \alphac, \alphag, and \alphap, and the shape parameter for the distribution of selective strength, $G$, and one gene specific expression parameter $\psi$.
 While the \Cost/\Func function on which \selac currently rests is very simple, nevertheless, it leads to a dramatic increase in our ability to explain the sequence data we analyzed.
 Importantly, because \selac uses a formal description of a sequence's \Cost/\Func,  replacing our assumptions with more sophisticated ones in the future is relatively straightforward.
 Conceptually, our work lies in between that of Lartillot's and Thorne's, where the latter is utilizing even more detailed models of protein structure as a means of linking amino acid substitutions and stabilizing selection.
@@ -710,7 +710,7 @@ Nevertheless, by assuming that fitness declines with extraneous energy flux, \se
 
 
 %weaknesses/shortcomings of selac moved from intro
-We readily acknowledge that sequence space may have more than one local optimum, that \PC distance from the optimal primary amino acid sequence is likely a poor model of protein function, and that the biological importance of a function can vary over time.
+We readily acknowledge that \PC distance from the optimal primary amino acid sequence is likely a poor model of protein function, and that the biological importance of a function can vary over time.
 \marginpar{MIKE: The section moved from intro starts here.
 Need to tighten and integrate with above paragraph}
 Nevertheless, we believe our cost-benefit approach to be a substantial advance of the more simplistic $\omega$ models, is complementary to the work of others in the field \citep[e.g.][]{ThorneEtAl2012,RodrigueAndLartillot2014}, and, in turn, lays the foundation for more realistic work in the future.
@@ -729,7 +729,7 @@ For example, a mutation which reduces the functionality of the protein to 90\% o
 Because the energetic cost of an 11\% increase in a protein's synthesis rate is proportional to its target synthesis rate, our assumptions naturally link changes in protein functionality and changes in gene expression and its associated costs.
 Under what circumstances cells actually respond in this manner, remains to be determined.
 The fact that our method allows us to explain 13-23\% of the variation in gene expression measured using RNA-Seq, suggests that this assumption is a reasonable starting point.
-More importantly, by linking the strength of stabilizing selection for an optimal amino acid sequence to gene expression, we can effectively weight the phylogenetic information encoded in high and low expression genes which tend to evolve at different rates.
+More importantly, by linking the strength of stabilizing selection for an optimal amino acid sequence to gene expression, we can effectively weight the differing amounts and type of phylogenetic information encoded in high and low expression genes.
 %would like to link to Lartillot approach
 
 Because \selac infers the optimal amino acid for each site, it is substantially more parameter rich than more commonly used models such as GTR$+\Gamma$, GY94, and FMutSel.
@@ -793,15 +793,16 @@ Future work will encode \selac models into a variety of mature, popular tree-sea
 A different implementation, more parameter-rich, would optimize values of three (or more) physiochemical properties per site.
 This would have the practical advantage of continuous parameter optimization rather than discrete, and biologically would be more realistic (as it is the properties that selection "sees", not the identity of the amino acid itself).
 
+
 In spite of these difficulties, \selac represents an important step in uniting phylogenetic and population genetic models.
-While \citet{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014} are all models of constant, stabilizing selection, \selac can be generalized further to include diversifying selection.
+For example, while \citet{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014} are all models of constant, stabilizing selection, \selac can be generalized further to include diversifying selection.
 Specifically, by letting \selac's Grantham weighting term $G$, which we now assume is $\ge 0$,  to take on negative values, \selac will behave as if there is a pessimal, rather than optimal, amino acid for the given site.
 In this diversifying selection scenario, amino acids with \PC qualities more dissimilar to the pessimal amino acid are increasingly favored, potentially resulting in multiple fitness peaks.
 
 This ability to extend our model and, in turn, sharpen our thinking about the nature of natural selection on amino acid sequences illustrates the value of moving from descriptive to more mechanistic models in general and phylogenetics in particular.
 How frequently diversifying selection of this nature occurs is an open, but addressable, question.
 %Fortunately, it is also a question that can be addressed using \selac in the future.
-Regardless of the frequency at which diversifying selection occurs, it leads to the question, ``How often does the optimal/pessimal amino sequence change along any given branch?''
+Regardless of the frequency at which diversifying selection occurs, another question of interest to evolutionary biologists is, ``How often does the optimal/pessimal amino sequence change along any given branch?''
 Due to its mechanistic nature, \selac can also be extended to include changes in the optimal/pessimal sequence over a  phylogeny using a hidden markov modelling approach.
 Extending \selac in these ways, will allow researchers to explicitly model shifts in selection on protein sequences and, in turn, quantify their frequency and magnitude.
 
