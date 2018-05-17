@@ -308,11 +308,13 @@ Finally, because SelAC is a nested approach based on clearly stated biological a
 %\subsection{Introduction}
 Phylogenetic analyses plays a critical role in most aspects of biology, particularly in the fields of ecology, evolution, paleontology, medicine, and conservation.
 While the scale and impact of phylogenetic studies has increased substantially over the past two decades, the realism of the mathematical models on which these analyses are based has changed relatively little by comparison.
-The most popular models of DNA substitution used in molecular phylogenetics are simple nucleotide models that are indifferent to the type of sequences to which they are applied.
-For example, when evaluating protein-coding sequences these models are inherently agnostic with regards to the different amino acid substitutions and their impact on gene function (e.g.~F81, F84, HYK85, TN93, and GTR, see \citet{Yang2014} for an overview) and, as a result, cannot describe the behavior of natural selection at the amino acid or protein level.
+The most popular models of DNA substitution used in molecular phylogenetics are simple nucleotide models that date back the early 1980's and 90's, e.g.~F81, F84, HYK85, TN93, and GTR (see \citet{Yang2014} for an overview),  and are indifferent to the type of sequences they are fitted to.
+For example, when evaluating protein-coding sequences these models are inherently agnostic with regards to the different amino acid substitutions and their impact on gene function and, as a result, cannot describe the behavior of natural selection at the amino acid or protein level.
 
-To address this critical shortcoming, \citet{GoldmanAndYang1994} and \citet{MuseAndGaut1994} independently introduced models which assumed that differences in the \PC properties between amino acids, or \PC distances for short, could affect substitution rates.
-These \PC approaches as originally described have rarely been used for empirical data; instead these models have served as the basis for an array of simpler and, in turn, more popular models that, starting with \citet{YangAndNielsen1998,NielsenAndYang1998}, typically assume an equal fixation probability for \emph{all} non-synonymous mutations.
+Two important and independent attempts to address this critical shortcoming were introduced by \citet{GoldmanAndYang1994} and \citet{MuseAndGaut1994}.
+These models were explicitly built for protein coding data, assuming that differences in the \PC properties between amino acids, or \PC distances for short, could affect substitution rates.
+These \PC based codon models as originally introduced by \citet{GoldmanAndYang1994} and \citet{MuseAndGaut1994} have rarely been used for empirical data.
+Instead, these often cited models have served as the basis for an array of simpler and, in turn, more popular models that, starting with \citet{YangAndNielsen1998,NielsenAndYang1998}, typically assume an equal fixation probability for \emph{all} non-synonymous mutations.
 %\footnote{Interestingly, while $\omega$ is now associated with GY94, that paper actually did not use the term $\omega$ at all and, similar to our approach, used \PC based distances to scale substitution rates.
 %For the record, it was a pair of papers by Yang and Nielsen \citep{NielsenAndYang1998,YangAndNielsen1998} that introduced the parameter $\omega$ as a simplified version of the original GY94 model in which \PC properties of the resident and replacement amino acids were ignored.
 %For consistency with the literature, we will also refer to this simplifed version as GY94, unless otherwise noted.
@@ -323,20 +325,19 @@ To improve their realism, more complex forms have been developed that allow $\om
 %Despite these extensions, these models do not actually  behavior of stabilizing or diversifying selection.
 In \citet{GoldmanAndYang1994,YangAndNielsen1998,NielsenAndYang1998} and later studies based on their work, $\omega$ is suggested to indicate whether a given site within a protein sequence is under consistent `stabilizing ($\omega < 1$) or `diversifying' ($\omega > 1$) selection.
 Contrary to popular belief, $\omega$ does not describe whether a site is evolving under a constant regime of stabilizing or diversifying selection, but instead how a very particular selective environment changes over time.
-As we explain below, the actual behavior of these models is inconsistent with how these terms are typically defined and understood \citep[e.g.~see][]{Pellmyr2002}. %\footnote{Although \citet{GoldmanAndYang1994} use a more complex, \PC based distance function instead of $\omega$, the criticisms below also apply to this work.}.
+Below we explain how the actual behavior of these models is actually inconsistent with how 'stabilizing' and 'diversifying' selection are otherwise defined and understood \citep[e.g.~see][]{Pellmyr2002}. %\footnote{Although \citet{GoldmanAndYang1994} use a more complex, \PC based distance function instead of $\omega$, the criticisms below also apply to this work.}.
 
 For example, when $\omega < 1$, synonymous substitutions have a higher substitution rate than any possible non-synonymous substitutions.
 As a result, the model behaves as if the resident amino acid $i$ at a given site is favored by natural selection.
 Even when $\omega$ is allowed to vary between sites, symmetrical aspects  of the model means that for any given site the strength of selection for the resident amino acid $i$ over its 19 alternatives is equally strong regardless of their \PC properties.
-Paradoxically, selection for amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
+Paradoxically, natural selection for amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
 As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ equally over all other amino acids, including amino acid $i$.
 This is now the opposite scenario from when $i$ was the resident.
 Thus, the simplest and most consistent interpretation of $\omega$ is that it represents the rate at which the \emph{selective environment itself} changes, and this change in selection perfectly coincides with the fixation of a new amino acid.
 
 Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions from the resident amino acid.
 Again due to the model's symmetrical nature, the selection \emph{against} the resident amino acid $i$ is equally strong relative to alternative amino acids.
-The selection against the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors} amino acid $i$, as well as the 18 other amino acids, to the same degree $i$ was previously disfavored.
-
+The selection against the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors} amino acid $i$, as well as the 19 other amino acids, to the same degree $i$ was previously disfavored.
 Given this behavior, $\omega$ based models are likely to only reasonably approximate a subset of scenarios such as perfectly symmetrical over-/under-dominance or positive/negative frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
 Further, $\omega$ based models implicitly assumes the substitution is on the same timescale as the shifts in the optimal (or pessimal) amino acid.
 
