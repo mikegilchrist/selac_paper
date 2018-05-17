@@ -288,11 +288,13 @@ M\textsc{ICHAEL} A.~{G\textsc{ILCHRIST}}$^{2,3,*}$}
 \newpage
 
 \section{Abstract}
-We present a new phylogenetic approach, collectively called \selac (Selection on Amino acids and Codons), whose substitution rates are derived from a nested model of protein expression grounded in population genetics.
-Unlike many simpler codon models, which assume a single substitution matrix for all sites, our model more realistically represents the evolution of protein-coding DNA under the assumption of consistent, stabilizing selection for a gene specific optimal amino acid sequence.
-By modeling the cost-benefit function of an amino acid sequence, our model naturally links the strength of stabilizing selection to protein synthesis levels, which, in turn, can be estimated.
- fit phylogenetic data much better than popular models, suggesting strong potential for more accurate inference of phylogenetic trees and branch lengths from existing data.
-\selac also demonstrates that a large amount of biologically meaningful information is accessible when using a nested set of mechanistic models.
+We present a new phylogenetic approach, called \selac (Selection on Amino acids and Codons), whose substitution rates are derived from a nested model of protein expression grounded in population genetics.
+Unlike many simpler codon models, which assume a single substitution matrix for all sites, our model more realistically represents the evolution of protein-coding DNA under the assumption of consistent, stabilizing selection by employing a set of 20 families of matrices, one for when each amino acid is the optimal one.
+We use these matrices to model the cost-benefit function of an amino acid sequence.
+One result of our approach is that \selac naturally links the strength of stabilizing selection to protein synthesis levels, which, in turn, can be estimated.
+Using a yeast dataset of 100 orthologs for 6 taxa as a test case, we find \selac fits the data much better than popular models by $10^{-4}$ to $10^{-5}$ AICc units.
+Our results indicate there is great potential for more accurate inference of phylogenetic trees and branch lengths from already existing data through the use of nested, mechanistic models.
+Additional parameters estimated by \selac indicate that a large amount of non-phylogenetic, but biologically meaningful, information is can be inferred from exisiting data.
 For example, \selac prediction of gene specific protein synthesis rates correlates well with both empirical ($r = 0.34-0.48$) and other theoretical predictions ($r=0.59-0.64$) for multiple yeast species.
 \selac also provides estimates of which amino acid is optimal for a given site.
 Finally, because SelAC is a nested approach based on clearly stated biological assumptions, it can be simplified or expanded as needed, such as including shifts in the optimal amino acid sequence within or across lineages.
