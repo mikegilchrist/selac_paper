@@ -342,13 +342,13 @@ Given this behavior, $\omega$ based models are likely to only reasonably approxi
 Further, $\omega$ based models implicitly assumes the substitution is on the same timescale as the shifts in the optimal (or pessimal) amino acid.
 
 To address these short comings, we present an approach where selection explicitly favors minimizing the cost-benefit function $\eta$ of a protein whose relative performance is determined by the order and \PC properties of its amino acids.
-Our approach, which we call \selac (Selection on Amino acids and Codons), is developed in the same vein as previous phylogenetic applications of the Wright-Fisher process \citep[e.g.~][]{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008,RodrigueEtAl2005,KoshiAndGoldstein1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
+Our approach, which we call Selection on Amino acids and Codons or \selac, is developed in the same vein as previous phylogenetic applications of the Wright-Fisher process \citep[e.g.~][]{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008,RodrigueEtAl2005,KoshiAndGoldstein1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 Similar to Lartillot's work \citep{LartillotAndPhilippe2004,RodrigueAndLartillot2014}, we assume there is a finite set of rate matrices describing the substitution process and that each position within a protein is assigned to a particular rate matrix category.
 Unlike Lartillot's work, we assume \emph{a priori} there are 20 different families of rate matrices, one family for when a given amino acid is favored at a site.
 The key parameters underlying these matrices are shared across genes except for gene expression.
 As a result, \selac allows us to quantitatively evaluate the support for a particular amino acid at a particular position within a protein being favored by natural selection using a simple cost-benefit approach.
 
-While natural selection on protein coding regions can take many forms, one general approach to describing its effects is by relating a codon sequence to the cost of producing the encoded protein and the functional benefit (or potential harm) caused by the protein product.
+While natural selection on protein coding regions can take many forms, one general approach to describing its effects is by relating a codon sequence to the cost of producing the encoded protein and the functional benefit (or potential harm) from the translating its sequence.
 The gene specific cost of protein synthesis can be affected by the amino acids used, the direct and indirect costs of peptide assembly by the ribosome, the use of chaparones to aid in folding, and even the expected lifespan of the protein.
 Importantly, these costs can be computed to varying degrees of realism \citep[e.g.][]{Wagner2005,LynchAndMarinov2015}.
 We have previously presented models of protein synthesis costs that, alternatively, take into account the cost of ribosome pausing \citep{ShahAndGilchrist2011} or premature termination errors \citep{GilchristAndWagner2006,Gilchrist2007,GilchristEtAl2009}.
@@ -358,7 +358,7 @@ As a result, amino acid substitutions can affect the functionality at key cataly
 Linking amino acid sequence to protein function is a daunting task; thus for simplicity, we assume that for any given desired biological function to be carried out by a protein, that (a) the biological importance of this protein function is invariant across the tree, (b) single optimal amino acid sequence that carries out this function best, and (c) the functionality of alternative amino acid sequences declines with their \PC distance from the optimum on a site by site basis.
 While we believe \selac is substantially more realistic than $\omega$ based approaches, we also discuss a number of shortcomings of this and other assumptions in the Discussion.
  
-Beyond making quantiative tree inferences, \selac also makes inferences about other biological phenomena.
+Beyond making quantiative tree inferences, \selac also makes inferences about other important biological processes.
 By comparing these inferences to other empirical data, such as we do with protein synthesis data, we can evaluate \selac's performance independent of the data is fitted.
 Indeed, \selac's assumptions lead to mechanistic and, thus, testable hypothesis about the nature of and relationships between mutation, protein function, gene expression, and rates of evolution.
 More importantly, alternative hypotheses could be used in place of ours and, in turn, phylogenetic and other types of data could be used to evaluate the support of these alternative models.
