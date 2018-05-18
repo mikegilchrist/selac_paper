@@ -5,44 +5,44 @@ The style file: ./sysbio.bst
 Database file #1: ./mike.bib
 Database file #2: ./omeara.bib
 Database file #3: ./landerer.bib
-You've used 69 entries,
+You've used 72 entries,
             2856 wiz_defined-function locations,
-            1079 strings with 17376 characters,
-and the built_in function-call counts, 41196 in all, are:
-= -- 3658
-> -- 1623
+            1105 strings with 18361 characters,
+and the built_in function-call counts, 43781 in all, are:
+= -- 3848
+> -- 1824
 < -- 52
-+ -- 554
-- -- 463
-* -- 3000
-:= -- 6369
-add.period$ -- 280
-call.type$ -- 69
-change.case$ -- 433
-chr.to.int$ -- 69
-cite$ -- 138
-duplicate$ -- 2937
-empty$ -- 3175
-format.name$ -- 677
-if$ -- 8562
++ -- 620
+- -- 526
+* -- 3224
+:= -- 6771
+add.period$ -- 292
+call.type$ -- 72
+change.case$ -- 468
+chr.to.int$ -- 72
+cite$ -- 144
+duplicate$ -- 3114
+empty$ -- 3322
+format.name$ -- 749
+if$ -- 9075
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 639
-newline$ -- 287
-num.names$ -- 282
-pop$ -- 1011
+missing$ -- 683
+newline$ -- 299
+num.names$ -- 294
+pop$ -- 1083
 preamble$ -- 1
-purify$ -- 429
+purify$ -- 462
 quote$ -- 0
-skip$ -- 1044
+skip$ -- 1083
 stack$ -- 0
-substring$ -- 2416
-swap$ -- 1290
+substring$ -- 2510
+swap$ -- 1378
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 603
+type$ -- 630
 warning$ -- 0
-while$ -- 289
+while$ -- 301
 width$ -- 0
-write$ -- 841
+write$ -- 879

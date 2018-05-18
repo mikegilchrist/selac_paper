@@ -409,11 +409,9 @@ More explicitly, $ S = -\left(\sum_{i \in \text{codons}} \mu_{i,i} \pi_{i,i}\rig
 \subsection{Protein Synthesis Cost-Benefit Function $\eta$}
 \selac links fitness to the product of the cost-benefit function of a gene $\eta$ and the organism's average target synthesis rate of the functionality provided by gene $\psi$.
 This is because the average flux energy an organism spends to meet its target functionality provided by the gene is, by definition, $\eta \times \psi$.
-Compensatory changes that allow an organism to maintain functionality even with loss of one or both copies of a gene are widespread (reviewed in \marginpar{MIKE: Brian, please provide references or cut. BRIAN: Cedric had suggestions, or we can pull from footnote}
-\footnote{From Cruft:
-There is evidence of compensation for protein function. Metabolism with gene expression models (ME-models) link those factors to successfully make predictions about response to perturbations in a cell \url{https://www.nature.com/articles/ncomms1928}, \url{https://www.sciencedirect.com/science/article/pii/S0958166914002316}. For example, an ME-model for *E. coli* successfully predicted gene expression levels in vivo \url{http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0045635}.
-}
-); here we assume that for finer scale problems than entire loss (for example, a 10\% loss of functionality) the compensation is more production of the protein.
+Compensatory changes that allow an organism to maintain functionality even with loss of one or both copies of a gene are widespread.
+There is evidence of compensation for protein function. Metabolism with gene expression models (ME-models) link those factors to successfully make predictions about response to perturbations in a cell \citep{KingEtAl2015,LermanEtAl2012}. For example, an ME-model for *E. coli* successfully predicted gene expression levels in vivo \citep{ThieleEtAl2012}.
+Here we assume that for finer scale problems than entire loss (for example, a 10\% loss of functionality) the compensation is more production of the protein.
 In order to link genotype to our cost-benefit function $\eta = \Cost/\Func$, we begin by defining our benefit function \Func.
 
 %MIKE: For some reason, line numbering is lost here and a few other places.

@@ -1,4 +1,4 @@
-\begin{thebibliography}{69}
+\begin{thebibliography}{72}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\selectlanguage}[1]{\relax}
 \providecommand{\bibAnnoteFile}[1]{%
@@ -203,6 +203,13 @@ Kimura, M. 1962. on the probability of fixation of mutant genes in a
   population. Genetics 47:713--719.
 \bibAnnoteFile{Kimura1962}
 
+\bibitem[{King et~al.(2015)King, Lloyd, Feist, and Palsson}]{KingEtAl2015}
+King, Z.~A., C.~J. Lloyd, A.~M. Feist, and B.~O. Palsson. 2015. Next-generation
+  genome-scale models for metabolic engineering. Current Opinion in
+  Biotechnology 35:23 -- 29 chemical biotechnology ‚Ä¢ Pharmaceutical
+  biotechnology.
+\bibAnnoteFile{KingEtAl2015}
+
 \bibitem[{Koshi and Goldstein(1997)}]{KoshiAndGoldstein1997}
 Koshi, J.~M. and R.~A. Goldstein. 1997. Mutation matrices and physical-chemical
   properties: Correlations and implications. Proteins-Structure Function And
@@ -233,6 +240,14 @@ Lartillot, N. and H.~Philippe. 2004. A Bayesian mixture model for across-site
   heterogeneities in the amino-acid replacement process. Molecular Biology And
   Evolution 21:1095--1109.
 \bibAnnoteFile{LartillotAndPhilippe2004}
+
+\bibitem[{Lerman et~al.(2012)Lerman, Hyduke, Latif, Portnoy, Lewis, Orth,
+  Schrimpe-Rutledge, Smith, Adkins, Zengler, and Palsson}]{LermanEtAl2012}
+Lerman, J.~A., D.~R. Hyduke, H.~Latif, V.~A. Portnoy, N.~E. Lewis, J.~D. Orth,
+  A.~C. Schrimpe-Rutledge, R.~D. Smith, J.~N. Adkins, K.~Zengler, and B.~O.
+  Palsson. 2012. In silico method for modelling metabolism and gene product
+  expression at genome scale. Nature Communications 3:929 EP -- article.
+\bibAnnoteFile{LermanEtAl2012}
 
 \bibitem[{Lynch and Marinov(2015)}]{LynchAndMarinov2015}
 Lynch, M. and G.~K. Marinov. 2015. The bioenergetic costs of a gene.
@@ -356,6 +371,13 @@ Stamatakis, A. 2006. {RAxML-VI-HPC}: maximum likelihood-based phylogenetic
 Sullivan, J. and P.~Joyce. 2005. Model Selection in Phylogenetics. Annual
   Review of Ecology, Evolution, and Systematics 36:445--466.
 \bibAnnoteFile{SullivanJoyce2005}
+
+\bibitem[{Thiele et~al.(2012)Thiele, Fleming, Que, Bordbar, Diep, and
+  Palsson}]{ThieleEtAl2012}
+Thiele, I., R.~M.~T. Fleming, R.~Que, A.~Bordbar, D.~Diep, and B.~O. Palsson.
+  2012. Multiscale Modeling of Metabolism and Macromolecular Synthesis in E.
+  coli and Its Application to the Evolution of Codon Usage. PLOS ONE 7:1--18.
+\bibAnnoteFile{ThieleEtAl2012}
 
 \bibitem[{Thorne et~al.(1996)Thorne, Goldman, and Jones}]{ThorneEtAl1996}
 Thorne, J.~L., N.~Goldman, and D.~T. Jones. 1996. Combining protein evolution
