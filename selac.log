@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  15 MAY 2018 10:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  18 MAY 2018 10:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -683,331 +683,318 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
  [4] [5]
-[6]
+Underfull \hbox (badness 3386) in paragraph at lines 367--367
+\OT1/cmr/m/n/6 back to the
+ []
+
+[6] [7]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 367.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 391.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 368.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 392.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 368.
- [7]
-Underfull \hbox (badness 10000) in paragraph at lines 388--388
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 392.
+ [8]
+Underfull \hbox (badness 10000) in paragraph at lines 412--412
 []\OT1/cmr/m/n/6 MIKE:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 388--388
+Underfull \hbox (badness 10000) in paragraph at lines 412--412
 \OT1/cmr/m/n/6 pro-vide
  []
 
 
-Underfull \hbox (badness 2671) in paragraph at lines 388--388
+Underfull \hbox (badness 2671) in paragraph at lines 412--412
 \OT1/cmr/m/n/6 ref-er-ences or
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 388--388
+Underfull \hbox (badness 10000) in paragraph at lines 412--412
 \OT1/cmr/m/n/6 Cedric had
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 388--388
+Underfull \hbox (badness 10000) in paragraph at lines 412--412
 \OT1/cmr/m/n/6 sug-ges-tions,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 388--388
+Underfull \hbox (badness 10000) in paragraph at lines 412--412
 \OT1/cmr/m/n/6 or we can
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 388--388
+Underfull \hbox (badness 10000) in paragraph at lines 412--412
 \OT1/cmr/m/n/6 pull from
  []
 
-[8] [9] [10] [11] [12] [13] [14]
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+[9] [10] [11] [12] [13] [14] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 []\OT1/cmr/m/n/6 MIKE: I
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 thought we
  []
 
 
-Underfull \hbox (badness 2189) in paragraph at lines 536--536
+Underfull \hbox (badness 2189) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 up-dated this
  []
 
 
-Underfull \hbox (badness 2617) in paragraph at lines 536--536
+Underfull \hbox (badness 2617) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 to be based
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 in LLik
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 func-tion.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 clear now?
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 MAG: Yep,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 I've added
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 the cri-te-ria,
  []
 
 
-Underfull \hbox (badness 5970) in paragraph at lines 536--536
+Underfull \hbox (badness 5970) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 which seems
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 rather
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 re-call our
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 dis-cus-sions
  []
 
 
-Underfull \hbox (badness 5862) in paragraph at lines 536--536
+Underfull \hbox (badness 5862) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 in the past
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 of hav-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 the cri-te-ria
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 would also
  []
 
 
-Underfull \hbox (badness 6675) in paragraph at lines 536--536
+Underfull \hbox (badness 6675) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 be good to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 ex-plic-itly
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 link this
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 cri-te-ria to
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 the cri-te-ria
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 used within
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 each stage
  []
 
 
-Underfull \hbox (badness 3375) in paragraph at lines 536--536
+Underfull \hbox (badness 3375) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 via a sin-gle
  []
 
 
-Underfull \hbox (badness 1048) in paragraph at lines 536--536
+Underfull \hbox (badness 1048) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 cri-te-ria more
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 strin-gent
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 than the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 since dif-fer-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 ences more
  []
 
 
-Underfull \hbox (badness 8132) in paragraph at lines 536--536
+Underfull \hbox (badness 8132) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 re-fined than
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 536--536
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
 \OT1/cmr/m/n/6 es-ssen-tially
  []
 
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
-[15]
+[16]
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no ¶ in font cmr12!
- [16] [17] [18] [19] [20] [21] [22] [23] [24] [25]
-Underfull \hbox (badness 10000) in paragraph at lines 693--693
-\OT1/cmr/m/n/6 like some
+ [17] [18] [19] [20] [21] [22] [23] [24] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 711--711
+[]\OT1/cmr/m/n/6 CL: should
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--693
-\OT1/cmr/m/n/6 merg-ing of
+Underfull \hbox (badness 10000) in paragraph at lines 711--711
+\OT1/cmr/m/n/6 I elob-o-rate
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--693
-\OT1/cmr/m/n/6 the above
+Underfull \hbox (badness 10000) in paragraph at lines 711--711
+\OT1/cmr/m/n/6 that more?
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--693
-\OT1/cmr/m/n/6 text moved
+Underfull \hbox (badness 10000) in paragraph at lines 711--711
+\OT1/cmr/m/n/6 sup-port-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--693
-\OT1/cmr/m/n/6 from the
+Underfull \hbox (badness 10000) in paragraph at lines 711--711
+\OT1/cmr/m/n/6 ma-te-ri-als?
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--693
-\OT1/cmr/m/n/6 in-tro and
+Underfull \hbox (badness 10000) in paragraph at lines 711--711
+\OT1/cmr/m/n/6 also talk
  []
 
 
-Underfull \hbox (badness 1048) in paragraph at lines 693--693
-\OT1/cmr/m/n/6 the fol-low-ing
+Underfull \hbox (badness 10000) in paragraph at lines 711--711
+\OT1/cmr/m/n/6 about Hill
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 720--720
+[]\OT1/cmr/m/n/6 MIKE: The
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--693
-\OT1/cmr/m/n/6 text that
+Underfull \hbox (badness 10000) in paragraph at lines 720--720
+\OT1/cmr/m/n/6 sec-tion
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--693
-\OT1/cmr/m/n/6 pre-vi-ously
+Underfull \hbox (badness 10000) in paragraph at lines 720--720
+\OT1/cmr/m/n/6 moved from
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--693
-\OT1/cmr/m/n/6 opened the
+Underfull \hbox (badness 10000) in paragraph at lines 720--720
+\OT1/cmr/m/n/6 in-tro starts
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--693
-\OT1/cmr/m/n/6 in-tro could
+Underfull \hbox (badness 1769) in paragraph at lines 720--720
+\OT1/cmr/m/n/6 here. Need
  []
 
 
-Underfull \hbox (badness 1259) in paragraph at lines 693--693
-\OT1/cmr/m/n/6 be done. I
+Underfull \hbox (badness 10000) in paragraph at lines 720--720
+\OT1/cmr/m/n/6 to tighten
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 693--693
-\OT1/cmr/m/n/6 will take a
+Underfull \hbox (badness 10000) in paragraph at lines 720--720
+\OT1/cmr/m/n/6 with above
  []
 
-[26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 726--726
-[]\OT1/cmr/m/n/6 MIKE: Cut
- []
+[27] [28] [29] [30] [31] [32] [33] [34] (./selac.bbl [35
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 726--726
-\OT1/cmr/m/n/6 un-less we
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 726--726
-\OT1/cmr/m/n/6 pro-vide
- []
-
-[28] [29] [30] [31] [32] [33] [34] (./selac.bbl
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no ™ in font cmr12!
- [35
-
-] [36]
+] [36] [37]
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no ¶ in font cmr12!
- [37] [38]
+ [38]
+[39]
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no © in font cmr12!
- [39]
-[40] [41]) [42] [43
+ [40] [41]) [42] [43
 
 ]
-<./Figures/FIGURE_1_SelACwG_vs_Empirical_by_spp.pdf, id=544, 578.16pt x 578.16p
+<./Figures/FIGURE_1_SelACwG_vs_Empirical_by_spp.pdf, id=576, 578.16pt x 578.16p
 t>
 File: ./Figures/FIGURE_1_SelACwG_vs_Empirical_by_spp.pdf Graphic file (type pdf
 )
  <use ./Figures/FIGURE_1_SelACwG_vs_Empirical_by_spp.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_1_SelACwG_vs_Empirical_by_spp.pdf use
-d on input line 855.
+d on input line 876.
 (pdftex.def)             Requested size: 422.77664pt x 422.77669pt.
 
-<./Figures/FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf, id=549, 578.16pt x 578
+<./Figures/FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf, id=581, 578.16pt x 578
 .16pt>
 File: ./Figures/FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf Graphic file (type
  pdf)
  <use ./Figures/FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf
- used on input line 866.
+ used on input line 887.
 (pdftex.def)             Requested size: 422.77664pt x 422.77669pt.
  [44
 
@@ -1017,93 +1004,93 @@ pdfTeX warning: pdflatex (file ./Figures/FIGURE_3_Inferred_Tree_AND_Model_Adequ
 acy.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> all
 owed
 
-<./Figures/FIGURE_3_Inferred_Tree_AND_Model_Adequacy.pdf, id=568, 578.16pt x 57
+<./Figures/FIGURE_3_Inferred_Tree_AND_Model_Adequacy.pdf, id=601, 578.16pt x 57
 8.16pt>
 File: ./Figures/FIGURE_3_Inferred_Tree_AND_Model_Adequacy.pdf Graphic file (typ
 e pdf)
  <use ./Figures/FIGURE_3_Inferred_Tree_AND_Model_Adequacy.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_3_Inferred_Tree_AND_Model_Adequacy.pd
-f used on input line 876.
+f used on input line 897.
 (pdftex.def)             Requested size: 422.77664pt x 422.77669pt.
  [45 <./Figures/FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf>] [46 <./Figures/F
 IGURE_3_Inferred_Tree_AND_Model_Adequacy.pdf>]
-<./Figures/FIGURE_S1_SelACwG_vs_ROC_by_spp.pdf, id=638, 578.16pt x 578.16pt>
+<./Figures/FIGURE_S1_SelACwG_vs_ROC_by_spp.pdf, id=670, 578.16pt x 578.16pt>
 File: ./Figures/FIGURE_S1_SelACwG_vs_ROC_by_spp.pdf Graphic file (type pdf)
 
 <use ./Figures/FIGURE_S1_SelACwG_vs_ROC_by_spp.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_S1_SelACwG_vs_ROC_by_spp.pdf used on 
-input line 914.
+input line 935.
 (pdftex.def)             Requested size: 422.77664pt x 422.77669pt.
  [1
 
 ]
-<./Figures/FIGURE_S2_Empirical_vs_ROC_by_spp.pdf, id=651, 578.16pt x 578.16pt>
+<./Figures/FIGURE_S2_Empirical_vs_ROC_by_spp.pdf, id=683, 578.16pt x 578.16pt>
 File: ./Figures/FIGURE_S2_Empirical_vs_ROC_by_spp.pdf Graphic file (type pdf)
 
 <use ./Figures/FIGURE_S2_Empirical_vs_ROC_by_spp.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_S2_Empirical_vs_ROC_by_spp.pdf used o
-n input line 925.
+n input line 946.
 (pdftex.def)             Requested size: 422.77664pt x 422.77669pt.
  [2 <./Figures/FIGURE_S1_SelACwG_vs_ROC_by_spp.pdf>] [3 <./Figures/FIGURE_S2_Em
 pirical_vs_ROC_by_spp.pdf>]
-<./Figures/FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf, id=691, 505.89pt x 505.89
+<./Figures/FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf, id=723, 505.89pt x 505.89
 pt>
 File: ./Figures/FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf Graphic file (type pd
 f)
  <use ./Figures/FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf us
-ed on input line 949.
+ed on input line 970.
 (pdftex.def)             Requested size: 422.77664pt x 422.7833pt.
  [4]
-<./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG.pdf, id=700, 578.16pt x
+<./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG.pdf, id=733, 578.16pt x
  578.16pt>
 File: ./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG.pdf Graphic file (
 type pdf)
  <use ./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG
-.pdf used on input line 960.
+.pdf used on input line 981.
 (pdftex.def)             Requested size: 422.77664pt x 422.77669pt.
 
 [5 <./Figures/FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf>]
-<./Figures/FIGURE_S5_5genes_All_UNREST_WITHGAMMA.pdf, id=712, 505.89pt x 505.89
+<./Figures/FIGURE_S5_5genes_All_UNREST_WITHGAMMA.pdf, id=745, 505.89pt x 505.89
 pt>
 File: ./Figures/FIGURE_S5_5genes_All_UNREST_WITHGAMMA.pdf Graphic file (type pd
 f)
  <use ./Figures/FIGURE_S5_5genes_All_UNREST_WITHGAMMA.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_S5_5genes_All_UNREST_WITHGAMMA.pdf us
-ed on input line 969.
+ed on input line 990.
 (pdftex.def)             Requested size: 422.77664pt x 422.7833pt.
  [6 <./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG.pdf>]
-<./Figures/FIGURE_S6_5genes_alpha_beta_gammashape_UNREST_WITHGAMMA.pdf, id=724,
+<./Figures/FIGURE_S6_5genes_alpha_beta_gammashape_UNREST_WITHGAMMA.pdf, id=757,
  578.16pt x 578.16pt>
 File: ./Figures/FIGURE_S6_5genes_alpha_beta_gammashape_UNREST_WITHGAMMA.pdf Gra
 phic file (type pdf)
 
 <use ./Figures/FIGURE_S6_5genes_alpha_beta_gammashape_UNREST_WITHGAMMA.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_S6_5genes_alpha_beta_gammashape_UNRES
-T_WITHGAMMA.pdf used on input line 977.
+T_WITHGAMMA.pdf used on input line 998.
 (pdftex.def)             Requested size: 422.77664pt x 422.77669pt.
 
 [7 <./Figures/FIGURE_S5_5genes_All_UNREST_WITHGAMMA.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1113.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1134.
  [8 <./Figures/FIGURE_S6_5genes_alpha_beta_gammashape_UNREST_WITHGAMMA.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1113.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1134.
  (./selac.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1113.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1113.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1134.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1134.
 
 Package rerunfilecheck Info: File `selac.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1113.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1134.
  ) 
 Here is how much of TeX's memory you used:
- 10859 strings out of 493014
- 162327 string characters out of 6133351
- 278239 words of memory out of 5000000
- 13965 multiletter control sequences out of 15000+600000
+ 10879 strings out of 493014
+ 162648 string characters out of 6133351
+ 280565 words of memory out of 5000000
+ 13977 multiletter control sequences out of 15000+600000
  24839 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,12n,77p,1122b,576s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,12n,77p,1122b,572s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1127,10 +1114,10 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2016/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2016/texmf
 -dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on selac.pdf (54 pages, 483798 bytes).
+Output written on selac.pdf (54 pages, 487096 bytes).
 PDF statistics:
- 844 PDF objects out of 1000 (max. 8388607)
- 716 compressed objects within 8 object streams
- 141 named destinations out of 1000 (max. 500000)
+ 878 PDF objects out of 1000 (max. 8388607)
+ 750 compressed objects within 8 object streams
+ 145 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

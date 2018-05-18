@@ -1,4 +1,4 @@
-\begin{thebibliography}{65}
+\begin{thebibliography}{69}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\selectlanguage}[1]{\relax}
 \providecommand{\bibAnnoteFile}[1]{%
@@ -8,11 +8,28 @@
   \begin{quotation}\noindent\textsc{Key:} #1\\
   \textsc{Annotation:}\ #2\end{quotation}}
 
+\bibitem[{Allison(2012)}]{allison2012}
+Allison, S. 2012. A trait-based approach for modelling microbial litter
+  decomposition. Ecology Letters 15:1058--1070.
+\bibAnnoteFile{allison2012}
+
+\bibitem[{Allison and Goulden(2017)}]{allison2017}
+Allison, S. and M.~Goulden. 2017. Consequences of drought tolerance traits for
+  microbial decompositionin the DEMENT model. Soil Biology \& Biochemistry
+  107:104--113.
+\bibAnnoteFile{allison2017}
+
 \bibitem[{Anisimova(2012)}]{Anisimova2012}
 Anisimova, M. 2012. Parametric models of codon evolution. Pages~12--33
   \emph{in} Codon Evolution: Mechanisms and Models (G.~M. Cannarozzi and
   A.~Schneider, eds.). Oxford University Press, Oxford, UK.
 \bibAnnoteFile{Anisimova2012}
+
+\bibitem[{Beaulieu and O'Meara(2016)}]{BeaulieuAndOMeara2016}
+Beaulieu, J.~M. and B.~C. O'Meara. 2016. Detecting Hidden Diversification
+  Shifts in Models of Trait-Dependent Speciation and Extinction. Systematic
+  Biology 65:583--601.
+\bibAnnoteFile{BeaulieuAndOMeara2016}
 
 \bibitem[{Beaulieu et~al.(2013)Beaulieu, O'Meara, and
   Donoghue}]{BeaulieuEtAl2013}
@@ -22,16 +39,16 @@ Beaulieu, J.~M., B.~C. O'Meara, and M.~J. Donoghue. 2013. Identifying Hidden
   62:725--737.
 \bibAnnoteFile{BeaulieuEtAl2013}
 
-\bibitem[{Beaulieu and O’Meara(2016)}]{BeaulieuAndOMeara2016}
-Beaulieu, J.~M. and B.~C. O’Meara. 2016. Detecting Hidden Diversification
-  Shifts in Models of Trait-Dependent Speciation and Extinction. Systematic
-  Biology 65:583--601.
-\bibAnnoteFile{BeaulieuAndOMeara2016}
-
 \bibitem[{Berg and L\"assig(2003)}]{BergAndLassig2003}
 Berg, J. and M.~L\"assig. 2003. Stochastic Evolution and Transcription Factor
   Binding Sites. Biophysics 48:S36--S44.
 \bibAnnoteFile{BergAndLassig2003}
+
+\bibitem[{Brown and Elliot(1997)}]{brown1997}
+Brown, L. and T.~Elliot. 1997. Mutations That Increase Expression of the rpoS
+  Gene and Decrease Its Dependence on hfq Function in Salmonella typhimurium.
+  J. Bacteriol. 179:656--662.
+\bibAnnoteFile{brown1997}
 
 \bibitem[{Butler and King(2004)}]{ButlerKing2004}
 Butler, M.~A. and A.~A. King. 2004. Phylogenetic comparative analysis: a
@@ -389,5 +406,11 @@ Yang, Z.~H. and R.~Nielsen. 2008. Mutation-selection models of codon
   substitution and their use to estimate selective strengths on codon usage.
   Molecular Biology and Evolution 25:568--579.
 \bibAnnoteFile{YangAndNielsen2008}
+
+\bibitem[{Zanger and Schwab(2013)}]{zanger2013}
+Zanger, U. and M.~Schwab. 2013. Cytochrome P450 enzymes in drug metabolism:
+  Regulation of gene expression, enzyme activities, and impact of genetic
+  variation. Pharmacology \& Therapeutics 138:103--141.
+\bibAnnoteFile{zanger2013}
 
 \end{thebibliography}
