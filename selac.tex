@@ -411,6 +411,9 @@ This is because the average flux energy an organism spends to meet its target fu
 Compensatory changes that allow an organism to maintain functionality even with loss of one or both copies of a gene are widespread.
 There is evidence of compensation for protein function. Metabolism with gene expression models (ME-models) link those factors to successfully make predictions about response to perturbations in a cell \citep{KingEtAl2015,LermanEtAl2012}. For example, an ME-model for \emph{E.~coli} successfully predicted gene expression levels in vivo \citep{ThieleEtAl2012}.
 Here we assume that for finer scale problems than entire loss (for example, a 10\% loss of functionality) the compensation is more production of the protein.
+The particular type of dosage compansation assumed by \selac in respondse to stress (e.g. reduced functionality) is commonly assumed in microbial ecology \citep{allison2012, allison2017}.
+Our assumption is also consistent with the Michaelis-Menten enzyme kinetics. \marginpar{CL: should I eloborate that more? maybe in the supporting materials? also talk about Hill quation?}
+Moreover, there is evidence that mutations can influence expression level \citep{brown1997, zanger2013}, though this does not always hold \citep{zanger2013}.
 In order to link genotype to our cost-benefit function $\eta = \Cost/\Func$, we begin by defining our benefit function \Func.
 
 %MIKE: For some reason, line numbering is lost here and a few other places.
@@ -717,10 +720,6 @@ This would leave the overall ability to transport glucose unchanged.
 An alternative is that the cell is just less able to transport glucose across membranes.
 In biology, it is likely that a mixture of such effects exists.
 However, the production compensation mechanism is likely to have the same costs across proteins, making it a useful first approximation, while the same expression but reduced functionality will have gene specific effects more difficult to model generally (e.g., how does the cost of having glucose transport slow by half compare to the cost of underproducing an anthocyanin for flower color or fewer taste receptor proteins?).
-The particular type of dosage compansation assumed by \selac in respondse to stress (e.g. reduced functionality) is commonly assumed in microbial ecology \citep{allison2012, allison2017}.
-Our assumption is also consistent with the Michaelis-Menten enzyme kinetics. \marginpar{CL: should I eloborate that more? maybe in the supporting materials? also talk about Hill quation?}
-Moreover, there is evidence that mutations can influence expression level \citep{brown1997, zanger2013}.
-But we acknowledge that this change in expression level due to mutation is not always in consistent with our assumption \citep{zanger2013}.
 Nevertheless, by assuming that fitness declines with extraneous energy flux, \selac explicitly links the variation in the strength of stabilizing selection for the optimal protein sequence among genes, to the variation among genes in their target expression levels $\psi$.
 
 
