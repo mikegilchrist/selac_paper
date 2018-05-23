@@ -346,7 +346,7 @@ Our approach, which we call Selection on Amino acids and Codons or \selac, is de
 Similar to Lartillot's work \citep{LartillotAndPhilippe2004,RodrigueAndLartillot2014}, we assume there is a finite set of rate matrices describing the substitution process and that each position within a protein is assigned to a particular rate matrix category.
 Unlike Lartillot's work, we assume \emph{a priori} there are 20 different families of rate matrices, one family for when a given amino acid is favored at a site.
 The key parameters underlying these matrices are shared across genes except for gene expression.
-As a result, \selac allows us to quantitatively evaluate the support for a particular amino acid at a particular position within a protein being favored by natural selection using a simple cost-benefit approach.
+As a result, \selac identifies the amino acid at a particular position within a protein that is favored by natural selection using a simple cost-benefit approach.
 
 While natural selection on protein coding regions can take many forms, one general approach to describing its effects is by relating a codon sequence to the cost of producing the encoded protein and the functional benefit (or potential harm) from the translating its sequence.
 The gene specific cost of protein synthesis can be affected by the amino acids used, the direct and indirect costs of peptide assembly by the ribosome, the use of chaparones to aid in folding, and even the expected lifespan of the protein.

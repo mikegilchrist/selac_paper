@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  23 MAY 2018 10:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  23 MAY 2018 10:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1309,7 +1309,7 @@ Missing character: There is no © in font cmr12!
 [40] [41] [42]) [43] [44
 
 ]
-<./Figures/FIGURE_1_SelACwG_vs_Empirical_by_spp.pdf, id=580, 578.16pt x 578.16p
+<./Figures/FIGURE_1_SelACwG_vs_Empirical_by_spp.pdf, id=581, 578.16pt x 578.16p
 t>
 File: ./Figures/FIGURE_1_SelACwG_vs_Empirical_by_spp.pdf Graphic file (type pdf
 )
@@ -1318,7 +1318,7 @@ Package pdftex.def Info: ./Figures/FIGURE_1_SelACwG_vs_Empirical_by_spp.pdf use
 d on input line 887.
 (pdftex.def)             Requested size: 422.77664pt x 422.77669pt.
 
-<./Figures/FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf, id=585, 578.16pt x 578
+<./Figures/FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf, id=586, 578.16pt x 578
 .16pt>
 File: ./Figures/FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf Graphic file (type
  pdf)
@@ -1334,7 +1334,7 @@ pdfTeX warning: pdflatex (file ./Figures/FIGURE_3_Inferred_Tree_AND_Model_Adequ
 acy.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> all
 owed
 
-<./Figures/FIGURE_3_Inferred_Tree_AND_Model_Adequacy.pdf, id=605, 578.16pt x 57
+<./Figures/FIGURE_3_Inferred_Tree_AND_Model_Adequacy.pdf, id=606, 578.16pt x 57
 8.16pt>
 File: ./Figures/FIGURE_3_Inferred_Tree_AND_Model_Adequacy.pdf Graphic file (typ
 e pdf)
@@ -1344,7 +1344,7 @@ f used on input line 908.
 (pdftex.def)             Requested size: 422.77664pt x 422.77669pt.
  [46 <./Figures/FIGURE_2_MutSelOmega_vs_Us_ROC_Scer_only.pdf>] [47 <./Figures/F
 IGURE_3_Inferred_Tree_AND_Model_Adequacy.pdf>]
-<./Figures/FIGURE_S1_SelACwG_vs_ROC_by_spp.pdf, id=674, 578.16pt x 578.16pt>
+<./Figures/FIGURE_S1_SelACwG_vs_ROC_by_spp.pdf, id=675, 578.16pt x 578.16pt>
 File: ./Figures/FIGURE_S1_SelACwG_vs_ROC_by_spp.pdf Graphic file (type pdf)
 
 <use ./Figures/FIGURE_S1_SelACwG_vs_ROC_by_spp.pdf>
@@ -1354,7 +1354,7 @@ input line 946.
  [1
 
 ]
-<./Figures/FIGURE_S2_Empirical_vs_ROC_by_spp.pdf, id=687, 578.16pt x 578.16pt>
+<./Figures/FIGURE_S2_Empirical_vs_ROC_by_spp.pdf, id=688, 578.16pt x 578.16pt>
 File: ./Figures/FIGURE_S2_Empirical_vs_ROC_by_spp.pdf Graphic file (type pdf)
 
 <use ./Figures/FIGURE_S2_Empirical_vs_ROC_by_spp.pdf>
@@ -1363,7 +1363,7 @@ n input line 957.
 (pdftex.def)             Requested size: 422.77664pt x 422.77669pt.
  [2 <./Figures/FIGURE_S1_SelACwG_vs_ROC_by_spp.pdf>] [3 <./Figures/FIGURE_S2_Em
 pirical_vs_ROC_by_spp.pdf>]
-<./Figures/FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf, id=728, 505.89pt x 505.89
+<./Figures/FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf, id=729, 505.89pt x 505.89
 pt>
 File: ./Figures/FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf Graphic file (type pd
 f)
@@ -1372,7 +1372,7 @@ Package pdftex.def Info: ./Figures/FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf us
 ed on input line 981.
 (pdftex.def)             Requested size: 422.77664pt x 422.7833pt.
  [4]
-<./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG.pdf, id=737, 578.16pt x
+<./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG.pdf, id=738, 578.16pt x
  578.16pt>
 File: ./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG.pdf Graphic file (
 type pdf)
@@ -1382,7 +1382,7 @@ Package pdftex.def Info: ./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG
 (pdftex.def)             Requested size: 422.77664pt x 422.77669pt.
 
 [5 <./Figures/FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf>]
-<./Figures/FIGURE_S5_5genes_All_UNREST_WITHGAMMA.pdf, id=749, 505.89pt x 505.89
+<./Figures/FIGURE_S5_5genes_All_UNREST_WITHGAMMA.pdf, id=750, 505.89pt x 505.89
 pt>
 File: ./Figures/FIGURE_S5_5genes_All_UNREST_WITHGAMMA.pdf Graphic file (type pd
 f)
@@ -1391,7 +1391,7 @@ Package pdftex.def Info: ./Figures/FIGURE_S5_5genes_All_UNREST_WITHGAMMA.pdf us
 ed on input line 1001.
 (pdftex.def)             Requested size: 422.77664pt x 422.7833pt.
  [6 <./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG.pdf>]
-<./Figures/FIGURE_S6_5genes_alpha_beta_gammashape_UNREST_WITHGAMMA.pdf, id=761,
+<./Figures/FIGURE_S6_5genes_alpha_beta_gammashape_UNREST_WITHGAMMA.pdf, id=762,
  578.16pt x 578.16pt>
 File: ./Figures/FIGURE_S6_5genes_alpha_beta_gammashape_UNREST_WITHGAMMA.pdf Gra
 phic file (type pdf)
@@ -1416,7 +1416,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1145.
 Here is how much of TeX's memory you used:
  10892 strings out of 493014
  162910 string characters out of 6133351
- 286600 words of memory out of 5000000
+ 286608 words of memory out of 5000000
  13985 multiletter control sequences out of 15000+600000
  24671 words of font info for 97 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1439,10 +1439,10 @@ e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/
 16/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/201
 6/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2016
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on selac.pdf (55 pages, 468962 bytes).
+Output written on selac.pdf (55 pages, 468939 bytes).
 PDF statistics:
- 877 PDF objects out of 1000 (max. 8388607)
- 750 compressed objects within 8 object streams
+ 878 PDF objects out of 1000 (max. 8388607)
+ 751 compressed objects within 8 object streams
  148 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
