@@ -412,8 +412,8 @@ Compensatory changes that allow an organism to maintain functionality even with 
 There is evidence of compensation for protein function. Metabolism with gene expression models (ME-models) link those factors to successfully make predictions about response to perturbations in a cell \citep{KingEtAl2015,LermanEtAl2012}. For example, an ME-model for \emph{E.~coli} successfully predicted gene expression levels in vivo \citep{ThieleEtAl2012}.
 Here we assume that for finer scale problems than entire loss (for example, a 10\% loss of functionality) the compensation is more production of the protein.
 The particular type of dosage compansation assumed by \selac in respondse to stress (e.g. reduced functionality) is commonly assumed in microbial ecology \citep{allison2012, allison2017}.
-Our assumption is also consistent with the Michaelis-Menten enzyme kinetics. \marginpar{CL: should I eloborate that more? maybe in the supporting materials? also talk about Hill quation?}
-Moreover, there is evidence that mutations can influence expression level \citep{brown1997, zanger2013}, though this does not always hold \citep{zanger2013}.
+Our assumption is also consistent with the Michaelis-Menten enzyme kinetics. %\marginpar{CL: should I eloborate that more? maybe in the supporting materials? also talk about Hill quation?}
+Moreover, there is evidence that mutations can influence expression level, though this does not always hold \citep{brown1997, zanger2013}.
 In order to link genotype to our cost-benefit function $\eta = \Cost/\Func$, we begin by defining our benefit function \Func.
 
 %MIKE: For some reason, line numbering is lost here and a few other places.
@@ -710,17 +710,6 @@ With these advances, our work lies in between that of Lartillot's and Thorne's, 
 
 
 %Begin shortcomings of selac.
-% first paragraph was pre-existing in Discussion.
-One simplifying assumption we make is that the organism can and does compensate for any reduction in protein function by simply increasing the protein's production rate.
-While this production compensation assumption will clearly not hold in many situations, it does allow us to connect protein function and energetic costs in a simple and biologically plausible manner.
-Of course, researchers could employ and test other assumptions within our framework, namely, by utilizing more detailed, gene specific knowledge about the relationship between protein function and organism fitness.
-For example, suppose a protein for a glucose transporter is far less efficient than usual.
-One possible response and the one envisioned here is that the protein is thus produced at a higher rate to compensate.
-This would leave the overall ability to transport glucose unchanged.
-An alternative is that the cell is just less able to transport glucose across membranes.
-In biology, it is likely that a mixture of such effects exists.
-However, the production compensation mechanism is likely to have the same costs across proteins, making it a useful first approximation, while the same expression but reduced functionality will have gene specific effects more difficult to model generally (e.g., how does the cost of having glucose transport slow by half compare to the cost of underproducing an anthocyanin for flower color or fewer taste receptor proteins?).
-Nevertheless, by assuming that fitness declines with extraneous energy flux, \selac explicitly links the variation in the strength of stabilizing selection for the optimal protein sequence among genes, to the variation among genes in their target expression levels $\psi$.
 
 
 %weaknesses/shortcomings of selac moved from intro
@@ -737,7 +726,7 @@ Importantly, the cost-benefit approach underlying \selac allows us to link the s
 Despite its well recognized importance in determining the rate of protein evolution \citep[e.g.][]{DrummondEtAl2005,DrummondEtAl2006a}, phylogenetic models have ignored the fact that expression levels vary between genes.
 In order to link gene expression and the strength of stabilizing selection on protein sequences, we simply assume that the strength of selection on a gene is proportional to the average protein synthesis rate of the gene.
 
-One possible mechanism with some theoretical and empirical support which generates a linear relationship between the strength of selection and gene expression is the assumption of compensatory gene expression \citep{KingEtAl2015,LermanEtAl2012,ThieleEtAl2012}.
+One possible mechanism with some theoretical and empirical support which generates a linear relationship between the strength of selection and gene expression is the assumption of compensatory gene expression \citep{KingEtAl2015,LermanEtAl2012,ThieleEtAl2012,allison2012, allison2017,brown1997, zanger2013}.
 That is, the assumption that any reduction in protein function is compensated for by an increase in the protein's production rate and, in turn, abundance.
 For example, a mutation which reduces the functionality of the protein to 90\% of the optimal protein, would require $1/0.9 = 1.11$ of these suboptimal proteins to be produced relative to the optimal protein in order to maintain the same amount of that protein's functionality in the cell.
 Because the energetic cost of an 11\% increase in a protein's synthesis rate is proportional to its target synthesis rate, our assumptions naturally link changes in protein functionality and changes in gene expression and its associated costs.
@@ -1126,6 +1115,12 @@ Another example, which we touch upon in the Discussion, is the natural emergence
 While this epistasis may be negligible under certain conditions, identifying such conditions is impossible without considering the mechanisms of selection.
 
 
+
+\pagebreak
+}{}
+
+\end{document}
+
 \subsection*{Text that has been cut but still might be used}
 \begin{itemize}
 \item It is similar to past mutation-selection models in structure but allows for a hypothesis about mechanism to be examined.
@@ -1138,7 +1133,14 @@ NEED TO CHECK]
 
 \end{itemize}
 
-\pagebreak
-}{}
-
-\end{document}
+% first paragraph was pre-existing in Discussion.
+One simplifying assumption we make is that the organism can and does compensate for any reduction in protein function by simply increasing the protein's production rate.
+While this production compensation assumption will clearly not hold in many situations, it does allow us to connect protein function and energetic costs in a simple and biologically plausible manner.
+Of course, researchers could employ and test other assumptions within our framework, namely, by utilizing more detailed, gene specific knowledge about the relationship between protein function and organism fitness.
+For example, suppose a protein for a glucose transporter is far less efficient than usual.
+One possible response and the one envisioned here is that the protein is thus produced at a higher rate to compensate.
+This would leave the overall ability to transport glucose unchanged.
+An alternative is that the cell is just less able to transport glucose across membranes.
+In biology, it is likely that a mixture of such effects exists.
+However, the production compensation mechanism is likely to have the same costs across proteins, making it a useful first approximation, while the same expression but reduced functionality will have gene specific effects more difficult to model generally (e.g., how does the cost of having glucose transport slow by half compare to the cost of underproducing an anthocyanin for flower color or fewer taste receptor proteins?).
+Nevertheless, by assuming that fitness declines with extraneous energy flux, \selac explicitly links the variation in the strength of stabilizing selection for the optimal protein sequence among genes, to the variation among genes in their target expression levels $\psi$.
