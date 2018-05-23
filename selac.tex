@@ -713,15 +713,11 @@ With these advances, our work lies in between that of Lartillot's and Thorne's, 
 
 
 %weaknesses/shortcomings of selac moved from intro
-We readily acknowledge that \PC distance from the optimal primary amino acid sequence is likely a poor model of protein function, and that the biological importance of a function can vary over time.
-\marginpar{MIKE: The section moved from intro starts here.
-Need to tighten and integrate with above paragraph}
-Nevertheless, we believe our cost-benefit approach to be a substantial advance of the more simplistic $\omega$ models, is complementary to the work of others in the field \citep[e.g.][]{ThorneEtAl2012,RodrigueAndLartillot2014}, and, in turn, lays the foundation for more realistic work in the future.
+We believe our cost-benefit approach to be a substantial advance of the more simplistic $\omega$ models, is complementary to the work of others in the field \citep[e.g.][]{ThorneEtAl2012,RodrigueAndLartillot2014}, and, in turn, lays the foundation for more realistic work in the future.
 
 For instance, by assuming there is an optimal amino acid for each site, \selac naturally leads to a non-symmetrical and, thus, more cogent model of protein sequence evolution.
 Because the strength of selection depends on an additive function of amino acid \PC properties, an amino acid more similar to the optimum has a higher probability of replacing a more dissimilar amino acid than the converse situation.
 Further, \selac does not assume the system is always at the optimum or pessimum point of the fitness landscape, as occurs when $\omega < 1$ or $>1$, respectively.
-
 Importantly, the cost-benefit approach underlying \selac allows us to link the strength of selection on a protein sequence to its gene's expression level.
 Despite its well recognized importance in determining the rate of protein evolution \citep[e.g.][]{DrummondEtAl2005,DrummondEtAl2006a}, phylogenetic models have ignored the fact that expression levels vary between genes.
 In order to link gene expression and the strength of stabilizing selection on protein sequences, we simply assume that the strength of selection on a gene is proportional to the average protein synthesis rate of the gene.
@@ -739,10 +735,6 @@ Because \selac infers the optimal amino acid for each site, it is substantially 
 Despite this increase in number of model parameters, \selac drastically outperforms these models with AICc values on the order of 10,000s to 100,000s.
 We predict that \selac's performance could be improved even further if we use a hierarchical approach where the optimal amino acid is not estimated on a per site basis, but rather as a vector of probability an amino acid is optimal at the gene level.
 
-
-
-
-%end discussion of shortcomings
 
 Furthermore, by linking expression and selection, \selac provides a natural framework for combining information from protein coding genes with very different rates of evolution; from low expression genes providing information on shallow branches to high expression genes providing information on deep branches.
 This is in contrast to a more traditional approach of concatenating gene sequences together, which is equivalent to assuming the same average protein synthesis rate $\psi$ for all of the genes, or more recent approaches where different models are fitted to different genes.
