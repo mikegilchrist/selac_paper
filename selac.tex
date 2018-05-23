@@ -358,7 +358,7 @@ As a result, amino acid substitutions can affect the functionality at key cataly
 Linking amino acid sequence to protein function is a daunting task; thus for simplicity, we assume that for any given desired biological function to be carried out by a protein, that (a) the biological importance of this protein function is invariant across the tree, (b) single optimal amino acid sequence that carries out this function best, and (c) the functionality of alternative amino acid sequences declines with their \PC distance from the optimum on a site by site basis.
 While we believe \selac is more realistic than $\omega$ based approaches, we also discuss a number of shortcomings of this and other assumptions in the Discussion.
 
-Beyond making quantiative tree inferences, \selac also makes inferences about other important biological processes.
+Beyond fitting the phylogenetic data better according to model adequacy and AICc, \selac also makes inferences about other important biological processes.
 By comparing these inferences to other empirical data, such as we do with protein synthesis data, we can evaluate \selac's performance independent of the data is fitted.
 Indeed, \selac's assumptions lead to mechanistic and, thus, testable hypothesis about the nature of and relationships between mutation, protein function, gene expression, and rates of evolution.
 More importantly, alternative hypotheses could be used in place of ours and, in turn, phylogenetic and other types of data could be used to evaluate the support of these alternative models.
@@ -731,10 +731,6 @@ The fact that our method allows us to explain 13-23\% of the variation in gene e
 More importantly, by linking the strength of stabilizing selection for an optimal amino acid sequence to gene expression, we can effectively weight the differing amounts and type of phylogenetic information encoded in high and low expression genes.
 %would like to link to Lartillot approach
 
-Because \selac infers the optimal amino acid for each site, it is substantially more parameter rich than more commonly used models such as GTR$+\Gamma$, GY94, and FMutSel.
-Despite this increase in number of model parameters, \selac drastically outperforms these models with AICc values on the order of 10,000s to 100,000s.
-We predict that \selac's performance could be improved even further if we use a hierarchical approach where the optimal amino acid is not estimated on a per site basis, but rather as a vector of probability an amino acid is optimal at the gene level.
-
 
 Furthermore, by linking expression and selection, \selac provides a natural framework for combining information from protein coding genes with very different rates of evolution; from low expression genes providing information on shallow branches to high expression genes providing information on deep branches.
 This is in contrast to a more traditional approach of concatenating gene sequences together, which is equivalent to assuming the same average protein synthesis rate $\psi$ for all of the genes, or more recent approaches where different models are fitted to different genes.
@@ -795,6 +791,11 @@ For example, while \citet{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,Rob
 Specifically, by letting \selac's Grantham weighting term $G$, which we now assume is $\ge 0$,  to take on negative values, \selac will behave as if there is a pessimal, rather than optimal, amino acid for the given site.
 In this diversifying selection scenario, amino acids with \PC qualities more dissimilar to the pessimal amino acid are increasingly favored, potentially resulting in multiple fitness peaks.
 
+Because \selac infers the optimal amino acid for each site, it is substantially more parameter rich than more commonly used models such as GTR$+\Gamma$, GY94, and FMutSel.
+Despite this increase in number of model parameters, \selac drastically outperforms these models with AICc values on the order of 10,000s to 100,000s.
+We predict that \selac's performance could be improved even further if we use a hierarchical approach where the optimal amino acid is not estimated on a per site basis, but rather as a vector of probability an amino acid is optimal at the gene level.
+
+
 This ability to extend our model and, in turn, sharpen our thinking about the nature of natural selection on amino acid sequences illustrates the value of moving from descriptive to more mechanistic models in general and phylogenetics in particular.
 How frequently diversifying selection of this nature occurs is an open, but addressable, question.
 %Fortunately, it is also a question that can be addressed using \selac in the future.
@@ -802,10 +803,6 @@ Regardless of the frequency at which diversifying selection occurs, another ques
 Due to its mechanistic nature, \selac can also be extended to include changes in the optimal/pessimal sequence over a  phylogeny using a hidden markov modelling approach.
 Extending \selac in these ways, will allow researchers to explicitly model shifts in selection on protein sequences and, in turn, quantify their frequency and magnitude.
 
-%It is worth noting that allowing $G < 0$ is not equivalent to choosing a different amino acid as being optimal.
-%To see this, imagine a focal amino acid with alternative two amino acids equally distant from it in \PC but in opposite directions.
-%If the focal amino acid is the pessimal amino acid for the site (i.e.~$G<0$), then the two alternative amino acids represent two alternative fitness peaks in different regions of the \PC.
-%Treating one of the alternative amino acids as optimal (i.e.~$G > 0$) results in the other alternative amino acid having even lower fitness than the focal one; a distinctly different scenario than the pessimal case.
 
 In summary, \selac allows biologically relevant population genetic parameters to be estimated from phylogenetic information, while also dramatically improving fit and accuracy of phylogenetic models.
 By explicitly modeling the optimal/pessimal sequence of a gene, \selac can be extended to include shifts in the optimal/pessimal sequence over evolutionary time.
@@ -1136,3 +1133,8 @@ An alternative is that the cell is just less able to transport glucose across me
 In biology, it is likely that a mixture of such effects exists.
 However, the production compensation mechanism is likely to have the same costs across proteins, making it a useful first approximation, while the same expression but reduced functionality will have gene specific effects more difficult to model generally (e.g., how does the cost of having glucose transport slow by half compare to the cost of underproducing an anthocyanin for flower color or fewer taste receptor proteins?).
 Nevertheless, by assuming that fitness declines with extraneous energy flux, \selac explicitly links the variation in the strength of stabilizing selection for the optimal protein sequence among genes, to the variation among genes in their target expression levels $\psi$.
+
+%It is worth noting that allowing $G < 0$ is not equivalent to choosing a different amino acid as being optimal.
+%To see this, imagine a focal amino acid with alternative two amino acids equally distant from it in \PC but in opposite directions.
+%If the focal amino acid is the pessimal amino acid for the site (i.e.~$G<0$), then the two alternative amino acids represent two alternative fitness peaks in different regions of the \PC.
+%Treating one of the alternative amino acids as optimal (i.e.~$G > 0$) results in the other alternative amino acid having even lower fitness than the focal one; a distinctly different scenario than the pessimal case.
