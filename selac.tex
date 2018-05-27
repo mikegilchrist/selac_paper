@@ -373,8 +373,10 @@ Using either \DeltaAICc or \AICw as our measure of model support, the \selac mod
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which accounts for 49,881 additional model parameters.
 Even when compared to the next most parameter rich codon model in our model set, FMutSel, \selacplusgamma model shows over 160,000 AIC unit improvement over FMutSel.
 
-The analysis building upon \citet{Jhwuengetal2014}  suggests that using the number of taxa times the number of sites as the sample size performs best as a small sample size correction for estimating Kullback-Liebler distance in phylogenetic models. This also has intuitive appeal: in models that have at least some parameters shared across sites and some parameters shared across taxa, increasing the number of sites and/or taxa should be adding more samples for the parameters to estimate.
-This is consistent in considering how likelihood is calculated for phylogenetic models: the likelihood for a given site is the sum of the probabilities of each observed state at each tip, which is then multiplied across sites.
+The analysis building upon \citet{Jhwuengetal2014} suggests that using the number of taxa times the number of sites as the sample size performs best as a small sample size correction for estimating Kullback-Liebler distance in phylogenetic models (Appendix 1).
+This also has an intuitive appeal.
+In models that have at least some parameters shared across sites and some parameters shared across taxa, increasing the number of sites and/or taxa should be adding more samples for the parameters to estimate.
+This is consistent considering how likelihood is calculated for phylogenetic models: the likelihood for a given site is the sum of the probabilities of each observed state at each tip, which is then multiplied across sites.
 It is arguable that the conventional approach in comparative methods is calculating AICc in the same way.
 That is, if only one column of data (or ``site'') is examined, as remains remarkably common in comparative methods, when we refer to sample size, it is technically the number of taxa multiplied by number of sites, even though it is referred to simply as the number of taxa.
 
@@ -399,10 +401,10 @@ For instance, our simulations of \emph{S.~castellii} gene function is consistent
 We suspect this is an indication that assuming a single set of optimal amino acid across all taxa is too simplistic.
 However, we cannot rule out violations of \selac's other model assumptions such as: a single set of Grantham weights, a single $\alphag$, or reductions in protein functionality \Func being solely a function of physicochemical distances $d$  between sites.
 
-Finally, we note that our simulation analysis suggested that the best measure of dataset size for estimating KL distance uses a scaled value of the product of number of sites and number of characters.
-The model comparison approach described above included this assumption.
-For more details on the simulation approach, see Appendix 1.
-
+%Finally, we note that our simulation analysis suggested that the best measure of dataset size for estimating KL distance uses a scaled value of the product of number of sites and number of characters.
+%The model comparison approach described above included this assumption.
+%For more details on the simulation approach, see Appendix 1.
+% JMB: this is redundant from what is written above.
 
 \section{Discussion}
 A central goal in evolutionary biology is to quantify the nature, strength, and, ultimately, shifts in the forces of natural selection relative to genetic drift and mutation.
@@ -683,9 +685,9 @@ Thus, the likelihood $\Lik$ of amino acid $a$ being optimal at a given site posi
 \Lik\left(\Qmatrixa\middle| \Dmatrixp, \Tmatrix\right) \propto \Pmatrix\left(\Dmatrixp\middle|\Qmatrixa,\Tmatrix\right)
 \end{equation}
 In this case, the data, $\Dmatrixp$, are the observed codon states at position $p$ for the tips of the phylogenetic tree with topology $\Tmatrix$.
-For our purposes we take \Tmatrix as given but it could be estimated as well.
+For our purposes we take \Tmatrix as given, but it could be estimated as well.
 The pruning algorithm of \citet{Felsenstein1981} is used to calculate $\Lik\left(\Qmatrixa \middle| \Dmatrixp, \Tmatrix\right)$.
-The log of the likelihood is maximized by estimating the genome scale parameters which consist of 11 mutation parameters which are implicitly scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
+The log of the likelihood is maximized by estimating the genome scale parameters which consist of 11 mutation parameters, which are implicitly scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
 Because $A_0$ and $\psi_g$ always co-occur and are scaled by \Ne, for each gene $g$ we estimate a composite term $\psiprime_g = \psi_g A_0 b \Ne$ and the optimal amino acid for each position \aoptp of the protein.
 When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using the generalized Laguerre quadrature with $k = 4$ points \citep{Felsenstein2001}.
 
