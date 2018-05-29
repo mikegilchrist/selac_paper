@@ -1,0 +1,2852 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.8.12)  10 SEP 2014 17:52
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**MBE-Sample.tex
+(./MBE-Sample.tex
+LaTeX2e <2011/06/27>
+Babel <3.9h> and hyphenation patterns for 4 languages loaded.
+(./MBE.cls
+Document Class: MBE 2007/03/23 v1.4b Standard LaTeX document class
+(./crop.sty
+Package: crop 2001/11/16 v1.6 cropmarks (mf)
+\CROP@width=\dimen102
+\CROP@height=\dimen103
+\CROP@index=\count79
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count80
+))
+\CROP@offset=\count81
+
+
+Package crop Warning: center options like `a4center' are obsolete and only
+(crop)                provided for compatibility reasons. They will be removed
+(crop)                in future releases. Use the new options `a4'
+(crop)                and `center' separately instead. on input line 348.
+
+)
+Package crop Info: using pdf(la)tex graphics driver on input line 116.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip41
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks16
+\ex@=\dimen104
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen105
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count82
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count83
+\leftroot@=\count84
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count85
+\DOTSCASE@=\count86
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen106
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count87
+\c@MaxMatrixCols=\count88
+\dotsspace@=\muskip10
+\c@parentequation=\count89
+\dspbrk@lvl=\count90
+\tag@help=\toks17
+\row@=\count91
+\column@=\count92
+\maxfields@=\count93
+\andhelp@=\toks18
+\eqnshift@=\dimen107
+\alignsep@=\dimen108
+\tagshift@=\dimen109
+\tagwidth@=\dimen110
+\totwidth@=\dimen111
+\lineht@=\dimen112
+\@envbody=\toks19
+\multlinegap=\skip42
+\multlinetaggap=\skip43
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count94
+\float@exts=\toks21
+\float@box=\box28
+\@float@everytoks=\toks22
+\@floatcapt=\box29
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks23
+)
+\Gin@req@height=\dimen113
+\Gin@req@width=\dimen114
+)
+\epsfxsize=\dimen115
+\epsfysize=\dimen116
+)
+(/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen117
+\WF@size=\dimen118
+\c@WF@wrappedlines=\count95
+\WF@box=\box30
+\WF@everypar=\toks24
+Package: wrapfig 2003/01/31  v 3.6
+)
+(/usr/share/texlive/texmf-dist/tex/latex/sttools/stfloats.sty
+Package: stfloats 2012/05/29 v1.1 Improve float mechanism and baselineskip sett
+ings
+\@dblbotnum=\count96
+\c@dblbotnumber=\count97
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
+\c@tracingmulticols=\count98
+\mult@box=\box31
+\multicol@leftmargin=\dimen119
+\c@unbalance=\count99
+\c@collectmore=\count100
+\doublecol@number=\count101
+\multicoltolerance=\count102
+\multicolpretolerance=\count103
+\full@width=\dimen120
+\page@free=\dimen121
+\premulticols=\dimen122
+\postmulticols=\dimen123
+\multicolsep=\skip44
+\multicolbaselineskip=\skip45
+\partial@page=\box32
+\last@line=\box33
+\mult@rightbox=\box34
+\mult@grightbox=\box35
+\mult@gfirstbox=\box36
+\mult@firstbox=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\@tempa=\box50
+\@tempa=\box51
+\@tempa=\box52
+\@tempa=\box53
+\@tempa=\box54
+\c@columnbadness=\count104
+\c@finalcolumnbadness=\count105
+\last@try=\dimen124
+\multicolovershoot=\dimen125
+\multicolundershoot=\dimen126
+\mult@nat@firstbox=\box55
+\colbreak@box=\box56
+\multicol@sort@counter=\count106
+)
+(/usr/share/texlive/texmf-dist/tex/latex/rotating/rotating.sty
+Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count107
+\rotFPtop=\skip46
+\rotFPbot=\skip47
+\rot@float@box=\box57
+\rot@mess@toks=\toks25
+)
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen127
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/dcolumn.sty
+Package: dcolumn 2001/05/28 v1.06 decimal alignment package (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen128
+\extrarowheight=\dimen129
+\NC@list=\toks26
+\extratabsurround=\skip48
+\backup@length=\skip49
+))
+(/usr/share/texlive/texmf-dist/tex/latex/boxedminipage/boxedminipage.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+(/usr/share/texlive/texmf-dist/tex/latex/soul/soul.sty
+Package: soul 2003/11/17 v2.4 letterspacing/underlining (mf)
+\SOUL@word=\toks27
+\SOUL@lasttoken=\toks28
+\SOUL@cmds=\toks29
+\SOUL@buffer=\toks30
+\SOUL@token=\toks31
+\SOUL@spaceskip=\skip50
+\SOUL@ttwidth=\dimen130
+\SOUL@uldp=\dimen131
+\SOUL@ulht=\dimen132
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 124.
+
+\cropenskip=\dimen133
+\PVskip=\dimen134
+\jnameskip=\skip51
+\titleskip=\dimen135
+\authorskip=\dimen136
+\ruleskip=\dimen137
+\ruleht=\dimen138
+\belowmktitskip=\skip52
+\alignmkadj=\skip53
+\alignadj=\skip54
+\aboveheaderskip=\skip55
+\belowheaderskip=\skip56
+\abovefmheaderskip=\skip57
+\belowfmheaderskip=\skip58
+\abovecnskip=\skip59
+\belowcnskip=\skip60
+\abovectskip=\skip61
+\belowctskip=\skip62
+\aboveauskip=\skip63
+\belowauskip=\skip64
+\aboveaffskip=\skip65
+\belowaffskip=\skip66
+\abovefmcnskip=\skip67
+\belowfmcnskip=\skip68
+\abovefmctskip=\skip69
+\belowfmctskip=\skip70
+\firstlinefixedpos=\skip71
+\chapnobox=\box58
+\chapwdwidth=\dimen139
+\chapnowd=\dimen140
+\chrulesp=\dimen141
+\droplines=\count108
+\dropsep=\dimen142
+\capvskip=\skip72
+\caphskip=\skip73
+\capwd=\dimen143
+\droplinewd=\dimen144
+\c@part=\count109
+\c@chapter=\count110
+\c@section=\count111
+\c@subsection=\count112
+\c@subsubsection=\count113
+\c@paragraph=\count114
+\c@subparagraph=\count115
+\c@subsubparagraph=\count116
+\labelwidthi=\dimen145
+\labelwidthii=\dimen146
+\labelwidthiii=\dimen147
+\labelwidthiv=\dimen148
+\topsepi=\skip74
+\topsepii=\skip75
+\topsepiii=\skip76
+\topsepiv=\skip77
+\itemsepi=\skip78
+\itemsepii=\skip79
+\itemsepiii=\skip80
+\itemsepiv=\skip81
+\labelsepi=\dimen149
+\labelsepii=\dimen150
+\labelsepiii=\dimen151
+\labelsepiv=\dimen152
+\parsepi=\dimen153
+\parsepii=\dimen154
+\parsepiii=\dimen155
+\parsepiv=\dimen156
+\rightmargini=\dimen157
+\rightmarginii=\dimen158
+\rightmarginiii=\dimen159
+\rightmarginiv=\dimen160
+\itemindenti=\dimen161
+\itemindentii=\dimen162
+\itemindentiii=\dimen163
+\itemindentiv=\dimen164
+\labelleftmargin=\dimen165
+\c@figure=\count117
+\c@table=\count118
+\abovecaptionskip=\skip82
+\belowcaptionskip=\skip83
+\figurewidth=\dimen166
+\figureheight=\dimen167
+\dwidth=\dimen168
+\dheight=\dimen169
+\ncolumns=\count119
+\nrows=\count120
+\tablewd=\dimen170
+\tablewidth=\dimen171
+\captionwd=\dimen172
+\tempbox=\box59
+\tableleftskip=\skip84
+\tablerightskip=\skip85
+\tablecapleftskip=\skip86
+\tablecaprightskip=\skip87
+\tablefootleftskip=\skip88
+\tablefootrightskip=\skip89
+\rotdimen=\dimen173
+\footnumskip=\dimen174
+\bibindent=\dimen175
+\maxbibwd=\dimen176
+(./cpl-natbib.sty
+Package: cpl-natbib 2000/07/24 7.0a (PWD)
+\bibhang=\skip90
+\bibsep=\skip91
+LaTeX Info: Redefining \cite on input line 509.
+\c@NAT@ctr=\count121
+)
+\hours=\count122
+\minutes=\count123
+
+! Font \slugfont=CMR10 at 6.0pt not loadable: Metric (TFM) file not found.
+l.2389 \font\slugfont=CMR10 at 6pt
+                                  
+? R
+OK, entering \nonstopmode...
+\grid@sidemargin=\dimen177
+\grid@wd=\dimen178
+\grid@ht=\dimen179
+\grid@linewd=\dimen180
+\grid@topofline=\dimen181
+LaTeX Info: Redefining \textso on input line 2510.
+\currfontsize=\dimen182
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2004/08/06 v2.20
+\thm@style=\toks32
+\thm@bodyfont=\toks33
+\thm@headfont=\toks34
+\thm@notefont=\toks35
+\thm@headpunct=\toks36
+\thm@preskip=\skip92
+\thm@postskip=\skip93
+\thm@headsep=\skip94
+\dth@everypar=\toks37
+)
+\c@defn=\count124
+\c@propn=\count125
+\c@Lem=\count126
+\c@rem=\count127
+\@indexfile=\write3
+\openout3 = `MBE-Sample.idx'.
+
+
+Writing index file MBE-Sample.idx
+)
+
+LaTeX Warning: Unused global option(s):
+    [nogrid].
+
+(./MBE-Sample.aux)
+\openout1 = `MBE-Sample.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count128
+\scratchdimen=\dimen183
+\scratchbox=\box60
+\nofMPsegments=\count129
+\nofMParguments=\count130
+\everyMPshowfont=\toks38
+\MPscratchCnt=\count131
+\MPscratchDim=\dimen184
+\MPnumerator=\count132
+\makeMPintoPDFobject=\count133
+\everyMPtoPDFconversion=\toks39
+)
+
+LaTeX Font Warning: Font shape `OT1/cmr/b/n' in size <20> not available
+(Font)              size <20.74> substituted on input line 75.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.5> not available
+(Font)              size <12> substituted on input line 75.
+
+LaTeX Font Info:    Calculating math sizes for size <12.5> on input line 75.
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.5> not available
+(Font)              size <12> substituted on input line 75.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.5> not available
+(Font)              size <12> substituted on input line 75.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 75.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 75.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 75.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+
+LaTeX Font Warning: Font shape `U/lasy/m/n' in size <12.5> not available
+(Font)              size <12> substituted on input line 75.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/m' undefined
+(Font)              using `OT1/cmr/m/n' instead on input line 75.
+
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 75.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 75.
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/m' undefined
+(Font)              using `OT1/cmr/bx/n' instead on input line 75.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/b/n' in size <13> not available
+(Font)              size <12> substituted on input line 75.
+
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 75.
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 75.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 75.
+
+
+LaTeX Font Warning: Font shape `U/lasy/m/n' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 75.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/b/m' undefined
+(Font)              using `OT1/cmss/m/n' instead on input line 75.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 75.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/m' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 75.
+
+
+Underfull \hbox (badness 2221) in paragraph at lines 87--102
+\OT1/cmr/m/m/10.95 30s increased from 20% to 52%. A similar
+ []
+
+
+Underfull \hbox (badness 1668) in paragraph at lines 87--102
+\OT1/cmr/m/m/10.95 trend is observed in the United States and
+ []
+
+
+Underfull \hbox (badness 1953) in paragraph at lines 87--102
+\OT1/cmr/m/m/10.95 by the total period fertility rates (TPFRs).
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <20> not available
+(Font)              size <20.74> substituted on input line 102.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+[]
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 102.
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 102.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/rmdefault' undefined
+(Font)              using `OT1/cmr/m/n' instead on input line 102.
+
+
+Overfull \hbox (5.8414pt too wide) has occurred while \output is active
+| []
+ []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+]
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/it' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 109.
+
+
+Underfull \hbox (badness 1635) in paragraph at lines 103--118
+\OT1/cmr/m/m/10.95 different cohorts (Berger, 1989), demographic
+ []
+
+
+Underfull \hbox (badness 1571) in paragraph at lines 103--118
+\OT1/cmr/m/m/10.95 cycles. This point was not found by earlier
+ []
+
+
+Underfull \hbox (badness 2302) in paragraph at lines 103--118
+\OT1/cmr/m/m/10.95 2000) and d'Albis et al. (2010) assumed a
+ []
+
+
+Underfull \hbox (badness 1221) in paragraph at lines 103--118
+\OT1/cmr/m/m/10.95 linear technology where one unit of effective
+ []
+
+
+Underfull \hbox (badness 1824) in paragraph at lines 103--118
+\OT1/cmr/m/m/10.95 where only a fraction of agents delay their
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 2221) in paragraph at lines 139--144
+\OT1/cmr/m/m/10.95 30s increased from 20% to 52%. A similar
+ []
+
+
+Underfull \hbox (badness 1668) in paragraph at lines 139--144
+\OT1/cmr/m/m/10.95 trend is observed in the United States and
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/m/10 2
+ []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+[2]
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <11.5> not available
+(Font)              size <12> substituted on input line 145.
+
+
+Underfull \hbox (badness 1484) in paragraph at lines 147--151
+\OT1/cmr/m/m/10.95 of childbirths, measured by the total period
+ []
+
+
+Underfull \hbox (badness 1424) in paragraph at lines 153--180
+\OT1/cmr/m/m/10.95 Ogawa and Retherford (1993), Kohler et al.
+ []
+
+
+Underfull \hbox (badness 1424) in paragraph at lines 153--180
+\OT1/cmr/m/m/10.95 a certain extent, the delay of marriage and
+ []
+
+
+Underfull \hbox (badness 5490) in paragraph at lines 153--180
+\OT1/cmr/m/m/10.95 effect').This paper considers an overlapping
+ []
+
+
+Underfull \hbox (badness 1038) in paragraph at lines 153--180
+\OT1/cmr/m/m/10.95 generations model without external effects or
+ []
+
+
+Underfull \hbox (badness 1184) in paragraph at lines 153--180
+\OT1/cmr/m/m/10.95 many people decide to delay childbearing to
+ []
+
+
+Underfull \hbox (badness 2005) in paragraph at lines 153--180
+\OT1/cmr/m/m/10.95 and derived multiple steady state equilibria.
+ []
+
+
+Underfull \hbox (badness 3118) in paragraph at lines 153--180
+\OT1/cmr/m/m/10.95 (2003) constructed an endogenous childbirth
+ []
+
+
+Underfull \hbox (badness 1168) in paragraph at lines 153--180
+\OT1/cmr/m/m/10.95 timing model where the solution is obtained
+ []
+
+
+Underfull \hbox (badness 1708) in paragraph at lines 183--190
+\OT1/cmr/m/m/10.95 to economic welfare. A notable exception is
+ []
+
+
+Underfull \hbox (badness 1565) in paragraph at lines 183--190
+\OT1/cmr/m/m/10.95 (Felsenstein, 2004), which showed that when
+ []
+
+
+Underfull \hbox (badness 3769) in paragraph at lines 204--219
+[]\OT1/cmr/m/m/10.95 As the variation in the age composition
+ []
+
+
+Underfull \hbox (badness 1281) in paragraph at lines 204--219
+\OT1/cmr/m/m/10.95 of workers affects the distribution of income
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+
+[3]
+Underfull \hbox (badness 2221) in paragraph at lines 220--235
+\OT1/cmr/m/m/10.95 30s increased from 20% to 52%. A similar
+ []
+
+
+Underfull \hbox (badness 1668) in paragraph at lines 220--235
+\OT1/cmr/m/m/10.95 trend is observed in the United States and
+ []
+
+
+Underfull \hbox (badness 1484) in paragraph at lines 220--235
+\OT1/cmr/m/m/10.95 of childbirths, measured by the total period
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 1931) in paragraph at lines 237--256
+[]\OT1/cmr/m/m/10.95 The seminal studies that incorporated the
+ []
+
+
+Underfull \hbox (badness 1019) in paragraph at lines 237--256
+\OT1/cmr/m/m/10.95 Huber (2004), Mullin and Wang (2002), and
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/m/10 4
+ []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+[4]
+Underfull \hbox (badness 1983) in paragraph at lines 256--258
+\OT1/cmr/m/m/10.95 economy, taking as given mortality and
+ []
+
+
+Underfull \hbox (badness 2376) in paragraph at lines 262--265
+[]\OT1/cmr/m/m/10.95 The same property holds in Diamond's
+ []
+
+
+Underfull \hbox (badness 5316) in paragraph at lines 266--272
+\OT1/cmr/m/m/10.95 paper focuses on the aspect that delayed
+ []
+
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.5> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 273.
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 273.
+
+
+Underfull \hbox (badness 3088) in paragraph at lines 311--317
+\OT1/cmr/m/m/10.95 Let us denote by $\OML/cmm/m/it/10.95 ^^U[] \OMS/cmsy/m/n/10
+.95 2 []$ \OT1/cmr/m/m/10.95 the fraction of
+ []
+
+
+Underfull \hbox (badness 1874) in paragraph at lines 311--317
+\OT1/cmr/m/m/10.95 agents among generation-$\OML/cmm/m/it/10.95 t$ \OT1/cmr/m/m
+/10.95 agents who delay
+ []
+
+
+Underfull \hbox (badness 7486) in paragraph at lines 311--317
+\OT1/cmr/m/m/10.95 childbearing. This means that among the
+ []
+
+
+Underfull \hbox (badness 2635) in paragraph at lines 311--317
+\OT1/cmr/m/m/10.95 generation-$\OML/cmm/m/it/10.95 t$ \OT1/cmr/m/m/10.95 agents
+ with population $\OML/cmm/m/it/10.95 N[]$\OT1/cmr/m/m/10.95 , the
+ []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+
+[5]
+Underfull \hbox (badness 1715) in paragraph at lines 323--332
+\OT1/cmr/m/m/10.95 (2005) showed that the timing of childbirth
+ []
+
+
+Underfull \hbox (badness 1436) in paragraph at lines 323--332
+\OT1/cmr/m/m/10.95 is affected by the child mortality rate in a
+ []
+
+
+Underfull \hbox (badness 1769) in paragraph at lines 323--332
+\OT1/cmr/m/m/10.95 causing the demographic transition (Kalemli-
+ []
+
+
+! LaTeX Error: Unknown graphics extension: .eps.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.358 ...aphics[height=0.21\textheight]{flrf1.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/b/sc' undefined
+(Font)              using `OT1/cmr/b/n' instead on input line 360.
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/m/10 6
+ []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+[6]
+
+! LaTeX Error: Unknown graphics extension: .eps.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.389 ...raphics[height=0.4\textheight]{flrf1.eps}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Underfull \hbox (badness 2326) in paragraph at lines 412--426
+\OT1/cmr/m/m/10.95 of agents decide to delay childbearing (i.e.,
+ []
+
+
+Underfull \hbox (badness 3623) in paragraph at lines 412--426
+\OT1/cmr/m/m/10.95 the total labor force is expressed as $\OML/cmm/m/it/10.95 L
+[] \OT1/cmr/m/m/10.95 =
+ []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+
+[7]
+Overfull \hbox (35.08424pt too wide) detected at line 469
+\OML/cmm/m/it/10.95 K[] \OT1/cmr/m/m/10.95 = \OML/cmm/m/it/10.95 S[] \OT1/cmr/m
+/m/10.95 = \OML/cmm/m/it/10.95 a[]N[] \OT1/cmr/m/m/10.95 + \OML/cmm/m/it/10.95 
+a[]N[] \OT1/cmr/m/m/10.95 = \OML/cmm/m/it/10.95 w[]N[] \OT1/cmr/m/m/10.95 + \OM
+L/cmm/m/it/10.95 z\OT1/cmr/m/m/10.95 (\OML/cmm/m/it/10.95 r[]w[] \OT1/cmr/m/m/1
+0.95 + \OML/cmm/m/it/10.95 w[]\OT1/cmr/m/m/10.95 )\OML/cmm/m/it/10.95 N[]:
+ []
+
+
+Underfull \hbox (badness 6825) in paragraph at lines 472--482
+[]\OT1/cmr/m/m/10.95 Goods are produced competitively by a
+ []
+
+
+Underfull \hbox (badness 4096) in paragraph at lines 490--492
+[]\OT1/cmr/m/m/10.95 Substituting these factor prices into (11[])
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 1137) in paragraph at lines 505--513
+\OT1/cmr/m/m/10.95 In the following, we investigate the dynamic
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 505--513
+\OT1/cmr/m/m/10.95 effects of delayed childbearing on capital
+ []
+
+
+Underfull \hbox (badness 6316) in paragraph at lines 505--513
+\OT1/cmr/m/m/10.95 accumulation and welfare. Throughout this
+ []
+
+
+Underfull \hbox (badness 1596) in paragraph at lines 505--513
+\OT1/cmr/m/m/10.95 all agents beginning from generation 0 bear
+ []
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/b/n' undefined
+(Font)              using `OT1/cmss/m/n' instead on input line 533.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 533.
+
+LaTeX Font Info:    Calculating math sizes for size <8.5> on input line 533.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.25> not available
+(Font)              size <5> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <8.5> not available
+(Font)              size <8> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.25> not available
+(Font)              size <5> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.25> not available
+(Font)              size <5> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `U/lasy/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `U/lasy/m/n' in size <4.25> not available
+(Font)              size <5> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <4.25> not available
+(Font)              size <5> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <8.5> not available
+(Font)              size <8> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <4.25> not available
+(Font)              size <5> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <4.25> not available
+(Font)              size <5> substituted on input line 533.
+
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8.5> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 533.
+
+LaTeX Font Warning: Font shape `U/lasy/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 533.
+
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5.94997> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 533.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <4.25> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 533.
+
+LaTeX Font Warning: Font shape `U/lasy/m/n' in size <4.25> not available
+(Font)              size <5> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/b/it' undefined
+(Font)              using `OT1/cmss/b/n' instead on input line 533.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/b/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/b/it' in size <8.5> not available
+(Font)              size <8> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <7.5> not available
+(Font)              size <7> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/sc' in size <7.5> not available
+(Font)              size <7> substituted on input line 533.
+
+LaTeX Font Info:    Calculating math sizes for size <7.5> on input line 533.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.75> not available
+(Font)              size <5> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <7.5> not available
+(Font)              size <7> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.75> not available
+(Font)              size <5> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <7.5> not available
+(Font)              size <7> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.75> not available
+(Font)              size <5> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `U/lasy/m/n' in size <7.5> not available
+(Font)              size <7> substituted on input line 533.
+
+
+LaTeX Font Warning: Font shape `U/lasy/m/n' in size <3.75> not available
+(Font)              size <5> substituted on input line 533.
+
+
+Underfull \hbox (badness 3260) in paragraph at lines 536--547
+\OT1/cmr/m/m/10.95 When $\OML/cmm/m/it/10.95 ^^U \OT1/cmr/m/m/10.95 = 1$, the d
+emographic dynamics (1[])
+ []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/m/10 8
+ []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 8 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+[8]
+Underfull \hbox (badness 1838) in paragraph at lines 548--552
+[]\OT1/cmr/m/m/10.95 With the path of $\OML/cmm/m/it/10.95 N[]$\OT1/cmr/m/m/10.
+95 , we can derive the
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 581.
+
+
+LaTeX Warning: Reference `eq:Dyn_k^2_Lambda=1' on page 9 undefined on input lin
+e 581.
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 590--595
+\OT1/cmr/m/it/10 in labor force $\OML/cmm/m/it/10 L[]$ \OT1/cmr/m/it/10 are muc
+h smaller than in the
+ []
+
+
+LaTeX Warning: Reference `eq:Dyn_k^2_Lambda=1' on page 9 undefined on input lin
+e 598.
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+
+[9]
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/sc' in size <10.5> not available
+(Font)              size <10.95> substituted on input line 608.
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 629--645
+\OT1/cmr/m/m/10.95 reports find flat or rising age-saving profiles
+ []
+
+
+Underfull \hbox (badness 1642) in paragraph at lines 629--645
+\OT1/cmr/m/m/10.95 employers' contribution) are not regarded as
+ []
+
+
+Underfull \hbox (badness 2452) in paragraph at lines 629--645
+\OT1/cmr/m/m/10.95 treated as income although they should be
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 3009) in paragraph at lines 652--655
+\OT1/cmr/m/m/10.95 Taking the logs of (18[]) and applying this
+ []
+
+
+Overfull \hbox (23.87729pt too wide) detected at line 658
+[] \OML/cmm/m/it/10.95 k[] \OT1/cmr/m/m/10.95 = [] [] \OML/cmm/m/it/10.95 A \OT
+1/cmr/m/m/10.95 + [] + \OML/cmm/m/it/10.95 [] [] k[];
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/m/10 10
+ []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+[10]
+
+LaTeX Warning: Reference `eq:Dyn_k^2_Lambda=1' on page 11 undefined on input li
+ne 660.
+
+
+Underfull \hbox (badness 3396) in paragraph at lines 664--672
+[]\OT1/cmr/bx/n/10.95 Lemma 2.  \OT1/cmr/m/it/10.95 In the equilibrium with $\O
+ML/cmm/m/it/10.95 ^^U \OT1/cmr/m/m/10.95 = 1$\OT1/cmr/m/it/10.95 ,
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 664--672
+[][]$ \OT1/cmr/m/it/10.95 converges to a two-period limit cycle
+ []
+
+
+Underfull \hbox (badness 1365) in paragraph at lines 664--672
+[][] \OML/cmm/m/it/10.95 k[]$ \OT1/cmr/m/it/10.95 and $\OML/cmm/m/it/10.95 k[] 
+\OMS/cmsy/m/n/10.95 ^^Q [][] \OML/cmm/m/it/10.95 k[]$\OT1/cmr/m/it/10.95 , wher
+e $\OML/cmm/m/it/10.95 s$
+ []
+
+
+Underfull \hbox (badness 2285) in paragraph at lines 675--681
+[]\OT1/cmr/m/m/10.95 As $\OML/cmm/m/it/10.95 t \OMS/cmsy/m/n/10.95 ! 1$\OT1/cmr
+/m/m/10.95 , the first term of (19[])
+ []
+
+
+Underfull \hbox (badness 1472) in paragraph at lines 675--681
+\OML/cmm/m/it/10.95 \OT1/cmr/m/m/10.95 ) + \OML/cmm/m/it/10.95 [] [] z \OT1/c
+mr/m/m/10.95 + \OML/cmm/m/it/10.95 [] []\OT1/cmr/m/m/10.95 (1 \OMS/cmsy/m/n/10
+.95 ^^@ \OML/cmm/m/it/10.95 \OT1/cmr/m/m/10.95 ) + []  \OML/cmm/m/it/10.95 ;$ 
+\OT1/cmr/m/m/10.95 which converges
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 703--707
+\OT1/cmr/m/m/10.95 Note that $\OML/cmm/m/it/10.95 V[]\OT1/cmr/m/m/10.95 (\OML/c
+mm/m/it/10.95 z\OT1/cmr/m/m/10.95 ) \OML/cmm/m/it/10.95 < V[]\OT1/cmr/m/m/10.95
+ (\OML/cmm/m/it/10.95 z\OT1/cmr/m/m/10.95 )$ holds if $\OML/cmm/m/it/10.95 z < 
+\OT1/cmr/m/m/10.95 1 \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 $
+ []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 762--765
+\OT1/cmr/m/m/10.95 lowers the labor force permanently. This
+ []
+
+
+Underfull \hbox (badness 2285) in paragraph at lines 762--765
+\OT1/cmr/m/m/10.95 subsection examines how this affects capital
+ []
+
+
+Underfull \hbox (badness 1210) in paragraph at lines 766--776
+\OT1/cmr/m/m/10.95 when $\OML/cmm/m/it/10.95 ^^U \OT1/cmr/m/m/10.95 = 0$), $\OM
+L/cmm/m/it/10.95 N[] \OT1/cmr/m/m/10.95 = 1$ holds for all $\OML/cmm/m/it/10.95
+ t$ \OT1/cmr/m/m/10.95 from (1[])
+ []
+
+
+Underfull \hbox (badness 4341) in paragraph at lines 766--776
+\OT1/cmr/m/m/10.95 resulting equation using $\OML/cmm/m/it/10.95 v[] \OMS/cmsy/
+m/n/10.95 ^^Q \OML/cmm/m/it/10.95 k[]=\OT1/cmr/m/m/10.95 (\OML/cmm/m/it/10.95 A
+k[]\OT1/cmr/m/m/10.95 )$, we
+ []
+
+
+Underfull \hbox (badness 2753) in paragraph at lines 849--875
+[]\OT1/cmr/m/m/10.95 Observe that the lower end of the limit
+ []
+
+
+Underfull \hbox (badness 4096) in paragraph at lines 849--875
+\OT1/cmr/m/m/10.95 the steady state level $\OML/cmm/m/it/10.95 k[]$ \OT1/cmr/m/
+m/10.95 in the economy
+ []
+
+
+Underfull \hbox (badness 2359) in paragraph at lines 849--875
+\OT1/cmr/m/m/10.95 without delayed childbearing (which we call
+ []
+
+
+Underfull \hbox (badness 1048) in paragraph at lines 849--875
+\OML/cmm/m/it/10.95 ^^U \OT1/cmr/m/m/10.95 = 0$ in Fig. 1). This paradoxical re
+sult can
+ []
+
+
+Underfull \hbox (badness 1057) in paragraph at lines 849--875
+\OT1/cmr/m/m/10.95 degree of concavity with respect to $\OML/cmm/m/it/10.95 k[]
+$\OT1/cmr/m/m/10.95 . This
+ []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/m/10 12
+ []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+[12]
+Underfull \hbox (badness 2376) in paragraph at lines 878--883
+\OT1/cmr/m/m/10.95 affect the welfare of agents. Note that, by
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 897--902
+\OT1/cmr/m/m/10.95 (1 + \OML/cmm/m/it/10.95 ^^L\OT1/cmr/m/m/10.95 ) [](1 + \OML
+/cmm/m/it/10.95 ^^L\OT1/cmr/m/m/10.95 ) + \OML/cmm/m/it/10.95 ^^L [] A \OT1/cm
+r/m/m/10.95 + (1 + \OML/cmm/m/it/10.95 ^^L\OT1/cmr/m/m/10.95 ) [] \OML/cmm/m/it
+/10.95 A []$\OT1/cmr/m/m/10.95 .
+ []
+
+
+Overfull \hbox (26.39119pt too wide) detected at line 906
+\OML/cmm/m/it/10.95 U[] \OT1/cmr/m/m/10.95 = [] [][\OML/cmm/m/it/10.95 A [][] 
+\OT1/cmr/m/m/10.95 + [][]] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 ^^L [] [
+] k[] \OT1/cmr/m/m/10.95 + \OML/cmm/m/it/10.95 C:
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 930--933
+[]\OT1/cmr/m/m/10.95 As function $
+(\OML/cmm/m/it/10.95 z\OT1/cmr/m/m/10.95 )$ is continuous, Lemma 2
+ []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+
+[13]
+Underfull \hbox (badness 2856) in paragraph at lines 940--950
+[]\OT1/cmr/m/m/10.95 As long as the saving propensity of the
+ []
+
+
+Underfull \hbox (badness 2591) in paragraph at lines 940--950
+\OT1/cmr/m/m/10.95 delayed childbearing does not occur ($\OML/cmm/m/it/10.95 ^^
+U \OT1/cmr/m/m/10.95 = 0$).
+ []
+
+
+Underfull \hbox (badness 1629) in paragraph at lines 953--961
+\OT1/cmr/m/m/10.95 number of generations, especially when $\OML/cmm/m/it/10.95 
+^^U$ \OT1/cmr/m/m/10.95 is
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 1173) in paragraph at lines 976--993
+\OT1/cmr/m/m/10.95 1% per quarter, as is often assumed in the
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/m/10 14
+ []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+[14]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 1755) in paragraph at lines 1044--1057
+\OT1/cmr/m/m/10.95 period of time. Therefore, with small $\OML/cmm/m/it/10.95 ^
+^U$\OT1/cmr/m/m/10.95 , $\OML/cmm/m/it/10.95 k[]$
+ []
+
+
+Underfull \hbox (badness 1242) in paragraph at lines 1044--1057
+\OT1/cmr/m/m/10.95 is comparable to the results we obtained in
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+
+[15]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/m/10 16
+ []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+[16]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1121--1141
+[]\OT1/cmr/m/m/10.95 It is intuitive that when $\OML/cmm/m/it/10.95 k[]$ \OT1/c
+mr/m/m/10.95 converges
+ []
+
+
+Underfull \hbox (badness 1571) in paragraph at lines 1121--1141
+\OT1/cmr/m/m/10.95 naturally corresponds to the same region in
+ []
+
+
+Underfull \hbox (badness 1715) in paragraph at lines 1121--1141
+\OT1/cmr/m/m/10.95 This pattern of movement in $\OML/cmm/m/it/10.95 k[]$ \OT1/c
+mr/m/m/10.95 affects the
+ []
+
+
+Underfull \hbox (badness 1515) in paragraph at lines 1121--1141
+\OT1/cmr/m/m/10.95 generations. The odd-period generations (i.e.,
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+
+[17]
+Underfull \hbox (badness 1769) in paragraph at lines 1158--1177
+\OT1/cmr/m/m/10.95 While we examined $\OML/cmm/m/it/10.95 U[]$ \OT1/cmr/m/m/10.
+95 only for even-period
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1218--1225
+\OT1/cmr/m/m/10.95 have larger cohort sizes than odd-period
+ []
+
+
+Underfull \hbox (badness 2846) in paragraph at lines 1218--1225
+\OT1/cmr/m/m/10.95 when $\OML/cmm/m/it/10.95 ^^U$ \OT1/cmr/m/m/10.95 is higher.
+ Therefore, the result in
+ []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/m/10 18
+ []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 8 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+[18]
+Underfull \hbox (badness 1715) in paragraph at lines 1294--1302
+[]\OT1/cmr/m/m/10.95 In a similar way to that in Subsection [],
+ []
+
+
+Underfull \hbox (badness 1895) in paragraph at lines 1294--1302
+\OT1/cmr/m/m/10.95 substituting the path of $\OML/cmm/m/it/10.95 N[]$ \OT1/cmr/
+m/m/10.95 into (14[]) gives
+ []
+
+
+Underfull \hbox (badness 3250) in paragraph at lines 1294--1302
+\OT1/cmr/m/m/10.95 Fig. 2(ii). When compared with Fig. 3(ii),
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \hbox (badness 4013) in paragraph at lines 1318--1332
+[]\OT1/cmr/m/m/10.95 As the capital-dilution effect has already
+ []
+
+
+Underfull \hbox (badness 1635) in paragraph at lines 1318--1332
+\OT1/cmr/m/m/10.95 are cycles in the paths of $\OML/cmm/m/it/10.95 k[]$ \OT1/cm
+r/m/m/10.95 and $\OML/cmm/m/it/10.95 U[]$ \OT1/cmr/m/m/10.95 after
+ []
+
+
+Underfull \hbox (badness 2012) in paragraph at lines 1318--1332
+\OT1/cmr/m/m/10.95 (\OML/cmm/m/it/10.95 n=\OT1/cmr/m/m/10.95 2) []$, we calcula
+te
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+
+[19]
+Overfull \hbox (4.25006pt too wide) detected at line 1342
+$\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 5$ 
+ []
+
+
+Overfull \hbox (4.25006pt too wide) detected at line 1342
+$\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 5|$ 
+ []
+
+
+Overfull \hbox (4.25006pt too wide) detected at line 1342
+$\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 8$ 
+ []
+
+
+Overfull \hbox (4.25006pt too wide) detected at line 1342
+$\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 1$ 
+ []
+
+
+Overfull \hbox (4.25006pt too wide) detected at line 1342
+$\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 9$ 
+ []
+
+
+Overfull \hbox (4.25006pt too wide) detected at line 1342
+$\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 5$ 
+ []
+
+
+Overfull \hbox (4.25006pt too wide) detected at line 1342
+$\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 5$ 
+ []
+
+
+Overfull \hbox (4.25006pt too wide) detected at line 1342
+$\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 5|$ 
+ []
+
+
+Overfull \hbox (4.25006pt too wide) detected at line 1342
+$\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 8$ 
+ []
+
+
+Overfull \hbox (4.25006pt too wide) detected at line 1342
+$\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 1$ 
+ []
+
+
+Overfull \hbox (4.25006pt too wide) detected at line 1342
+$\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 9$ 
+ []
+
+
+Overfull \hbox (4.25006pt too wide) detected at line 1342
+$\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 5$ 
+ []
+
+
+Underfull \hbox (badness 2856) in paragraph at lines 1355--1368
+\OT1/cmr/m/m/10.95 so far, here we confirm that the inclusion
+ []
+
+
+Overfull \hbox (12.19772pt too wide) detected at line 1373
+\OML/cmm/m/it/10.95 k[] \OT1/cmr/m/m/10.95 = [][]\OML/cmm/m/it/10.95 :[] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/m/10 20
+ []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+[20]
+Underfull \hbox (badness 2103) in paragraph at lines 1431--1444
+\OT1/cmr/m/m/10.95 examined the effects of delayed childbearing
+ []
+
+
+Underfull \hbox (badness 2486) in paragraph at lines 1431--1444
+\OT1/cmr/m/m/10.95 on capital accumulation and the welfare of
+ []
+
+
+Underfull \hbox (badness 2012) in paragraph at lines 1431--1444
+\OT1/cmr/m/m/10.95 period of time. As workers at different life
+ []
+
+
+Underfull \hbox (badness 2150) in paragraph at lines 1431--1444
+\OT1/cmr/m/m/10.95 stages have different sources of income and
+ []
+
+
+Underfull \hbox (badness 2990) in paragraph at lines 1431--1444
+\OT1/cmr/m/m/10.95 stage of their life falls. We also examined
+ []
+
+
+Underfull \hbox (badness 3250) in paragraph at lines 1431--1444
+\OT1/cmr/m/m/10.95 that delayed childbearing can also generate
+ []
+
+
+Underfull \hbox (badness 1472) in paragraph at lines 1445--1453
+\OT1/cmr/m/m/10.95 insights into a possible cause and effects of
+ []
+
+
+Underfull \hbox (badness 1122) in paragraph at lines 1445--1453
+\OT1/cmr/m/m/10.95 and Weil (1989) investigated their effects on
+ []
+
+
+Underfull \hbox (badness 3250) in paragraph at lines 1445--1453
+\OT1/cmr/m/m/10.95 that delayed childbearing can also generate
+ []
+
+
+Underfull \hbox (badness 1253) in paragraph at lines 1454--1464
+\OT1/cmr/m/m/10.95 of childbirth and the number of children as
+ []
+
+
+Underfull \hbox (badness 3312) in paragraph at lines 1454--1464
+\OT1/cmr/m/m/10.95 of policies that aim to cope with delayed
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1454--1464
+\OT1/cmr/m/m/10.95 delayed childbearing and declining lifetime
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+
+[21]
+Missing character: There is no – in font cmr10!
+Missing character: There is no – in font cmr10!
+Missing character: There is no ¸ in font cmr10!
+
+Underfull \hbox (badness 1609) in paragraph at lines 1473--1481
+\OT1/cmr/m/m/10.95 The authors gratefully acknowledge the help
+ []
+
+
+Underfull \hbox (badness 2452) in paragraph at lines 1473--1481
+\OT1/cmr/m/m/10.95 of John Novembre for providing ms scripts
+ []
+
+
+Underfull \hbox (badness 3724) in paragraph at lines 1473--1481
+\OT1/cmr/m/m/10.95 work was supported by a grant from the
+ []
+
+
+Underfull \hbox (badness 2173) in paragraph at lines 1473--1481
+\OT1/cmr/m/m/10.95 in Research and Higher Education (STINT)
+ []
+
+
+Underfull \hbox (badness 1527) in paragraph at lines 1473--1481
+\OT1/cmr/m/m/10.95 provided to M.J. and M.G.B.B. A grant of
+ []
+
+(./MBE-Sample.bbl
+Underfull \hbox (badness 2469) in paragraph at lines 4--9
+\OT1/cmr/m/n/9 and the evolution of euryarchaeal chaperonins: a
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--9
+\OT1/cmr/m/n/9 maximum likelihood-based method for detecting
+ []
+
+
+Underfull \hbox (badness 1137) in paragraph at lines 11--14
+[]\OT1/cmr/m/n/9 Bar-Hen, A. and Kishino, H. 2000.  Comparing the
+ []
+
+
+Underfull \hbox (badness 2409) in paragraph at lines 24--28
+[]\OT1/cmr/m/n/9 Bryant, D., Galtier, N., and Poursat, M. A. 2005.
+ []
+
+
+Underfull \hbox (badness 2065) in paragraph at lines 24--28
+\OT1/cmr/m/n/9 O. Gascuel, editor, \OT1/cmr/m/it/9 Mathematics of evolution and
+
+ []
+
+
+Underfull \hbox (badness 3168) in paragraph at lines 24--28
+\OT1/cmr/m/it/9 phylogeny\OT1/cmr/m/n/9 , pages 33--62. Oxford University Press
+,
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+\OT1/cmr/m/m/10 22
+ []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+[22]
+Underfull \hbox (badness 4467) in paragraph at lines 84--90
+[]\OT1/cmr/m/n/9 Zucker, M., Mathews, D. H., and Turner, D. H.
+ []
+
+
+Underfull \hbox (badness 1635) in paragraph at lines 84--90
+\OT1/cmr/m/n/9 1999.  Algorithms and thermodynamics for RNA
+ []
+
+
+Underfull \hbox (badness 1472) in paragraph at lines 84--90
+\OT1/cmr/m/it/9 biochemistry and biotechnology\OT1/cmr/m/n/9 , NATO ASI Series,
+
+ []
+
+)
+Overfull \vbox (5.29997pt too high) has occurred while \output is active []
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 4 in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no O in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no V in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no B in font nullfont!
+Missing character: There is no E in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no S in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 3 in font nullfont!
+
+[23
+
+] (./MBE-Sample.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 2.375pt have occurred.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 90 ({)
+### bottom level 
+Here is how much of TeX's memory you used:
+ 4176 strings out of 494989
+ 51173 string characters out of 6180577
+ 126507 words of memory out of 5000000
+ 7278 multiletter control sequences out of 15000+600000
+ 31419 words of font info for 130 fonts, out of 8000000 for 9000
+ 45 hyphenation exceptions out of 8191
+ 37i,15n,34p,283b,329s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mb10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmb
+sy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+ti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
+>
+Output written on MBE-Sample.pdf (23 pages, 417213 bytes).
+PDF statistics:
+ 188 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
