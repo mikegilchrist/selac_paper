@@ -54,8 +54,10 @@
 \newif\if@surnamecolor \@surnamecolorfalse
 \newif\if@CE \@CEfalse
 \newif\if@MSC \@MSCfalse
-\DeclareOption{b4center}{\PassOptionsToPackage{b4center}{crop}}
-\DeclareOption{a4center}{\PassOptionsToPackage{a4center}{crop}}
+%\DeclareOption{b4center}{\PassOptionsToPackage{b4center}{crop}}
+%\DeclareOption{a4center}{\PassOptionsToPackage{a4center}{crop}}
+\DeclareOption{b4center}{\PassOptionsToPackage{b4,center}{crop}}
+\DeclareOption{a4center}{\PassOptionsToPackage{a4,center}{crop}}
 \DeclareOption{surname}{\@surnamecolortrue}
 \DeclareOption{nosurname}{\@surnamecolorfalse}
 \DeclareOption{FPAGE}{\@fpagetrue}
@@ -2389,17 +2391,17 @@ urlbordercolor=0 0 0,bookmarks,bookmarksopen=true,bookmarksnumbered=true,pdfpage
 \font\slugfont=CMR10 at 6pt
 %
 \IfFileExists{crop.cfg}{}{%
-  \renewcommand*\CROP@@info{\slugfont%
+  \renewcommand*\CROP@@info{%
     \lower 19\p@
-    \hbox to \paperwidth{%
+    \hbox to \paperwidth{\slugfont%
       \hskip 3mm
       %\scriptsize       % <--- NFSS font commands don't work here -- why?
-      [\timenow\enskip\the\day/\the\month/\the\year\enskip MOLBEV-\ourcurrentdirectory\filename]
+      %[\timenow\enskip\the\day/\the\month/\the\year\enskip MOLBEV-\ourcurrentdirectory\filename]
       %\hfill
       %Job No:\space\Jobid
       \hfill%\@shortjname:
       \space%\@jname
-      \hfill Page:\space\thepage\quad\@firstpage--\@lastpage%
+      \hfill %Page:\space\thepage\quad\@firstpage--\@lastpage%
       \hskip 3mm
       }}
   \renewcommand*\CROP@@ulc{%
@@ -2441,7 +2443,7 @@ urlbordercolor=0 0 0,bookmarks,bookmarksopen=true,bookmarksnumbered=true,pdfpage
       \vss}\color@endgroup}
   }
 
-\if@cropmarkson \crop[cam] \fi
+\if@cropmarkson \crop[cam,noinfo] \fi
 %
 
 %%%%%%%%%b-KOO
