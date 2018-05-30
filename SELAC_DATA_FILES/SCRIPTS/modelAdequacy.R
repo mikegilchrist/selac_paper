@@ -6,10 +6,10 @@ PlotAdequacyResults <- function(adequate.obj.gtr, adequate.obj.mutsel, adequate.
     prop.interval <- seq(0,1 , by=0.05)
     #pdf(file.name)
     cols <- viridis(3)
-    plot(prop.interval, adequate.obj.gtr[[1]], ylab="", xlab="", pch=19, xlim=c(0,1), ylim=c(0, 1), axes=FALSE, col=0)
+    plot(prop.interval, adequate.obj.gtr[[1]], ylab="", xlab="", pch=19, xlim=c(0,1), ylim=c(0,1), axes=FALSE, col=0)
 
     for(rep.index in 1:100){
-        lines(prop.interval, pp[[rep.index]], col=selac:::add.alpha(cols[1], alpha=alpha))
+        lines(prop.interval, adequate.obj.gtr[[rep.index]], col=selac:::add.alpha(cols[1], alpha=alpha))
     }
 
     for(rep.index in 1:100){
@@ -64,16 +64,16 @@ load("yeastSalRokSelacUNRESTgamma_NEW_.Rdata")
 selac.wg <- result
 load("yeastSalRokGTRG.Rdata")
 gtr.g <- result
-load("yeastSalRokSelacFMutSel.Rdata")
+load("yeastSalRokSelacFMutSel_NEW.Rdata")
 fmutsel <- result
 setwd("../DATA")
 
 print("Doing Scer")
 ## Brewer's yeast adequacy
-pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="selac", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=selac.wg, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
+pp <- GetAdequateManyReps(nreps=100, n.cores=20, model.to.reconstruct.under="selac", model.to.simulate.under="selac", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=selac.wg, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
 save(pp, file="adequacy_Scer_reconSelacWG_simSelacWG.Rsave")
 
-pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="gtr", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=gtr.g, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
+pp <- GetAdequateManyReps(nreps=100, n.cores=20, model.to.reconstruct.under="selac", model.to.simulate.under="gtr", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=gtr.g, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
 save(pp, file="adequacy_Scer_reconSelacWG_simGTRG.Rsave")
 
 #pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="gtr", model.to.simulate.under="selac", selac.obj.to.reconstruct=gtr.g, selac.obj.to.simulate=selac.wg, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
@@ -82,7 +82,7 @@ save(pp, file="adequacy_Scer_reconSelacWG_simGTRG.Rsave")
 #pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="gtr", model.to.simulate.under="gtr", selac.obj.to.reconstruct=gtr.g, selac.obj.to.simulate=gtr.g, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1, for.gtr.only=selac.wg)
 #save(pp, file="adequacy_Scer_reconGTRG_simGTRG.Rsave")
 
-pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="fmutsel", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=fmutsel, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
+pp <- GetAdequateManyReps(nreps=100, n.cores=20, model.to.reconstruct.under="selac", model.to.simulate.under="fmutsel", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=fmutsel, aa.optim.input=NULL, taxon.to.drop=1, partition.number=53, numcode=1)
 save(pp, file="adequacy_Scer_reconSelacWG_simFMutSel.Rsave")
 
 
@@ -91,10 +91,10 @@ save(pp, file="adequacy_Scer_reconSelacWG_simFMutSel.Rsave")
 print("Doing Scas")
 
 ## Scas adequacy
-pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="selac", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=selac.wg, aa.optim.input=NULL, taxon.to.drop=5, partition.number=53, numcode=1)
+pp <- GetAdequateManyReps(nreps=100, n.cores=20, model.to.reconstruct.under="selac", model.to.simulate.under="selac", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=selac.wg, aa.optim.input=NULL, taxon.to.drop=5, partition.number=53, numcode=1)
 save(pp, file="adequacy_Scas_reconSelacWG_simSelacWG.Rsave")
 
-pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="gtr", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=gtr.g, aa.optim.input=NULL, taxon.to.drop=5, partition.number=53, numcode=1)
+pp <- GetAdequateManyReps(nreps=100, n.cores=10, model.to.reconstruct.under="selac", model.to.simulate.under="gtr", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=gtr.g, aa.optim.input=NULL, taxon.to.drop=5, partition.number=53, numcode=1)
 save(pp, file="adequacy_Scas_reconSelacWG_simGTRG.Rsave")
 
 #pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="gtr", model.to.simulate.under="selac", selac.obj.to.reconstruct=gtr.g, selac.obj.to.simulate=selac.wg, aa.optim.input=NULL, taxon.to.drop=5, partition.number=53, numcode=1)
@@ -103,7 +103,7 @@ save(pp, file="adequacy_Scas_reconSelacWG_simGTRG.Rsave")
 #pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="gtr", model.to.simulate.under="gtr", selac.obj.to.reconstruct=gtr.g, selac.obj.to.simulate=gtr.g, aa.optim.input=NULL, taxon.to.drop=5, partition.number=53, numcode=1, for.gtr.only=selac.wg)
 #save(pp, file="adequacy_Scas_reconGTRG_simGTRG.Rsave")
 
-pp <- GetAdequateManyReps(nreps=100, n.cores=4, model.to.reconstruct.under="selac", model.to.simulate.under="fmutsel", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=fmutsel, aa.optim.input=NULL, taxon.to.drop=5, partition.number=53, numcode=1)
+pp <- GetAdequateManyReps(nreps=100, n.cores=20, model.to.reconstruct.under="selac", model.to.simulate.under="fmutsel", selac.obj.to.reconstruct=selac.wg, selac.obj.to.simulate=fmutsel, aa.optim.input=NULL, taxon.to.drop=5, partition.number=53, numcode=1)
 save(pp, file="adequacy_Scas_reconSelacWG_simFMutSel.Rsave")
 
 
