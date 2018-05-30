@@ -172,23 +172,42 @@ text(-1, 10, expression(italic('S. mikatae')))
 mtext("(c)",side=3, line=0, adj=0)
 
 
-plot(log(gg$Psi_gamma/gg$functionality_Skud_wG), log(gg$Skud_Microarray), axes=FALSE, xlab="", ylab="", ylim=c(-1,1), xlim=c(-1.2,0), pch=19, cex=.75, main="")
+#plot(log(gg$Psi_gamma/gg$functionality_Skud_wG), log(gg$Skud_Microarray), axes=FALSE, xlab="", ylab="", ylim=c(-1,1), xlim=c(-1.2,0), pch=19, cex=.75, main="")
+#par(tck=.01)
+#axis(2, at = seq(-1,1, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+#axis(1, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+#title(ylab=expression(log~phi[Microarray]), line=2.5)
+#title(xlab=expression(log~hat(phi)[SelAC]), line=2)
+#fit <- lm(log(gg$Skud_Microarray)~log(gg$Psi_gamma/gg$functionality_Skud_wG))
+#abline(fit)
+#actual.max <- 1--1
+#max.diff <- actual.max-1
+#top.text <- (actual.max*.875)-max.diff
+#bottom.text <- (actual.max*.825)-max.diff
+#text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
+#summary.stats <- summary(fit)
+#eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
+#text(-1, bottom.text, eq)
+#text(-1, 1, expression(italic('S. kudriavzevii')))
+#mtext("(e)",side=3, line=0, adj=0)
+
+plot(log(gg$Psi_gamma/gg$functionality_Cgla_wG), log(gg$Cgla_Microarray), axes=FALSE, xlab="", ylab="", ylim=c(-3.5,0.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
 par(tck=.01)
-axis(2, at = seq(-1,1, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+axis(2, at = seq(-3.5,0.5, by = 1), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(1, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 title(ylab=expression(log~phi[Microarray]), line=2.5)
 title(xlab=expression(log~hat(phi)[SelAC]), line=2)
-fit <- lm(log(gg$Skud_Microarray)~log(gg$Psi_gamma/gg$functionality_Skud_wG))
-#abline(fit)
-actual.max <- 1--1
-max.diff <- actual.max-1
+fit <- lm(log(gg$Cgla_Microarray)~log(gg$Psi_gamma/gg$functionality_Cgla_wG))
+abline(fit)
+actual.max <- .5--3.5
+max.diff <- actual.max-.5
 top.text <- (actual.max*.875)-max.diff
 bottom.text <- (actual.max*.825)-max.diff
 text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
-text(-1, 1, expression(italic('S. kudriavzevii')))
+text(-1, .5, expression(italic('C. glabra')))
 mtext("(e)",side=3, line=0, adj=0)
 
 
@@ -230,24 +249,6 @@ text(-1, bottom.text, eq)
 text(-1, .5, expression(italic('S. castellii')))
 mtext("(d)",side=3, line=0, adj=0)
 
-plot(log(gg$Psi_gamma/gg$functionality_Cgla_wG), log(gg$Cgla_Microarray), axes=FALSE, xlab="", ylab="", ylim=c(-3.5,0.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
-par(tck=.01)
-axis(2, at = seq(-3.5,0.5, by = 1), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
-axis(1, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
-title(ylab=expression(log~phi[Microarray]), line=2.5)
-title(xlab=expression(log~hat(phi)[SelAC]), line=2)
-fit <- lm(log(gg$Cgla_Microarray)~log(gg$Psi_gamma/gg$functionality_Cgla_wG))
-abline(fit)
-actual.max <- .5--3.5
-max.diff <- actual.max-.5
-top.text <- (actual.max*.875)-max.diff
-bottom.text <- (actual.max*.825)-max.diff
-text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
-summary.stats <- summary(fit)
-eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
-text(-1, bottom.text, eq)
-text(-1, .5, expression(italic('C. glabra')))
-mtext("(f)",side=3, line=0, adj=0)
 
 
 dev.off()
@@ -300,13 +301,32 @@ text(-1, bottom.text, eq)
 text(-1, 1.5, expression(italic('S. mikatae')))
 mtext("(c)",side=3, line=0, adj=0)
 
-plot(log(gg$Psi_gamma/gg$functionality_Skud_wG), log(gg$ROC_Skud), axes=FALSE, xlab="", ylab="", ylim=c(-2,1.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
+#plot(log(gg$Psi_gamma/gg$functionality_Skud_wG), log(gg$ROC_Skud), axes=FALSE, xlab="", ylab="", ylim=c(-2,1.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
+#par(tck=.01)
+#axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+#axis(1, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+#title(ylab=expression(log~phi[ROC]), line=2.5)
+#title(xlab=expression(log~hat(phi)[SelAC]), line=2)
+#fit <- lm(log(gg$ROC_Skud)~log(gg$Psi_gamma/gg$functionality_Skud_wG))
+#abline(fit)
+#actual.max <- 1.5--2
+#max.diff <- actual.max-1.5
+#top.text <- (actual.max*.875)-max.diff
+#bottom.text <- (actual.max*.825)-max.diff
+#text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
+#summary.stats <- summary(fit)
+#eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
+#text(-1, bottom.text, eq)
+#text(-1, 1.5, expression(italic('S. kudriavzevii')))
+#mtext("(e)",side=3, line=0, adj=0)
+
+plot(log(gg$Psi_gamma/gg$functionality_Cgla_wG), log(gg$ROC_Cgla), axes=FALSE, xlab="", ylab="", ylim=c(-2,1.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
 par(tck=.01)
 axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 axis(1, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 title(ylab=expression(log~phi[ROC]), line=2.5)
 title(xlab=expression(log~hat(phi)[SelAC]), line=2)
-fit <- lm(log(gg$ROC_Skud)~log(gg$Psi_gamma/gg$functionality_Skud_wG))
+fit <- lm(log(gg$ROC_Cgla)~log(gg$Psi_gamma/gg$functionality_Cgla_wG))
 abline(fit)
 actual.max <- 1.5--2
 max.diff <- actual.max-1.5
@@ -316,8 +336,9 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
-text(-1, 1.5, expression(italic('S. kudriavzevii')))
+text(-1, 1.5, expression(italic('C. glabra')))
 mtext("(e)",side=3, line=0, adj=0)
+
 
 plot(log(gg$Psi_gamma/gg$functionality_Scer), log(gg$ROC_Scer), axes=FALSE, xlab="", ylab="", ylim=c(-2,1.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
 par(tck=.01)
@@ -357,26 +378,6 @@ eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
 text(-1, 1.5, expression(italic('S. castellii')))
 mtext("(d)",side=3, line=0, adj=0)
-
-
-plot(log(gg$Psi_gamma/gg$functionality_Cgla_wG), log(gg$ROC_Cgla), axes=FALSE, xlab="", ylab="", ylim=c(-2,1.5), xlim=c(-1.2,0), pch=19, cex=.75, main="")
-par(tck=.01)
-axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
-axis(1, at = seq(-1.2,0, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
-title(ylab=expression(log~phi[ROC]), line=2.5)
-title(xlab=expression(log~hat(phi)[SelAC]), line=2)
-fit <- lm(log(gg$ROC_Cgla)~log(gg$Psi_gamma/gg$functionality_Cgla_wG))
-abline(fit)
-actual.max <- 1.5--2
-max.diff <- actual.max-1.5
-top.text <- (actual.max*.875)-max.diff
-bottom.text <- (actual.max*.825)-max.diff
-text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
-summary.stats <- summary(fit)
-eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
-text(-1, bottom.text, eq)
-text(-1, 1.5, expression(italic('C. glabra')))
-mtext("(f)",side=3, line=0, adj=0)
 
 
 dev.off()
@@ -458,24 +459,43 @@ text(4, bottom.text, eq)
 text(4, 1.5, expression(italic('S. mikatae')))
 mtext("(c)",side=3, line=0, adj=0)
 
-plot(log(gg$Skud_Microarray), log(gg$ROC_Skud), axes=FALSE, xlab="", ylab="", ylim=c(-2,1.5), xlim=c(-1,1), pch=19, cex=.75, main="")
+#plot(log(gg$Skud_Microarray), log(gg$ROC_Skud), axes=FALSE, xlab="", ylab="", ylim=c(-2,1.5), xlim=c(-1,1), pch=19, cex=.75, main="")
+#par(tck=.01)
+#axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+#axis(1, at = seq(-1,1, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+#title(xlab=expression(log~phi[Microarray]), line=2.5)
+#title(ylab=expression(log~phi[ROC]), line=2.5)
+#fit <- lm(log(gg$ROC_Skud)~log(gg$Skud_Microarray))
+#abline(fit)
+#actual.max <- 1.5--2
+#max.diff <- actual.max-1.5
+#top.text <- (actual.max*.875)-max.diff
+#bottom.text <- (actual.max*.825)-max.diff
+#text(-.5, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
+#summary.stats <- summary(fit)
+#eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
+#text(-.5, bottom.text, eq)
+#text(-.5, 1.5, expression(italic('S. kudriavzevii')))
+#mtext("(e)",side=3, line=0, adj=0)
+
+plot(log(gg$Cgla_Microarray), log(gg$ROC_Cgla), axes=FALSE, xlab="", ylab="", ylim=c(-2,1.5), xlim=c(-3.5,0.5), pch=19, cex=.75, main="")
 par(tck=.01)
 axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
-axis(1, at = seq(-1,1, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
+axis(1, at = seq(-3.5,0.5, by = 1), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
 title(xlab=expression(log~phi[Microarray]), line=2.5)
 title(ylab=expression(log~phi[ROC]), line=2.5)
-fit <- lm(log(gg$ROC_Skud)~log(gg$Skud_Microarray))
-#abline(fit)
+fit <- lm(log(gg$ROC_Cgla)~log(gg$Cgla_Microarray))
+abline(fit)
 actual.max <- 1.5--2
 max.diff <- actual.max-1.5
 top.text <- (actual.max*.875)-max.diff
 bottom.text <- (actual.max*.825)-max.diff
-text(-.5, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
+text(-2.5, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
-text(-.5, bottom.text, eq)
-text(-.5, 1.5, expression(italic('S. kudriavzevii')))
-mtext("(e)",side=3, line=0, adj=0)
+text(-2.5, bottom.text, eq)
+text(-2.5, 1.5, expression(italic('C. glabra')))
+mtext("(f)",side=3, line=0, adj=0)
 
 plot(log(gg$Scer_RNA), log(gg$ROC_Scer), axes=FALSE, xlab="", ylab="", xlim=c(-2.4,1.8), ylim=c(-2,1.5), pch=19, cex=.75, main="")
 par(tck=.01)
@@ -515,25 +535,6 @@ eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-2.5, bottom.text, eq)
 text(-2.5, 1.5, expression(italic('S. castellii')))
 mtext("(d)",side=3, line=0, adj=0)
-
-plot(log(gg$Cgla_Microarray), log(gg$ROC_Cgla), axes=FALSE, xlab="", ylab="", ylim=c(-2,1.5), xlim=c(-3.5,0.5), pch=19, cex=.75, main="")
-par(tck=.01)
-axis(2, at = seq(-2,1.5, by = .5), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
-axis(1, at = seq(-3.5,0.5, by = 1), las =1, lwd=1, labels=TRUE, mgp=c(.75,.5,0))
-title(xlab=expression(log~phi[Microarray]), line=2.5)
-title(ylab=expression(log~phi[ROC]), line=2.5)
-fit <- lm(log(gg$ROC_Cgla)~log(gg$Cgla_Microarray))
-abline(fit)
-actual.max <- 1.5--2
-max.diff <- actual.max-1.5
-top.text <- (actual.max*.875)-max.diff
-bottom.text <- (actual.max*.825)-max.diff
-text(-2.5, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
-summary.stats <- summary(fit)
-eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
-text(-2.5, bottom.text, eq)
-text(-2.5, 1.5, expression(italic('C. glabra')))
-mtext("(f)",side=3, line=0, adj=0)
 
 dev.off()
 

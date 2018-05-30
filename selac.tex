@@ -244,7 +244,7 @@ This cost-benefit approach allows us generate a set of 20 optimal amino acid spe
 Using a yeast dataset of 100 orthologs for 6 taxa, we find \selac fits the data much better than popular models by $10^{4}-10^{5}$ AICc units.
 Our results indicate there is great potential for more accurate inference of phylogenetic trees and branch lengths from already existing data through the use of nested, mechanistic models.
 Additional parameters estimated by \selac indicate that a large amount of non-phylogenetic, but biologically meaningful, information can be inferred from exisiting data.
-For example, \selac prediction of gene specific protein synthesis rates correlates well with both empirical ($r = 0.34-0.48$) and other theoretical predictions ($r=0.59-0.64$) for multiple yeast species.
+For example, \selac prediction of gene specific protein synthesis rates correlates well with both empirical ($r = 0.33-0.48$) and other theoretical predictions ($r=0.45-0.64$) for multiple yeast species.
 \selac also provides estimates of the optimal amino acid at each site.
 Finally, because \selac is a nested approach based on clearly stated biological assumptions, future modifications, such as including shifts in the optimal amino acid sequence within or across lineages, are possible.
 }
@@ -333,7 +333,7 @@ This is consistent considering how likelihood is calculated for phylogenetic mod
 It is arguable that the conventional approach in comparative methods is calculating AICc in the same way.
 That is, if only one column of data (or ``site'') is examined, as remains remarkably common in comparative methods, when we refer to sample size, it is technically the number of taxa multiplied by number of sites, even though it is referred to simply as the number of taxa.
 
-With respect to estimates of $\phi$ within \selac, they were strongly correlated with both empirical measurements (Pearson $r = 0.34-0.48$) and theoretical predictions (Pearson $r = 0.59-0.64$) of gene expression (Figure \ref{fig:PhivsEmpirical} and Figures S1-S2, respectively).
+With respect to estimates of $\phi$ within \selac, they were strongly correlated with both empirical measurements (Pearson $r = 0.33-0.48$) and theoretical predictions (Pearson $r = 0.45-0.64$) of gene expression (Figure \ref{fig:PhivsEmpirical} and Figures S1-S2, respectively).
 In other words, using only codon sequences, our model can predict which genes have high or low expression levels.
 The estimate of the $\alphag$ parameter, which describes the site-specific variation in sensitivity of the protein's functionality, indicated a moderate level of variation in gene expression among sites.
 Our estimate of $\alphag$ = 1.36, produced a distribution of sensitivity terms $G$ ranged from 0.342-7.32, but with more than 90\% of the weight for a given site-likelihood being contributed by the 0.342 and 1.50 rate categories.
@@ -691,8 +691,10 @@ The FMutSel model assumes that the amino acid frequencies are determined by func
 In all cases, we assumed that the model was partitioned by gene, but with branch lengths linked across genes.
 
 For \selac, we compared our estimates of $\phiprime = \psiprime/\Func$, which represents the average protein synthesis rate of a gene, to estimates of gene expression from empirical data.
-Specifically, we obtained gene expression data for all six species used - five species were measured during log-growth phase, whereas the other was measured at the beginning of the stationary phase (\emph{S.~kudriavzevii}) from the Gene Expression Omnibus (GEO).
-Gene expression in this context corresponds to mRNA abundances, which were measured using either microarrays (\emph{C. glabrata} and \emph{S.~castellii}, and \emph{S.~kudriavzevii}) or RNA-Seq (\emph{S.~paradoxus}, \emph{S.~mikatae}, and \emph{S.~cerevisiae}).
+Specifically, we examined gene expression data for five of the six species measured during log-growth phase.
+Gene expression in this context corresponds to mRNA abundances, which were measured using either microarrays (\emph{C. glabrata} and \emph{S.~castellii}, or RNA-Seq (\emph{S.~paradoxus}, \emph{S.~mikatae}, and \emph{S.~cerevisiae}).
+We obtained expression data for the remaining species, \emph{S.~kudriavzevii}, which was measured at the beginning of the stationary phase from the Gene Expression Omnibus (GEO), and only matched roughly 50 percent of the genes examined.
+For these reasons, we excluded \emph{S.~kudriavzevii} from our comparisons of empirical gene expression.
 
 For further comparison, we also predicted the average protein synthesis rate for each gene $\phi$ by analyzing gene and genome-wide patterns of synonymous codon usage using ROC-SEMPPR \citep{GilchristEtAl2015} for each individual genome.
 While, like \selac, ROC-SEMPPR uses codon level information, it does not rely on any interspecific comparisons and, unlike \selac, uses only the intra- and inter-genic frequencies of synonymous codon usage as its data.
@@ -789,9 +791,9 @@ Also, the sample size used in the calculation of AICc is assumed to be equal to 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_1_SelACwG_vs_Empirical_by_spp_ALLspp.pdf}
-  \caption{Comparisons between estimates of average protein translation rate $\phihat$ obtained from \selacplusgamma and direct measurements of expression for individual yeast taxa across the 100 selected genes from \citet{SalichosAndRokas2013}.
+  \caption{Comparisons between estimates of average protein translation rate $\phihat$ obtained from \selacplusgamma and direct measurements of expression for individual yeast taxa across the 100 selected genes from \citet{SalichosAndRokas2013} measured during log-growth phase.
         Estimates of $\phihat$ were generated by dividing the composite term $\psiprime$ by \Funcaveci.
-        Gene expression was measured using either RNA-Seq (a)-(c) or microarray (d)-(f). 
+        Gene expression was measured using either RNA-Seq (a)-(c) or microarray (d)-(e). 
         The equations in the upper left hand corner of each panel represent the regression fit and the Pearson correlation coefficient $r$.
   }
   \label{fig:PhivsEmpirical}
