@@ -27,7 +27,7 @@ PlotAdequacyResults <- function(adequate.obj.gtr, adequate.obj.mutsel, adequate.
     axis(1, at = seq(0, 1, by = .2), las =1, lwd=1, labels=TRUE, mgp=c(1,.5,0))
     abline(h=known.functionality, lty=2)
     text(.15, .4, "SelAC", col=cols[3])
-    text(.15, .35, "FMutSel0", col=cols[2])
+    text(.15, .35, "FMutSel", col=cols[2])
     text(.15, .3, expression(GTR+Gamma), col=cols[1])
     text(.15, 1, taxon.names)
     #dev.off()
