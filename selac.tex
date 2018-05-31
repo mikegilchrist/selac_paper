@@ -1,6 +1,6 @@
 %\pdfminorversion=7 %added to avoid warning about pdf versions
 %note Non-PDF special ignored! warning may be related to the .cls using ps commands somewhere.
-%\documentclass[12pt,letterpaper,fleqn]{MBE}%{article}
+%\documentclass[12pt,letterpaper,fleqn]{article}
 
 
 %%%%%%%%%%%BEGIN MBE Commands %%%%%%%%%%%%
@@ -79,11 +79,39 @@
 
 
 
-\usepackage{subfig}
+%\usepackage{subfig}
 
 \usepackage{xspace}
+
+%%modified from MBE.cls
+%\usepackage[mathlines,switch,modulo,pagewise]{lineno}%\pagewiselinenumbers[switch]
+%\modulolinenumbers[2]
+
 \usepackage{lineno}
 \linenumbers
+%\modulolinenumbers[2]
+
+
+%%Fix issue with lineno and math environment
+%% Taken from https://tex.stackexchange.com/a/55297
+\newcommand*\patchAmsMathEnvironmentForLineno[1]{%
+  \expandafter\let\csname old#1\expandafter\endcsname\csname #1\endcsname
+  \expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
+  \renewenvironment{#1}%
+     {\linenomath\csname old#1\endcsname}%
+     {\csname oldend#1\endcsname\endlinenomath}}% 
+\newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
+  \patchAmsMathEnvironmentForLineno{#1}%
+  \patchAmsMathEnvironmentForLineno{#1*}}%
+\AtBeginDocument{%
+\patchBothAmsMathEnvironmentsForLineno{equation}%
+\patchBothAmsMathEnvironmentsForLineno{align}%
+\patchBothAmsMathEnvironmentsForLineno{flalign}%
+\patchBothAmsMathEnvironmentsForLineno{alignat}%
+\patchBothAmsMathEnvironmentsForLineno{gather}%
+\patchBothAmsMathEnvironmentsForLineno{multline}%
+}
+
 
 \graphicspath{{./Figures/}} \DeclareGraphicsExtensions{.pdf, .jpg, .png}
 
@@ -178,11 +206,11 @@
 \newcommand{\muij}{\ensuremath{\mu_{i,j}}\xspace}
 \newcommand{\muvec}{\ensuremath{\Vec{\mu}}\xspace}
 \newcommand{\phig}{\ensuremath{\phi_{g}}\xspace}
-\newcommand{\phiprime}{\ensuremath{\phi^\prime}\xspace}
+\newcommand{\phiprime}{\ensuremath{\phi'}\xspace}
 \newcommand{\phihat}{\ensuremath{\hat{\phi}_{\text{\selac}}}\xspace}
 \newcommand{\psihat}{\ensuremath{\hat{\psi}_{\text{\selac}}}\xspace}
 \newcommand{\psig}{\ensuremath{\psi_{g}}\xspace}
-\newcommand{\psiprime}{\ensuremath{\psi^\prime}\xspace}
+\newcommand{\psiprime}{\ensuremath{\psi'}\xspace}
 \newcommand{\pij}{\ensuremath{p_{i,j}}\xspace}
 \newcommand{\qij}{\ensuremath{q_{i,j}}\xspace}
 \newcommand{\qji}{\ensuremath{q_{i,j}}\xspace}
@@ -533,6 +561,7 @@ Our benefit function \Func measures the functionality of the amino acid sequence
 By definition, $\Funcaoptvec = 1$ and $\Funcaveci < 1$ for all other sequences.
 We assume all amino acids within the sequence contribute to protein function and that this contribution declines as an inverse function of physicochemical distance from each amino acid to the optimal one.
 Formally, we assume that
+
 \begin{equation}
 \Funcavec = \left(\frac{1}{n} \sum_{p=1}^n \left(1 + \gp d(a_p, \aoptp\right)\right)^{-1}
 \end{equation}
@@ -554,11 +583,10 @@ As a result, direct protein assembly costs are the same for all proteins of the 
 Indirect costs of protein assembly are potentially numerous and could include the cost of amino acid synthesis as well the cost and efficiency with which the protein assembly infrastructure such as ribosomes, aminoacyl-tRNA synthetases, tRNAs, and mRNAs are used.
 When these indirect costs are combined with sequence specific benefits, the probability of a mutant allele fixing is no longer independent of the rest of the sequence \citep{GilchristEtAl2015} and, as a result, model fitting becomes substantially more complex.
 Thus for simplicity, in this study we ignore indirect costs of protein assembly that vary between genotypes and define,
-\begin{align}
-\label{eq:defineCost}
-  \Costcveci  &= \text{Direct energetic cost of protein synthesis.}\\
-  &= A_1 + A_2 n
-\end{align}
+\begin{align*}
+  \Costcveci  &= \text{Direct energetic cost of protein synthesis.} \\
+  &= A_1 + A_2 n %\label{eq:defineCost}
+\end{align*}
 where, $A_1$ and $A_2$ represent the direct cost, in high energy phosphate bonds, of ribosome initiation and peptide elongation, respectively, where $A_1 = A_2 = 4  \, \simP$.
 
 
@@ -602,10 +630,10 @@ Instead, we recognize that our estimates of $\psi$ share an unknown scaling term
 
 
 Correspondingly, the ratio of fitness between two genotypes is,
-\begin{align}
+\begin{align*}
   W_i/W_j &=  \exp\left[- A_0 \, \eta(\cveci) \psi\right]/\exp\left[- A_0 \, \eta(\cvecj) \psi\right] \nonumber \\
-  &=  \exp\left[- A_0 \left(\eta(\cveci)- \eta(\cvecj)\right) \psi\right] \label{eq:Wratio}
-\end{align}
+  &=  \exp\left[- A_0 \left(\eta(\cveci)- \eta(\cvecj)\right) \psi\right] %\label{eq:Wratio}
+\end{align*}
 Given our formulations of \Cost and \Func, the fitness effects between sites are multiplicative and, therefore, the substitution of an amino acid at one site can be modeled independently of the amino acids at the other sites within the coding sequence.
 As a result, the fitness ratio for two genotypes differing at multiple sites simplifies to
 \begin{align*}
@@ -866,6 +894,7 @@ On the whole, these comparisons indicate not only a high degree of consistency a
   \includegraphics[width=0.9\linewidth]{FIGURE_S2_Empirical_vs_ROC_by_spp_ALLspp.pdf}
   \caption{Comparisons of predicted gene expression from the ROC SEMPER model (\citet{GilchristEtAl2015}) and direct measurements of expression from RNA-Seq or microarray data for individual yeast taxa across the 100 selected genes from \citet{SalichosAndRokas2013}.
         The equations in the upper left hand corner of each panel represent the regression fit and correlation coefficient.
+}
   \label{fig:ROCvsEmpirical}
 \end{figure}
 

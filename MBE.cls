@@ -516,8 +516,15 @@ DOI:10.1093/sysbio/\@jshort\@artid\\
 \def\corespfont{\fontfamily{\rmdefault}\fontsize{10}{14}\fontshape{m}\selectfont\leftskip0pt\rightskip0pt plus1fill}
 \def\editorfont{\fontfamily{\rmdefault}\fontsize{10}{14}\fontshape{m}\selectfont\leftskip0pt\rightskip0pt plus1fill}
 % Sections
-\def\sectionfont{\fontfamily{\rmdefault}\fontsize{13}{15}\fontseries{b}\selectfont\leftskip0pt\rightskip0pt plus1fill}
-\def\subsectionfont{\fontfamily{\rmdefault}\fontsize{11.5}{13}\fontshape{n}\selectfont\raggedright}
+%mikeg: made section font size bigger.
+\def\sectionfont{\fontfamily{\rmdefault}\fontsize{15}{18}\fontseries{b}\selectfont\leftskip0pt\rightskip0pt plus1fill}
+
+% original line follows
+%\def\sectionfont{\fontfamily{\rmdefault}\fontsize{13}{15}\fontseries{b}\selectfont\leftskip0pt\rightskip0pt plus1fill}
+%mikeg: modified subsection to be bold make it more obvious
+\def\subsectionfont{\fontfamily{\rmdefault}\fontsize{11}{13}\fontseries{b}\fontshape{n}\selectfont\raggedright}
+% original line follows
+%\def\subsectionfont{\fontfamily{\rmdefault}\fontsize{11.5}{13}\fontseries{b}\fontshape{n}\selectfont\raggedright}
 \def\subsubsectionfont{\fontfamily{\rmdefault}\fontshape{it}\fontsize{10.5}{12}\selectfont\raggedright}
 \def\subsubparagraphfont{\fontfamily{\rmdefault}\fontshape{rm}\selectfont\raggedright}
 \def\paragraphfont{\fontfamily{\rmdefault}\fontshape{it}\selectfont\raggedright}
