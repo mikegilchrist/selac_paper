@@ -6,10 +6,17 @@ combine_all_files <- function() {
   }
   command.string <- paste(command.string, "-out combined.nex")
   cat(command.string)
-  return(system(command.string, intern=TRUE))
+  system(command.string, intern=TRUE)
+  return("combined.nex")
 }
 
-convert_to_fasta <- function() {
-  seqs <- ape::read.nexus.data("combined.nex")
-  return(ape::write.FASTA(seqs, file="combined.fasta"))
+convert_to_fasta <- function(combined) {
+  seqs <- ape::read.nexus.data(combined)
+  ape::write.dna(seqs, format="fasta", file="combined.fasta")
+  return("combined.fasta")
+}
+
+run_IQtree <- function(fasta) {
+  iqrun <- system(paste0("iqtree -s ", fasta, " -st CODON -nt AUTO"), intern=TRUE)
+  return(iqrun)
 }
