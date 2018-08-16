@@ -270,7 +270,7 @@ $^{5}$Current address: 50 Main St, Suite 1039, White Plains, NY 10606\\
 Unlike simpler codon models which assume a single substitution matrix for all sites, our model more realistically represents the evolution of protein coding DNA under the assumption of consistent, stabilizing selection using cost-benefit approach.
 This cost-benefit approach allows us generate a set of 20 optimal amino acid specific matrix families using just a handful of parameters and naturally links the strength of stabilizing selection to protein synthesis levels, which we can estimate.
 Using a yeast dataset of 100 orthologs for 6 taxa, we find \selac fits the data much better than popular models by $10^{4}-10^{5}$ AICc units.
-Our results indicate there is great potential for more accurate inference of phylogenetic trees and branch lengths from already existing data through the use of nested, mechanistic models.
+Our results also indicated that nested, mechanistic models better predict observed data patterns highlighting the improvement in biological realism in amino acid sequence evolution that our model provides.
 Additional parameters estimated by \selac indicate that a large amount of non-phylogenetic, but biologically meaningful, information can be inferred from exisiting data.
 For example, \selac prediction of gene specific protein synthesis rates correlates well with both empirical ($r = 0.33-0.48$) and other theoretical predictions ($r=0.45-0.64$) for multiple yeast species.
 \selac also provides estimates of the optimal amino acid at each site.
@@ -337,7 +337,7 @@ Protein function or `benefit' can be affected by the amino acids at each site an
 Linking amino acid sequence to protein function is a daunting task; thus for simplicity, we assume that for any given desired biological function to be carried out by a protein, that (a) the biological importance of this protein function is invariant across the tree, (b) single optimal amino acid sequence that carries out this function best, and (c) the functionality of alternative amino acid sequences declines with their \PC distance from the optimum on a site by site basis.
 %While we believe \selac is more realistic than $\omega$ based approaches, we also discuss a number of shortcomings of this and other assumptions in the Discussion.
 
-Beyond fitting the phylogenetic data better according to model adequacy and AICc, \selac also makes inferences about other important biological processes.
+Beyond fitting the phylogenetic data better than currently available nucleotide and codon models according to model adequacy and AICc, \selac also makes inferences about other important biological processes.
 By comparing these inferences to other empirical data, such as we do with protein synthesis data, we can evaluate \selac's performance independent of the data it is fitted to.
 Indeed, \selac's assumptions lead to mechanistic and, thus, testable hypothesis about the nature of and relationships between mutation, protein function, gene expression, and rates of evolution.
 More importantly, alternative hypotheses could be used in place of ours and, in turn, phylogenetic and other types of data could be used to evaluate the support of these alternative models.
@@ -346,15 +346,19 @@ Our hope is that by moving away from the more phenomenological models we can bet
 
 
 \section{Results}
-By linking transition rates $\qij$ to gene expression in the form of protein synthesis rate  $\phi$, our approach allows use of the same model for genes under varying degrees of stabilizing selection.
-Specifically, we assume the strength of stabilizing selection for the optimal sequence, \aoptvec, is proportional to the average protein synthesis rate $\phi$, which we can estimate for each gene.
+We construct gene and amino acid specific substitution matrices using a submodel nested within our substitution model that requires only a handful of genome wide parameters such as nucleotide specific mutation rates (scaled by effective population size, Ne), amino acid side chain physicochemical weighting parameters, and a shape parameter describing the distribution of site sensitivities.
+In addition to these genome-wide parameters, the model requires a gene specific functionality expression parameter, which describes the average rate at which the protein's functionality is produced by the organism or a gene's `average functionality production rate'.
+By linking transition rates $\qij$ to gene expression in the form of protein synthesis rate $\phi$, our approach allows use of the same model for genes under varying degrees of stabilizing selection.
+Specifically, we assume the strength of stabilizing selection for an optimal sequence, \aoptvec, is proportional to the average protein synthesis rate $\phi$, which we can estimate for each gene.
 In regards to model fit, our results clearly indicated that linking the strength of stabilizing selection for the optimal sequence to gene expression substantially improves our model fit.
 Further, including the shape parameter \alphag for the random effects term $G \sim \text{Gamma}(\text{shape} = \alphag, \text{rate}=\alphag)$ to allow for heterogeneity in this selection between sites within a gene improves the \DeltaAICc of \selacplusgamma over the simpler \selac models by over 22,000 AIC units.
 Using either \DeltaAICc or \AICw as our measure of model support, the \selac models fit extraordinarily better than GTR + $\Gamma$, GY94, or FMutSel (Table \ref{table:modelFits}).
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which accounts for 49,881 additional model parameters.
-Even when compared to the next most parameter rich codon model in our model set, FMutSel, \selacplusgamma model shows over 160,000 AIC unit improvement over FMutSel.
+Even when compared to the next most parameter rich codon model in our model set, FMutSel (with 178 parameters), \selacplusgamma model shows over 160,000 AIC unit improvement over FMutSel.
 
-The analysis building upon \citet{Jhwuengetal2014} suggests that using the number of taxa times the number of sites as the sample size performs best as a small sample size correction for estimating Kullback-Liebler distance in phylogenetic models (Appendix 1).
+We note our use of AICc as opposed to AIC in the above model comparisons.
+At the outset of our study it was unclear what the appropriate sample size, $n$, when comparing models of sequence evolution.
+Building upon the work of Jhwueng et al. (2014), our simulations suggest that using the number of taxa times the number of sites as the sample size correction performs best as a small sample size correction for estimating Kullback-Liebler distance in phylogenetic models (Appendix 1).
 This also has an intuitive appeal.
 In models that have at least some parameters shared across sites and some parameters shared across taxa, increasing the number of sites and/or taxa should be adding more samples for the parameters to estimate.
 This is consistent considering how likelihood is calculated for phylogenetic models: the likelihood for a given site is the sum of the probabilities of each observed state at each tip, which is then multiplied across sites.
@@ -362,8 +366,8 @@ It is arguable that the conventional approach in comparative methods is calculat
 That is, if only one column of data (or ``site'') is examined, as remains remarkably common in comparative methods, when we refer to sample size, it is technically the number of taxa multiplied by number of sites, even though it is referred to simply as the number of taxa.
 
 With respect to estimates of $\phi$ within \selac, they were strongly correlated with both empirical measurements (Pearson $r = 0.33-0.48$) and theoretical predictions (Pearson $r = 0.45-0.64$) of gene expression (Figure \ref{fig:PhivsEmpirical} and Figures S1-S2, respectively).
-In other words, using only codon sequences, our model can predict which genes have high or low expression levels.
-The estimate of the $\alphag$ parameter, which describes the site-specific variation in sensitivity of the protein's functionality, indicated a moderate level of variation in gene expression among sites.
+These correlations are remarkable given that they were uncovered using only codon sequences.
+The estimate of the $\alphag$ parameter, which describes the site-specific, gamma-distributed, variation in sensitivity of the protein's functionality, indicated a moderate level of variation in gene expression among sites.
 Our estimate of $\alphag$ = 1.36, produced a distribution of sensitivity terms $G$ ranged from 0.342-7.32, but with more than 90\% of the weight for a given site-likelihood being contributed by the 0.342 and 1.50 rate categories.
 In simulation, however, of all the parameters in the model, only $\alphag$ showed a consistent bias, in that the MLE were generally lower than their actual values (see Supporting Materials).
 Other parameters in the model, such as the Grantham weights, provide an indication as to the physicochemical distance between amino acids.
@@ -375,12 +379,13 @@ In fact, $\omega$ showed similar, though slightly reduced correlations, with the
 This would give the impression that the same conclusions could have been gleaned using a much simpler model, both in terms of the number of parameters and the assumptions made.
 However, as we discussed earlier, not only is this model greatly restricted in terms of its biological feasibility, \selac clearly performs better in terms of its fit to the data and biological realism.
 
-For example, when we simulated the sequence for \emph{S.~cervisieae}, starting from the ancestral sequence under both GTR + $\Gamma$ and FMutSel, the functionality of the simulated sequence moves away from the observed sequence, whereas SelAC remains near the functionality of the observed sequence (Figure \ref{fig:TreeAndAdequacy}b).
+For example, when we simulated the sequence for \emph{S.~cervisieae}, starting from the ancestral sequence under both GTR + $\Gamma$ and FMutSel, the functionality of the simulated sequence, defined as protein function in relation to the physicochemical distance from each amino acid to the optimal, moves away from the observed sequence.
+By contrast, SelAC remains near the functionality of the observed sequence (Figure \ref{fig:TreeAndAdequacy}b).
 This is somewhat unsurprising, given that both GTR + $\Gamma$ and FMutSel are agnostic to the functionality of the gene, but it does highlight the improvement in biological realism in amino acid sequence evolution that \selac provides.
 We do note that the adequacy of the \selac model does vary among individual taxa, and does not always match the observed functionality.
 For instance, our simulations of \emph{S.~castellii} gene function is consistently higher than estimated from the data (Figure \ref{fig:TreeAndAdequacy}c).
 We suspect this is an indication that assuming a single set of optimal amino acid across all taxa is too simplistic.
-However, we cannot rule out violations of \selac's other model assumptions such as: a single set of Grantham weights, a single $\alphag$, or reductions in protein functionality \Func being solely a function of physicochemical distances $d$  between sites.
+However, we cannot rule out violations of \selac's other model assumptions such as, a single set of Grantham weights, a single $\alphag$, or reductions in protein functionality \Func being solely a function of physicochemical distances $d$  between sites.
 
 %Finally, we note that our simulation analysis suggested that the best measure of dataset size for estimating KL distance uses a scaled value of the product of number of sites and number of characters.
 %The model comparison approach described above included this assumption.
@@ -406,7 +411,9 @@ Indeed, \selac strongly supports the hypothesis that the strength of stabilizing
 Second, because our substitution matrices are built on a formal description of a sequence's cost-benefit function \Cost/\Func, we are able to efficiently parameterize 20 different matrices using a relatively small number of genome-wide parameters -- e.g.~our \PC weightings, \alphac, \alphap, and \alphav, and the shape parameter \alphag for the distribution of selective strength $G$ and one gene specific expression parameter $\psi$.
 While the \Cost/\Func function on which \selac currently rests is very simple, nevertheless, it leads to a dramatic increase in our ability to explain the sequence data we analyzed.
 Importantly, because \selac uses a formal description of a sequence's \Cost/\Func, replacing our assumptions with more sophisticated ones in the future is relatively straightforward.
-Third, our use of nested models also allows us to make biologically meaningful and testable predictions. By linking a gene's expression level to the strength of purifying selection it experiences, we are able to provide coarse estimates of gene expression. This also suggests that $\omega$ is best explained as a proxy for gene expression, rather than the nature of selection on a sequence.
+Third, our use of nested models also allows us to make biologically meaningful and testable predictions.
+By linking a gene's expression level to the strength of purifying selection it experiences, we are able to provide coarse estimates of gene expression.
+This also suggests that the anticorrelation between $\omega$ and gene expression is a proxy for the nature of selection on a sequence.
 
 Thus, we believe our cost-benefit approach to be a substantial advance of the more simplistic $\omega$ models, is complementary to the work of others in the field \citep[e.g.][]{ThorneEtAl2012,RodrigueAndLartillot2014}, and, in turn, lays the foundation for more realistic work in the future.
 For instance, by assuming there is an optimal amino acid for each site, \selac naturally leads to a non-symmetrical and, thus, more cogent model of protein sequence evolution.
@@ -493,7 +500,7 @@ This ability to extend our model and, in turn, sharpen our thinking about the na
 How frequently diversifying selection of this nature occurs is an open, but addressable, question.
 %Fortunately, it is also a question that can be addressed using \selac in the future.
 Regardless of the frequency at which diversifying selection occurs, another question of interest to evolutionary biologists is, ``How often does the optimal/pessimal amino sequence change along any given branch?''
-Due to its mechanistic nature, \selac can also be extended to include changes in the optimal/pessimal sequence over a phylogeny using a hidden markov modelling approach.
+Due to its mechanistic nature, \selac can also be extended to include changes in the optimal/pessimal sequence over a phylogeny using a hidden Markov modelling approach \citet{TuffleySteel1998,Pennyetal2001,Whelan2008}.
 Extending \selac in these ways, will allow researchers to explicitly model shifts in selection on protein sequences and, in turn, quantify their frequency and magnitude thus deepening our understanding of biological evolution.
 
 
@@ -748,7 +755,7 @@ Specifically, rather than optimizing the amino acid at any given site, we assume
 We refer to these `majority rule' models as \selacmaj and \selacmajplusgamma and note that these majority rule formulations greatly accelerate model fitting.
 
 Since these majority rule models assume that the optimal amino acids are known prior to fitting of our model, it is tempting to reduce the count of estimated parameters in the model by the number of parameters estimated using majority rule.
-While using majority rule does not necessarily provide the most likely parameter estimate, it nevertheless uses the data to generate the estimate and, , represents a parameter estimated from the data.
+While using majority rule does not necessarily provide the most likely parameter estimate, it nevertheless uses the data to generate the estimate and represents a parameter estimated from the data.
 Thus, despite having become standard behavior in the field of phylogenetics, this reduction is statistically inappropriate. % unless one uses an additional dataset for this purpose, something we have not seen.
 %This is because the identification of the optimal amino acid using majority rule is done using the data.
 Because the difference in the number of parameters $K$ when counting or not counting the number of nucleotide sites drops out when comparing nucleotide models with AIC, this statistical issue does not apply to nucleotide models.
@@ -804,10 +811,10 @@ The authors would like to thank Premal Shah, Todd Oakley, and two anonymous revi
       GTR+$\Gamma$              & -655,166.4&       610&      1,311,553&     1,311,554&     284,240&        $<$0.001\\
 
     \end{tabular}
-    \caption{Comparison of model fits using AIC, AICc, and \AICw.
+    \caption{Comparison of model fits using AIC, AICc, and \AICw from analyses of 100 selected genes from 6 yeast taxa \citet{SalichosAndRokas2013}.
 Note the subscripts $M$ indicate model fits where the most common or `majority rule' amino acid was fixed as the optimal amino acid \aopt for each site.
 As discussed in text, despite the fact that \aopt for each site was not fitted by our algorithm, its value was determined by examining the data and, as a result, represent an additional parameter estimated from the data and are accounted for in our table.
-Also, the sample size used in the calculation of AICc is assumed to be equal to the size of the matrix (number of taxa x number of sites).
+Also, the sample size used in the calculation of AICc is assumed to be equal to the size of the matrix (number of taxa x number of sites, which is 6 x 49,881).
 }
     \label{table:modelFits}
 \end{table}
