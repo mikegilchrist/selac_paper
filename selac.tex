@@ -291,7 +291,7 @@ Finally, because \selac is a nested approach based on clearly stated biological 
 \section{Introduction}
 Phylogenetic analyses plays a critical role in most aspects of biology, particularly in the fields of ecology, evolution, paleontology, medicine, and conservation.
 While the scale and impact of phylogenetic studies have increased substantially over the past two decades, the realism of the mathematical models on which these analyses are based has changed relatively little by comparison.
-The most popular models of DNA substitution used in molecular phylogenetics are simple nucleotide models that date back the early 1980's and 90's, e.g.~F81, F84, HYK85, TN93, and GTR (see \citet{Yang2014} for an overview), and are indifferent to the type of sequences they are fitted to.
+The most popular models of DNA substitution used in molecular phylogenetics are simple nucleotide models that date back to the early 1980's and 90's, e.g.~F81, F84, HYK85, TN93, and GTR (see \citet{Yang2014} for an overview), and are indifferent to the type of sequences they are fitted to.
 For example, when evaluating protein-coding sequences these models are inherently agnostic with regards to the different amino acid substitutions and their impact on gene function and, as a result, cannot describe the behavior of natural selection at the amino acid or protein level.
 
 Two important and independent attempts to address this critical shortcoming were introduced by \citet[][commonly abbreviated as GY94]{GoldmanAndYang1994} and \citet{MuseAndGaut1994}.
@@ -299,7 +299,7 @@ These models were explicitly built for protein coding data, assuming that differ
 These \PC based codon models as originally introduced have rarely been used for empirical data.
 Instead, these often cited models have served as the basis for an array of simpler and, in turn, more popular $\omega$ models that, starting with \citet{YangAndNielsen1998,NielsenAndYang1998}, typically assume an equal fixation probability for \emph{all} non-synonymous mutations.
 Although often attributed to GY94, these later and  simpler models were the first to employ the single term $\omega$ to model the differences in fixation probability between nonsynonomous and synonomyous changes at all sites.
-Since their introduction, more complex models have been developed that allow $\omega$ to vary between sites or branches \citep[as cited in ][]{Anisimova2012} and include selection on different synonyms for the same amino acid \cite[e.g.][]{YangAndNielsen2008} %(MIKE: AND POSSIBLY \citep{TamuriEtAl2012,RodrigueAndHerve2010})
+Since their introduction, more complex models have been developed that allow $\omega$ to vary between sites or branches \citep[as cited in ][]{Anisimova2012} and include selection on different synonyms for the same amino acid \cite[e.g.][]{YangAndNielsen2008}. %(MIKE: AND POSSIBLY \citep{TamuriEtAl2012,RodrigueAndHerve2010})
 
 %Despite these extensions, these models do not actually  behavior of stabilizing or diversifying selection.
 In \citet{GoldmanAndYang1994}, \citet{YangAndNielsen1998} ,\citet{NielsenAndYang1998} and later studies based on their work, $\omega$ is suggested to indicate whether a given site within a protein sequence is under consistent `stabilizing ($\omega < 1$) or `diversifying' ($\omega > 1$) selection.
@@ -317,7 +317,8 @@ Thus, the simplest and most consistent interpretation of $\omega$ is that it rep
 Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions from the resident amino acid.
 Again due to the model's symmetrical nature, the selection \emph{against} the resident amino acid $i$ is equally strong relative to alternative amino acids.
 The selection against the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors} amino acid $i$, as well as the 19 other amino acids, to the same degree $i$ was previously disfavored.
-Given this behavior, $\omega$ based models are likely to only reasonably approximate a subset of scenarios such as perfectly symmetrical over-/under-dominance or positive/negative frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
+Of course, in practice it is unlikely for the non-synonymous rate to be greater than the synonymous substitution rate in the absence of a particular process (e.g., antagonistic coevolution).
+Given these behaviors, $\omega$ based models are likely to only reasonably approximate a subset of scenarios such as perfectly symmetrical over-/under-dominance or positive/negative frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
 Further, $\omega$ based models implicitly assumes the substitution is on the same timescale as the shifts in the optimal (or pessimal) amino acid.
 It is for these reasons that $\omega$ is best interpreted in a gene-wide context, as opposed to site-specific, because it averages over substitutions across many different sites.
 
@@ -347,11 +348,12 @@ Our hope is that by moving away from the more phenomenological models we can bet
 
 
 \section{Results}
-Our \selac model requires the construction of gene and amino acid specific substitution matrices that uses a submodel nested within our substitution model. 
+The \selac model requires the construction of gene and amino acid specific substitution matrices that uses a submodel nested within our substitution model. 
 This requires only a handful of genome-wide parameters such as nucleotide specific mutation rates (scaled by effective population size, Ne), amino acid side chain physicochemical weighting parameters, and a shape parameter describing the distribution of site sensitivities.
-In addition to these genome-wide parameters, the model requires a gene-specific functionality expression parameter, which describes the average rate at which the protein's functionality is produced by the organism or a gene's `average functionality production rate'.
+In addition to these genome-wide parameters, the model requires a gene-specific functionality expression parameter that describes the average rate at which the protein's functionality is produced by the organism or a gene's `average functionality production rate'.
 By linking transition rates $\qij$ to gene expression in the form of protein synthesis rate $\phi$, our approach allows use of the same model for genes under varying degrees of stabilizing selection.
 Specifically, we assume the strength of stabilizing selection for an optimal sequence, \aoptvec, is proportional to the average protein synthesis rate $\phi$, which we can estimate for each gene.
+
 
 We first evaluated the performance of our codon model by simulating datasets and estimating the bias of the inferred model parameters from these data.
 Overall, the simulation results indicated that our SelAC model can reasonably recover the known values of the generating model (Figure \ref{fig:SelacWithGSimRes}\ref{fig:SelacNoGSimRes}).
