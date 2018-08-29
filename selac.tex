@@ -42,7 +42,7 @@
 \usepackage{amsthm}
 \usepackage{array}
 %\usepackage{booktabs}
-\usepackage{caption}
+%\usepackage{caption}
 \usepackage{color}
 %\usepackage{epsfig}
 %\usepackage{fixltx2e} %unneeded after 2015
@@ -883,22 +883,15 @@ Also, the sample size used in the calculation of AICc is assumed to be equal to 
 
 \clearpage
 
-\setcounter{figure}{0}
-\setcounter{table}{0}
-\setcounter{page}{1}
-\setcounter{section}{0}
 
-\renewcommand{\thefigure}{S\arabic{figure}}
-\renewcommand{\thetable}{S\arabic{table}}
-\renewcommand{\thepage}{S\arabic{page}}
-\renewcommand{\thesection}{\arabic{section}} %
-\renewcommand{\appendixname}{Supporting Materials}
-\renewcommand{\theequation}{S\arabic{equation}}
 
-\setcounter{equation}{0}
 \appendix
 
-
+%%% commands for getting SM pages and figures labeled with S
+%% different than with other .cls
+\setcounter{section}{19} %appendix environment set in .cls file.  Set this to 19 to get an 'S' for figures
+\setcounter{page}{1}
+\renewcommand{\thepage}{S\arabic{page}} %this works
 
 \section{Supporting Materials}
 Supporting Materials for \emph{Population Genetics Based Phylogenetics Under Stabilizing Selection for an Optimal Amino Acid Sequence: A Nested Modeling Approach} \ by Beaulieu \emph{et al.}~(In Review).
@@ -909,7 +902,9 @@ We compared our estimates of $\phi$ to two separate measures of gene expression,
 Our estimates of $\phi$ are positively correlated with both measures, which are also reasonably well correlated with each other (Figure \ref{fig:PhivsEmpirical} - \ref{fig:ROCvsEmpirical})
 On the whole, these comparisons indicate not only a high degree of consistency among all three measures, but also, importantly, that estimates of $\phi$ obtained from SelAC provide real biological insight into the expression level of a gene.
 
-\begin{figure}[H]
+\vfill 
+
+\begin{figure}%[H]
   \centering
   \includegraphics[width=0.9\linewidth]{FIGURE_S1_SelACwG_vs_ROC_by_spp_ALLspp.pdf}
   \caption{Comparisons between estimates of $\phi$ obtained from \selacplusgamma and the predicted gene expression from the ROC SEMPER model \citep{GilchristEtAl2015} for individual yeast taxa across the 100 selected genes from \citet{SalichosAndRokas2013}.
