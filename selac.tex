@@ -349,32 +349,34 @@ Our hope is that by moving away from the more phenomenological models we can bet
 
 \section{Results}
 The \selac model requires the construction of gene and amino acid specific substitution matrices that uses a submodel nested within our substitution model. 
-This requires only a handful of genome-wide parameters such as nucleotide specific mutation rates (scaled by effective population size, Ne), amino acid side chain physicochemical weighting parameters, and a shape parameter describing the distribution of site sensitivities.
-In addition to these genome-wide parameters, the model requires a gene-specific functionality expression parameter that describes the average rate at which the protein's functionality is produced by the organism or a gene's `average functionality production rate'.
+This requires only a handful of genome-wide parameters such as nucleotide specific mutation rates $\muij$ , which are scaled by effective population size Ne, amino acid side chain physicochemical weighting parameters \alphac, \alphap, and \alphav, and a gamma distribution shape parameter \alphag describing the distribution of site sensitivities $G$.
+In addition to these genome-wide parameters, the model requires a gene-specific functionality expression parameter that describes the average rate at which the protein's functionality is produced by the organism or a gene's `average functionality production rate' $\psi$.
 By linking transition rates $\qij$ to gene expression in the form of protein synthesis rate $\phi$, our approach allows use of the same model for genes under varying degrees of stabilizing selection.
-Specifically, we assume the strength of stabilizing selection for an optimal sequence, \aoptvec, is proportional to the average protein synthesis rate $\phi$, which we can estimate for each gene.
+Specifically, we assume the strength of stabilizing selection for an optimal sequence, \aoptvec, is proportional to $\psi$, which we can estimate for each gene.
 
 
 We first evaluated the performance of our codon model by simulating datasets and estimating the bias of the inferred model parameters from these data.
 Overall, the simulation results indicated that our SelAC model can reasonably recover the known values of the generating model (Figure \ref{fig:SelacWithGSimRes}\ref{fig:SelacNoGSimRes}).
 This includes not only the parameters in \selac, but also the optimal amino acids for a given sequence as well as the estimates of the branch lengths.
 There are, however, a few observations to note.
-First, the ability to accurately recover the true optimal amino acid sequence will largely depend on the magnitude of the realized average protein synthesis rate of the gene $\phi$.
-This is, of course, intuitive, given that $\phi$ sets the strength of stabilizing selection towards an optimal amino acid at a site.
-However, the inclusion of $\alphag$ into \selac, appears to generally increase values of $\phi$ and generally improves the ability to recover the optimal amino acids even for the gene with the lowest baseline $\phi$.
+First, the ability to accurately recover the true optimal amino acid sequence \aoptvec will largely depend on the magnitude of the realized average protein synthesis rate of the gene $\phi$, which is the target functionality rate $\psi$ divided by the functionality of the observed amino acid sequence $\Func(\avec)$.
+This is, of course, intuitive, given that $\psi$ sets the strength of stabilizing selection towards an optimal amino acid at a site.
+However, the inclusion of between site variation in selection via the shape parameter $\alphag$ into \selac generally increase our estimates of $\psi$ as well as improve our ability to recover the optimal amino acids \aoptvec.
+This is true even for the gene with the lowest baseline $\psi$.
 Second, we found a strong downward bias in estimates of $\alphag$, which actually translates to greater variation among the rate categories.
 The choice of a gamma distribution to represent site-specific variation in sensitivity was based on mathematical convenience and convention, rather than on biological reality.
-Nevertheless, we suspect that this bias is in large part due to the difficulty in determining the baseline $\psi$ for a given gene and the value of $\alphag$ that globally satisfies the site-specific variation in sensitivity across all genes, as indicated by the slight upward bias in estimates of $\psi$ (see Figure \ref{fig:SelacWithGSimRes2}).
+Further, given the fact that the density of the gamma distribution is infinite at $G=0$ when $\alphag < 1$, imputing site specific $G$ values will be an issue in these scenarios. 
+Nevertheless, we suspect that this downward estimation bias of \alphag is in large part due to the difficulty in determining the baseline $\psi$ for a given gene and the value of $\alphag$ that globally satisfies the site-specific variation in sensitivity across all genes, as indicated by the slight upward bias in estimates of $\psi$ (see Figure \ref{fig:SelacWithGSimRes2}).
 
 In regards to model fit in an empirical setting, our results clearly indicated that linking the strength of stabilizing selection for the optimal sequence to gene expression substantially improves our model fit.
-Further, including the shape parameter \alphag for the random effects term $G \sim \text{Gamma}(\text{shape} = \alphag, \text{rate}=\alphag)$ to allow for heterogeneity in this selection between sites within a gene improves the \DeltaAICc of \selacplusgamma over the simpler \selac models by over 22,000 AIC units.
+Further, including the shape parameter \alphag for the random effects term $G \sim \text{Gamma}\left(\text{shape} = \alphag, \text{rate}=\alphag\right)$ to allow for heterogeneity in this selection between sites within a gene improves the \DeltaAICc of \selacplusgamma over the simpler \selac models by over 22,000 AIC units.
 Using either \DeltaAICc or \AICw as our measure of model support, the \selac models fit extraordinarily better than GTR + $\Gamma$, GY94, or FMutSel (Table \ref{table:modelFits}).
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which accounts for 49,881 additional model parameters.
 Even when compared to the next most parameter rich codon model in our model set, FMutSel (with 178 parameters), \selacplusgamma model shows over 160,000 AIC unit improvement over FMutSel.
 
 We note our use of AICc, as opposed to the standard AIC, in the above model comparisons.
 At the outset of our study it was unclear what the appropriate sample size, $n$, when comparing models of sequence evolution.
-Building upon the work of Jhwueng et al. (2014), our simulations suggest that using the number of taxa times the number of sites as the sample size correction performed best as a small sample size correction for estimating Kullback-Liebler distance in phylogenetic models (Appendix 1).
+Building upon the work of \citet{JhwuengEtAl2014}, our simulations suggest that using the number of taxa times the number of sites as the sample size correction performed best as a small sample size correction for estimating Kullback-Liebler distance in phylogenetic models (Supporting Materials).
 This also has an intuitive appeal.
 In models that have at least some parameters shared across sites and some parameters shared across taxa, increasing the number of sites and/or taxa should be adding more samples for the parameters to estimate.
 This is consistent considering how likelihood is calculated for phylogenetic models: the likelihood for a given site is the sum of the probabilities of each observed state at each tip, which is then multiplied across sites.
@@ -383,7 +385,7 @@ That is, if only one column of data (or ``site'') is examined, as remains remark
 
 With respect to estimates of $\phi$ within \selac, they were strongly correlated with both empirical measurements (Pearson $r = 0.33-0.48$) and theoretical predictions (Pearson $r = 0.45-0.64$) of gene expression (Figure \ref{fig:PhivsEmpirical} and Figures S1-S2, respectively).
 These correlations are remarkable given that they were uncovered using only codon sequences.
-The estimate of the $\alphag$ parameter, which describes the site-specific, gamma-distributed, variation in sensitivity of the protein's functionality, indicated a moderate level of variation in gene expression among sites.
+The estimate of the $\alphag$ parameter, which controls the shape of the site-specific, gamma-distributed, variation in sensitivity of the protein's functionality, indicated a moderate level of variation in gene expression among sites.
 Our estimate of $\alphag$ = 1.36, produced a distribution of sensitivity terms $G$ ranged from 0.342-7.32, but with more than 90\% of the weight for a given site-likelihood being contributed by the 0.342 and 1.50 rate categories.
 In simulation, however, of all the parameters in the model, only $\alphag$ showed a consistent bias, in that the MLE were generally lower than their actual values (see Supporting Materials).
 Other parameters in the model, such as the Grantham weights, provide an indication as to the physicochemical distance between amino acids.
