@@ -266,7 +266,7 @@ $^{5}$Current address: 50 Main St, Suite 1039, White Plains, NY 10606\\
 
 
 
-\abstract{We present a new phylogenetic approach \selac (Selection on Amino acids and Codons), whose substitution rates are based on a nested model linking protein expression to population genetics.
+\abstract{We  present a new phylogenetic approach \selac (Selection on Amino acids and Codons), whose substitution rates are based on a nested model linking protein expression to population genetics.
 Unlike simpler codon models which assume a single substitution matrix for all sites, our model more realistically represents the evolution of protein coding DNA under the assumption of consistent, stabilizing selection using cost-benefit approach.
 This cost-benefit approach allows us generate a set of 20 optimal amino acid specific matrix families using just a handful of parameters and naturally links the strength of stabilizing selection to protein synthesis levels, which we can estimate.
 Using a yeast dataset of 100 orthologs for 6 taxa, we find \selac fits the data much better than popular models by $10^{4}-10^{5}$ AICc units.
@@ -373,6 +373,8 @@ Further, including the shape parameter \alphag for the random effects term $G \s
 Using either \DeltaAICc or \AICw as our measure of model support, the \selac models fit extraordinarily better than GTR + $\Gamma$, GY94, or FMutSel (Table \ref{table:modelFits}).
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which accounts for 49,881 additional model parameters.
 Even when compared to the next most parameter rich codon model in our model set, FMutSel (with 178 parameters), \selacplusgamma model shows over 160,000 AIC unit improvement over FMutSel.
+\selac models also appeared to outperform, based on likelihood, and reported AIC and AICc from each program, the codon models in IQtree. %citation
+Supplemental table ____ compares these. % add table
 
 We note our use of AICc, as opposed to the standard AIC, in the above model comparisons.
 At the outset of our study it was unclear what the appropriate sample size, $n$, when comparing models of sequence evolution.
@@ -738,6 +740,10 @@ We also focus our analyses on \emph{Saccharomyces} \emph{sensu stricto} and thei
 We fit the two \selac models described above (i.e., \selac and \selacplusgamma), as well as two codon models, GY94 and FMutSel, and a standard GTR + $\Gamma$ nucleotide model.
 The FMutSel model assumes that the amino acid frequencies are determined by functional requirements of the protein while the other models make no assumptions about amino acid frequencies.
 In all cases, we assumed that the model was partitioned by gene, but with branch lengths linked across genes.
+
+We also compared \selac models with 195 codon models in IQtree. %CITE THIS SOON
+This is popular software implementing recent (i.e., ______) models of evolution, including codon models. %CITATIONS
+Likelihoods appear generally comparable between models in selac and models in IQtree (though details of the implementations suggest that one should expect some differences).
 
 For \selac, we compared our estimates of $\phiprime = \psiprime/\Func$, which represents the average protein synthesis rate of a gene, to estimates of gene expression from empirical data.
 Specifically, we examined gene expression data for five of the six species measured during log-growth phase.
