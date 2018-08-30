@@ -99,7 +99,7 @@
   \expandafter\let\csname oldend#1\expandafter\endcsname\csname end#1\endcsname
   \renewenvironment{#1}%
      {\linenomath\csname old#1\endcsname}%
-     {\csname oldend#1\endcsname\endlinenomath}}% 
+     {\csname oldend#1\endcsname\endlinenomath}}%
 \newcommand*\patchBothAmsMathEnvironmentsForLineno[1]{%
   \patchAmsMathEnvironmentForLineno{#1}%
   \patchAmsMathEnvironmentForLineno{#1*}}%
@@ -348,7 +348,7 @@ Our hope is that by moving away from the more phenomenological models we can bet
 
 
 \section{Results}
-The \selac model requires the construction of gene and amino acid specific substitution matrices that uses a submodel nested within our substitution model. 
+The \selac model requires the construction of gene and amino acid specific substitution matrices that uses a submodel nested within our substitution model.
 This requires only a handful of genome-wide parameters such as nucleotide specific mutation rates $\muij$ , which are scaled by effective population size Ne, amino acid side chain physicochemical weighting parameters \alphac, \alphap, and \alphav, and a gamma distribution shape parameter \alphag describing the distribution of site sensitivities $G$.
 In addition to these genome-wide parameters, the model requires a gene-specific functionality expression parameter that describes the average rate at which the protein's functionality is produced by the organism or a gene's `average functionality production rate' $\psi$.
 By linking transition rates $\qij$ to gene expression in the form of protein synthesis rate $\phi$, our approach allows use of the same model for genes under varying degrees of stabilizing selection.
@@ -365,7 +365,7 @@ However, the inclusion of between site variation in selection via the shape para
 This is true even for the gene with the lowest baseline $\psi$.
 Second, we found a strong downward bias in estimates of $\alphag$, which actually translates to greater variation among the rate categories.
 The choice of a gamma distribution to represent site-specific variation in sensitivity was based on mathematical convenience and convention, rather than on biological reality.
-Further, given the fact that the density of the gamma distribution is infinite at $G=0$ when $\alphag < 1$, imputing site specific $G$ values will be an issue in these scenarios. 
+Further, given the fact that the density of the gamma distribution is infinite at $G=0$ when $\alphag < 1$, imputing site specific $G$ values will be an issue in these scenarios.
 Nevertheless, we suspect that this downward estimation bias of \alphag is in large part due to the difficulty in determining the baseline $\psi$ for a given gene and the value of $\alphag$ that globally satisfies the site-specific variation in sensitivity across all genes, as indicated by the slight upward bias in estimates of $\psi$ (see Figure \ref{fig:SelacWithGSimRes2}).
 
 In regards to model fit in an empirical setting, our results clearly indicated that linking the strength of stabilizing selection for the optimal sequence to gene expression substantially improves our model fit.
@@ -374,7 +374,7 @@ Using either \DeltaAICc or \AICw as our measure of model support, the \selac mod
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which accounts for 49,881 additional model parameters.
 Even when compared to the next most parameter rich codon model in our model set, FMutSel (with 178 parameters), \selacplusgamma model shows over 160,000 AIC unit improvement over FMutSel.
 \selac models also appeared to outperform, based on likelihood, and reported AIC and AICc from each program, the codon models in IQtree. %citation
-Supplemental table ____ compares these. % add table
+Supplemental table ____ compares these. %add table
 
 We note our use of AICc, as opposed to the standard AIC, in the above model comparisons.
 At the outset of our study it was unclear what the appropriate sample size, $n$, when comparing models of sequence evolution.
@@ -427,7 +427,7 @@ By grouping together amino sites with similar evolutionary behaviors, \citet{Lar
 \selac follows in this tradition of using multiple substitution matrices, but includes some key advances.
 First, by nesting a model of a sequence's cost-benefit function \Cost/\Func within a broader model, \selac allows us to formulate and test a hierarchical, mechanistic models of stabilizing selection.
 More precisely, our nested approach allows us to relax the assumption that \PC deviations from the optimal sequence \aoptvec are equally disruptive at all sites within a protein.
-Indeed, \selac strongly supports the hypothesis that the strength of stabilizing selection against \PC deviations from \aoptvec varies between sites (\DeltaAICc = 20,983; Table\ref{table:modelFits}).
+Indeed, \selac results are consistent with the idea that the strength of stabilizing selection against \PC deviations from \aoptvec varies between sites (\DeltaAICc = 20,983; Table\ref{table:modelFits}).
 Second, because our substitution matrices are built on a formal description of a sequence's cost-benefit function \Cost/\Func, we are able to efficiently parameterize 20 different matrices using a relatively small number of genome-wide parameters -- e.g.~our \PC weightings, \alphac, \alphap, and \alphav, and the shape parameter \alphag for the distribution of selective strength $G$ and one gene specific expression parameter $\psi$.
 While the \Cost/\Func function on which \selac currently rests is very simple, nevertheless, it leads to a dramatic increase in our ability to explain the sequence data we analyzed.
 Importantly, because \selac uses a formal description of a sequence's \Cost/\Func, replacing our assumptions with more sophisticated ones in the future is relatively straightforward.
@@ -495,7 +495,13 @@ For example, at its heart, \selac assumes that suboptimal proteins can be compen
 However, this is likely only true for proteins reasonably close to the optimal sequence.
 Different enough proteins will fail to function entirely: the active site will not sufficiently match its substrates, a protein will not properly pass through a membrane, and so forth.
 Yet, in our model, even random sequences still permit survival, just requiring more protein production.
-Like the other oversimplificats previously discussed, these assumptions can be relaxed through further extension of our model.
+Like the other oversimplifications previously discussed, these assumptions can be relaxed through further extension of our model.
+
+A deeper potential issue comes from the nature of model fitting itself.
+Our model assumes the world works a particular way (selection for an optimal amino acid rather than on properties themselves, independence between sites, the cell's response to inefficient proteins, and more).
+Some of these assumptions, and the parameters based on them, are undoubtedly wrong.
+However, as we see in other models (Goldberg and Rabosky, Hisse), one can be misled into thinking a parameter matters just because its inclusion improves model fit to a complex reality, but that does not necessarily mean that that particular accurately describes the process. %Add citations
+
 
 There are also deficiencies in our implementation.
 Though reasonable to use for a given topology with a modest number of species, it is currently too slow for practical use for tree search.
@@ -526,7 +532,7 @@ Moreover, it demonstrates that there remains substantially more information in t
 Given the enormous amount of efforts expended to generate sequence datasets, it makes sense for researchers to continue developing more realistic models of sequence evolution in order to extract the biological information embedded in these datasets.
 The cost-benefit model we develop here is just one of many possible paths of mechanistic model development.
 
- 
+
 \section{Materials \& Methods} %move to end as required by MBE
 \subsection{Overview}
 We model the substitution process as a classic Wright-Fisher process which includes the forces of mutation, selection, and drift \citep{Fisher1930,Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005,McCandlishAndStoltzfus2014}.
@@ -862,7 +868,7 @@ Also, the sample size used in the calculation of AICc is assumed to be equal to 
   \includegraphics[width=0.9\linewidth]{FIGURE_2_SelACwG_vs_Empirical_by_spp_ALLspp.pdf}
   \caption{Comparisons between estimates of average protein translation rate $\phihat$ obtained from \selacplusgamma and direct measurements of expression for individual yeast taxa across the 100 selected genes from \citet{SalichosAndRokas2013} measured during log-growth phase.
         Estimates of $\phihat$ were generated by dividing the composite term $\psiprime$ by \Funcaveci.
-        Gene expression was measured using either RNA-Seq (a)-(c) or microarray (d)-(e). 
+        Gene expression was measured using either RNA-Seq (a)-(c) or microarray (d)-(e).
         The equations in the upper left hand corner of each panel represent the regression fit and the Pearson correlation coefficient $r$.
   }
   \label{fig:PhivsEmpirical}
@@ -910,7 +916,7 @@ We compared our estimates of $\phi$ to two separate measures of gene expression,
 Our estimates of $\phi$ are positively correlated with both measures, which are also reasonably well correlated with each other (Figure \ref{fig:PhivsEmpirical} - \ref{fig:ROCvsEmpirical})
 On the whole, these comparisons indicate not only a high degree of consistency among all three measures, but also, importantly, that estimates of $\phi$ obtained from SelAC provide real biological insight into the expression level of a gene.
 
-\vfill 
+\vfill
 
 \begin{figure}%[H]
   \centering
