@@ -503,13 +503,15 @@ Some of these assumptions, and the parameters based on them, are undoubtedly wro
 However, as we see in other models (Goldberg and Rabosky, Hisse), one can be misled into thinking a parameter matters just because its inclusion improves model fit to a complex reality, but that does not necessarily mean that that particular accurately describes the process. %Add citations
 
 
+
 There are also deficiencies in our implementation.
 Though reasonable to use for a given topology with a modest number of species, it is currently too slow for practical use for tree search.
 Our work serves as a proof of concept, or of utility for targeted questions where a more realistic model may be of use (placement of particular taxa, for example).
 Future work will encode \selac models into a variety of mature, popular tree-search programs.
 \selac also represents a challenging optimization problem: the nested models reduce parameter complexity vastly, but there are still numerous parameters to optimize, including the discrete parameter of the optimal amino acid at each site.
 One way to avoid the use of discrete parameters at the expense of more of them would be to have \selac estimate the optimum \PC values on a per site basis rather than a specific amino acid.
-While this would increase the number of parameters estimated, it would have the practical advantage of continuous parameter optimization rather than discrete, and biologically would be more realistic (as it is the properties that selection ``sees'', not the identity of the amino acid itself).
+While this would increase the number of parameters estimated, it would have the practical advantage of continuous parameter optimization rather than discrete. 
+More importantly, biologically such a model would be more realistic (as it is the properties that selection ``sees'', not the identity of the amino acid itself).
 
 
 In spite of these difficulties, \selac represents an important step in uniting phylogenetic and population genetic models.
