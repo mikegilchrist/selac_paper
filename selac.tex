@@ -312,7 +312,8 @@ Even when $\omega$ is allowed to vary between sites, symmetrical aspects of the 
 Paradoxically, natural selection for amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
 As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ equally over all other amino acids, including amino acid $i$.
 This is now the opposite scenario from when $i$ was the resident.
-Thus, the simplest and most consistent interpretation of $\omega$ is that it represents the rate at which the selective environment itself changes, and this change in selection perfectly coincides with the fixation of a new amino acid.
+Thus, one reasonable interpretation of $\omega$ is that it represents the rate at which the selective environment itself changes, and this change in selection at a site perfectly coincides with the fixation of a new amino acid.
+It is worth distinguishing this from the evolution of proteins to adapt to a shift at one site by compensatory changes at others \citep{ShahEtAl2015,PollockEtAl2012}, where a shift from a new amino acid back to the previous one becomes less likely with time, but not instantaneously.
 
 Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions from the resident amino acid.
 Again due to the model's symmetrical nature, the selection \emph{against} the resident amino acid $i$ is equally strong relative to alternative amino acids.
@@ -495,12 +496,13 @@ For example, at its heart, \selac assumes that suboptimal proteins can be compen
 However, this is likely only true for proteins reasonably close to the optimal sequence.
 Different enough proteins will fail to function entirely: the active site will not sufficiently match its substrates, a protein will not properly pass through a membrane, and so forth.
 Yet, in our model, even random sequences still permit survival, just requiring more protein production.
+Another deficiency is the assumption of site independence and unchanging optimal amino acids through time, neither of which matches reality \citep{ShahEtAl2015,PollockEtAl2012}.
 Like the other oversimplifications previously discussed, these assumptions can be relaxed through further extension of our model.
 
 A deeper potential issue comes from the nature of model fitting itself.
 Our model assumes the world works a particular way (selection for an optimal amino acid rather than on properties themselves, independence between sites, the cell's response to inefficient proteins, and more).
 Some of these assumptions, and the parameters based on them, are undoubtedly wrong.
-However, as we see in other models (Goldberg and Rabosky, Hisse), one can be misled into thinking a parameter matters just because its inclusion improves model fit to a complex reality, but that does not necessarily mean that that particular accurately describes the process. %Add citations
+However, as we see in other models (__Goldberg and Rabosky, Hisse__), one can be misled into thinking a parameter matters just because its inclusion improves model fit to a complex reality, but that does not necessarily mean that that particular accurately describes the process. %Add citations
 
 
 
@@ -510,7 +512,7 @@ Our work serves as a proof of concept, or of utility for targeted questions wher
 Future work will encode \selac models into a variety of mature, popular tree-search programs.
 \selac also represents a challenging optimization problem: the nested models reduce parameter complexity vastly, but there are still numerous parameters to optimize, including the discrete parameter of the optimal amino acid at each site.
 One way to avoid the use of discrete parameters at the expense of more of them would be to have \selac estimate the optimum \PC values on a per site basis rather than a specific amino acid.
-While this would increase the number of parameters estimated, it would have the practical advantage of continuous parameter optimization rather than discrete. 
+While this would increase the number of parameters estimated, it would have the practical advantage of continuous parameter optimization rather than discrete.
 More importantly, biologically such a model would be more realistic (as it is the properties that selection ``sees'', not the identity of the amino acid itself).
 
 
