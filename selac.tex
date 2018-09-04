@@ -296,7 +296,7 @@ For example, when evaluating protein-coding sequences these models are inherentl
 
 Two important and independent attempts to address this critical shortcoming were introduced by \citet[][commonly abbreviated as GY94]{GoldmanAndYang1994} and \citet{MuseAndGaut1994}.
 These models were explicitly built for protein coding data, assuming that differences in the \PC properties between amino acids, or \PC distances for short, could affect substitution rates.
-These \PC based codon models as originally introduced have rarely been used for empirical data.
+These \PC based codon models as originally introduced have rarely been used for empirical data \citep[for exceptions see][]{CITATIONS}.\marginpar{Cite papers by authors mentioned by reviewer 2 (McClellan, Mackiewicz, Yang, Zhang, Goldstein, Higgs and presumably TamuriEtAl2009) here?}
 Instead, these often cited models have served as the basis for an array of simpler and, in turn, more popular $\omega$ models that, starting with \citet{YangAndNielsen1998,NielsenAndYang1998}, typically assume an equal fixation probability for \emph{all} non-synonymous mutations.
 Although often attributed to GY94, these later and  simpler models were the first to employ the single term $\omega$ to model the differences in fixation probability between nonsynonomous and synonomyous changes at all sites.
 Since their introduction, more complex models have been developed that allow $\omega$ to vary between sites or branches \citep[as cited in ][]{Anisimova2012} and include selection on different synonyms for the same amino acid \cite[e.g.][]{YangAndNielsen2008}. %(MIKE: AND POSSIBLY \citep{TamuriEtAl2012,RodrigueAndHerve2010})
@@ -450,8 +450,9 @@ One possible mechanism with some theoretical and empirical support which generat
 That is, the assumption that any reduction in protein function is compensated for by an increase in the protein's production rate and, in turn, abundance.
 For example, a mutation which reduces the functionality of the protein to 90\% of the optimal protein, would require $1/0.9 = 1.11$ of these suboptimal proteins to be produced relative to the optimal protein in order to maintain the same amount of that protein's functionality in the cell.
 Because the energetic cost of an 11\% increase in a protein's synthesis rate is proportional to its target synthesis rate, our assumptions naturally link changes in protein functionality and changes in gene expression and its associated costs.
-Such a response has been shown when error rates during protein production increases, however, the  generality of such a response has to be determined \citep{Goldsmith2009}.
-The fact that our method allows us to explain 13-23\% of the variation in gene expression measured using RNA-Seq, suggests that this assumption is a reasonable starting point.
+Such a response has been shown when error rates during protein production increases, however, the generality of such a response has to be determined \citep{Goldsmith2009}.
+Further, our model does not consider additional costs such as those imposed by misfoled proteins \citet{DrummondAndWilke2008}.
+Nevertheless, the fact that our method allows us to explain 13-23\% of the variation in gene expression measured using RNA-Seq, suggests that our assumption of cell compensation via increased expression is a reasonable starting point.
 %would like to link to Lartillot approach
 
 Furthermore, by linking expression and selection, \selac provides a natural framework for combining information from protein coding genes with very different rates of evolution; from low expression genes providing information on shallow branches to high expression genes providing information on deep branches.
@@ -759,7 +760,7 @@ Most analyses within a set of software tools focus on differences in log-likelih
 As a result, some software tools sometimes fail to include soley data dependent terms, which function as constants, in their calculations.
 Failure to include these terms can model comparison between software packages problematic.
 For simplicity, no constants are dropped in the log-likelihood calculations for \selac.
-Further, by comparing likelihood values of models common to both \selac and IQtree, we verified that IQtree takes a similar approach.
+Further, by comparing likelihood values of models common to both \selac and IQtree, we verified that IQtree takes a similar approach.\marginpar{mike: this contradicts what we say in our response to reviewers letter.}
 A result, the log-likelihood values between \selac and IQtree are comparable, although some minor differences in model implementation can lead to small differences in log-likelihood values
 %, though Because of minor differences in model implementations one should expect some differences between likelihood values between models in \selac and IQtree, values between similar model..
 
@@ -823,7 +824,7 @@ Here, we have adopted and extended the simulation approach of \citet{Jhwuengetal
 \section{Acknowledgements}
 This work was supported in part by NSF Awards MCB-1120370 (MAG and RZ) and DEB-1355033 (BCO, MAG, and RZ) with additional support from The University of Tennessee Knoxville and University of Arkansas (JMB).
 JJC and JMB received support as Postdoctoral Fellows and CL received support as a Graduate Student Fellow at the National Institute for Mathematical and Biological Synthesis, an Institute sponsored by the National Science Foundation through NSF Award DBI-1300426, with additional support from UTK.
-The authors would like to thank Premal Shah, Todd Oakley, and two anonymous reviewers for their helpful criticisms and suggestions for this work.
+The authors would like to thank Premal Shah, Todd Oakley, and four anonymous reviewers for their helpful criticisms and suggestions for this work.
 \clearpage
 
 
