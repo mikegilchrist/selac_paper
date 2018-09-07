@@ -760,11 +760,8 @@ Most analyses within a set of software tools focus on differences in log-likelih
 As a result, some software tools sometimes fail to include soley data dependent terms, which function as constants, in their calculations.
 Failure to include these terms can model comparison between software packages problematic.
 For simplicity, no constants are dropped in the log-likelihood calculations for \selac.
-Further, by comparing likelihood values of models common to both \selac and IQtree, we verified that IQtree takes a similar approach.\marginpar{mike: this contradicts what we say in our response to reviewers letter.}
-A result, the log-likelihood values between \selac and IQtree are comparable, although some minor differences in model implementation can lead to small differences in log-likelihood values
-%, though Because of minor differences in model implementations one should expect some differences between likelihood values between models in \selac and IQtree, values between similar model..
-
-
+Further, while there are no identical models in \selac and IQtree, similar models have similar likelihoods, suggesting the log-likelihood values between \selac and IQtree are comparable (as one would expect).
+We note, however, that  minor differences in model implementation can lead to small differences in log likelihood (for example, how missing data is handled, as \selac treats it as an absence at that site for that taxon, while some other software integrates across all possible states).
 
 For \selac, we compared our estimates of $\phiprime = \psiprime/\Func$, which represents the average protein synthesis rate of a gene, to estimates of gene expression from empirical data.
 Specifically, we examined gene expression data for five of the six species measured during log-growth phase.
