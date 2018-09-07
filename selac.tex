@@ -296,7 +296,7 @@ For example, when evaluating protein-coding sequences these models are inherentl
 
 Two important and independent attempts to address this critical shortcoming were introduced by \citet[][commonly abbreviated as GY94]{GoldmanAndYang1994} and \citet{MuseAndGaut1994}.
 These models were explicitly built for protein coding data, assuming that differences in the \PC properties between amino acids, or \PC distances for short, could affect substitution rates.
-These \PC based codon models as originally introduced have rarely been used for empirical data.
+These \PC based codon models as originally introduced have rarely been used for empirical data \citep[for exceptions see][]{CITATIONS}.\marginpar{Cite papers by authors mentioned by reviewer 2 (McClellan, Mackiewicz, Yang, Zhang, Goldstein, Higgs and presumably TamuriEtAl2009) here?}
 Instead, these often cited models have served as the basis for an array of simpler and, in turn, more popular $\omega$ models that, starting with \citet{YangAndNielsen1998,NielsenAndYang1998}, typically assume an equal fixation probability for \emph{all} non-synonymous mutations.
 Although often attributed to GY94, these later and  simpler models were the first to employ the single term $\omega$ to model the differences in fixation probability between nonsynonomous and synonomyous changes at all sites.
 Since their introduction, more complex models have been developed that allow $\omega$ to vary between sites or branches \citep[as cited in ][]{Anisimova2012} and include selection on different synonyms for the same amino acid \cite[e.g.][]{YangAndNielsen2008}. %(MIKE: AND POSSIBLY \citep{TamuriEtAl2012,RodrigueAndHerve2010})
@@ -312,7 +312,9 @@ Even when $\omega$ is allowed to vary between sites, symmetrical aspects of the 
 Paradoxically, natural selection for amino acid $i$ persists \emph{until} a substitution for another amino acid, $j$, occurs.
 As soon as amino acid $j$ fixes, but not before, selection now favors amino acid $j$ equally over all other amino acids, including amino acid $i$.
 This is now the opposite scenario from when $i$ was the resident.
-Thus, the simplest and most consistent interpretation of $\omega$ is that it represents the rate at which the selective environment itself changes, and this change in selection perfectly coincides with the fixation of a new amino acid.
+Thus, one reasonable interpretation of $\omega$ is that it represents the rate at which the selective environment itself changes, and this change in selection at a site perfectly coincides with the fixation of a new amino acid.
+It is worth distinguishing this from the evolution of proteins to adapt to a shift at one site by compensatory changes at others \citep{ShahEtAl2015,PollockEtAl2012}, where a shift from a new amino acid back to the previous one becomes less likely with time.
+This is in contrast to the $\omega$ models where this occurs instantaneously.
 
 Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution rate than any possible non-synonymous substitutions from the resident amino acid.
 Again due to the model's symmetrical nature, the selection \emph{against} the resident amino acid $i$ is equally strong relative to alternative amino acids.
@@ -374,7 +376,7 @@ Using either \DeltaAICc or \AICw as our measure of model support, the \selac mod
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which accounts for 49,881 additional model parameters.
 Even when compared to the next most parameter rich codon model in our model set, FMutSel (with 178 parameters), \selacplusgamma model shows over 160,000 AIC unit improvement over FMutSel.
 \selac models also appeared to outperform, based on likelihood, and reported AIC and AICc from each program, the codon models in IQtree. %citation
-Supplemental table ____ compares these. %add table
+Supplemental table \_\_\_\_ compares these. %add table
 
 We note our use of AICc, as opposed to the standard AIC, in the above model comparisons.
 At the outset of our study it was unclear what the appropriate sample size, $n$, when comparing models of sequence evolution.
@@ -448,10 +450,10 @@ One possible mechanism with some theoretical and empirical support which generat
 That is, the assumption that any reduction in protein function is compensated for by an increase in the protein's production rate and, in turn, abundance.
 For example, a mutation which reduces the functionality of the protein to 90\% of the optimal protein, would require $1/0.9 = 1.11$ of these suboptimal proteins to be produced relative to the optimal protein in order to maintain the same amount of that protein's functionality in the cell.
 Because the energetic cost of an 11\% increase in a protein's synthesis rate is proportional to its target synthesis rate, our assumptions naturally link changes in protein functionality and changes in gene expression and its associated costs.
-Under what circumstances cells actually respond in this manner, remains to be determined.
-The fact that our method allows us to explain 13-23\% of the variation in gene expression measured using RNA-Seq, suggests that this assumption is a reasonable starting point.
+Such a response has been shown when error rates during protein production increases, however, the generality of such a response has to be determined \citep{Goldsmith2009}.
+Further, our model does not consider additional costs such as those imposed by misfoled proteins \citet{DrummondAndWilke2008}.
+Nevertheless, the fact that our method allows us to explain 13-23\% of the variation in gene expression measured using RNA-Seq, suggests that our assumption of cell compensation via increased expression is a reasonable starting point.
 %would like to link to Lartillot approach
-
 
 Furthermore, by linking expression and selection, \selac provides a natural framework for combining information from protein coding genes with very different rates of evolution; from low expression genes providing information on shallow branches to high expression genes providing information on deep branches.
 This is in contrast to a more traditional approach of concatenating gene sequences together, which is equivalent to assuming the same average functionality production rate $\psi$ for all of the genes, or more recent approaches where different models are fitted to different genes.
@@ -495,22 +497,25 @@ For example, at its heart, \selac assumes that suboptimal proteins can be compen
 However, this is likely only true for proteins reasonably close to the optimal sequence.
 Different enough proteins will fail to function entirely: the active site will not sufficiently match its substrates, a protein will not properly pass through a membrane, and so forth.
 Yet, in our model, even random sequences still permit survival, just requiring more protein production.
+Another deficiency is the assumption of site independence and unchanging optimal amino acids through time, neither of which matches reality \citep{ShahEtAl2015,PollockEtAl2012}.
 Like the other oversimplifications previously discussed, these assumptions can be relaxed through further extension of our model.
 
 A deeper potential issue comes from the nature of model fitting itself.
-Our model assumes the world works a particular way (selection for an optimal amino acid rather than on properties themselves, independence between sites, the cell's response to inefficient proteins, and more).
-Some of these assumptions, and the parameters based on them, are undoubtedly wrong.
-However, as we see in other models (Goldberg and Rabosky, Hisse), one can be misled into thinking a parameter matters just because its inclusion improves model fit to a complex reality, but that does not necessarily mean that that particular accurately describes the process. %Add citations
+Because \selac is built on very particular assumptions - the exact combination of \PC properties favored by selection matches that of an amino acid, sites evolve independently of one another, the cell's response to suboptimality is to produce more proteins, etc -- it is likely these assumptions are violated in many, if not most, cases.
+While all models are incomplete descriptions of reality and, thus, wrong \cite{Box1976}, our aim with \selac is to provide a model that is 'less wrong' \cite{Asimov1989}.
+Because \selac's assumptions result in a model that is more consistent with the data, our analyses supports this idea.
+While 'less wrong', caution should be taken when interpreting \selac's model parameters since the model itself is admittedly incomplete.
+In addition, other biological mechanisms could result in similar, if not identical, mathematical representations (\_\_Goldberg and Rabosky, Hisse\_\_) which, in turn, illustrates one limit to comparative sequence analysis.
 
 
 
 There are also deficiencies in our implementation.
-Though reasonable to use for a given topology with a modest number of species, it is currently too slow for practical use for tree search.
+Though reasonable to use for a given topology with 10's of species, it is currently too slow for practical use for tree search.
 Our work serves as a proof of concept, or of utility for targeted questions where a more realistic model may be of use (placement of particular taxa, for example).
 Future work will encode \selac models into a variety of mature, popular tree-search programs.
 \selac also represents a challenging optimization problem: the nested models reduce parameter complexity vastly, but there are still numerous parameters to optimize, including the discrete parameter of the optimal amino acid at each site.
 One way to avoid the use of discrete parameters at the expense of more of them would be to have \selac estimate the optimum \PC values on a per site basis rather than a specific amino acid.
-While this would increase the number of parameters estimated, it would have the practical advantage of continuous parameter optimization rather than discrete. 
+While this would increase the number of parameters estimated, it would have the practical advantage of continuous parameter optimization rather than discrete.
 More importantly, biologically such a model would be more realistic (as it is the properties that selection ``sees'', not the identity of the amino acid itself).
 
 
@@ -726,7 +731,7 @@ For optimization of a given set of parameters, we rely on a bounded subplex rout
 To ensure the robustness of our results, we perform a set of independent analyses with different sets of naive starting points with respect to the gene specific composite $\psiprime$ parameters, $\alphac$, and $\alphap$ and were able to repeatedly reach the same log-likelihood (lnL) peak in our parameter space.
 Confidence in the parameter estimates can be generated by an `adaptive search' procedure that we implemented to provide an estimate of the parameter space that is some pre-defined likelihood distance (e.g., 2 lnL units) from the maximum likelihood estimate (MLE), which follows \citet{BeaulieuAndOMeara2016} and \citet{edwards1984likelihood}.
 
-We note that our current implementation of \selac is painfully slow, and is best suited for data sets with relatively few number of taxa (i.e.~$<10$).
+We note that our current implementation of \selac is slow, and is best suited for data sets with relatively small number of taxa (i.e.~10's not 100's).
 This limitation is largely due to the size and quantity of matrices we create and manipulate to calculate the log-likelihood of an individual site.
 Ongoing work will address the need for speed, with the eventual goal of implementing \selac in popular phylogenetic inference toolkits, such as RevBayes \citep{revbayes}, PAML \citep{Yang2007} and RAxML \citep{Stamatakis2006}.
 
@@ -750,8 +755,16 @@ The FMutSel model assumes that the amino acid frequencies are determined by func
 In all cases, we assumed that the model was partitioned by gene, but with branch lengths linked across genes.
 
 We also compared \selac models with 195 codon models in IQtree. %CITE THIS SOON
-This is popular software implementing recent (i.e., ______) models of evolution, including codon models. %CITATIONS
-Likelihoods appear generally comparable between models in selac and models in IQtree (though details of the implementations suggest that one should expect some differences).
+This is popular software implementing recent (i.e., \_\_\_\_\_\_) models of evolution, including codon models. %CITATIONS
+Most analyses within a set of software tools focus on differences in log-likelihood values between models.
+As a result, some software tools sometimes fail to include soley data dependent terms, which function as constants, in their calculations.
+Failure to include these terms can model comparison between software packages problematic.
+For simplicity, no constants are dropped in the log-likelihood calculations for \selac.
+Further, by comparing likelihood values of models common to both \selac and IQtree, we verified that IQtree takes a similar approach.\marginpar{mike: this contradicts what we say in our response to reviewers letter.}
+A result, the log-likelihood values between \selac and IQtree are comparable, although some minor differences in model implementation can lead to small differences in log-likelihood values
+%, though Because of minor differences in model implementations one should expect some differences between likelihood values between models in \selac and IQtree, values between similar model..
+
+
 
 For \selac, we compared our estimates of $\phiprime = \psiprime/\Func$, which represents the average protein synthesis rate of a gene, to estimates of gene expression from empirical data.
 Specifically, we examined gene expression data for five of the six species measured during log-growth phase.
@@ -811,7 +824,7 @@ Here, we have adopted and extended the simulation approach of \citet{Jhwuengetal
 \section{Acknowledgements}
 This work was supported in part by NSF Awards MCB-1120370 (MAG and RZ) and DEB-1355033 (BCO, MAG, and RZ) with additional support from The University of Tennessee Knoxville and University of Arkansas (JMB).
 JJC and JMB received support as Postdoctoral Fellows and CL received support as a Graduate Student Fellow at the National Institute for Mathematical and Biological Synthesis, an Institute sponsored by the National Science Foundation through NSF Award DBI-1300426, with additional support from UTK.
-The authors would like to thank Premal Shah, Todd Oakley, and two anonymous reviewers for their helpful criticisms and suggestions for this work.
+The authors would like to thank Premal Shah, Todd Oakley, and four anonymous reviewers for their helpful criticisms and suggestions for this work.
 \clearpage
 
 
