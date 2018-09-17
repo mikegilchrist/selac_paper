@@ -297,7 +297,7 @@ For example, when evaluating protein-coding sequences these models are inherentl
 
 Two important and independent attempts to address this critical shortcoming were introduced by \citet[][commonly abbreviated as GY94]{GoldmanAndYang1994} and \citet{MuseAndGaut1994}.
 These models were explicitly built for protein coding data, assuming that differences in the \PC properties between amino acids, or \PC distances for short, could affect substitution rates.
-These \PC based codon models as originally introduced have rarely been used for empirical data \citep[WoolleyEtAl2003, for exceptions see][]{CITATIONS}.\marginpar{Cite papers by authors mentioned by reviewer 2 (McClellan, Mackiewicz, Yang, Zhang, Goldstein, Higgs and presumably TamuriEtAl2009) here?}
+These \PC based codon models as originally introduced have rarely been used for empirical data \citep[WoolleyEtAl2003, McClellanAndMcCracken2001, BlazejEtAl2017, for exceptions see]  []{CITATIONS}.\marginpar{Cite papers by authors mentioned by reviewer 2 (McClellan, Mackiewicz, Yang, Zhang, Goldstein, Higgs and presumably TamuriEtAl2009) here?}
 Instead, these often cited models have served as the basis for an array of simpler and, in turn, more popular $\omega$ models that, starting with \citet{YangAndNielsen1998,NielsenAndYang1998}, typically assume an equal fixation probability for \emph{all} non-synonymous mutations.
 Although often attributed to GY94, these later and  simpler models were the first to employ the single term $\omega$ to model the differences in fixation probability between nonsynonomous and synonomyous changes at all sites.
 Since their introduction, more complex models have been developed that allow $\omega$ to vary between sites or branches \citep[as cited in ][]{Anisimova2012} and include selection on different synonyms for the same amino acid \cite[e.g.][]{YangAndNielsen2008}. %(MIKE: AND POSSIBLY \citep{TamuriEtAl2012,RodrigueAndHerve2010})
@@ -464,6 +464,7 @@ The idea that quantitative information on gene expression is embedded within int
 
 Of course, given the general nature of \selac and the complexity of biological systems, other biological forces besides selection for reducing energy flux likely contribute to intergenic variation in the magnitude of stabilizing selection.
 Similarly, other physicochemical properties besides composition, volume, and charge likely contribute to site specific patterns of amino acid substitution.
+For example, \citet(BlazejEtAl2017) have developed substitution matrices using various \PC properties. 
 Thus, a larger and more informative set of \PC weights might improve our model fit and reduce the noise in our estimates of realized protein synthesis rates $\phi$.
 Even if other physicochemical properties are considered, the idea of a consistent, genome wide \PC weighting of these terms seems highly unlikely.
 Since the importance of an amino acid's physicochemical properties likely changes with its position in a folded protein, one way to incorporate such effects is to test whether the data supports multiple sets of \PC weights for either subsets of genes or regions within genes, rather than a single set.
