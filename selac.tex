@@ -422,7 +422,7 @@ As a result, there is a need for more complex and realistic models to accomplish
 Although extremely popular due to their elegance and computational efficiency, the utility of $\omega$ based models in helping us reach this goal is substantially more limited than commonly recognized.
 Because these $\omega$ models use a single substitution matrix, they are only applicable for situations in which the substitution process and shifts in the selective environment are intrinsic to the sequence, such as with positive or negative frequency dependent selection; these models do not describe stabilizing or diversifying selection as commonly envisioned \citep{Endler1986a,Pelmyr2002}.
 
-Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site-specific selection on protein sequence and phylogenetics \citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014}.
+Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site-specific selection on protein sequence and phylogenetics \citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014,YangEtAl1998}.
 \citet{HalpernAndBruno1998} calculated a vector of 20 expected amino acid frequencies for each amino acid site, making it the most general and most parameter rich of these methods.
 This generality, however, comes at the cost of being purely descriptive; there is no explicit biological mechanism proposed to explain the site specific amino acid frequencies estimated.
 By grouping together amino sites with similar evolutionary behaviors, \citet{LartillotAndPhilippe2004} and \citet{RodrigueAndLartillot2014} retained the descriptive nature of \citet{HalpernAndBruno1998} work while greatly reduced the number of model parameters needed.
@@ -464,7 +464,7 @@ The idea that quantitative information on gene expression is embedded within int
 
 Of course, given the general nature of \selac and the complexity of biological systems, other biological forces besides selection for reducing energy flux likely contribute to intergenic variation in the magnitude of stabilizing selection.
 Similarly, other physicochemical properties besides composition, volume, and charge likely contribute to site specific patterns of amino acid substitution.
-For example, \citet(BlazejEtAl2017) have developed substitution matrices using various \PC properties. 
+For example, \citet(BlazejEtAl2017) have developed substitution matrices using various \PC properties.
 Thus, a larger and more informative set of \PC weights might improve our model fit and reduce the noise in our estimates of realized protein synthesis rates $\phi$.
 Even if other physicochemical properties are considered, the idea of a consistent, genome wide \PC weighting of these terms seems highly unlikely.
 Since the importance of an amino acid's physicochemical properties likely changes with its position in a folded protein, one way to incorporate such effects is to test whether the data supports multiple sets of \PC weights for either subsets of genes or regions within genes, rather than a single set.
@@ -500,7 +500,8 @@ However, this is likely only true for proteins reasonably close to the optimal s
 Different enough proteins will fail to function entirely: the active site will not sufficiently match its substrates, a protein will not properly pass through a membrane, and so forth.
 Yet, in our model, even random sequences still permit survival, just requiring more protein production.
 Another deficiency is the assumption of site independence and unchanging optimal amino acids through time, neither of which matches reality \citep{ShahEtAl2015,PollockEtAl2012}.
-Like the other oversimplifications previously discussed, these assumptions can be relaxed through further extension of our model.
+We assume single nucleotide changes only, despite evidence from \citet(KosiolEtAl2007, WhelanAndGoldman2004) that better fit can be accomplished by allowing instantaneous mutations of multiple nucleotides simultaneously.
+Like the other oversimplifications previously discussed, these assumptions can be relaxed through further extension of this model.
 
 A deeper potential issue comes from the nature of model fitting itself.
 Because \selac is built on very particular assumptions - the exact combination of \PC properties favored by selection matches that of an amino acid, sites evolve independently of one another, the cell's response to suboptimality is to produce more proteins, etc -- it is likely these assumptions are violated in many, if not most, cases.
