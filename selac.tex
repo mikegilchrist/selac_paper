@@ -295,11 +295,11 @@ While the scale and impact of phylogenetic studies have increased substantially 
 The most popular models of DNA substitution used in molecular phylogenetics are simple nucleotide models that date back to the early 1980's and 90's, e.g.~F81, F84, HYK85, TN93, and GTR (see \citet{Yang2014} for an overview), and are indifferent to the type of sequences they are fitted to.
 For example, when evaluating protein-coding sequences these models are inherently agnostic with regards to the different amino acid substitutions and their impact on gene function and, as a result, cannot describe the behavior of natural selection at the amino acid or protein level.
 
-Two important and independent attempts to address this critical shortcoming were introduced by \citet[][commonly abbreviated as GY94]{GoldmanAndYang1994} and \citet{MuseAndGaut1994}.
+Two important and independent attempts to address this critical shortcoming were introduced by \citet[][commonly abbreviated as GY]{GoldmanAndYang1994} and \citet{MuseAndGaut1994}.
 These models were explicitly built for protein coding data, assuming that differences in the \PC properties between amino acids, or \PC distances for short, could affect substitution rates.
-These \PC based codon models as originally introduced have rarely been used for empirical data \citep[WoolleyEtAl2003, McClellanAndMcCracken2001, BlazejEtAl2017, for exceptions see]  []{CITATIONS}.\marginpar{Cite papers by authors mentioned by reviewer 2 (McClellan, Mackiewicz, Yang, Zhang, Goldstein, Higgs and presumably TamuriEtAl2009) here?}
+These \PC based codon models as originally introduced have rarely been used for empirical data \citep[for exceptions see][]{WoolleyEtAl2003, McClellanAndMcCracken2001, BlazejEtAl2017}.\marginpar{Cite papers by authors mentioned by reviewer 2 (McClellan, Mackiewicz, Yang, Zhang, Goldstein, Higgs and presumably TamuriEtAl2009) here.}
 Instead, these often cited models have served as the basis for an array of simpler and, in turn, more popular $\omega$ models that, starting with \citet{YangAndNielsen1998,NielsenAndYang1998}, typically assume an equal fixation probability for \emph{all} non-synonymous mutations.
-Although often attributed to GY94, these later and  simpler models were the first to employ the single term $\omega$ to model the differences in fixation probability between nonsynonomous and synonomyous changes at all sites.
+Although often attributed to GY, these later and  simpler models were the first to employ the single term $\omega$ to model the differences in fixation probability between nonsynonomous and synonomyous changes at all sites.
 Since their introduction, more complex models have been developed that allow $\omega$ to vary between sites or branches \citep[as cited in ][]{Anisimova2012} and include selection on different synonyms for the same amino acid \cite[e.g.][]{YangAndNielsen2008}. %(MIKE: AND POSSIBLY \citep{TamuriEtAl2012,RodrigueAndHerve2010})
 
 %Despite these extensions, these models do not actually  behavior of stabilizing or diversifying selection.
@@ -373,7 +373,7 @@ Nevertheless, we suspect that this downward estimation bias of \alphag is in lar
 
 In regards to model fit in an empirical setting, our results clearly indicated that linking the strength of stabilizing selection for the optimal sequence to gene expression substantially improves our model fit.
 Further, including the shape parameter \alphag for the random effects term $G \sim \text{Gamma}\left(\text{shape} = \alphag, \text{rate}=\alphag\right)$ to allow for heterogeneity in this selection between sites within a gene improves the \DeltaAICc of \selacplusgamma over the simpler \selac models by over 22,000 AIC units.
-Using either \DeltaAICc or \AICw as our measure of model support, the \selac models fit extraordinarily better than GTR + $\Gamma$, GY94, or FMutSel (Table \ref{table:modelFits}).
+Using either \DeltaAICc or \AICw as our measure of model support, the \selac models fit extraordinarily better than GTR + $\Gamma$, GY, or FMutSel (Table \ref{table:modelFits}).
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which accounts for 49,881 additional model parameters.
 Even when compared to the next most parameter rich codon model in our model set, FMutSel (with 178 parameters), \selacplusgamma model shows over 160,000 AIC unit improvement over FMutSel.
 \selac models also appeared to outperform, based on likelihood, and reported AIC and AICc from each program, the codon models in IQtree \cite{IQTree}. %citation
@@ -426,6 +426,8 @@ Starting with \citet{HalpernAndBruno1998}, a number of researchers have develope
 \citet{HalpernAndBruno1998} calculated a vector of 20 expected amino acid frequencies for each amino acid site, making it the most general and most parameter rich of these methods.
 This generality, however, comes at the cost of being purely descriptive; there is no explicit biological mechanism proposed to explain the site specific amino acid frequencies estimated.
 By grouping together amino sites with similar evolutionary behaviors, \citet{LartillotAndPhilippe2004} and \citet{RodrigueAndLartillot2014} retained the descriptive nature of \citet{HalpernAndBruno1998} work while greatly reduced the number of model parameters needed.
+
+\marginpar{Discuss \PC models here.}
 
 \selac follows in this tradition of using multiple substitution matrices, but includes some key advances.
 First, by nesting a model of a sequence's cost-benefit function \Cost/\Func within a broader model, \selac allows us to formulate and test a hierarchical, mechanistic models of stabilizing selection.
@@ -718,7 +720,7 @@ Nevertheless, as our branch lengths grow the probability of observing a particul
 \subsection{Implementation}\label{sec:implementation}
 All methods described above are implemented in the new R package, \texttt{selac} available through GitHub (\url{https://github.com/bomeara/selac}) which will be uploaded to CRAN once peer review has completed.
 Our package requires as input a set of fasta files that each contain an alignment of coding sequence for a set of taxa, and the phylogeny depicting the hypothesized relationships among them.
-In addition to the SelAC models, we implemented the GY94 codon model of \citet{GoldmanAndYang1994}, the FMutSel mutation-selection model of \citet{YangAndNielsen2008}, and the standard general time-reversible nucleotide model that allows for $\Gamma$ distributed rates across sites.
+In addition to the SelAC models, we implemented the GY codon model of \citet{GoldmanAndYang1994}, the FMutSel mutation-selection model of \citet{YangAndNielsen2008}, and the standard general time-reversible nucleotide model that allows for $\Gamma$ distributed rates across sites.
 These likelihood-based models represent a sample of the types of popular models often fit to codon data.
 
 For the \selac models, the starting guess for the optimal amino acid at a site comes from `majority' rule, where the initial optimum is the most frequently observed amino acid at a given site (ties resolved randomly).
@@ -753,7 +755,7 @@ We focus our empirical analyses on the large yeast data set and phylogeny of \ci
 As a model system, the yeast genome is an ideal system to examine our phylogenetic estimates of gene expression and its connection to real world measurements of these data within individual taxa.
 The complete data set of \citet{SalichosAndRokas2013} contain 1070 orthologs, where we selected 100 at random for our analyses.
 We also focus our analyses on \emph{Saccharomyces} \emph{sensu stricto} and their sister taxon \emph{Candida glabrata}, and we used the phylogeny depicted in Fig. 1 of \citet{SalichosAndRokas2013} for our fixed tree.
-We fit the two \selac models described above (i.e., \selac and \selacplusgamma), as well as two codon models, GY94 and FMutSel, and a standard GTR + $\Gamma$ nucleotide model.
+We fit the two \selac models described above (i.e., \selac and \selacplusgamma), as well as two codon models, GY and FMutSel, and a standard GTR + $\Gamma$ nucleotide model.
 The FMutSel model assumes that the amino acid frequencies are determined by functional requirements of the protein while the other models make no assumptions about amino acid frequencies.
 In all cases, we assumed that the model was partitioned by gene, but with branch lengths linked across genes.
 
@@ -848,7 +850,7 @@ The authors would like to thank Premal Shah, Todd Oakley, and four anonymous rev
       \selacmajplusgamma        & 465,106.9&       50,005&   1,030,224&     1,050,286&      22,972&          $<$0.001\\
       \selacmaj                 & 478,302.4&       50,004&   1,056,613&     1,076,674&      49,360&          $<$0.001\\
       FMutSel                   & 597,140.7&       178&      1,194,637&     1,194,638&     167,324&           $<$0.001\\
-      GY94                      & 612,670.4&       111&      1,225,563&     1,225,563&     198,249&           $<$0.001\\
+      GY                      & 612,670.4&       111&      1,225,563&     1,225,563&     198,249&           $<$0.001\\
       GTR+$\Gamma$              & 655,166.4&       610&      1,311,553&     1,311,554&     284,240&        $<$0.001\\
 
     \end{tabular}

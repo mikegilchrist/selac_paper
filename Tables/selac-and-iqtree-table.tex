@@ -4,7 +4,11 @@
 \begin{longtable}{rlrrrrrr}
 \caption{Comparison of \selac to 163 other phylogenetic models to 100 selected genes from 6 yeast taxa \citet{SalichosAndRokas2013} using negative log likelihood ($-ln(\Lik)$), AIC, and AICc values.
 See Table \ref{table:modelFits} for more details
-Models of Rank 1-4, 88, and 166 were fitted using the \selac software package.  All remaining models were fitted using IQTree \citep{IQTree}.}\label{table:modelFitsAll}\\
+Models of Rank 1-4, 88, and 166 were fitted using the \selac software package.  All remaining models were fitted using IQTree \citep{IQTree}.
+Note that there are no models in common between IQTree and \selac. 
+\selac's GY and IQTree's GY+F are the most similar.
+However, \selac's GY uses a mutation model to generate expected codon frequencies while IQTree's GY+F uses the observed frequencies.
+%NB both selac and IQ tree drop cells with missing data.}\label{table:modelFitsAll}\\
 %formatting info
 \tableLabelRow 
 \endfirsthead  %end heading for table on first page
@@ -104,7 +108,7 @@ Models of Rank 1-4, 88, and 166 were fitted using the \selac software package.  
 85&MG+F3X4+R5&612,336&27&1,224,725&1,224,725&217,473&197,411\\
 86&MG+F3X4+R4&612,355&25&1,224,760&1,224,760&217,508&197,446\\
 87&MG+F3X4+R3&612,369&23&1,224,783&1,224,783&217,531&197,469\\
-88&GY94&612,670&111&1,225,563&1,225,563&218,311&198,249\\
+88&GY&612,670&111&1,225,563&1,225,563&218,311&198,249\\
 89&KOSI07+F3X4+G4&612,932&19&1,225,903&1,225,903&218,651&198,589\\
 90&KOSI07+F3X4+I+G4&612,932&20&1,225,905&1,225,905&218,653&198,591\\
 91&SCHN05+F1X4+R10&612,982&30&1,226,024&1,226,024&218,772&198,710\\
