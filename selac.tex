@@ -850,14 +850,16 @@ The authors would like to thank Premal Shah, Todd Oakley, and four anonymous rev
       \selacmajplusgamma        & 465,106.9&       50,005&   1,030,224&     1,050,286&      22,972&          $<$0.001\\
       \selacmaj                 & 478,302.4&       50,004&   1,056,613&     1,076,674&      49,360&          $<$0.001\\
       FMutSel                   & 597,140.7&       178&      1,194,637&     1,194,638&     167,324&           $<$0.001\\
-      GY                      & 612,670.4&       111&      1,225,563&     1,225,563&     198,249&           $<$0.001\\
+      GY                        & 612,670.4&       111&      1,225,563&     1,225,563&     198,249&           $<$0.001\\
       GTR+$\Gamma$              & 655,166.4&       610&      1,311,553&     1,311,554&     284,240&        $<$0.001\\
 
     \end{tabular}
-    \caption{Comparison of model fits using negative log likelihood ($-ln(\Lik)$), AIC, AICc, and \AICw from analyses of 100 selected genes from 6 yeast taxa \citet{SalichosAndRokas2013}.
-Note the subscripts $M$ indicate model fits where the most common or `majority rule' amino acid was fixed as the optimal amino acid \aopt for each site.
-As discussed in text, despite the fact that \aopt for each site was not fitted by our algorithm, its value was determined by examining the data and, as a result, represent an additional parameter estimated from the data and are accounted for in our table.
-Also, the sample size used in the calculation of AICc is assumed to be equal to the size of the matrix (number of taxa x number of sites, which is 6 x 49,881).
+    \caption{Comparison of maximum likelihood fits for \selac and commonly used models based on negative log likelihood ($-ln(\Lik)$), AIC, AICc, and \AICw from analyses of 100 selected genes from 6 yeast taxa \citet{SalichosAndRokas2013}.
+      Note the subscripts $M$ indicate model fits where the most common or `majority rule' amino acid was fixed as the optimal amino acid \aopt for each site.
+      As discussed in text, despite the fact that \aopt for each site under $M$ was not fitted by our algorithm, its value was determined by examining the data and, as a result, represent an additional parameter estimated from the data and are accounted for in our table.
+      Sample size used in the calculation of AICc is assumed to be equal to the size of the matrix (number of taxa x number of sites $ = 6 \times 49,881 = 299,286$).
+      For the comparison between the different \selac and 192 other models fitted using IQTree \citep{Nguyen2015} see Table \ref{table:modelFitsAll} in the Supporting Materials.
+      In summary, the different \selac models and FMutSel fitted the data better than any of the IQTree models.
 }
     \label{table:modelFits}
 \end{table}
@@ -956,6 +958,9 @@ On the whole, these comparisons indicate not only a high degree of consistency a
 \end{figure}
 
 
+\include{Tables/selac-and-iqtree-table}
+
+
 \subsection{Simulations}
 As stated in the main text, overall, the simulation results indicate that the SelAC model can reasonably recover the known values of the generating model (Figure \ref{fig:SelacNoGSimRes} - \ref{fig:SelacWithGSimRes2}).
 This includes not only the parameters in \selac, but also the optimal amino acids for a given sequence as well as the estimates of the branch lengths.
@@ -992,6 +997,6 @@ Future work will address this issue.
 
 
 
-\include{Tables/selac-and-iqtree-table}
+
 
 \end{document}
