@@ -297,8 +297,10 @@ For example, when evaluating protein-coding sequences these models are inherentl
 
 Two important and independent attempts to address this critical shortcoming were introduced by \citet[][commonly abbreviated as GY]{GoldmanAndYang1994} and \citet{MuseAndGaut1994}.
 These models were explicitly built for protein coding data, assuming that differences in the \PC properties between amino acids, or \PC distances for short, could affect substitution rates.
-These \PC based codon models as originally introduced have rarely been used for empirical data \citep[for exceptions see][]{WoolleyEtAl2003, McClellanAndMcCracken2001, BlazejEtAl2017}.\marginpar{Cite papers by authors mentioned by reviewer 2 (McClellan, Mackiewicz, Yang, Zhang, Goldstein, Higgs and presumably TamuriEtAl2009) here.}
-Instead, these often cited models have served as the basis for an array of simpler and, in turn, more popular $\omega$ models that, starting with \citet{YangAndNielsen1998,NielsenAndYang1998}, typically assume an equal fixation probability for \emph{all} non-synonymous mutations.
+A number of researchers have used \PC based models to make inferences about selection for such properties \citet[e.g., see][]{Hughes1990,XiAndLi1998,WoolleyEtAl2003, McClellanAndMcCracken2001, BlazejEtAl2017}; however, in terms of tree and/or branch length reconstruction, \PC based codon models as originally introduced have rarely been used for empirical data.
+\marginpar{Citing reviewer 2 suggestions: McClellan, Mackiewicz, Yang, Zhang, Goldstein, Higgs and presumably TamuriEtAl2009.
+  These papers generally don't create the tree, but estimate substitutions given a tree.}
+Instead, the often cited models of \citet{GoldmanAndYang1994} and \citet{MuseAndGaut1994} have served as the basis for an array of simpler and, in turn, more popular $\omega$ models that, starting with \citet{YangAndNielsen1998,NielsenAndYang1998}, typically assume an equal fixation probability for \emph{all} non-synonymous mutations.
 Although often attributed to GY, these later and  simpler models were the first to employ the single term $\omega$ to model the differences in fixation probability between nonsynonomous and synonomyous changes at all sites.
 Since their introduction, more complex models have been developed that allow $\omega$ to vary between sites or branches \citep[as cited in ][]{Anisimova2012} and include selection on different synonyms for the same amino acid \cite[e.g.][]{YangAndNielsen2008}. %(MIKE: AND POSSIBLY \citep{TamuriEtAl2012,RodrigueAndHerve2010})
 
@@ -321,7 +323,7 @@ Similarly, when $\omega > 1$, synonymous substitutions have a lower substitution
 Again due to the model's symmetrical nature, the selection \emph{against} the resident amino acid $i$ is equally strong relative to alternative amino acids.
 The selection against the resident amino acid $i$ persists until a substitution occurs at which point selection now \emph{favors} amino acid $i$, as well as the 19 other amino acids, to the same degree $i$ was previously disfavored.
 Of course, in practice it is unlikely for the non-synonymous rate to be greater than the synonymous substitution rate in the absence of a particular process (e.g., antagonistic coevolution).
-Given these behaviors, $\omega$ based models are likely to only reasonably approximate a subset of scenarios such as perfectly symmetrical over-/under-dominance or positive/negative frequency dependent selection \citep{HughesAndNei1988,Nowak2006}.
+Given these behaviors, $\omega$ based models are likely to only reasonably approximate a narrow set scenarios such as perfectly symmetrical over-/under-dominance or positive/negative frequency dependent selection \citep{HughesAndNei1988,Nowak2006,Hughes2007}.
 Further, $\omega$ based models implicitly assumes the substitution is on the same timescale as the shifts in the optimal (or pessimal) amino acid.
 It is for these reasons that $\omega$ is best interpreted in a gene-wide context, as opposed to site-specific, because it averages over substitutions across many different sites.
 
@@ -466,7 +468,7 @@ The idea that quantitative information on gene expression is embedded within int
 
 Of course, given the general nature of \selac and the complexity of biological systems, other biological forces besides selection for reducing energy flux likely contribute to intergenic variation in the magnitude of stabilizing selection.
 Similarly, other physicochemical properties besides composition, volume, and charge likely contribute to site specific patterns of amino acid substitution.
-For example, \citet(BlazejEtAl2017) have developed substitution matrices using various \PC properties.
+For example, \citet{BlazejEtAl2017} have developed substitution matrices using various \PC properties.
 Thus, a larger and more informative set of \PC weights might improve our model fit and reduce the noise in our estimates of realized protein synthesis rates $\phi$.
 Even if other physicochemical properties are considered, the idea of a consistent, genome wide \PC weighting of these terms seems highly unlikely.
 Since the importance of an amino acid's physicochemical properties likely changes with its position in a folded protein, one way to incorporate such effects is to test whether the data supports multiple sets of \PC weights for either subsets of genes or regions within genes, rather than a single set.
@@ -502,7 +504,7 @@ However, this is likely only true for proteins reasonably close to the optimal s
 Different enough proteins will fail to function entirely: the active site will not sufficiently match its substrates, a protein will not properly pass through a membrane, and so forth.
 Yet, in our model, even random sequences still permit survival, just requiring more protein production.
 Another deficiency is the assumption of site independence and unchanging optimal amino acids through time, neither of which matches reality \citep{ShahEtAl2015,PollockEtAl2012}.
-We assume single nucleotide changes only, despite evidence from \citet(KosiolEtAl2007, WhelanAndGoldman2004) that better fit can be accomplished by allowing instantaneous mutations of multiple nucleotides simultaneously.
+We assume single nucleotide changes only, despite evidence from \citet{KosiolEtAl2007, WhelanAndGoldman2004} that better fit can be accomplished by allowing instantaneous mutations of multiple nucleotides simultaneously.
 Like the other oversimplifications previously discussed, these assumptions can be relaxed through further extension of this model.
 
 A deeper potential issue comes from the nature of model fitting itself.
@@ -524,8 +526,10 @@ While this would increase the number of parameters estimated, it would have the 
 More importantly, biologically such a model would be more realistic (as it is the properties that selection ``sees'', not the identity of the amino acid itself).
 
 
-In spite of these difficulties, \selac represents an important step in uniting phylogenetic and population genetic models.
-For example, while \citet{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014} are all models of constant, stabilizing selection, \selac can be generalized further to include diversifying selection.
+In spite of these difficulties, \selac represents an important step in uniting phylogenetic and population genetic models \citep{Higgs2008}.
+Most work in this area use a given tree to make inferences about the nature or distribution of selection coefficients \citet[e.g.]{Hughes1990,XiAndLi1998,WoolleyEtAl2003, McClellanAndMcCracken2001,BlazejEtAl2017}.
+\marginpar{mikeg: note citations here mirror those made in intro.}
+While the work of \citet{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014} does involve tree inferences, are all models of constant, stabilizing selection, \selac can be generalized further to include diversifying selection.
 Specifically, by letting \selac's sensitivity term $G$, which we now assume is $\ge 0$, to take on negative values, \selac will behave as if there is a pessimal, rather than optimal, amino acid for the given site.
 In this diversifying selection scenario, amino acids with \PC qualities more dissimilar to the pessimal amino acid are increasingly favored, potentially resulting in multiple fitness peaks.
 
@@ -534,8 +538,10 @@ The ability to extend our model and, in turn, sharpen our thinking about the nat
 How frequently diversifying selection of this nature occurs is an open, but addressable, question.
 %Fortunately, it is also a question that can be addressed using \selac in the future.
 Regardless of the frequency at which diversifying selection occurs, another question of interest to evolutionary biologists is, ``How often does the optimal/pessimal amino sequence change along any given branch?''
-Due to its mechanistic nature, \selac can also be extended to include changes in the optimal/pessimal sequence over a phylogeny using a hidden Markov modelling approach \citet{TuffleySteel1998,Pennyetal2001,Whelan2008}.
+Due to its mechanistic nature, \selac can also be extended to include changes in the optimal/pessimal sequence over a phylogeny using a hidden Markov modelling approach \citet[][for a non Markov approach see \citet{TamuriEtAl2009}]{TuffleySteel1998,Pennyetal2001,Whelan2008}.
 Extending \selac in these ways, will allow researchers to explicitly model shifts in selection on protein sequences and, in turn, quantify their frequency and magnitude thus deepening our understanding of biological evolution.
+Such approaches would be challenging using non-mechanistic and parameter rich models which infer up to 19 different parameters, one for each amino acid, per site such as those introduced by \citet{HalpernAndBruno1998,TamuriEtAl2012,TamuriEtAl2014} \citep[but see][for an elegant means of reducing the number of different site models]{RodrigueAndLartillot2014}.
+
 
 
 In summary, \selac allows biologically relevant population genetic parameters to be estimated from phylogenetic information, while also dramatically improving fit and accuracy of phylogenetic models.
