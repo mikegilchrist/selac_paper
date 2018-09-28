@@ -297,7 +297,7 @@ For example, when evaluating protein-coding sequences these models are inherentl
 
 Two important and independent attempts to address this critical shortcoming were introduced by \citet[][commonly abbreviated as GY]{GoldmanAndYang1994} and \citet{MuseAndGaut1994}.
 These models were explicitly built for protein coding data, assuming that differences in the \PC properties between amino acids, or \PC distances for short, could affect substitution rates.
-A number of researchers have used \PC based models to make inferences about selection for such properties \citet[e.g., see][]{Hughes1990,XiAndLi1998,WoolleyEtAl2003, McClellanAndMcCracken2001, BlazejEtAl2017}; however, in terms of tree and/or branch length reconstruction, \PC based codon models as originally introduced have rarely been used for empirical data.
+A number of researchers have used \PC based models to make inferences about selection for such properties \citet[e.g., see][]{HughesEtAl1990,XiaAndLi1998,WoolleyEtAl2003, McClellanAndMcCracken2001, BlazejEtAl2017}; however, in terms of tree and/or branch length reconstruction, \PC based codon models as originally introduced have rarely been used for empirical data.
 \marginpar{Citing reviewer 2 suggestions: McClellan, Mackiewicz, Yang, Zhang, Goldstein, Higgs and presumably TamuriEtAl2009.
   These papers generally don't create the tree, but estimate substitutions given a tree.}
 Instead, the often cited models of \citet{GoldmanAndYang1994} and \citet{MuseAndGaut1994} have served as the basis for an array of simpler and, in turn, more popular $\omega$ models that, starting with \citet{YangAndNielsen1998,NielsenAndYang1998}, typically assume an equal fixation probability for \emph{all} non-synonymous mutations.
@@ -378,8 +378,8 @@ Further, including the shape parameter \alphag for the random effects term $G \s
 Using either \DeltaAICc or \AICw as our measure of model support, the \selac models fit extraordinarily better than GTR + $\Gamma$, GY, or FMutSel (Table \ref{table:modelFits}).
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which accounts for 49,881 additional model parameters.
 Even when compared to the next most parameter rich codon model in our model set, FMutSel (with 178 parameters), \selacplusgamma model shows over 160,000 AIC unit improvement over FMutSel.
-\selac models also appeared to outperform, based on likelihood, and reported AIC and AICc from each program, the codon models in IQtree \cite{IQTree}. %citation
-See Table \label{table:modelFitsAll} for results. %add table
+\selac models also appeared to outperform, based on likelihood, and reported AIC and AICc from each program, the codon models in IQtree \cite{NguyenEtAl2015}. %citation
+See Table \ref{table:modelFitsAll} for results. %add table
 
 We note our use of AICc, as opposed to the standard AIC, in the above model comparisons.
 At the outset of our study it was unclear what the appropriate sample size, $n$, when comparing models of sequence evolution.
@@ -434,7 +434,7 @@ Could cite general rise in popularity, WuEtAl2013.}
 \selac follows in this tradition of using multiple substitution matrices, but includes some key advances.
 First, by nesting a model of a sequence's cost-benefit function \Cost/\Func within a broader model, \selac allows us to formulate and test a hierarchical, mechanistic models of stabilizing selection.
 More precisely, our nested approach allows us to relax the assumption that \PC deviations from the optimal sequence \aoptvec are equally disruptive at all sites within a protein.
-Indeed, \selac results are consistent with the idea that the strength of stabilizing selection against \PC deviations from \aoptvec varies between sites (\DeltaAICc = 20,983; Table\ref{table:modelFits}).
+Indeed, \selac results are consistent with the idea that the strength of stabilizing selection against \PC deviations from \aoptvec varies between sites (\DeltaAICc = 20,983; Table \ref{table:modelFits}).
 Second, because our substitution matrices are built on a formal description of a sequence's cost-benefit function \Cost/\Func, we are able to efficiently parameterize 20 different matrices using a relatively small number of genome-wide parameters -- e.g.~our \PC weightings, \alphac, \alphap, and \alphav, and the shape parameter \alphag for the distribution of selective strength $G$ and one gene specific expression parameter $\psi$.
 While the \Cost/\Func function on which \selac currently rests is very simple, nevertheless, it leads to a dramatic increase in our ability to explain the sequence data we analyzed.
 Importantly, because \selac uses a formal description of a sequence's \Cost/\Func, replacing our assumptions with more sophisticated ones in the future is relatively straightforward.
@@ -527,7 +527,7 @@ More importantly, biologically such a model would be more realistic (as it is th
 
 
 In spite of these difficulties, \selac represents an important step in uniting phylogenetic and population genetic models \citep{Higgs2008}.
-Most work in this area use a given tree to make inferences about the nature or distribution of selection coefficients \citet[e.g.]{Hughes1990,XiAndLi1998,WoolleyEtAl2003, McClellanAndMcCracken2001,BlazejEtAl2017}.
+Most work in this area use a given tree to make inferences about the nature or distribution of selection coefficients \citet[e.g.]{HughesEtAl1990,XiaAndLi1998,WoolleyEtAl2003, McClellanAndMcCracken2001,BlazejEtAl2017}.
 \marginpar{mikeg: note citations here mirror those made in intro.}
 While the work of \citet{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014} does involve tree inferences, are all models of constant, stabilizing selection, \selac can be generalized further to include diversifying selection.
 Specifically, by letting \selac's sensitivity term $G$, which we now assume is $\ge 0$, to take on negative values, \selac will behave as if there is a pessimal, rather than optimal, amino acid for the given site.
@@ -538,7 +538,7 @@ The ability to extend our model and, in turn, sharpen our thinking about the nat
 How frequently diversifying selection of this nature occurs is an open, but addressable, question.
 %Fortunately, it is also a question that can be addressed using \selac in the future.
 Regardless of the frequency at which diversifying selection occurs, another question of interest to evolutionary biologists is, ``How often does the optimal/pessimal amino sequence change along any given branch?''
-Due to its mechanistic nature, \selac can also be extended to include changes in the optimal/pessimal sequence over a phylogeny using a hidden Markov modelling approach \citet[][for a non Markov approach see \citet{TamuriEtAl2009}]{TuffleySteel1998,Pennyetal2001,Whelan2008}.
+Due to its mechanistic nature, \selac can also be extended to include changes in the optimal/pessimal sequence over a phylogeny using a hidden Markov modelling approach \citet[][for an explicit shift the optimal sequence see \citet{TamuriEtAl2009}]{TuffleyAndSteel1998,PennyEtAl2001,Whelan2008}.
 Extending \selac in these ways, will allow researchers to explicitly model shifts in selection on protein sequences and, in turn, quantify their frequency and magnitude thus deepening our understanding of biological evolution.
 Such approaches would be challenging using non-mechanistic and parameter rich models which infer up to 19 different parameters, one for each amino acid, per site such as those introduced by \citet{HalpernAndBruno1998,TamuriEtAl2012,TamuriEtAl2014} \citep[but see][for an elegant means of reducing the number of different site models]{RodrigueAndLartillot2014}.
 
@@ -765,7 +765,7 @@ We fit the two \selac models described above (i.e., \selac and \selacplusgamma),
 The FMutSel model assumes that the amino acid frequencies are determined by functional requirements of the protein while the other models make no assumptions about amino acid frequencies.
 In all cases, we assumed that the model was partitioned by gene, but with branch lengths linked across genes.
 
-We also compared \selac models with 195 codon models in IQtree. %CITE THIS SOON
+We also compared \selac models with 195 codon models in IQtree \citep{NguyenEtAl2015}. %CITE THIS SOON
 This is popular software implementing recent (i.e., \_\_\_\_\_\_) models of evolution, including codon models. %CITATIONS
 Most analyses within a set of software tools focus on differences in log-likelihood values between models.
 As a result, some software tools sometimes fail to include soley data dependent terms, which function as constants, in their calculations.
@@ -864,7 +864,7 @@ The authors would like to thank Premal Shah, Todd Oakley, and four anonymous rev
       Note the subscripts $M$ indicate model fits where the most common or `majority rule' amino acid was fixed as the optimal amino acid \aopt for each site.
       As discussed in text, despite the fact that \aopt for each site under $M$ was not fitted by our algorithm, its value was determined by examining the data and, as a result, represent an additional parameter estimated from the data and are accounted for in our table.
       Sample size used in the calculation of AICc is assumed to be equal to the size of the matrix (number of taxa x number of sites $ = 6 \times 49,881 = 299,286$).
-      For the comparison between the different \selac and 192 other models fitted using IQTree \citep{Nguyen2015} see Table \ref{table:modelFitsAll} in the Supporting Materials.
+      For the comparison between the different \selac and 192 other models fitted using IQTree \citep{NguyenEtAl2015} see Table \ref{table:modelFitsAll} in the Supporting Materials.
       In summary, the different \selac models and FMutSel fitted the data better than any of the IQTree models.
 }
     \label{table:modelFits}
