@@ -325,7 +325,7 @@ Given these behaviors, $\omega$ based models are likely to only reasonably appro
 Further, $\omega$ based models implicitly assumes the substitution is on the same timescale as the shifts in the optimal (or pessimal) amino acid.
 It is for these reasons that $\omega$ is best interpreted in a gene-wide context, as opposed to site-specific, because it averages over substitutions across many different sites.
 
-\section{New Approaches} %MBE says it's required for methods papers.
+\section{New Approaches}
 To address these fundamental shortcomings in $\omega$ based phylogenetic approaches, we present an approach where selection explicitly favors minimizing the cost-benefit function $\eta$ of a protein whose relative performance is determined by the order and \PC properties of its amino acids.
 Our approach, which we call Selection on Amino acids and Codons or \selac, is developed in the same vein as previous phylogenetic applications of the Wright-Fisher process \citep[e.g.~][]{MuseAndGaut1994,HalpernAndBruno1998,YangAndNielsen2008,RodrigueEtAl2005,KoshiAndGoldstein1997,KoshiEtAl1999,DimmicEtAl2000,ThorneEtAl2012,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
 Similar to  \citet{LartillotAndPhilippe2004} and \citet{RodrigueAndLartillot2014}, we assume there is a finite set of rate matrices describing the substitution process and that each position within a protein is assigned to a particular rate matrix category.
@@ -376,7 +376,7 @@ Further, including the shape parameter \alphag for the random effects term $G \s
 Using either \DeltaAICc or \AICw as our measure of model support, the \selac models fit extraordinarily better than GTR + $\Gamma$, GY, or FMutSel (Table \ref{table:modelFits}).
 This is in spite of the need for estimating the optimal amino acid at each position in each protein, which accounts for 49,881 additional model parameters.
 Even when compared to the next most parameter rich codon model in our model set, FMutSel (with 178 parameters), \selacplusgamma model shows over 160,000 AIC unit improvement over FMutSel.
-\selac models also appeared to outperform, based on likelihood, and reported AIC and AICc from each program, the codon models in IQtree \cite{NguyenEtAl2015}. %citation
+\selac models also appeared to outperform, based on likelihood, and reported AIC and AICc from each program, the codon models in IQtree \cite{NguyenEtAl2015}.
 See Table \ref{table:modelFitsAll} for results. %add table
 
 We note our use of AICc, as opposed to the standard AIC, in the above model comparisons.
@@ -548,7 +548,7 @@ Given the enormous amount of efforts expended to generate sequence datasets, it 
 The cost-benefit model we develop here is just one of many possible paths of mechanistic model development.
 
 
-\section{Materials \& Methods} %move to end as required by MBE
+\section{Materials \& Methods}
 \subsection{Overview}
 We model the substitution process as a classic Wright-Fisher process which includes the forces of mutation, selection, and drift \citep{Fisher1930,Kimura1962,Wright1969,Iwasa1988,BergAndLassig2003,SellaAndHirsh2005,McCandlishAndStoltzfus2014}.
 For simplicity, we ignore linkage effects and, as a result of this and other assumptions, sequences evolve in a site independent manner.
@@ -762,8 +762,8 @@ We fit the two \selac models described above (i.e., \selac and \selacplusgamma),
 The FMutSel model assumes that the amino acid frequencies are determined by functional requirements of the protein while the other models make no assumptions about amino acid frequencies.
 In all cases, we assumed that the model was partitioned by gene, but with branch lengths linked across genes.
 
-We also compared \selac models with 195 codon models in IQtree \citep{NguyenEtAl2015}. %CITE THIS SOON
-This is popular software implementing recent (i.e., \_\_\_\_\_\_) models of evolution, including codon models. %CITATIONS
+We also compared \selac models with 195 codon models in IQtree \citep{NguyenEtAl2015}.
+This is popular software implementing various (i.e., \citet{KosiolEtAl2007, MuseAndGaut1994, GoldmanAndYang 1994, SchneiderEtAl2005}) models of evolution, including codon models.
 Most analyses within a set of software tools focus on differences in log-likelihood values between models.
 As a result, some software tools sometimes fail to include soley data dependent terms, which function as constants, in their calculations.
 Failure to include these terms can model comparison between software packages problematic.
