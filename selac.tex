@@ -298,8 +298,6 @@ For example, when evaluating protein-coding sequences these models are inherentl
 Two important and independent attempts to address this critical shortcoming were introduced by \citet[][commonly abbreviated as GY]{GoldmanAndYang1994} and \citet{MuseAndGaut1994}.
 These models were explicitly built for protein coding data, assuming that differences in the \PC properties between amino acids, or \PC distances for short, could affect substitution rates.
 A number of researchers have used \PC based models to make inferences about selection for such properties \citet[e.g., see][]{HughesEtAl1990,XiaAndLi1998,WoolleyEtAl2003, McClellanAndMcCracken2001, BlazejEtAl2017}; however, in terms of tree and/or branch length reconstruction, \PC based codon models as originally introduced have rarely been used for empirical data.
-\marginpar{Citing reviewer 2 suggestions: McClellan, Mackiewicz, Yang, Zhang, Goldstein, Higgs and presumably TamuriEtAl2009.
-  These papers generally don't create the tree, but estimate substitutions given a tree.}
 Instead, the often cited models of \citet{GoldmanAndYang1994} and \citet{MuseAndGaut1994} have served as the basis for an array of simpler and, in turn, more popular $\omega$ models that, starting with \citet{YangAndNielsen1998,NielsenAndYang1998}, typically assume an equal fixation probability for \emph{all} non-synonymous mutations.
 Although often attributed to GY, these later and  simpler models were the first to employ the single term $\omega$ to model the differences in fixation probability between nonsynonomous and synonomyous changes at all sites.
 Since their introduction, more complex models have been developed that allow $\omega$ to vary between sites or branches \citep[as cited in ][]{Anisimova2012} and include selection on different synonyms for the same amino acid \cite[e.g.][]{YangAndNielsen2008}. %(MIKE: AND POSSIBLY \citep{TamuriEtAl2012,RodrigueAndHerve2010})
@@ -383,7 +381,7 @@ See Table \ref{table:modelFitsAll} for results. %add table
 
 We note our use of AICc, as opposed to the standard AIC, in the above model comparisons.
 At the outset of our study it was unclear what the appropriate sample size, $n$, when comparing models of sequence evolution.
-Building upon the work of \citet{JhwuengEtAl2014}, our simulations suggest that using the number of taxa times the number of sites as the sample size correction performed best as a small sample size correction for estimating Kullback-Liebler distance in phylogenetic models (Supporting Materials).
+Building upon the work of \citet{Jhwuengetal2014}, our simulations suggest that using the number of taxa times the number of sites as the sample size correction performed best as a small sample size correction for estimating Kullback-Liebler distance in phylogenetic models (Supporting Materials).
 This also has an intuitive appeal.
 In models that have at least some parameters shared across sites and some parameters shared across taxa, increasing the number of sites and/or taxa should be adding more samples for the parameters to estimate.
 This is consistent considering how likelihood is calculated for phylogenetic models: the likelihood for a given site is the sum of the probabilities of each observed state at each tip, which is then multiplied across sites.
@@ -424,12 +422,12 @@ As a result, there is a need for more complex and realistic models to accomplish
 Although extremely popular due to their elegance and computational efficiency, the utility of $\omega$ based models in helping us reach this goal is substantially more limited than commonly recognized.
 Because these $\omega$ models use a single substitution matrix, they are only applicable for situations in which the substitution process and shifts in the selective environment are intrinsic to the sequence, such as with positive or negative frequency dependent selection; these models do not describe stabilizing or diversifying selection as commonly envisioned \citep{Endler1986a,Pellmyr2002}.
 
-Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking site-specific selection on protein sequence and phylogenetics \citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014,YangEtAl1998}.
+Starting with \citet{HalpernAndBruno1998}, a number of researchers have developed methods for linking heterogenous or site-specific selection on protein sequence and phylogenetics \citep[e.g.~][]{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014,YangEtAl1998}.
 \citet{HalpernAndBruno1998} calculated a vector of 20 expected amino acid frequencies for each amino acid site, making it the most general and most parameter rich of these methods.
 This generality, however, comes at the cost of being purely descriptive; there is no explicit biological mechanism proposed to explain the site specific amino acid frequencies estimated.
 By grouping together amino sites with similar evolutionary behaviors, \citet{LartillotAndPhilippe2004} and \citet{RodrigueAndLartillot2014} retained the descriptive nature of \citet{HalpernAndBruno1998} work while greatly reduced the number of model parameters needed.
-\marginpar{Use term site heterogenous models?
-Could cite general rise in popularity, WuEtAl2013.}
+%\marginpar{Use term site heterogenous models?
+%Could cite general rise in popularity, WuEtAl2013.}
 
 \selac follows in this tradition of using multiple substitution matrices, but includes some key advances.
 First, by nesting a model of a sequence's cost-benefit function \Cost/\Func within a broader model, \selac allows us to formulate and test a hierarchical, mechanistic models of stabilizing selection.
@@ -528,7 +526,6 @@ More importantly, biologically such a model would be more realistic (as it is th
 
 In spite of these difficulties, \selac represents an important step in uniting phylogenetic and population genetic models \citep{Higgs2008}.
 Most work in this area use a given tree to make inferences about the nature or distribution of selection coefficients \citet[e.g.]{HughesEtAl1990,XiaAndLi1998,WoolleyEtAl2003, McClellanAndMcCracken2001,BlazejEtAl2017}.
-\marginpar{mikeg: note citations here mirror those made in intro.}
 While the work of \citet{KoshiEtAl1999,DimmicEtAl2000,KoshiAndGoldstein2001,RobinsonEtAl2003,LartillotAndPhilippe2004,ThorneEtAl2012,RodrigueAndLartillot2014} does involve tree inferences, are all models of constant, stabilizing selection, \selac can be generalized further to include diversifying selection.
 Specifically, by letting \selac's sensitivity term $G$, which we now assume is $\ge 0$, to take on negative values, \selac will behave as if there is a pessimal, rather than optimal, amino acid for the given site.
 In this diversifying selection scenario, amino acids with \PC qualities more dissimilar to the pessimal amino acid are increasingly favored, potentially resulting in multiple fitness peaks.
@@ -538,9 +535,9 @@ The ability to extend our model and, in turn, sharpen our thinking about the nat
 How frequently diversifying selection of this nature occurs is an open, but addressable, question.
 %Fortunately, it is also a question that can be addressed using \selac in the future.
 Regardless of the frequency at which diversifying selection occurs, another question of interest to evolutionary biologists is, ``How often does the optimal/pessimal amino sequence change along any given branch?''
-Due to its mechanistic nature, \selac can also be extended to include changes in the optimal/pessimal sequence over a phylogeny using a hidden Markov modelling approach \citet[][for an explicit shift the optimal sequence see \citet{TamuriEtAl2009}]{TuffleyAndSteel1998,PennyEtAl2001,Whelan2008}.
+Due to its mechanistic nature, \selac can also be extended to include changes in the optimal/pessimal sequence over a phylogeny using a hidden Markov modelling approach \citep[][for an explicit shift the optimal sequence see \citet{TamuriEtAl2009}]{TuffleyAndSteel1998,PennyEtAl2001,Whelan2008}.
 Extending \selac in these ways, will allow researchers to explicitly model shifts in selection on protein sequences and, in turn, quantify their frequency and magnitude thus deepening our understanding of biological evolution.
-Such approaches would be challenging using non-mechanistic and parameter rich models which infer up to 19 different parameters, one for each amino acid, per site such as those introduced by \citet{HalpernAndBruno1998,TamuriEtAl2012,TamuriEtAl2014} \citep[but see][for an elegant means of reducing the number of different site models]{RodrigueAndLartillot2014}.
+Such approaches would be challenging using non-mechanistic and parameter rich models which infer up to 19 different parameters per site category \citet{HalpernAndBruno1998,TamuriEtAl2012,TamuriEtAl2014,RodrigueAndLartillot2014}.
 
 
 
@@ -821,8 +818,8 @@ This uncertainty was highlighted by \citet{posadaBuckley2004}: they chose to use
 One approach incorporating both number of taxa and sites in calculating AICc is the program SURFACE implemented by \citet{IngramMahler2013}, which uses multiple characters and taxa.
 While its default is to use AIC to compare models, if one chooses to use AICc, the number of samples is taken as the product of number of sites and number of taxa.
 
-Recently, \citet{JhwuengEtAl2014} performed an analysis that investigated what variant of AIC and AICc worked best as an estimator, but the results were inconclusive.
-Here, we have adopted and extended the simulation approach of \citet{JhwuengEtAl2014} in order to examine a large set of different penalty functions and how well they approximate the remaining portion of the Kullback-Liebler (KL) divergence between two models after accounting for the deviance (i.e., $-2\Lik$) (see Appendix 1 for more details).
+Recently, \citet{Jhwuengetal2014} performed an analysis that investigated what variant of AIC and AICc worked best as an estimator, but the results were inconclusive.
+Here, we have adopted and extended the simulation approach of \citet{Jhwuengetal2014} in order to examine a large set of different penalty functions and how well they approximate the remaining portion of the Kullback-Liebler (KL) divergence between two models after accounting for the deviance (i.e., $-2\Lik$) (see Appendix 1 for more details).
 
 
 
