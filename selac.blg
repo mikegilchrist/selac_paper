@@ -1,25 +1,20 @@
 This is BibTeX, Version 0.99d (TeX Live 2016)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: selac.aux
-Case mismatch error between cite keys Jhwuengetal2014 and JhwuengEtAl2014
----line 152 of file selac.aux
- : \citation{Jhwuengetal2014
- :                          }
-I'm skipping whatever remains of this command
-Case mismatch error between cite keys Jhwuengetal2014 and JhwuengEtAl2014
----line 153 of file selac.aux
- : \citation{Jhwuengetal2014
- :                          }
+White space in argument---line 174 of file selac.aux
+ : \citation{GoldmanAndYang
+ :                          1994}
 I'm skipping whatever remains of this command
 I couldn't open style file natbib.bst
----line 155 of file selac.aux
+---line 192 of file selac.aux
  : \bibstyle{natbib
  :                 }
 I'm skipping whatever remains of this command
+A level-1 auxiliary file: Tables/selac-and-iqtree-table.aux
 I found no style file---while reading file selac.aux
-You've used 75 entries,
+You've used 95 entries,
             0 wiz_defined-function locations,
-            230 strings with 2644 characters,
+            271 strings with 3253 characters,
 and the built_in function-call counts, 0 in all, are:
 = -- 0
 > -- 0
@@ -58,4 +53,4 @@ warning$ -- 0
 while$ -- 0
 width$ -- 0
 write$ -- 0
-(There were 4 error messages)
+(There were 3 error messages)
