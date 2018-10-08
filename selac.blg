@@ -1,56 +1,82 @@
-This is BibTeX, Version 0.99d (TeX Live 2016)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: selac.aux
-White space in argument---line 174 of file selac.aux
- : \citation{GoldmanAndYang
- :                          1994}
-I'm skipping whatever remains of this command
-I couldn't open style file natbib.bst
----line 192 of file selac.aux
- : \bibstyle{natbib
- :                 }
-I'm skipping whatever remains of this command
+The style file: natbib.bst
 A level-1 auxiliary file: Tables/selac-and-iqtree-table.aux
-I found no style file---while reading file selac.aux
-You've used 95 entries,
-            0 wiz_defined-function locations,
-            271 strings with 3253 characters,
-and the built_in function-call counts, 0 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 0
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 0
-format.name$ -- 0
-if$ -- 0
-int.to.chr$ -- 0
+Database file #1: ./mike.bib
+Repeated entry---line 28283 of file ./mike.bib
+ : @article{YangEtAl1998
+ :                      ,
+I'm skipping whatever remains of this entry
+Database file #2: ./omeara.bib
+Repeated entry---line 36 of file ./omeara.bib
+ : @article{BeaulieuAndOMeara2016
+ :                               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 89 of file ./omeara.bib
+ : @article{SchneiderEtAl2005
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 109 of file ./omeara.bib
+ : @article{NguyenEtAl2015
+ :                        ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 133 of file ./omeara.bib
+ : @article{YangEtAl1998
+ :                      ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 146 of file ./omeara.bib
+ : @article{BlazejEtAl2017
+ :                        ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 168 of file ./omeara.bib
+ : @article{McClellanAndMcCracken2001
+ :                                   ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 211 of file ./omeara.bib
+ : @article {PollockEtAl2012
+ :                          ,
+I'm skipping whatever remains of this entry
+Database file #3: ./landerer.bib
+You've used 96 entries,
+            2378 wiz_defined-function locations,
+            1185 strings with 21771 characters,
+and the built_in function-call counts, 47057 in all, are:
+= -- 4679
+> -- 2265
+< -- 68
++ -- 672
+- -- 644
+* -- 4255
+:= -- 8020
+add.period$ -- 427
+call.type$ -- 96
+change.case$ -- 601
+chr.to.int$ -- 96
+cite$ -- 96
+duplicate$ -- 1837
+empty$ -- 3231
+format.name$ -- 806
+if$ -- 9502
+int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 0
-num.names$ -- 0
-pop$ -- 0
-preamble$ -- 0
-purify$ -- 0
+missing$ -- 100
+newline$ -- 485
+num.names$ -- 388
+pop$ -- 529
+preamble$ -- 1
+purify$ -- 609
 quote$ -- 0
-skip$ -- 0
+skip$ -- 1261
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 3521
+swap$ -- 355
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 846
 warning$ -- 0
-while$ -- 0
+while$ -- 397
 width$ -- 0
-write$ -- 0
-(There were 3 error messages)
+write$ -- 1261
+(There were 8 error messages)

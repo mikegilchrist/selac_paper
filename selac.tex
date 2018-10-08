@@ -4,7 +4,7 @@
 
 
 %%%%%%%%%%%BEGIN MBE Commands %%%%%%%%%%%%
-\documentclass[onecolumn,letterpaper,fleqn,nogrid]{myMBE}%
+\documentclass[onecolumn,fleqn,nogrid]{myMBE}%
 
 
 \usepackage{url}
@@ -42,7 +42,7 @@
 \usepackage{amsthm}
 \usepackage{array}
 %\usepackage{booktabs}
-%\usepackage{caption}
+\usepackage{caption}
 \usepackage{color}
 %\usepackage{epsfig}
 %\usepackage{fixltx2e} %unneeded after 2015
@@ -219,6 +219,7 @@
 \newcommand{\setP}{\ensuremath{\mathbb{P}}\xspace}
 \renewcommand{\ng}{\ensuremath{{n_g}}\xspace}
 \newcommand{\gp}{\ensuremath{{G_p}}\xspace}
+\newcommand{\queue}{\xspace}
 
 \DeclareMathOperator{\Var}{Var}
 
@@ -297,7 +298,7 @@ For example, when evaluating protein-coding sequences these models are inherentl
 
 Two important and independent attempts to address this critical shortcoming were introduced by \citet[][commonly abbreviated as GY]{GoldmanAndYang1994} and \citet{MuseAndGaut1994}.
 These models were explicitly built for protein coding data, assuming that differences in the \PC properties between amino acids, or \PC distances for short, could affect substitution rates.
-A number of researchers have used \PC based models to make inferences about selection for such properties \citep[e.g., see][]{HughesEtAl1990,XiaAndLi1998,WoolleyEtAl2003, McClellanAndMcCracken2001, BlazejEtAl2017}; however, in terms of tree and/or branch length reconstruction, \PC based codon models as originally introduced have rarely been used for empirical data.
+A number of researchers have used \PC based models to make inferences about selection for such properties \citep[e.g., see][and \citet{Yang2014} for a brief summary]{HughesEtAl1990,KoshiAndGoldstein1997,XiaAndLi1998,KoshiEtAl1999,WoolleyEtAl2003,McClellanAndMcCracken2001,BlazejEtAl2017}; however, in terms of tree and/or branch length reconstruction, \PC based codon models as originally introduced have rarely been used for empirical data.
 Instead, the often cited models of \citet{GoldmanAndYang1994} and \citet{MuseAndGaut1994} have served as the basis for an array of simpler and, in turn, more popular $\omega$ models that, starting with \citet{YangAndNielsen1998,NielsenAndYang1998}, typically assume an equal fixation probability for \emph{all} non-synonymous mutations.
 Although often attributed to GY, these later and  simpler models were the first to employ the single term $\omega$ to model the differences in fixation probability between nonsynonomous and synonomyous changes at all sites.
 Since their introduction, more complex models have been developed that allow $\omega$ to vary between sites or branches \citep[as cited in ][]{Anisimova2012} and include selection on different synonyms for the same amino acid \cite[e.g.][]{YangAndNielsen2008}. %(MIKE: AND POSSIBLY \citep{TamuriEtAl2012,RodrigueAndHerve2010})
@@ -566,7 +567,7 @@ In addition to these genome-wide parameters, \selac requires a gene specific fun
 Currently, $\psi$ is fixed across the phylogeny, though relaxing this assumption is a goal of future work.
 The gene specific parameter $\psi$ is multiplied by additional model terms to make a composite term $\psiprime$ which scales the strength and efficacy of selection for the optimal amino acid sequence relative to drift (see Implementation below).
 In terms of the functionality of the protein encoded, we assume that for any given gene there exists an optimal amino acid sequence \aoptvec and that, by definition, a complete, error free peptide consisting of \aoptvec provides one unit of the gene's functionality.
-We also assume that natural selection favors genotypes that are able to synthesize their proteome more efficiently than their competitors and that each savings of an high energy phosphate bond per unit time leads to a constant proportional gain in fitness $A_0$.
+We also assume that natural selection favors genotypes that are able to synthesize their proteome more efficiently than their competitors and that each savings of an high energy phosphate bond per unit time leads to a constant proportional gain in fitness $A_0$ (which was $q$ in our previous work \citet{Gilchrist2007}).
 \selac also requires the specification (as part of parameter optimization) of an optimal amino acid \aopt at each position within a coding sequence.
 This requirement of one \aopt per site makes our \aoptvec the largest category of parameters \selac estimates.
 Despite the need to specify \aopt for each site, because we use a submodel to derive our substitution matrices, \selac estimates a relatively small number of the parameters when compared to more general approaches where the fitness of each amino acid is allowed to vary freely of any \PC properties \citep{HalpernAndBruno1998,LartillotAndPhilippe2004,RodrigueAndLartillot2014}.
@@ -679,13 +680,13 @@ Instead, we recognize that our estimates of $\psi$ share an unknown scaling term
 
 Correspondingly, the ratio of fitness between two genotypes is,
 \begin{align*}
-  W_i/W_j &=  \exp\left[- A_0 \, \eta(\cveci) \psi\right]/\exp\left[- A_0 \, \eta(\cvecj) \psi\right] \nonumber \\
-  &=  \exp\left[- A_0 \left(\eta(\cveci)- \eta(\cvecj)\right) \psi\right] %\label{eq:Wratio}
+  W_i/W_j &=  \exp\left[- A_0 \, \eta(\cveci) \psi\right]/\exp\left[-  A_0 \, \eta(\cvecj) \psi\right] \nonumber \\
+  &=  \exp\left[-  A_0 \left(\eta(\cveci)- \eta(\cvecj)\right) \psi\right] %\label{eq:Wratio}
 \end{align*}
 Given our formulations of \Cost and \Func, the fitness effects between sites are multiplicative and, therefore, the substitution of an amino acid at one site can be modeled independently of the amino acids at the other sites within the coding sequence.
 As a result, the fitness ratio for two genotypes differing at multiple sites simplifies to
 \begin{align*}
-  W_i/W_j  &= \exp\left[- \left(\frac{A_0 \left(A_1 + A_2 n\right)}{n}\right)\sum_{p \in \setP} \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] G_p \psi \right]
+  W_i/W_j  &= \exp\left[- \left(\frac{ A_0 \left(A_1 + A_2 n\right)}{n}\right)\sum_{p \in \setP} \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] G_p \psi \right]
 %Split over two lines
 %  W_i/W_j  &= \exp\left[- \frac{A_0 \left(A_1 + A_2 n\right)}{n} \right.\\
 %  & \;\;\;  \left. \times \sum_{p \in \setP} \left[d\left(\aip,\aoptp\right) - d\left(\ajp,\aoptp\right)\right] G_p \psi \right]
@@ -717,7 +718,7 @@ In this case, the data, $\Dmatrixp$, are the observed codon states at position $
 For our purposes we take \Tmatrix as given, but it could be estimated as well.
 The pruning algorithm of \citet{Felsenstein1981} is used to calculate $\Lik\left(\Qmatrixa \middle| \Dmatrixp, \Tmatrix\right)$.
 The log of the likelihood is maximized by estimating the genome scale parameters which consist of 11 mutation parameters, which are implicitly scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
-Because $A_0$ and $\psi$ always co-occur and are scaled by \Ne, for each gene we estimate a composite term $\psiprime = \psi A_0 b \Ne$ and the optimal amino acid for each position \aoptp of the protein.
+Because $A_0$ and $\psi$ always co-occur and are scaled by \Ne, for each gene we estimate a composite term $\psiprime = A_0 \psi \Ne$ and the optimal amino acid for each position \aoptp of the protein.
 When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using the generalized Laguerre quadrature with $k = 4$ points \citep{Felsenstein2001}.
 
 
@@ -734,7 +735,7 @@ For the \selac models, the starting guess for the optimal amino acid at a site c
 Our optimization routine utilizes a four stage hill climbing approach.
 More specifically, within each stage a block of parameters are optimized while the remaining parameters are held constant.
 The first stage optimizes the block of branch length parameters.
-The second stage optimizes the block of gene specific composite parameters $ \psiprime = A_0 \psi \Ne b$.
+The second stage optimizes the block of gene specific composite parameters $ \psiprime = A_0 \psi \Ne$.
 The third stage optimizes \selac's parameters shared across the genome $\alphac$ and $\alphap$, and the sensitivity distribution parameter $\alphag$.
 The fourth stage estimates the optimal amino acid at each site \aopt.
 This entire four stage cycle is repeated up to six more times, using the estimates from the previous cycle as the initial conditions for the new one.
