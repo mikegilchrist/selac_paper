@@ -718,7 +718,7 @@ In this case, the data, $\Dmatrixp$, are the observed codon states at position $
 For our purposes we take \Tmatrix as given, but it could be estimated as well.
 The pruning algorithm of \citet{Felsenstein1981} is used to calculate $\Lik\left(\Qmatrixa \middle| \Dmatrixp, \Tmatrix\right)$.
 The log of the likelihood is maximized by estimating the genome scale parameters which consist of 11 mutation parameters, which are implicitly scaled by $2 \Ne/b$, and two Grantham distance parameters, $\alphac$ and $\alphap$, and the sensitivity distribution parameter \alphag.
-Because $A_0$ and $\psi$ always co-occur and are scaled by \Ne, for each gene we estimate a composite term $\psiprime = A_0 \psi \Ne$ and the optimal amino acid for each position \aoptp of the protein.
+Because $A_0$ and $\psi$ always co-occur and are scaled by \Ne, for each gene we estimate a composite term $\psiprime = A_0 \psi \Ne b$ and the optimal amino acid for each position \aoptp of the protein.
 When estimating \alphag, the likelihood then becomes the average likelihood which we calculate using the generalized Laguerre quadrature with $k = 4$ points \citep{Felsenstein2001}.
 
 
@@ -735,7 +735,7 @@ For the \selac models, the starting guess for the optimal amino acid at a site c
 Our optimization routine utilizes a four stage hill climbing approach.
 More specifically, within each stage a block of parameters are optimized while the remaining parameters are held constant.
 The first stage optimizes the block of branch length parameters.
-The second stage optimizes the block of gene specific composite parameters $ \psiprime = A_0 \psi \Ne$.
+The second stage optimizes the block of gene specific composite parameters $ \psiprime = A_0 \psi \Ne b$.
 The third stage optimizes \selac's parameters shared across the genome $\alphac$ and $\alphap$, and the sensitivity distribution parameter $\alphag$.
 The fourth stage estimates the optimal amino acid at each site \aopt.
 This entire four stage cycle is repeated up to six more times, using the estimates from the previous cycle as the initial conditions for the new one.
