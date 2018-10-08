@@ -42,13 +42,12 @@
 \usepackage{amsthm}
 \usepackage{array}
 %\usepackage{booktabs}
-\usepackage{caption}
+%\usepackage{caption}
 \usepackage{color}
 %\usepackage{epsfig}
 %\usepackage{fixltx2e} %unneeded after 2015
 \usepackage{float}
 %\usepackage{fullpage}
-\usepackage{graphicx}
 %\usepackage{nameref}
 %\usepackage{hyperref} %also provides \nameref
 \usepackage{ifthen}
@@ -63,6 +62,12 @@
 %\usepackage{textcomp}
 %\usepackage{verbatim}
 \usepackage{fancyhdr}
+\usepackage{graphicx}
+
+\usepackage{ifdraft}
+\ifdraft{\renewcommand{\includegraphics}[2][]{\\}
+
+}{\relax}
 
 %\pagestyle{headings}
 
@@ -832,7 +837,7 @@ Here, we have adopted and extended the simulation approach of \citet{Jhwuengetal
 
 
 \section{Acknowledgements}
-This work was supported in part by NSF Awards MCB-1120370 (MAG and RZ) and DEB-1355033 (BCO, MAG, and RZ) with additional support from The University of Tennessee Knoxville and University of Arkansas (JMB).
+This work was supported in part by NSF Awards MCB-1120370 (MAG and RZ),  MCB-1546402 (A.~Von Arnim and MAG) and DEB-1355033 (BCO, MAG, and RZ) with additional support from The University of Tennessee Knoxville and University of Arkansas (JMB).
 JJC and JMB received support as Postdoctoral Fellows and CL received support as a Graduate Student Fellow at the National Institute for Mathematical and Biological Synthesis, an Institute sponsored by the National Science Foundation through NSF Award DBI-1300426, with additional support from UTK.
 The authors would like to thank Premal Shah, Todd Oakley, and four anonymous reviewers for their helpful criticisms and suggestions for this work.
 \clearpage
@@ -922,6 +927,8 @@ The authors would like to thank Premal Shah, Todd Oakley, and four anonymous rev
 \end{figure}
 
 
+
+\ifthenelse{1=1}{ %include supporting materials}
 \clearpage
 
 
@@ -1005,6 +1012,6 @@ Future work will address this issue.
 
 
 
-
+}{} %end ifthenelse
 
 \end{document}

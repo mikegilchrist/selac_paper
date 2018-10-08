@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.9.17)  8 OCT 2018 16:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.9.17)  8 OCT 2018 18:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -428,37 +428,7 @@ Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
 LaTeX Info: Redefining \bm on input line 207.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen188
-\captionmargin@=\dimen189
-\captionwidth=\dimen190
-\caption@tempdima=\dimen191
-\caption@indent=\dimen192
-\caption@parindent=\dimen193
-\caption@hangindent=\dimen194
-Package caption Info: Unknown document class (or package),
-(caption)             standard defaults will be used.
-)
-
-Package caption Warning: Unsupported document class (or package) detected,
-(caption)                usage of the caption package is not recommended.
-See the caption package documentation for explanation.
-
-Package caption Info: \@makecaption = \long macro:#1#2->\vskip 0pt\sbox \@tempb
-oxa {\noindent \figurecaptionfont {\figurenumberfont #1}\hskip 0.5em#2\vphantom
- {pyg}}\ifdim \wd \@tempboxa >\hsize \noindent \figurecaptionfont {\figurenumbe
-rfont #1}\hskip 0.5em#2\vphantom {pyg}\par \else \global \@minipagefalse \hb@xt
-@ \hsize {\box \@tempboxa \hfil }\fi \vskip 2pt \hrule height .5pt \vskip 0pt.
-\c@ContinuedFloat=\count129
-Package caption Info: float package is loaded.
-Package caption Info: rotating package is loaded.
-Package caption Info: wrapfig package is loaded.
-) (/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
@@ -467,16 +437,16 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LTright=\skip99
 \LTpre=\skip100
 \LTpost=\skip101
-\LTchunksize=\count130
-\LTcapwidth=\dimen195
+\LTchunksize=\count129
+\LTcapwidth=\dimen188
 \LT@head=\box63
 \LT@firsthead=\box64
 \LT@foot=\box65
 \LT@lastfoot=\box66
-\LT@cols=\count131
-\LT@rows=\count132
-\c@LT@tables=\count133
-\c@LT@chunks=\count134
+\LT@cols=\count130
+\LT@rows=\count131
+\c@LT@tables=\count132
+\c@LT@chunks=\count133
 \LT@p@ftn=\toks39
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
@@ -492,12 +462,15 @@ s
 \f@nch@O@olf=\skip109
 \f@nch@O@orf=\skip110
 )
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/ifdraft.sty
+Package: ifdraft 2016/05/16 v1.4 Detect class options draft and final (HO)
+)
 (/usr/share/texlive/texmf-dist/tex/latex/datetime/datetime.sty
 Package: datetime 2015/03/20 v2.60 Date Time Package
 
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count135
+\etb@tempcnta=\count134
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fmtcount/fmtcount.sty
 Package: fmtcount 2017/12/24 v3.05
@@ -510,7 +483,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks40
 \XKV@tempa@toks=\toks41
 )
-\XKV@depth=\count136
+\XKV@depth=\count135
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/fmtcount/fcprefix.sty
@@ -518,57 +491,57 @@ Package: fcprefix 2012/09/28
 
 (/usr/share/texlive/texmf-dist/tex/latex/fmtcount/fcnumparser.sty
 Package: fcnumparser 2017/06/15
-\fc@digit@counter=\count137
+\fc@digit@counter=\count136
 ))
-\c@padzeroesN=\count138
-\fc@tmpcatcode=\count139
-\@DT@modctr=\count140
-\@ordinalctr=\count141
-\@orgargctr=\count142
-\@strctr=\count143
-\@tmpstrctr=\count144
-\@DT@loopN=\count145
-\@DT@X=\count146
+\c@padzeroesN=\count137
+\fc@tmpcatcode=\count138
+\@DT@modctr=\count139
+\@ordinalctr=\count140
+\@orgargctr=\count141
+\@strctr=\count142
+\@tmpstrctr=\count143
+\@DT@loopN=\count144
+\@DT@X=\count145
 )
 (/usr/share/texlive/texmf-dist/tex/latex/datetime/datetime-defaults.sty
 Package: datetime-defaults 2013/09/10
 )
-\@day=\count147
-\@month=\count148
-\@year=\count149
-\c@HOUR=\count150
-\c@HOURXII=\count151
-\c@MINUTE=\count152
-\c@TOHOUR=\count153
-\c@TOMINUTE=\count154
-\c@SECOND=\count155
-\currenthour=\count156
-\currentminute=\count157
-\currentsecond=\count158
+\@day=\count146
+\@month=\count147
+\@year=\count148
+\c@HOUR=\count149
+\c@HOURXII=\count150
+\c@MINUTE=\count151
+\c@TOHOUR=\count152
+\c@TOMINUTE=\count153
+\c@SECOND=\count154
+\currenthour=\count155
+\currentminute=\count156
+\currentsecond=\count157
 Package datetime Info: No datetime.cfg file found, using default settings on in
 put line 308.
-\@dtctr=\count159
-\dayofyear=\count160
-\dayofweek=\count161
+\@dtctr=\count158
+\dayofyear=\count159
+\dayofweek=\count160
 LaTeX Info: Redefining \today on input line 736.
 \dt@a=\toks42
 \dt@b=\toks43
 )
 (./lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count162
+\linenopenalty=\count161
 \output=\toks44
-\linenoprevgraf=\count163
-\linenumbersep=\dimen196
-\linenumberwidth=\dimen197
-\c@linenumber=\count164
-\c@pagewiselinenumber=\count165
-\c@LN@truepage=\count166
-\c@internallinenumber=\count167
-\c@internallinenumbers=\count168
-\quotelinenumbersep=\dimen198
-\bframerule=\dimen199
-\bframesep=\dimen256
+\linenoprevgraf=\count162
+\linenumbersep=\dimen189
+\linenumberwidth=\dimen190
+\c@linenumber=\count163
+\c@pagewiselinenumber=\count164
+\c@LN@truepage=\count165
+\c@internallinenumber=\count166
+\c@internallinenumbers=\count167
+\quotelinenumbersep=\dimen191
+\bframerule=\dimen192
+\bframesep=\dimen193
 \bframebox=\box67
 LaTeX Info: Redefining \\ on input line 3056.
 )
@@ -579,31 +552,31 @@ LaTeX Warning: Unused global option(s):
 (./selac.aux (./Tables/selac-and-iqtree-table.aux))
 \openout1 = `selac.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 233.
-LaTeX Font Info:    ... okay on input line 233.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 233.
-LaTeX Font Info:    ... okay on input line 233.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 233.
-LaTeX Font Info:    ... okay on input line 233.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 233.
-LaTeX Font Info:    ... okay on input line 233.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 233.
-LaTeX Font Info:    ... okay on input line 233.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 233.
-LaTeX Font Info:    ... okay on input line 233.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 238.
+LaTeX Font Info:    ... okay on input line 238.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 238.
+LaTeX Font Info:    ... okay on input line 238.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 238.
+LaTeX Font Info:    ... okay on input line 238.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 238.
+LaTeX Font Info:    ... okay on input line 238.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 238.
+LaTeX Font Info:    ... okay on input line 238.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 238.
+LaTeX Font Info:    ... okay on input line 238.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count169
-\scratchdimen=\dimen257
+\scratchcounter=\count168
+\scratchdimen=\dimen194
 \scratchbox=\box68
-\nofMPsegments=\count170
-\nofMParguments=\count171
+\nofMPsegments=\count169
+\nofMParguments=\count170
 \everyMPshowfont=\toks45
-\MPscratchCnt=\count172
-\MPscratchDim=\dimen258
-\MPnumerator=\count173
-\makeMPintoPDFobject=\count174
+\MPscratchCnt=\count171
+\MPscratchDim=\dimen195
+\MPnumerator=\count172
+\makeMPintoPDFobject=\count173
 \everyMPtoPDFconversion=\toks46
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -660,144 +633,136 @@ Package grfext Info: Graphics extension search list:
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: longtable package is loaded.
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
-Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
-)
-Package caption Info: End \AtBeginDocument code.
-
 (/usr/share/texlive/texmf-dist/tex/latex/fmtcount/fc-english.def
 File: fc-english.def 2016/01/12
 )
 
 LaTeX Font Warning: Font shape `OT1/cmr/b/n' in size <20> not available
-(Font)              size <20.74> substituted on input line 284.
+(Font)              size <20.74> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <20> not available
-(Font)              size <20.74> substituted on input line 284.
+(Font)              size <20.74> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.5> not available
-(Font)              size <12> substituted on input line 284.
+(Font)              size <12> substituted on input line 289.
 
-LaTeX Font Info:    Calculating math sizes for size <12.5> on input line 284.
+LaTeX Font Info:    Calculating math sizes for size <12.5> on input line 289.
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.5> not available
-(Font)              size <12> substituted on input line 284.
+(Font)              size <12> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.5> not available
-(Font)              size <12> substituted on input line 284.
+(Font)              size <12> substituted on input line 289.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 284.
+LaTeX Font Info:    Try loading font information for U+msa on input line 289.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 284.
+LaTeX Font Info:    Try loading font information for U+msb on input line 289.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 284.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 289.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <12.5> not available
-(Font)              size <12> substituted on input line 284.
+(Font)              size <12> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <12.5> not available
-(Font)              size <12> substituted on input line 284.
+(Font)              size <12> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <12.5> not available
-(Font)              size <12> substituted on input line 284.
+(Font)              size <12> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <12.5> not available
-(Font)              size <12> substituted on input line 284.
+(Font)              size <12> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `U/lasy/b/n' in size <12.5> not available
-(Font)              size <12> substituted on input line 284.
+(Font)              size <12> substituted on input line 289.
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8.74995> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 284.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 289.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6.25> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 284.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 289.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/m' undefined
-(Font)              using `OT1/cmr/m/n' instead on input line 284.
+(Font)              using `OT1/cmr/m/n' instead on input line 289.
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 284.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 289.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 284.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 289.
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/m' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 284.
+(Font)              using `OT1/cmr/bx/n' instead on input line 289.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/b/n' in size <13> not available
-(Font)              size <12> substituted on input line 284.
+(Font)              size <12> substituted on input line 289.
 
-LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 284.
+LaTeX Font Info:    Calculating math sizes for size <10.5> on input line 289.
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 284.
+(Font)              size <10.95> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 284.
+(Font)              size <10.95> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 284.
+(Font)              size <10.95> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 284.
+(Font)              size <10.95> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 284.
+(Font)              size <10.95> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 284.
+(Font)              size <10.95> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `U/lasy/b/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 284.
+(Font)              size <10.95> substituted on input line 289.
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7.34996> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 284.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 289.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5.25> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 284.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 289.
 
 LaTeX Font Warning: Font shape `OT1/cmss/b/m' undefined
-(Font)              using `OT1/cmss/m/n' instead on input line 284.
+(Font)              using `OT1/cmss/m/n' instead on input line 289.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 284.
+(Font)              size <10.95> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/m' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 284.
+(Font)              size <10.95> substituted on input line 289.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/b/n' in size <15> not available
-(Font)              size <14.4> substituted on input line 293.
+(Font)              size <14.4> substituted on input line 298.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <15> not available
-(Font)              size <14.4> substituted on input line 293.
+(Font)              size <14.4> substituted on input line 298.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -805,7 +770,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <20> not available
-(Font)              size <20.74> substituted on input line 298.
+(Font)              size <20.74> substituted on input line 303.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -813,20 +778,20 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 298.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 303.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 298.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 298.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 303.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 303.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 298.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 303.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/rmdefault' undefined
-(Font)              using `OT1/cmr/m/n' instead on input line 298.
+(Font)              using `OT1/cmr/m/n' instead on input line 303.
 
 
 Overfull \hbox (5.8414pt too wide) has occurred while \output is active
@@ -839,7 +804,7 @@ Overfull \hbox (5.8414pt too wide) has occurred while \output is active
 ]
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/it' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 301.
+(Font)              size <10.95> substituted on input line 306.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -878,7 +843,7 @@ Overfull \vbox (5.29997pt too high) has occurred while \output is active []
 
 
 [5]
-Underfull \hbox (badness 1603) in paragraph at lines 375--382
+Underfull \hbox (badness 1603) in paragraph at lines 380--387
 \OT1/cmr/m/m/10.95 our model fit. Further, including the shape parameter $\OML/
 cmm/m/it/10.95 []$ \OT1/cmr/m/m/10.95 for the random effects term $\OML/cmm/m/
 it/10.95 G \OMS/cmsy/m/n/10.95 ^^X
@@ -965,43 +930,43 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [14]
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 579.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 584.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 579.
+(Font)              size <5> substituted on input line 584.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 579.
+(Font)              size <5> substituted on input line 584.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 579.
+(Font)              size <5> substituted on input line 584.
 
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 579.
+(Font)              size <5> substituted on input line 584.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 579.
+(Font)              size <5> substituted on input line 584.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 579.
+(Font)              size <5> substituted on input line 584.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 579.
+(Font)              size <5> substituted on input line 584.
 
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7.69997> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 579.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 584.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5.5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 579.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 584.
 
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 579.
+(Font)              size <5> substituted on input line 584.
 
 
 Overfull \vbox (5.29997pt too high) has occurred while \output is active []
@@ -1040,7 +1005,7 @@ Overfull \vbox (5.29997pt too high) has occurred while \output is active []
 [19]
 
 LaTeX Font Warning: Font shape `OT1/cmtt/m/n' in size <10.5> not available
-(Font)              size <10.95> substituted on input line 729.
+(Font)              size <10.95> substituted on input line 734.
 
 
 Overfull \vbox (5.29997pt too high) has occurred while \output is active []
@@ -1138,9 +1103,9 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [30]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 871.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 876.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7.6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 871.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 876.
 
 Overfull \vbox (5.29997pt too high) has occurred while \output is active []
 
@@ -1154,12 +1119,12 @@ File: ./Figures/FIGURE_1_5genes_All_UNREST_WITHGAMMA.pdf Graphic file (type pdf
 )
 <use ./Figures/FIGURE_1_5genes_All_UNREST_WITHGAMMA.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_1_5genes_All_UNREST_WITHGAMMA.pdf  us
-ed on input line 883.
+ed on input line 888.
 (pdftex.def)             Requested size: 447.1169pt x 447.12209pt.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/b/sc' undefined
-(Font)              using `OT1/cmr/b/n' instead on input line 888.
+(Font)              using `OT1/cmr/b/n' instead on input line 893.
 
 <./Figures/FIGURE_2_SelACwG_vs_Empirical_by_spp_ALLspp.pdf, id=129, 433.62pt x 
 578.16pt>
@@ -1167,7 +1132,7 @@ File: ./Figures/FIGURE_2_SelACwG_vs_Empirical_by_spp_ALLspp.pdf Graphic file (t
 ype pdf)
 <use ./Figures/FIGURE_2_SelACwG_vs_Empirical_by_spp_ALLspp.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_2_SelACwG_vs_Empirical_by_spp_ALLspp.
-pdf  used on input line 895.
+pdf  used on input line 900.
 (pdftex.def)             Requested size: 447.1169pt x 596.18192pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1189,7 +1154,7 @@ File: ./Figures/FIGURE_3_MutSelOmega_vs_Us_ROC_Scer_only.pdf Graphic file (type
  pdf)
 <use ./Figures/FIGURE_3_MutSelOmega_vs_Us_ROC_Scer_only.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_3_MutSelOmega_vs_Us_ROC_Scer_only.pdf
-  used on input line 907.
+  used on input line 912.
 (pdftex.def)             Requested size: 447.1169pt x 447.1166pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1209,7 +1174,7 @@ File: ./Figures/FIGURE_4_Inferred_Tree_AND_Model_Adequacy.pdf Graphic file (typ
 e pdf)
 <use ./Figures/FIGURE_4_Inferred_Tree_AND_Model_Adequacy.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_4_Inferred_Tree_AND_Model_Adequacy.pd
-f  used on input line 917.
+f  used on input line 922.
 (pdftex.def)             Requested size: 447.1169pt x 447.1166pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1233,7 +1198,7 @@ File: ./Figures/FIGURE_S1_SelACwG_vs_ROC_by_spp_ALLspp.pdf Graphic file (type p
 df)
 <use ./Figures/FIGURE_S1_SelACwG_vs_ROC_by_spp_ALLspp.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_S1_SelACwG_vs_ROC_by_spp_ALLspp.pdf  
-used on input line 950.
+used on input line 1015.
 (pdftex.def)             Requested size: 447.1169pt x 596.18192pt.
 <./Figures/FIGURE_S2_Empirical_vs_ROC_by_spp_ALLspp.pdf, id=217, 433.62pt x 578
 .16pt>
@@ -1241,7 +1206,7 @@ File: ./Figures/FIGURE_S2_Empirical_vs_ROC_by_spp_ALLspp.pdf Graphic file (type
  pdf)
 <use ./Figures/FIGURE_S2_Empirical_vs_ROC_by_spp_ALLspp.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_S2_Empirical_vs_ROC_by_spp_ALLspp.pdf
-  used on input line 961.
+  used on input line 1015.
 (pdftex.def)             Requested size: 447.1169pt x 596.18192pt.
 
 Overfull \vbox (5.29997pt too high) has occurred while \output is active []
@@ -1318,7 +1283,7 @@ File: ./Figures/FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf Graphic file (type pd
 f)
 <use ./Figures/FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_S3_5genes_ALL_UNREST_Selac_NoG.pdf  u
-sed on input line 981.
+sed on input line 1015.
 (pdftex.def)             Requested size: 447.1169pt x 447.12209pt.
 <./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG.pdf, id=267, 578.16pt x
  578.16pt>
@@ -1326,7 +1291,7 @@ File: ./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG.pdf Graphic file (
 type pdf)
 <use ./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_S4_5genes_alpha_beta_UNREST_Selac_NoG
-.pdf  used on input line 989.
+.pdf  used on input line 1015.
 (pdftex.def)             Requested size: 447.1169pt x 447.1166pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1344,7 +1309,7 @@ File: ./Figures/FIGURE_S5_5genes_alpha_beta_gammashape_UNREST_WITHGAMMA.pdf Gra
 phic file (type pdf)
 <use ./Figures/FIGURE_S5_5genes_alpha_beta_gammashape_UNREST_WITHGAMMA.pdf>
 Package pdftex.def Info: ./Figures/FIGURE_S5_5genes_alpha_beta_gammashape_UNRES
-T_WITHGAMMA.pdf  used on input line 999.
+T_WITHGAMMA.pdf  used on input line 1015.
 (pdftex.def)             Requested size: 447.1169pt x 447.1166pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1372,13 +1337,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 7635 strings out of 494847
- 106815 string characters out of 6179080
- 214026 words of memory out of 5000000
- 10725 multiletter control sequences out of 15000+600000
+ 6574 strings out of 494847
+ 87371 string characters out of 6179080
+ 198109 words of memory out of 5000000
+ 9671 multiletter control sequences out of 15000+600000
  31919 words of font info for 128 fonts, out of 8000000 for 9000
  68 hyphenation exceptions out of 8191
- 43i,15n,86p,1328b,440s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,15n,43p,1463b,440s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
@@ -1406,7 +1371,7 @@ r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on selac.pdf (48 pages, 591917 bytes).
+Output written on selac.pdf (48 pages, 591943 bytes).
 PDF statistics:
  390 PDF objects out of 1000 (max. 8388607)
  281 compressed objects within 3 object streams
