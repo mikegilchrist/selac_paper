@@ -149,6 +149,8 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-1, bottom.text2, "p<0.001")
 text(-1, 6, expression(italic('S. paradoxus')))
 mtext("(a)",side=3, line=0, adj=0)
 
@@ -168,6 +170,8 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-1, bottom.text2, "p<0.001")
 text(-1, 10, expression(italic('S. mikatae')))
 mtext("(c)",side=3, line=0, adj=0)
 
@@ -207,6 +211,8 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-1, bottom.text2, "p<0.001")
 text(-1, .5, expression(italic('C. glabra')))
 mtext("(e)",side=3, line=0, adj=0)
 
@@ -227,6 +233,8 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-1, bottom.text2, "p<0.001")
 text(-1, 1.8, expression(italic('S. cervisiae')))
 mtext("(b)",side=3, line=0, adj=0)
 
@@ -246,10 +254,10 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-1, bottom.text2, "p<0.001")
 text(-1, .5, expression(italic('S. castellii')))
 mtext("(d)",side=3, line=0, adj=0)
-
-
 
 dev.off()
 
@@ -279,6 +287,8 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-1, bottom.text2, "p<0.001")
 text(-1, 1.5, expression(italic('S. paradoxus')))
 mtext("(a)",side=3, line=0, adj=0)
 
@@ -298,6 +308,8 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-1, bottom.text2, "p<0.001")
 text(-1, 1.5, expression(italic('S. mikatae')))
 mtext("(c)",side=3, line=0, adj=0)
 
@@ -336,6 +348,8 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-1, bottom.text2, "p<0.001")
 text(-1, 1.5, expression(italic('C. glabra')))
 mtext("(e)",side=3, line=0, adj=0)
 
@@ -356,6 +370,8 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-1, bottom.text2, "p<0.001")
 text(-1, 1.5, expression(italic('S. cerevisiae')))
 mtext("(b)",side=3, line=0, adj=0)
 
@@ -376,6 +392,8 @@ text(-1, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffic
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-1, bottom.text2, "p<0.001")
 text(-1, 1.5, expression(italic('S. castellii')))
 mtext("(d)",side=3, line=0, adj=0)
 
@@ -437,6 +455,8 @@ text(2, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffici
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(2, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(2, bottom.text2, "p<0.001")
 text(2, 1.5, expression(italic('S. paradoxus')))
 mtext("(a)",side=3, line=0, adj=0)
 
@@ -456,6 +476,8 @@ text(4, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeffici
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(4, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(4, bottom.text2, "p<0.001")
 text(4, 1.5, expression(italic('S. mikatae')))
 mtext("(c)",side=3, line=0, adj=0)
 
@@ -494,6 +516,8 @@ text(-2.5, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeff
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-2.5, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-2.5, bottom.text2, "p<0.001")
 text(-2.5, 1.5, expression(italic('C. glabra')))
 mtext("(f)",side=3, line=0, adj=0)
 
@@ -513,6 +537,8 @@ text(-1.4, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeff
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-1.4, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-1.4, bottom.text2, "p<0.001")
 text(-1.4, 1.5, expression(italic('S. cervisiae')))
 mtext("(b)",side=3, line=0, adj=0)
 
@@ -533,6 +559,8 @@ text(-2.5, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coeff
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(sqrt(summary.stats$r.squared),2)))
 text(-2.5, bottom.text, eq)
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-2.5, bottom.text2, "p<0.001")
 text(-2.5, 1.5, expression(italic('S. castellii')))
 mtext("(d)",side=3, line=0, adj=0)
 
@@ -560,6 +588,8 @@ bottom.text <- (actual.max*.825)-max.diff
 text(-1.5, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(-sqrt(summary.stats$r.squared),2)))
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-1.5, bottom.text2, "p<0.001")
 text(-1.5, bottom.text, eq)
 mtext("(a)",side=3, line=0, adj=0)
 
@@ -579,6 +609,8 @@ bottom.text <- (actual.max*.825)-max.diff
 text(-1.5, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(-sqrt(summary.stats$r.squared),2)))
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-1.5, bottom.text2, "p<0.001")
 text(-1.5, bottom.text, eq)
 mtext("(c)",side=3, line=0, adj=0)
 
@@ -598,7 +630,10 @@ bottom.text <- (actual.max*.825)-max.diff
 text(-1.4, top.text, paste(round(fit$coefficients[2],3), "x + ", round(fit$coefficients[1],2), sep=""))
 summary.stats <- summary(fit)
 eq <- bquote(r == .(round(-sqrt(summary.stats$r.squared),2)))
+bottom.text2 <- (actual.max*.775)-max.diff
+text(-1.4, bottom.text2, "p<0.001")
 text(-1.4, bottom.text, eq)
+
 mtext("(b)",side=3, line=0, adj=0)
 
 
