@@ -385,7 +385,7 @@ Even when compared to the next most parameter rich codon model in our model set,
 \selac models also appeared to outperform, based on likelihood and reported AIC and AICc from each program, the 161 codon models in IQtree \cite{NguyenEtAl2015}.
 See Table \ref{table:modelFitsAll} for results. %add table
 
-We note our use of AICc, as opposed to the standard AIC, in the above model comparisons.
+We note our use of AICc, as calculated in \citet[][p.~66]{BurnhamAndAnderson2002} and as opposed to the standard AIC, in the above model comparisons.
 At the outset of our study it was unclear what the appropriate sample size, $n$, when comparing models of sequence evolution.
 Building upon the work of \citet{Jhwuengetal2014}, our simulations suggest that using the number of taxa times the number of sites as the sample size correction performed best as a small sample size correction for estimating Kullback-Liebler distance in phylogenetic models (Supporting Materials).
 This also has an intuitive appeal.
@@ -449,7 +449,7 @@ While the \Cost/\Func function on which \selac currently rests is very simple, n
 Importantly, because \selac uses a formal description of a sequence's \Cost/\Func, replacing our assumptions with more sophisticated ones in the future is relatively straightforward.
 Third, our use of nested models also allows us to make biologically meaningful and testable predictions.
 By linking a gene's expression level to the strength of purifying selection it experiences, we are able to provide coarse estimates of gene expression.
-The anticorrelation between $\omega$ and gene expression indicates $\omega$ is often just a proxy for the strength, rather than nature, natural selection on a sequence.
+The anticorrelation between $\omega$ and gene expression indicates $\omega$ is often just a proxy for the strength, rather than nature, of natural selection on a sequence.
 
 Thus, we believe our cost-benefit approach to be a substantial advance of the more simplistic $\omega$ models, is complementary to the work of others in the field \citep[e.g.][]{ThorneEtAl2012,RodrigueAndLartillot2014}, and, in turn, lays the foundation for more realistic work in the future.
 For instance, by assuming there is an optimal amino acid for each site, \selac naturally leads to a non-symmetrical and, thus, more cogent model of protein sequence evolution.
@@ -529,10 +529,13 @@ There are also deficiencies in our implementation.
 Though reasonable to use for a given topology with 10's of species, it is currently too slow for practical use for large tree searches.
 Our work serves as a proof of concept, or of utility for targeted questions where a more realistic model may be of use (placement of particular taxa, for example).
 Future work will encode \selac models into a variety of mature, popular tree-search programs.
-\selac also represents a challenging optimization problem: the nested models reduce parameter complexity vastly, but there are still numerous parameters to optimize, including the discrete parameter of the optimal amino acid at each site.
+\selac also represents a challenging optimization problem: the nested models reduce parameter complexity vastly, but there are still numerous parameters to optimize, including the discrete parameter of the optimal amino acid at each site, which requires evaluating the fit of each of the 20 canonical amino acids.
 One way to avoid the use of discrete parameters at the expense of more of them would be to have \selac estimate the optimum \PC values on a per site basis rather than a specific amino acid.
-While this would increase the number of parameters estimated, it would have the practical advantage of continuous parameter optimization rather than discrete.
-More importantly, biologically such a model would be more realistic (as it is the properties that selection ``sees'', not the identity of the amino acid itself).
+Biologically such a model would be more realistic (as it is the properties that selection ``sees'', not the identity of the amino acid itself)
+While estimating the optimal \PC properties for each site would increase the number of parameters estimated, it could speed up model fitting if estimating these values requires less than 20 evaluations per site.
+This scenario seems more likely when the number of \PC properties considered is small.
+
+
 
 
 In spite of these difficulties, \selac represents an important step in uniting phylogenetic and population genetic models \citep{Higgs2008}.
@@ -812,7 +815,7 @@ We refer to these `majority rule' models as \selacmaj and \selacmajplusgamma and
 
 Since these majority rule models assume that the optimal amino acids are known prior to fitting of our model, it is tempting to reduce the count of estimated parameters in the model by the number of parameters estimated using majority rule.
 While using majority rule does not necessarily provide the most likely parameter estimate, it nevertheless uses the data to generate the estimate and represents a parameter estimated from the data.
-Thus, despite having become standard behavior in the field of phylogenetics, this reduction is statistically inappropriate. % unless one uses an additional dataset for this purpose, something we have not seen.
+Thus, despite having become standard behavior in the field of phylogenetics, this reduction is potentially statistically inappropriate. % unless one uses an additional dataset for this purpose, something we have not seen.
 %This is because the identification of the optimal amino acid using majority rule is done using the data.
 Because the difference in the number of parameters $K$ when counting or not counting the number of nucleotide sites drops out when comparing nucleotide models with AIC, this statistical issue does not apply to nucleotide models.
 It does, however, matter for AICc, where $K$ and the sample size $n$ combine in the penalty term.
