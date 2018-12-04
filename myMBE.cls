@@ -371,7 +371,8 @@ DOI:10.1093/sysbio/\@jshort\@artid\\
 %\copyright\ The Author 2013. Published by Oxford University Press on behalf of the Society for Molecular Biology and Evolution. All rights reserved.\\ For permissions, please email: journals.permissions@oup.com\\
 \rule[4pt]{\textwidth}{.5pt}\\
 %%mikeg:commented out following line
-{\fontsize{10}{10}\selectfont{\it Mol. Biol. Evol.} \@jvolume(\@jissue):\@firstpage\@pageinfo\quad doi:10.1093/molbev/\@jshort\@artid}\quad \accessfont{\@access\hfill{\foliofont \thepage}}\\[38pt]
+%{\fontsize{10}{10}\selectfont{\it Mol. Biol. Evol.} \@jvolume(\@jissue):\@firstpage\@pageinfo\quad doi:10.1093/molbev/\@jshort\@artid}\quad \accessfont{\@access\hfill{\foliofont \thepage}}\\[38pt]
+\accessfont{\@access\hfill{\foliofont \thepage}}\\[38pt]
 \end{tabular}}}
 \fi
 
